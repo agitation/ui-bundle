@@ -1,0 +1,13 @@
+.message-bubbles                        { position: fixed; z-index: 9000; bottom: 1em; right: 1em; } /* apply this class to the container */
+.message-bubble                         { width: 25em; margin: 1.5em 0 0; padding: 1em; background: #111; overflow: hidden; border-radius: .2em; cursor: pointer; display: none; }
+.message-bubble:hover                   { background: #000; }
+
+.message-bubble .msg                    { float: right; width: 21em; line-height: 1.5em }
+.message-bubble.info                    { color: #eee; }
+.message-bubble.error                   { color: #f88; text-shadow: 0px 0px 1px #f00; }
+.message-bubble.warning                 { color: #ffb350; text-shadow: 0px 0px 1px #7e4b08; }
+.message-bubble.success                 { color: #8f8; text-shadow: 0px 0px 1px #090; }
+
+.message-bubble .icon                   { float: left; }
+.message-bubble .icon i                 { display: none; font-size: 1.2em; }
+.message-bubble .icon i.on              { display: inline-block; }

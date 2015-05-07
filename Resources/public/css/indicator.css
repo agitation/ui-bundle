@@ -1,0 +1,14 @@
+div.indicator                           { position: absolute; top: 0; left: 0; display: none; }
+div.indicator div.overlay               { display: none; height: 100%; width: 100%; background: #000; opacity: 0.5; position: absolute; top: 0; left: 0; z-index: 1510;
+                                          -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; filter: alpha(opacity=70); }
+
+.indicator i.anim                       { visibility: hidden; color: #4f4; line-height: 1em; display: inline-block; text-shadow: #252 0 0 .2em }
+.indicator i.anim.on                    { visibility: visible; }
+
+div.indicator i.anim                    { display: block; position: absolute; z-index: 1520; }
+span.indicator i.anim                   { display: inline-block; }
+
+div.indicator.window,
+div.indicator.window div.overlay,
+div.indicator.window div.anim           { position: fixed; }
+

@@ -1,0 +1,9 @@
+{# initializes the window.Agit "namespace" and sets the CSRF token #}
+
+<script type="text/javascript">/* <![CDATA[ */
+    window.Agit = {
+        locale : "{{ locale }}",
+        apiBaseUrl : "{{ getApiUrlBase() }}",
+        csrfToken : "{{ getCsrfToken() }}"
+    };
+/* ]]> */</script>

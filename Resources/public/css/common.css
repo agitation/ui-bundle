@@ -1,0 +1,5 @@
+body                                    { font-family: "Source Sans Pro", "Helvetica Neue", Helvetica, Arial, sans-serif; }
+textarea                                { resize: vertical; min-height: 5em; }
+div.container.padded                    { margin-top: 4em; margin-bottom: 4em; }
+.factory                                { display: none }
+p:last-child, ul:last-child             { margin-bottom: 0; }
