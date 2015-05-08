@@ -1,0 +1,14 @@
+msgid ""
+msgstr ""
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"nplurals=2; plural=(n != 1);\n"
+
+#: @AgitUiBundle/Resources/public/js/lib/ApiCall.js:83
+msgid "Call failed or returned an invalid response."
+msgstr ""
+
+#: @AgitUiBundle/Resources/public/js/lib/MessageHandlerDialog.js:15
+msgid "Ok"
+msgstr ""
