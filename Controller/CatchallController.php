@@ -29,7 +29,7 @@ class CatchallController extends Controller
 
         $reqDetails = $PageService->parseRequest($request);
 
-
+        // now set the real locale as requested via URL
         $LocaleService->setLocale($reqDetails['locale']);
 
         if (isset($reqDetails['canonical']) && $request !== $reqDetails['canonical'])
