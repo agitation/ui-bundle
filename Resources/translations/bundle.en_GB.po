@@ -12,3 +12,21 @@ msgstr ""
 #: @AgitUiBundle/Resources/public/js/lib/MessageHandlerDialog.js:15
 msgid "Ok"
 msgstr ""
+
+#: @AgitUiBundle/AgitUiBundle:Special:notfound.html.twig:34
+msgctxt "page title"
+msgid "Page not found"
+msgstr ""
+
+#: @AgitUiBundle/AgitUiBundle:Special:notfound.html.twig:52
+msgid "The requested page could not be found. Please check the spelling of the address, or notify the owner of the referring web page."
+msgstr ""
+
+#: @AgitUiBundle/AgitUiBundle:Special:unauthorized.html.twig:34
+msgctxt "page title"
+msgid "Forbidden"
+msgstr ""
+
+#: @AgitUiBundle/AgitUiBundle:Special:unauthorized.html.twig:52
+msgid "The requested page cannot be viewed by you. Please log in, or contact an administrator if you need to access this page."
+msgstr ""
