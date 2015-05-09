@@ -16,6 +16,8 @@ class IntlCatalogTwigFilesListener extends AbstractIntlCatalogListener
 {
     protected $cachePath = "/tmp/agit.ui.cache.intl.templates";
 
+    protected $bundleTemplatesPath = 'Resources/views';
+
     private $FileCollector;
 
     private $Twig;
@@ -30,21 +32,33 @@ class IntlCatalogTwigFilesListener extends AbstractIntlCatalogListener
     {
         $bundleAlias = $RegistrationEvent->getBundleAlias();
         $tplDir = $this->FileCollector->resolve($bundleAlias);
-        $Loader = new \Twig_Loader_Filesystem($tplDir);
-        $Twig = new \Twig_Environment($Loader, ['cache' => $this->getCachePath($bundleAlias), 'auto_reload' => true]);
         $fileList = [];
 
-        foreach ($this->Twig->getExtensions() as $extension)
-            $Twig->addExtension($extension);
+        // storing the old values to reset them when we're done
+        $actualCachePath = $this->Twig->getCache();
+        $actualAutoReload = $this->Twig->isAutoReload();
+
+        // setting temporary values
+        $this->Twig->enableAutoReload();
+        $this->Twig->setCache($this->getCachePath($bundleAlias));
 
         foreach ($this->FileCollector->collect($tplDir, 'html.twig') as $file)
         {
+            // converting path to twig template ID
             $tplName = str_replace($tplDir, '', $file);
-            $ret = $Twig->loadTemplate($tplName);
-            $cacheFilePath = $Twig->getCacheFilename($tplName);
+            $tplName = str_replace("{$this->bundleTemplatesPath}/", '', $tplName);
+            $tplName = str_replace('/', ':', $tplName);
+            $tplName = "$bundleAlias:$tplName";
+
+            $ret = $this->Twig->loadTemplate($tplName);
+            $cacheFilePath = $this->Twig->getCacheFilename($tplName);
 
             $fileList[$tplName] = $cacheFilePath;
         }
+
+        // resetting original values
+        $this->Twig->setCache($actualCachePath);
+        call_user_func([$this->Twig, $actualAutoReload ? 'enableAutoReload' :  'disableAutoReload']);
 
         $RegistrationEvent->registerCatalogFiles('php', $fileList);
     }
