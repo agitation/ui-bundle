@@ -70,6 +70,13 @@ Agit.ApiForm = function($form, Endpoint, RequestObject, callback)
         {
             defaultValues = _values;
         }
+        else // clear form
+        {
+            defaultValues = {};
+            $.each($form.getFieldsByName(), function(key, value){
+                defaultValues[key] = null;
+            });
+        }
 
         $form.setFieldsByName(defaultValues);
     };
@@ -81,6 +88,7 @@ Agit.ApiForm = function($form, Endpoint, RequestObject, callback)
     });
 
     defaultValues = $form.getFieldsByName();
+    $form.reset();
 
     return $form;
 };
