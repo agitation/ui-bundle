@@ -26,11 +26,11 @@ class PageService
 
     private $pages = [];
 
-    private $primaryLocale = 'en_GB';
+    private $primaryLocale = 'en_GB'; // default, if no LocaleProvider is available
 
-    private $activeLocales = ['en_GB', 'de_DE'];
+    private $activeLocales = ['en_GB', 'de_DE']; // default, if no LocaleProvider is available
 
-    public function __construct(CacheLoader $CacheLoader, UserService $UserService, UrlService $UrlService, UiLocaleProviderInterface $LocaleProvider = null)
+    public function __construct(CacheLoader $CacheLoader, UrlService $UrlService, UserService $UserService = null, UiLocaleProviderInterface $LocaleProvider = null)
     {
         $this->CacheLoader = $CacheLoader;
         $this->UserService = $UserService;
@@ -47,8 +47,6 @@ class PageService
 
     public function parseRequest($request)
     {
-        $User = $this->UserService->getCurrentUser();
-
         $reqParts = preg_split('|/+|', $request, null, PREG_SPLIT_NO_EMPTY);
         $lang = end($reqParts);
         $locale = $this->getLocaleFromLangId($lang);
@@ -122,8 +120,8 @@ class PageService
             if ($page['isVirtual'])
                 $page = $this->getPage('_notfound');
 
-            elseif ($page['caps'] && !$this->UserService->currentUserCan($page['caps']))
-                    $page = $this->getPage('_unauthorized');
+            elseif ($page['caps'] && (!$this->UserService || !$this->UserService->currentUserCan($page['caps'])))
+                $page = $this->getPage('_unauthorized');
         }
 
         return $page;
