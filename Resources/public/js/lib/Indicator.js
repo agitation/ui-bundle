@@ -27,8 +27,8 @@ Agit.Indicator = function(_$parent, _isInline, _fixedSize)
                 {
                     height: $parent.outerHeight(),
                     width: $parent.outerWidth(),
-                    top:   (parentIsWindow || !offset) ? 0 : $parent.offset().top,
-                    left:  (parentIsWindow || !offset) ? 0 : $parent.offset().left
+                    top:   (parentIsWindow || !offset) ? 0 : offset.top,
+                    left:  (parentIsWindow || !offset) ? 0 : offset.left
                 };
             }
 
@@ -149,6 +149,14 @@ Agit.Indicator = function(_$parent, _isInline, _fixedSize)
             parentParams = getParentParams();
             resize();
         });
+
+        if (!parentIsWindow)
+        {
+            $(window).resize(function() {
+                parentParams = getParentParams();
+                resize();
+            });
+        }
 
         $indicator.appendTo(isInline ? $parent : $('body'));
     }
