@@ -65,7 +65,7 @@ class AgitUiExtension extends Extension implements PrependExtensionInterface
 
             $configAssets[$name] = [
                 'input' => "@AgitUiBundle/Resources/public/$asset",
-                'output' => preg_replace('|/.*/|', '', $asset)
+                'output' => preg_replace('|/.*/|', '/', $asset)
             ];
         };
 
