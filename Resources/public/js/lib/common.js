@@ -262,7 +262,7 @@ Agit.out = function(string)
     // filter: translate multilang content
     if (window.Agit.L10n !== undefined)
     {
-        string = Agit.L10n.mlStringTranslate(string, Agit.config.locale);
+        string = Agit.L10n.mlStringTranslate(string, Agit.locale);
     }
 
     return string;

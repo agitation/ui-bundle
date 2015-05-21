@@ -32,7 +32,7 @@ Agit.L10n =
 
     u : function(string) // just a shortcut
     {
-        return Agit.L10n.mlStringTranslate(string, Agit.config.locale);
+        return Agit.L10n.mlStringTranslate(string, Agit.locale);
     },
 
     formatDay : function(Day, _short)
@@ -81,7 +81,7 @@ Agit.L10n =
     {
         var
             lang = locale.substr(0, 2),
-            fallbackLang = Agit.config.locale.substr(0, 2),
+            fallbackLang = Agit.locale.substr(0, 2),
             obj,
             outString = string;
 
