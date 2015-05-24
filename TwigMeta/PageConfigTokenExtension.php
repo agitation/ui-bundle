@@ -7,7 +7,7 @@
  * @license    http://opensource.org/licenses/MIT
  */
 
-namespace Agit\UiBundle\Twig;
+namespace Agit\UiBundle\TwigMeta;
 
 class PageConfigTokenExtension extends \Twig_Extension
 {

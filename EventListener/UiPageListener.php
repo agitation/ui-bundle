@@ -12,7 +12,7 @@ namespace Agit\UiBundle\EventListener;
 use Agit\CoreBundle\Pluggable\Strategy\Cache\CacheRegistrationEvent;
 use Agit\CoreBundle\Exception\InternalErrorException;
 use Agit\CoreBundle\Service\FileCollector;
-use Agit\UiBundle\Twig\PageConfigNode;
+use Agit\UiBundle\TwigMeta\PageConfigNode;
 
 class UiPageListener
 {

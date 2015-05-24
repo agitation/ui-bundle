@@ -36,7 +36,7 @@ services:
 
     # Handles our custom Twig syntax for the page meta data
     agit.ui.custom:
-        class: Agit\UiBundle\Twig\PageConfigTokenExtension
+        class: Agit\UiBundle\TwigMeta\PageConfigTokenExtension
         tags:
             - { name: twig.extension }
         arguments:  []

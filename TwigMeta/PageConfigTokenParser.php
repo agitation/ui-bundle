@@ -7,7 +7,7 @@
  * @license    http://opensource.org/licenses/MIT
  */
 
-namespace Agit\UiBundle\Twig;
+namespace Agit\UiBundle\TwigMeta;
 
 class PageConfigTokenParser extends \Twig_TokenParser
 {
