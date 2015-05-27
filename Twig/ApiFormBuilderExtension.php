@@ -20,7 +20,7 @@ class ApiFormBuilderExtension extends \Twig_Extension
 
     private $TwigTemplate;
 
-    private $formTemplatePath = 'AgitUiBundle:Include:include.form.html.twig';
+    private $formTemplatePath = 'AgitUiBundle:Include:formbuilder.html.twig';
 
     private $knownFormTypes = ['text', 'integer', 'float', 'radio', 'checkbox', 'select', 'textarea'];
 
