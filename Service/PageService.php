@@ -15,7 +15,7 @@ use Agit\CoreBundle\Pluggable\Strategy\Cache\CacheLoader;
 use Agit\CoreBundle\Exception\InternalErrorException;
 use Agit\CoreBundle\Service\UrlService;
 use Agit\UserBundle\Service\UserService;
-
+use Agit\IntlBundle\Service\LocaleService;
 class PageService
 {
     private $CacheLoader;
@@ -26,22 +26,17 @@ class PageService
 
     private $pages = [];
 
-    private $primaryLocale = 'en_GB'; // default, if no LocaleProvider is available
+    private $primaryLocale;
 
-    private $activeLocales = ['en_GB', 'de_DE']; // default, if no LocaleProvider is available
+    private $activeLocales;
 
-    public function __construct(CacheLoader $CacheLoader, UrlService $UrlService, UserService $UserService = null, UiLocaleProviderInterface $LocaleProvider = null)
+    public function __construct(CacheLoader $CacheLoader, UrlService $UrlService, LocaleService $LocaleService, UserService $UserService = null)
     {
         $this->CacheLoader = $CacheLoader;
         $this->UserService = $UserService;
         $this->UrlService = $UrlService;
-
-        if ($LocaleProvider)
-        {
-            $this->primaryLocale = $LocaleProvider->getPrimaryLocales();
-            $this->activeLocales = $LocaleProvider->getActiveLocales();
-        }
-
+        $this->primaryLocale = $LocaleService->getPrimaryLocale();
+        $this->activeLocales = $LocaleService->getActiveLocales();
         $this->pages = $this->CacheLoader->loadPlugins();
     }
 

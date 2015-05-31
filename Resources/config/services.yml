@@ -2,7 +2,7 @@ services:
 
     agit.ui.page:
         class: Agit\UiBundle\Service\PageService
-        arguments: [@agit.ui.page.loader, @agit.core.url, @?agit.user, @?agit.ui.lang.provider]
+        arguments: [@agit.ui.page.loader, @agit.core.url, @agit.intl.locale, @?agit.user]
 
     agit.ui.page.loader:
         private: true
