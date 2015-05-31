@@ -9,7 +9,8 @@
         "agitation/intl": "dev-master"
     },
     "suggest": {
-        "agitation/user": "Required to check user capabilities. Without it, pages requiring a capability cannot be displayed."
+        "agitation/user": "Required to check user capabilities. Without it, pages requiring a capability cannot be displayed.",
+        "agitation/localedata": "Required to display a language switcher with actual localized language names."
     },
     "autoload": {
         "psr-4": {
