@@ -12,15 +12,19 @@ namespace Agit\UiBundle\Twig;
 use Agit\CoreBundle\Exception\InternalErrorException;
 use Agit\IntlBundle\Service\LocaleService;
 use Agit\LocaleDataBundle\Entity\LocaleRepository;
+use Agit\UiBundle\Service\PageService;
 
 class PageContentExtension extends \Twig_Extension
 {
+    private $PageService;
+
     private $LocaleService;
 
     private $LocaleRepository;
 
-    public function __construct(LocaleService $LocaleService, LocaleRepository $LocaleRepository = null)
+    public function __construct(PageService $PageService, LocaleService $LocaleService, LocaleRepository $LocaleRepository = null)
     {
+        $this->PageService = $PageService;
         $this->LocaleService = $LocaleService;
         $this->LocaleRepository = $LocaleRepository;
     }
@@ -33,8 +37,15 @@ class PageContentExtension extends \Twig_Extension
     public function getFunctions()
     {
         return [
-            'getPageLocaleUrls' => new \Twig_Function_Method($this, 'getPageLocaleUrls',  ['needs_context' => true, 'is_safe' => ['all']])
+            'createUrl' => new \Twig_Function_Method($this, 'createUrl', ['needs_context' => true, 'is_safe' => ['all']]),
+            'getPageLocaleUrls' => new \Twig_Function_Method($this, 'getPageLocaleUrls', ['needs_context' => true, 'is_safe' => ['all']])
         ];
+    }
+
+    // returns the canonical path of the given path
+    public function createUrl($context, $vPath)
+    {
+        return $this->PageService->createUrl($vPath, $context['locale']);
     }
 
     public function getPageLocaleUrls($context)

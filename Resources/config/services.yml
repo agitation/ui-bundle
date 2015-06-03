@@ -46,7 +46,7 @@ services:
         class: Agit\UiBundle\Twig\PageContentExtension
         tags:
             - { name: twig.extension }
-        arguments:  [@agit.intl.locale, @?agit.localedata.locale]
+        arguments:  [@agit.ui.page, @agit.intl.locale, @?agit.localedata.locale]
 
     # simple form builder for API objects
     agit.ui.formbuilder:
