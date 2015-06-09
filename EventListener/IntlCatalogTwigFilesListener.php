@@ -44,15 +44,9 @@ class IntlCatalogTwigFilesListener extends AbstractIntlCatalogListener
 
         foreach ($this->FileCollector->collect($tplDir, 'html.twig') as $file)
         {
-            // converting path to twig template ID
+            $this->Twig->loadTemplate($file); // force rendering
+            $cacheFilePath = $this->Twig->getCacheFilename($file);
             $tplName = str_replace($tplDir, '', $file);
-            $tplName = str_replace("{$this->bundleTemplatesPath}/", '', $tplName);
-            $tplName = str_replace('/', ':', $tplName);
-            $tplName = "$bundleAlias:$tplName";
-
-            $ret = $this->Twig->loadTemplate($tplName);
-            $cacheFilePath = $this->Twig->getCacheFilename($tplName);
-
             $fileList[$tplName] = $cacheFilePath;
         }
 
