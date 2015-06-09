@@ -3,15 +3,48 @@
 
 Agit.TemplateFactory = function()
 {
-    var $body = $('body');
+    var
+        $body = $('body'),
+
+        uaSupportsTemplateTag = ('content' in document.createElement('template')),
+
+        $templateNodeList = (function(){
+            var list = [];
+
+            $body.find('template').each(function(){
+
+                if (uaSupportsTemplateTag)
+                {
+                    list.push($(document.importNode(this.content, true)));
+                }
+                else
+                {
+                    list.push($(this));
+                }
+            });
+
+            return list;
+        })();
 
     this.get = function(selector)
     {
-        return $body.find(".factory " + selector).clone();
+        var $elem;
+
+        $.each($templateNodeList, function(k, $templateNode){
+            $elem = $templateNode.find(selector);
+            if ($elem && $elem.length) { return false; } // break on found element
+        });
+
+        return $elem;
     };
 };
 
 Agit.TemplateFactory.get = function(selector)
 {
-    return (new Agit.TemplateFactory()).get(selector);
+    if (Agit.TemplateFactory._instance === undefined)
+    {
+        Agit.TemplateFactory._instance = new Agit.TemplateFactory();
+    }
+
+    return Agit.TemplateFactory._instance.get(selector);
 };

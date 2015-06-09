@@ -1,3 +1,4 @@
+<template>
 {% block formrow %}
     <div class="form-group">
         <p>{{ label }}</p>
@@ -44,3 +45,4 @@
 {% block checkbox %}
     <input id='{{ id }}' name='{{ name }}' class='form-control' type='checkbox' {{ checked ? " checked='checked'" : "" }}>
 {% endblock %}
+</template>

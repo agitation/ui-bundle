@@ -3,9 +3,7 @@
 
 Agit.Modal = function()
 {
-    var
-        isRendered = false,
-        $modal = Agit.TemplateFactory.get('div.modal');
+    var $modal = Agit.TemplateFactory.get('div.modal');
 
     $modal.setTitle = function($elem)
     {
