@@ -35,7 +35,7 @@ Agit.TemplateFactory = function()
             if ($elem && $elem.length) { return false; } // break on found element
         });
 
-        return $elem;
+        return $elem ? $elem.clone() : null;
     };
 };
 
