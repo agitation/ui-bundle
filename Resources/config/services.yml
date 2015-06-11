@@ -64,9 +64,9 @@ services:
     agit.ui.intl.twig:
         class: Agit\UiBundle\EventListener\IntlCatalogTwigFilesListener
         arguments: [ @agit.core.filecollector, @twig ]
-        tags: [{ name: kernel.event_listener, event: agit.intl.catalog.bundle.files, method: onRegistration }]
+        tags: [{ name: kernel.event_listener, event: agit.intl.files.register, method: onRegistration }]
 
     # cleans up temporary files
-    agit.ui.intl.twig.finish:
-        parent: agit.intl.listener.catalog.finish
-        tags: [{ name: kernel.event_listener, event: agit.intl.catalog.bundle.finish, method: onRegistration }]
+    agit.ui.intl.twig.cleanup:
+        parent: agit.intl.listener.files.cleanup
+        tags: [{ name: kernel.event_listener, event: agit.intl.files.cleanup, method: onRegistration }]
