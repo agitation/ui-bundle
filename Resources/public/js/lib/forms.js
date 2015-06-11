@@ -4,9 +4,11 @@
 if (window.jQuery)
 {
     (function($) {
-        $.fn.setFieldValue = function(value)
+        $.fn.setFieldValue = function(origValue)
         {
-            var $field = $(this);
+            var
+                $field = $(this),
+                value = origValue;
 
             if (value !== undefined)
             {
@@ -38,10 +40,15 @@ if (window.jQuery)
                 }
                 else if ($field.is('select'))
                 {
+                    if (value === null)
+                    {
+                        value = $field.find($field.children('option[selected]').length ? 'option[selected]' : 'option:first-child').attr('value');
+                    }
+
                     $field.val(value);
                 }
 
-                $field.trigger('setFieldValue', value);
+                $field.trigger('setFieldValue', origValue);
             }
 
             return this;

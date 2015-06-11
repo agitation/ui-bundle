@@ -84,7 +84,7 @@ Agit.ApiForm = function($form, Endpoint, RequestObject, callback)
     $form.submit(function(ev){
         Agit.stopEvent(ev);
         RequestObject.setData($form.getFieldsByName());
-        new Agit.apiCall(Endpoint, RequestObject, callback, {processType : 'apicomplete'});
+        new Agit.apiCall(Endpoint, RequestObject, callback, { processType : 'apicomplete' });
     });
 
     defaultValues = $form.getFieldsByName();
