@@ -31,7 +31,6 @@ class IntlCatalogTwigFilesListener extends AbstractCatalogListener
     {
         $bundleAlias = $RegistrationEvent->getBundleAlias();
         $tplDir = $this->FileCollector->resolve($bundleAlias);
-        $fileList = [];
 
         // storing the old values to reset them when we're done
         $actualCachePath = $this->Twig->getCache();
@@ -45,14 +44,13 @@ class IntlCatalogTwigFilesListener extends AbstractCatalogListener
         {
             $this->Twig->loadTemplate($file); // force rendering
             $cacheFilePath = $this->Twig->getCacheFilename($file);
-            $tplName = str_replace($tplDir, '', $file);
-            $fileList[$tplName] = $cacheFilePath;
+            $fileId = str_replace($tplDir, '', $file);
+            $RegistrationEvent->registerSourceFile('php', $fileId, $cacheFilePath);
         }
 
         // resetting original values
         $this->Twig->setCache($actualCachePath);
         call_user_func([$this->Twig, $actualAutoReload ? 'enableAutoReload' :  'disableAutoReload']);
 
-        $RegistrationEvent->registerCatalogFiles('php', $fileList);
     }
 }
