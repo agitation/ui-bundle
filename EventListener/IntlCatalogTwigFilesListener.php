@@ -9,13 +9,12 @@
 
 namespace Agit\UiBundle\EventListener;
 
-use Agit\IntlBundle\Event\TranslationFilesRegistrationEvent;
+use Agit\IntlBundle\Event\BundleFilesRegistrationEvent;
+use Agit\IntlBundle\EventListener\AbstractCatalogListener;
 use Agit\CoreBundle\Service\FileCollector;
 
-class IntlCatalogTwigFilesListener extends AbstractIntlCatalogListener
+class IntlCatalogTwigFilesListener extends AbstractCatalogListener
 {
-    protected $cachePath = "/tmp/agit.ui.cache.intl.templates";
-
     protected $bundleTemplatesPath = 'Resources/views';
 
     private $FileCollector;
@@ -28,7 +27,7 @@ class IntlCatalogTwigFilesListener extends AbstractIntlCatalogListener
         $this->Twig = $Twig;
     }
 
-    public function onRegistration(TranslationFilesRegistrationEvent $RegistrationEvent)
+    public function onRegistration(BundleFilesRegistrationEvent $RegistrationEvent)
     {
         $bundleAlias = $RegistrationEvent->getBundleAlias();
         $tplDir = $this->FileCollector->resolve($bundleAlias);
