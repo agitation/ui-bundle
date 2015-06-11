@@ -10,10 +10,10 @@
 namespace Agit\UiBundle\EventListener;
 
 use Agit\IntlBundle\Event\BundleFilesRegistrationEvent;
-use Agit\IntlBundle\EventListener\AbstractCatalogListener;
+use Agit\IntlBundle\EventListener\AbstractTemporaryFilesListener;
 use Agit\CoreBundle\Service\FileCollector;
 
-class IntlCatalogTwigFilesListener extends AbstractCatalogListener
+class IntlCatalogTwigFilesListener extends AbstractTemporaryFilesListener
 {
     protected $bundleTemplatesPath = 'Resources/views';
 
