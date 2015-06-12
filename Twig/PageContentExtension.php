@@ -11,7 +11,7 @@ namespace Agit\UiBundle\Twig;
 
 use Agit\CoreBundle\Exception\InternalErrorException;
 use Agit\IntlBundle\Service\LocaleService;
-use Agit\LocaleDataBundle\Entity\LocaleRepository;
+use Agit\LocaleDataBundle\Entity\LanguageRepository;
 use Agit\UiBundle\Service\PageService;
 
 class PageContentExtension extends \Twig_Extension
@@ -20,13 +20,13 @@ class PageContentExtension extends \Twig_Extension
 
     private $LocaleService;
 
-    private $LocaleRepository;
+    private $LanguageRepository;
 
-    public function __construct(PageService $PageService, LocaleService $LocaleService, LocaleRepository $LocaleRepository = null)
+    public function __construct(PageService $PageService, LocaleService $LocaleService, LanguageRepository $LanguageRepository = null)
     {
         $this->PageService = $PageService;
         $this->LocaleService = $LocaleService;
-        $this->LocaleRepository = $LocaleRepository;
+        $this->LanguageRepository = $LanguageRepository;
     }
 
     public function getName()
@@ -54,18 +54,45 @@ class PageContentExtension extends \Twig_Extension
 
         if (isset($context['localeUrls']))
         {
-            if (is_null($this->LocaleRepository))
-                throw new InternalErrorException(sprintf("The %s function needs the LocaleRepository.", __METHOD__));
+            if (is_null($this->LanguageRepository))
+                throw new InternalErrorException(sprintf("The %s function needs the LanguageRepository.", __METHOD__));
 
-            $LocaleList = $this->LocaleService->getActiveLocales();
+            $localeList = $this->LocaleService->getActiveLocales();
+            $languageCountryMap = [];
+
+            foreach ($localeList as $localeCode)
+            {
+                if (strlen($localeCode) !== 5 || $localeCode[2] !== '_') continue;
+
+                $langCode = substr($localeCode, 0, 2);
+                $countryCode = substr($localeCode, 3);
+
+                if (!isset($languageCountryMap[$langCode]))
+                    $languageCountryMap[$langCode] = [];
+
+                $languageCountryMap[$langCode][] = $countryCode;
+            }
 
             foreach ($context['localeUrls'] as $locale => $url)
-                if (in_array($locale, $LocaleList))
+            {
+                $lang = substr($locale, 0, 2);
+                $country = substr($locale, 3);
+                $Language = $this->LanguageRepository->find($lang);
+
+                if ($Language)
+                {
+                    $name = $Language->getLocalName();
+
+                    if (count($languageCountryMap[$lang]) > 1)
+                        $name .= " ($country)";
+
                     $list[$locale] = [
                         'url' => $url,
-                        'name' => $this->LocaleRepository->find($locale)->getLocalName(),
+                        'name' => $name,
                         'isCurrent' => $locale === $this->LocaleService->getLocale()
                     ];
+                }
+            }
         }
 
         if (class_exists('Collator'))
