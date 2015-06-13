@@ -6,12 +6,12 @@
  * -------------------------- */
 @font-face {
   font-family: 'FontAwesome';
-  src: url('/bundles/agitui/fonts/fontawesome/fontawesome-webfont.eot?v=4.3.0');
-  src: url('/bundles/agitui/fonts/fontawesome/fontawesome-webfont.eot?#iefix&v=4.3.0') format('embedded-opentype'),
-       url('/bundles/agitui/fonts/fontawesome/fontawesome-webfont.woff2?v=4.3.0') format('woff2'),
-       url('/bundles/agitui/fonts/fontawesome/fontawesome-webfont.woff?v=4.3.0') format('woff'),
-       url('/bundles/agitui/fonts/fontawesome/fontawesome-webfont.ttf?v=4.3.0') format('truetype'),
-       url('/bundles/agitui/fonts/fontawesome/fontawesome-webfont.svg?v=4.3.0#fontawesomeregular') format('svg');
+  src: url('/bundles/agitui/fonts/fa/fa.eot?v=4.3.0');
+  src: url('/bundles/agitui/fonts/fa/fa.eot?#iefix&v=4.3.0') format('embedded-opentype'),
+       url('/bundles/agitui/fonts/fa/fa.woff2?v=4.3.0') format('woff2'),
+       url('/bundles/agitui/fonts/fa/fa.woff?v=4.3.0') format('woff'),
+       url('/bundles/agitui/fonts/fa/fa.ttf?v=4.3.0') format('truetype'),
+       url('/bundles/agitui/fonts/fa/fa.svg?v=4.3.0#fontawesomeregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
