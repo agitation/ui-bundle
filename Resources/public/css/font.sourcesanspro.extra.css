@@ -1,0 +1,89 @@
+@font-face {
+    font-family: 'sourcesanspro';
+    src: url('/bundles/agitui/fonts/sspro/sspro-extralight.eot');
+    src: url('/bundles/agitui/fonts/sspro/sspro-extralight.eot?#iefix') format('embedded-opentype'),
+         url('/bundles/agitui/fonts/sspro/sspro-extralight.woff2') format('woff2'),
+         url('/bundles/agitui/fonts/sspro/sspro-extralight.woff') format('woff'),
+         url('/bundles/agitui/fonts/sspro/sspro-extralight.ttf') format('truetype');
+    font-weight: 200;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sourcesanspro';
+    src: url('/bundles/agitui/fonts/sspro/sspro-extralightit.eot');
+    src: url('/bundles/agitui/fonts/sspro/sspro-extralightit.eot?#iefix') format('embedded-opentype'),
+         url('/bundles/agitui/fonts/sspro/sspro-extralightit.woff2') format('woff2'),
+         url('/bundles/agitui/fonts/sspro/sspro-extralightit.woff') format('woff'),
+         url('/bundles/agitui/fonts/sspro/sspro-extralightit.ttf') format('truetype');
+    font-weight: 200;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'sourcesanspro';
+    src: url('/bundles/agitui/fonts/sspro/sspro-light.eot');
+    src: url('/bundles/agitui/fonts/sspro/sspro-light.eot?#iefix') format('embedded-opentype'),
+         url('/bundles/agitui/fonts/sspro/sspro-light.woff2') format('woff2'),
+         url('/bundles/agitui/fonts/sspro/sspro-light.woff') format('woff'),
+         url('/bundles/agitui/fonts/sspro/sspro-light.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sourcesanspro';
+    src: url('/bundles/agitui/fonts/sspro/sspro-lightit.eot');
+    src: url('/bundles/agitui/fonts/sspro/sspro-lightit.eot?#iefix') format('embedded-opentype'),
+         url('/bundles/agitui/fonts/sspro/sspro-lightit.woff2') format('woff2'),
+         url('/bundles/agitui/fonts/sspro/sspro-lightit.woff') format('woff'),
+         url('/bundles/agitui/fonts/sspro/sspro-lightit.ttf') format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'sourcesanspro';
+    src: url('/bundles/agitui/fonts/sspro/sspro-bold.eot');
+    src: url('/bundles/agitui/fonts/sspro/sspro-bold.eot?#iefix') format('embedded-opentype'),
+         url('/bundles/agitui/fonts/sspro/sspro-bold.woff2') format('woff2'),
+         url('/bundles/agitui/fonts/sspro/sspro-bold.woff') format('woff'),
+         url('/bundles/agitui/fonts/sspro/sspro-bold.ttf') format('truetype');
+    font-weight: 800;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sourcesanspro';
+    src: url('/bundles/agitui/fonts/sspro/sspro-boldit.eot');
+    src: url('/bundles/agitui/fonts/sspro/sspro-boldit.eot?#iefix') format('embedded-opentype'),
+         url('/bundles/agitui/fonts/sspro/sspro-boldit.woff2') format('woff2'),
+         url('/bundles/agitui/fonts/sspro/sspro-boldit.woff') format('woff'),
+         url('/bundles/agitui/fonts/sspro/sspro-boldit.ttf') format('truetype');
+    font-weight: 800;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'sourcesanspro';
+    src: url('/bundles/agitui/fonts/sspro/sspro-black.eot');
+    src: url('/bundles/agitui/fonts/sspro/sspro-black.eot?#iefix') format('embedded-opentype'),
+         url('/bundles/agitui/fonts/sspro/sspro-black.woff2') format('woff2'),
+         url('/bundles/agitui/fonts/sspro/sspro-black.woff') format('woff'),
+         url('/bundles/agitui/fonts/sspro/sspro-black.ttf') format('truetype');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'sourcesanspro';
+    src: url('/bundles/agitui/fonts/sspro/sspro-blackit.eot');
+    src: url('/bundles/agitui/fonts/sspro/sspro-blackit.eot?#iefix') format('embedded-opentype'),
+         url('/bundles/agitui/fonts/sspro/sspro-blackit.woff2') format('woff2'),
+         url('/bundles/agitui/fonts/sspro/sspro-blackit.woff') format('woff'),
+         url('/bundles/agitui/fonts/sspro/sspro-blackit.ttf') format('truetype');
+    font-weight: 900;
+    font-style: italic;
+}
+
+
