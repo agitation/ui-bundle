@@ -19,26 +19,20 @@
             var
                 browserLocale = navigator.language.toLowerCase().replace('-', '_'),
                 browserLang = browserLocale.substr(0, 2),
-
-                availableLanguages = (function(){
-                    var
-                        langs = {},
-                        $links = document.querySelectorAll('head link[rel=alternate][hreflang][href]'),
-                        i = 0;
-
-                    for (i; i<$links.length; i++)
-                    {
-                        langs[$links[i].getAttribute('hreflang').toLowerCase()] = $links[i].getAttribute('href');
-                    }
-
-                    return langs;
-                })(),
+                $links = document.querySelectorAll('link[rel=alternate][hreflang][href]'),
+                availableLanguages = {},
+                i = 0,
 
                 switchToLang = function(lang, url)
                 {
                     Cookies.set(cookieName, lang, {path: '/'});
                     window.location.href = url;
                 };
+
+            for (i; i<$links.length; i++)
+            {
+                availableLanguages[$links[i].getAttribute('hreflang').toLowerCase()] = $links[i].getAttribute('href');
+            }
 
             if (availableLanguages[browserLocale])
             {
