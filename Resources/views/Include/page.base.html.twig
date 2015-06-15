@@ -20,6 +20,9 @@
                 <link rel="alternate" hreflang="{{ loc|slice(0,2) }}" href="{{ url }}" />
             {% endif %}{% endfor %}
         {% endif %}
+
+        {% block page_meta %}
+        {% endblock %}
     {% endblock %}
 
     {% block base_css %}
