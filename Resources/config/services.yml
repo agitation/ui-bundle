@@ -48,6 +48,13 @@ services:
             - { name: twig.extension }
         arguments:  [@agit.ui.page, @agit.intl.locale, @?agit.localedata.language]
 
+    # page navigation functions
+    agit.ui.pagenavigation:
+        class: Agit\UiBundle\Twig\PageNavigationExtension
+        tags:
+            - { name: twig.extension }
+        arguments:  [@agit.ui.page]
+
     # simple form builder for API objects
     agit.ui.formbuilder:
         class: Agit\UiBundle\Twig\ApiFormBuilderExtension
