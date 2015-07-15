@@ -130,9 +130,14 @@ class PageService
     public function getPage($vPath)
     {
         if (!$this->isPage($vPath))
-            throw new InternalErrorException("Page does not exist. Use 'isPage()' if you are unsure!");
+            throw new InternalErrorException("Page '$vPath' does not exist. Use 'isPage()' if you are unsure!");
 
         return $this->pages[$vPath];
+    }
+
+    public function getPages()
+    {
+        return $this->pages;
     }
 
     // creates a hierachical representation
