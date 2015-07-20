@@ -40,7 +40,7 @@ class IntlCatalogTwigFilesListener extends AbstractTemporaryFilesListener
         $this->Twig->enableAutoReload();
         $this->Twig->setCache($this->getCachePath($bundleAlias));
 
-        foreach ($this->FileCollector->collect($tplDir, 'html.twig') as $file)
+        foreach ($this->FileCollector->collect($tplDir, 'twig') as $file)
         {
             $this->Twig->loadTemplate($file); // force rendering
             $cacheFilePath = $this->Twig->getCacheFilename($file);
