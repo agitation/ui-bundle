@@ -103,7 +103,6 @@ class PageService
 
     public function loadPage($vPath)
     {
-
         if (!$this->isPage($vPath))
         {
             $page = $this->getPage('_notfound');
@@ -130,7 +129,7 @@ class PageService
     public function getPage($vPath)
     {
         if (!$this->isPage($vPath))
-            throw new InternalErrorException("Page '$vPath' does not exist. Use 'isPage()' if you are unsure!");
+            throw new InternalErrorException("Page '$vPath' does not exist.");
 
         return $this->pages[$vPath];
     }
