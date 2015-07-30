@@ -52,8 +52,7 @@ class CatchallController extends Controller
         $variables = [
             'pageId' => $pageDetails['pageId'],
             'locale' => $reqDetails['locale'],
-            'vPath' => $reqDetails['vPath'],
-            'summary' => $pageDetails['summary']
+            'vPath' => $reqDetails['vPath']
         ];
 
         if (isset($reqDetails['localeUrls']) && isset($reqDetails['localeUrls'][$reqDetails['locale']]))

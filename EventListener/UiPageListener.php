@@ -87,10 +87,6 @@ class UiPageListener
         $hasParent = (bool)$TwigTemplate->getParent([]);
         $data['isVirtual'] = !$hasParent; // a rather simple convention, but should be ok for our scenarios
         $data['name'] = $TwigTemplate->renderBlock('title', []);
-        $data['summary'] = $TwigTemplate->hasBlock('summary') ? $TwigTemplate->renderBlock('summary', []) : null;
-
-
-        $data['isVirtual'] = false;
 
         if ($data['isVirtual'])
             unset($data['template'], $data['pageId']);

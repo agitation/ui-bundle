@@ -11,7 +11,7 @@
 
         {% include 'AgitUiBundle:Include:include.noindex.html.twig' %}
         <link rel="icon" href="/favicon.ico">
-        <meta name="description" content="{{ summary }}">
+        <meta name="description" content="{{ block('summary') }}">
 
         {% if canonicalUrl is defined and localeUrls is defined %}
             <link rel="canonical" href="{{ canonicalUrl }}" />
