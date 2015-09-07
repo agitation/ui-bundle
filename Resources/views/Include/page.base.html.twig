@@ -32,7 +32,7 @@
             '@AgitUiBundle/Resources/public/css/font.sourcesanspro.css'
             '@AgitUiBundle/Resources/public/css/common.css'
 
-            filter='?yui_css'
+            filter='?uglifycss'
         %}
         <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
         {% endstylesheets %}
@@ -51,7 +51,7 @@
             '@AgitUiBundle/Resources/public/js/external/bootstrap.js'
             '@AgitUiBundle/Resources/public/js/external/ie10-viewport-bug-workaround.js'
 
-            filter='?yui_js'
+            filter='?uglifyjs2'
         %}
         <script src="{{ asset_url }}" type="text/javascript"></script>
         {% endjavascripts %}
