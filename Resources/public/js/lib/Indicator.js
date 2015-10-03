@@ -1,5 +1,5 @@
 /*jslint bitwise: false, continue: false, debug: false, eqeq: true, es5: false, evil: false, forin: false, newcap: false, nomen: true, plusplus: true, regexp: true, undef: false, unparam: true, sloppy: true, stupid: false, sub: false, todo: true, vars: false, white: true, css: false, on: false, fragment: false, passfail: false, browser: true, devel: true, node: false, rhino: false, windows: false, indent: 4, maxerr: 100 */
-/*global Tx, $, jQuery, OpenLayers, JSON */
+/*global Agit, $, jQuery */
 
 Agit.Indicator = function(_$parent, _isInline, _fixedSize)
 {
@@ -10,8 +10,8 @@ Agit.Indicator = function(_$parent, _isInline, _fixedSize)
         fixedSize = _fixedSize || false,
         maxSize = 50,
 
-        $indicator = (new Agit.TemplateFactory()).get((isInline ? 'span' : 'div') + '.indicator'),
-        $overlay = parentIsWindow ? Agit.Overlay : $indicator.find('.overlay'),
+        $indicator = $('<ELEM class="indicator"><ELEM class="overlay"></ELEM><ELEM class="anim"></ELEM></ELEM>'.replace(/ELEM/g, isInline ? 'span' : 'div')),
+        $overlay = $indicator.find('.overlay'),
 
         instanceCount = 0,
 
@@ -19,16 +19,17 @@ Agit.Indicator = function(_$parent, _isInline, _fixedSize)
         {
             var offset, params = null;
 
+
             if ($parent && $parent.width)
             {
                 offset = $parent.offset();
 
                 params =
                 {
-                    height: $parent.outerHeight(),
-                    width: $parent.outerWidth(),
-                    top:   (parentIsWindow || !offset) ? 0 : offset.top,
-                    left:  (parentIsWindow || !offset) ? 0 : offset.left
+                    height: $parent[isInline ? 'innerHeight' : 'outerHeight'](),
+                    width: $parent[isInline ? 'innerWidth' : 'outerWidth'](),
+                    top:   (parentIsWindow || !offset) ? 0 : $parent.offset().top,
+                    left:  (parentIsWindow || !offset) ? 0 : $parent.offset().left
                 };
             }
 
@@ -59,7 +60,7 @@ Agit.Indicator = function(_$parent, _isInline, _fixedSize)
                         size = parentSize > maxSize ? maxSize : parentSize;
                     }
 
-                    $anim.css('font-size', size + 'px');
+                    $anim.css({ height: size + 'px', width : size + 'px' });
 
                     if (!isInline)
                     {
@@ -74,12 +75,12 @@ Agit.Indicator = function(_$parent, _isInline, _fixedSize)
             $anim.start = function()
             {
                 setSize();
-                return $anim.css('display', isInline ? 'inline-block' : 'block').addClass('on fa-spin');
+                return $anim.css('display', isInline ? 'inline-block' : 'block').addClass('on');
             };
 
             $anim.stop = function(outFunc)
             {
-                return $anim[outFunc](function(){ $anim.removeClass('on fa-spin'); });
+                return $anim[outFunc](function(){ $anim.removeClass('on'); });
             };
 
             $anim.resize = function()
@@ -120,7 +121,7 @@ Agit.Indicator = function(_$parent, _isInline, _fixedSize)
     $indicator.finish = function(callback)
     {
         var
-            outFunc = isInline || parentIsWindow ? 'hide' : 'fadeOut',
+            outFunc = isInline ? 'hide' : 'fadeOut',
             delay = 600; // a little delay to make it feel like "something happened", also to finish the rendering
 
         window.setTimeout(function() {
@@ -149,14 +150,6 @@ Agit.Indicator = function(_$parent, _isInline, _fixedSize)
             parentParams = getParentParams();
             resize();
         });
-
-        if (!parentIsWindow)
-        {
-            $(window).resize(function() {
-                parentParams = getParentParams();
-                resize();
-            });
-        }
 
         $indicator.appendTo(isInline ? $parent : $('body'));
     }

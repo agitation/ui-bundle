@@ -1,14 +1,21 @@
-div.indicator                           { position: absolute; top: 0; left: 0; display: none; }
-div.indicator div.overlay               { display: none; height: 100%; width: 100%; background: #000; opacity: 0.5; position: absolute; top: 0; left: 0; z-index: 1510;
+div.indicator                           { position: absolute; top: 0; left: 0; display: none; z-index: 1505; }
+div.indicator div.overlay               { display: none; height: 100%; width: 100%; background: #fff; opacity: 0.7; position: absolute; top: 0; left: 0; z-index: 1510;
                                           -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; filter: alpha(opacity=70); }
 
-.indicator i.anim                       { visibility: hidden; color: #4f4; line-height: 1em; display: inline-block; text-shadow: #252 0 0 .2em }
-.indicator i.anim.on                    { visibility: visible; }
+.indicator .anim                        { visibility: hidden; display: inline-block; border-radius: 50%; box-sizing: border-box; border: solid 3px rgba(50, 120, 180, 0.4); border-top-color: #3278b4; }
 
-div.indicator i.anim                    { display: block; position: absolute; z-index: 1520; }
-span.indicator i.anim                   { display: inline-block; }
+.indicator.inverse .anim                { border: solid 3px #a9ceed; border-top-color: #fff; }
+
+.indicator .anim.on                     { visibility: visible; animation: indicator-spin 1s infinite linear; -webkit-animation: indicator-spin 1s infinite linear; }
+
+div.indicator .anim                     { display: block; position: absolute; z-index: 1520; }
+span.indicator .anim                    { display: inline-block; margin: 0; }
+
+span.indicator .overlay                 { display: none; }
 
 div.indicator.window,
 div.indicator.window div.overlay,
 div.indicator.window div.anim           { position: fixed; }
 
+@keyframes indicator-spin               { 100% { transform: rotate(360deg); -webkit-transform: rotate(360deg); } }
+@-webkit-keyframes indicator-spin       { 100% { transform: rotate(360deg); -webkit-transform: rotate(360deg); } }
