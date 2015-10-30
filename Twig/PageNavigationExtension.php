@@ -16,15 +16,15 @@ use Agit\UiBundle\Service\PageService;
 
 class PageNavigationExtension extends \Twig_Extension
 {
-    private $PageService;
+    private $pageService;
 
     private $pages;
 
     private $cache = [];
 
-    public function __construct(PageService $PageService)
+    public function __construct(PageService $pageService)
     {
-        $this->PageService = $PageService;
+        $this->pageService = $pageService;
     }
 
     public function getName()
@@ -75,7 +75,7 @@ class PageNavigationExtension extends \Twig_Extension
             $dir = dirname($vPath) . '/';
 
             if (is_null($this->pages))
-                $this->pages = $this->PageService->getPages();
+                $this->pages = $this->pageService->getPages();
 
             $pages = array_filter($this->pages, function($page) use ($dir){
                 return (strpos($page['vPath'], $dir) === 0);

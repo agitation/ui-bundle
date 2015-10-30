@@ -92,7 +92,7 @@ Agit.Indicator = function(_$parent, _isInline, _fixedSize)
             return $anim;
         },
 
-        $Animator = new Animator(),
+        $animator = new Animator(),
 
         resize = function()
         {
@@ -101,7 +101,7 @@ Agit.Indicator = function(_$parent, _isInline, _fixedSize)
             if (parentParams)
             {
                 $indicator.css(parentParams); // ind container needs same dimenstions as parent
-                $Animator.resize();
+                $animator.resize();
             }
         };
 
@@ -113,7 +113,7 @@ Agit.Indicator = function(_$parent, _isInline, _fixedSize)
         {
             resize();
             $indicator.css('display', isInline ? 'inline-block' : 'block');
-            $Animator.start();
+            $animator.start();
             $overlay[isInline ? 'hide' : 'show']();
         }
     };
@@ -129,7 +129,7 @@ Agit.Indicator = function(_$parent, _isInline, _fixedSize)
 
             if (!instanceCount)
             {
-                $Animator.stop(outFunc);
+                $animator.stop(outFunc);
                 $indicator[outFunc]();
                 $overlay[outFunc]();
             }

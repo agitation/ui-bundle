@@ -19,32 +19,32 @@ class CatchallController extends Controller
     public function dispatcherAction($request)
     {
         $request = "/$request"; // for consistency
-        $Response = null;
+        $response = null;
 
-        $PageService = $this->get('agit.ui.page');
-        $LocaleService = $this->get('agit.intl.locale');
+        $pageService = $this->get('agit.ui.page');
+        $localeService = $this->get('agit.intl.locale');
 
         // we'll try to provide error messages in the UA's language until the real locale is set
-        $LocaleService->setLocale($LocaleService->getUserLocale());
+        $localeService->setLocale($localeService->getUserLocale());
 
-        $reqDetails = $PageService->parseRequest($request);
+        $reqDetails = $pageService->parseRequest($request);
 
         // now set the real locale as requested via URL
-        $LocaleService->setLocale($reqDetails['locale']);
+        $localeService->setLocale($reqDetails['locale']);
 
         if (isset($reqDetails['canonical']) && $request !== $reqDetails['canonical'])
         {
             parse_str($this->getRequest()->getQueryString(), $query);
-            $redirectUrl = $PageService->createUrl($reqDetails['canonical'], '', $query);
-            $Response = $PageService->createRedirectResponse($redirectUrl, 301);
+            $redirectUrl = $pageService->createUrl($reqDetails['canonical'], '', $query);
+            $response = $pageService->createRedirectResponse($redirectUrl, 301);
         }
         else
         {
-            $pageDetails = $PageService->loadPage($reqDetails['vPath']);
-            $Response = $this->createResponse($pageDetails, $reqDetails);
+            $pageDetails = $pageService->loadPage($reqDetails['vPath']);
+            $response = $this->createResponse($pageDetails, $reqDetails);
         }
 
-        return $Response;
+        return $response;
     }
 
     private function createResponse($pageDetails, $reqDetails)
@@ -61,14 +61,14 @@ class CatchallController extends Controller
             $variables['canonicalUrl'] = $reqDetails['localeUrls'][$reqDetails['locale']];
         }
 
-        $Response = $this->render($pageDetails['template'], $variables);
+        $response = $this->render($pageDetails['template'], $variables);
 
-        $Response->headers->set("X-Frame-Options", "SAMEORIGIN");
-        $Response->headers->set("Cache-Control", "no-cache, must-revalidate, max-age=0", true);
-        $Response->headers->set("Pragma", "no-store", true);
-        $Response->headers->set("X-Content-Type-Options", "nosniff", true);
-        $Response->setStatusCode($pageDetails['status']);
+        $response->headers->set("X-Frame-Options", "SAMEORIGIN");
+        $response->headers->set("Cache-Control", "no-cache, must-revalidate, max-age=0", true);
+        $response->headers->set("Pragma", "no-store", true);
+        $response->headers->set("X-Content-Type-Options", "nosniff", true);
+        $response->setStatusCode($pageDetails['status']);
 
-        return $Response;
+        return $response;
     }
 }

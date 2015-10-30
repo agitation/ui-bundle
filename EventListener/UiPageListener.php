@@ -16,9 +16,9 @@ use Agit\UiBundle\TwigMeta\PageConfigNode;
 
 class UiPageListener
 {
-    private $FileCollector;
+    private $fileCollector;
 
-    private $TwigService;
+    private $twigService;
 
     private $searchPath;
 
@@ -27,13 +27,13 @@ class UiPageListener
     private $availableTypes = ['page' => 'Page', 'special' => 'Special'];
 
     public function __construct(
-        FileCollector $FileCollector,
-        \Twig_Environment $TwigService,
+        FileCollector $fileCollector,
+        \Twig_Environment $twigService,
         $searchPath,
         $priority)
     {
-        $this->FileCollector = $FileCollector;
-        $this->TwigService = $TwigService;
+        $this->fileCollector = $fileCollector;
+        $this->twigService = $twigService;
         $this->searchPath = $searchPath;
         $this->priority = $priority;
     }
@@ -41,7 +41,7 @@ class UiPageListener
     /**
      * the event listener to be used in the service configuration
      */
-    public function onRegistration(CacheRegistrationEvent $RegistrationEvent)
+    public function onRegistration(CacheRegistrationEvent $registrationEvent)
     {
         // actually, we only have two cache entries, "page" and "special"
         // we collect all pages and sort them into the both of them.
@@ -49,15 +49,15 @@ class UiPageListener
         foreach ($this->availableTypes as $type => $subdir)
         {
             $extension = "html.twig";
-            $basePath = $this->FileCollector->resolve("{$this->searchPath}:$subdir");
+            $basePath = $this->fileCollector->resolve("{$this->searchPath}:$subdir");
 
-            foreach ($this->FileCollector->collect($basePath, $extension) as $pagePath)
+            foreach ($this->fileCollector->collect($basePath, $extension) as $pagePath)
             {
                 $data = $this->getData($type, $subdir, $basePath, $pagePath, $extension);
-                $CacheData = $RegistrationEvent->createContainer();
-                $CacheData->setId($data['vPath']);
-                $CacheData->setData($data);
-                $RegistrationEvent->register($CacheData, $this->priority);
+                $cacheData = $registrationEvent->createContainer();
+                $cacheData->setId($data['vPath']);
+                $cacheData->setData($data);
+                $registrationEvent->register($cacheData, $this->priority);
             }
         }
     }
@@ -83,10 +83,10 @@ class UiPageListener
         $data['pageId'] = $this->makePageId($data['vPath']); // NOTE: The page ID is unique only within its page set.
         $data['status'] = isset($config['status']) ? (int)$config['status'] : 200;
 
-        $TwigTemplate = $this->TwigService->loadTemplate($data['template']);
-        $hasParent = (bool)$TwigTemplate->getParent([]);
+        $twigTemplate = $this->twigService->loadTemplate($data['template']);
+        $hasParent = (bool)$twigTemplate->getParent([]);
         $data['isVirtual'] = !$hasParent; // a rather simple convention, but should be ok for our scenarios
-        $data['name'] = $TwigTemplate->renderBlock('title', []);
+        $data['name'] = $twigTemplate->renderBlock('title', []);
 
         if ($data['isVirtual'])
             unset($data['template'], $data['pageId']);
@@ -152,24 +152,24 @@ class UiPageListener
 
     private function getConfigFromTemplate($pagePath)
     {
-        $TokenStream = $this->TwigService->tokenize(file_get_contents($pagePath));
-        $RootNode = $this->TwigService->parse($TokenStream);
+        $tokenStream = $this->twigService->tokenize(file_get_contents($pagePath));
+        $rootNode = $this->twigService->parse($tokenStream);
 
-        return $this->findConfigInNode($RootNode);
+        return $this->findConfigInNode($rootNode);
     }
 
-    private function findConfigInNode($Node)
+    private function findConfigInNode($node)
     {
         $config = [];
 
-        foreach ($Node->getIterator() as $ChildNode)
+        foreach ($node->getIterator() as $childNode)
         {
-            if ($ChildNode instanceof \Twig_Node)
+            if ($childNode instanceof \Twig_Node)
             {
-                if ($ChildNode instanceof PageConfigNode)
-                    $config += $ChildNode->getConfigValues();
+                if ($childNode instanceof PageConfigNode)
+                    $config += $childNode->getConfigValues();
 
-                $config += $this->findConfigInNode($ChildNode);
+                $config += $this->findConfigInNode($childNode);
             }
         }
 

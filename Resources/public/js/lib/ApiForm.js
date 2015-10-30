@@ -1,7 +1,7 @@
 /*jslint bitwise: false, continue: false, debug: false, eqeq: true, es5: false, evil: false, forin: false, newcap: false, nomen: true, plusplus: true, regexp: true, undef: false, unparam: true, sloppy: true, stupid: false, sub: false, todo: true, vars: false, white: true, css: false, on: false, fragment: false, passfail: false, browser: true, devel: true, node: false, rhino: false, windows: false, indent: 4, maxerr: 100 */
 /*global Tx, $, jQuery, OpenLayers, JSON */
 
-Agit.ApiForm = function($form, Endpoint, RequestObject, callback)
+Agit.ApiForm = function($form, endpoint, requestObject, callback)
 {
     var
         fieldHandlers = {},
@@ -83,8 +83,8 @@ Agit.ApiForm = function($form, Endpoint, RequestObject, callback)
 
     $form.submit(function(ev){
         Agit.stopEvent(ev);
-        RequestObject.setData($form.getFieldsByName());
-        new Agit.apiCall(Endpoint, RequestObject, callback, { processType : 'apicomplete' });
+        requestObject.setData($form.getFieldsByName());
+        new Agit.apiCall(endpoint, requestObject, callback, { processType : 'apicomplete' });
     });
 
     defaultValues = $form.getFieldsByName();

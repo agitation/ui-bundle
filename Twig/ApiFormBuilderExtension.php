@@ -16,9 +16,9 @@ use Agit\ApiBundle\Api\Meta\Property\Name;
 
 class ApiFormBuilderExtension extends \Twig_Extension
 {
-    private $ApiObjectService;
+    private $apiObjectService;
 
-    private $TwigTemplate;
+    private $twigTemplate;
 
     private $formTemplatePath = 'AgitUiBundle:Include:formbuilder.html.twig';
 
@@ -28,10 +28,10 @@ class ApiFormBuilderExtension extends \Twig_Extension
 
     private $idCounter = 0;
 
-    public function __construct(\Twig_Environment $Twig, ObjectService $ApiObjectService)
+    public function __construct(\Twig_Environment $twig, ObjectService $apiObjectService)
     {
-        $this->Twig = $Twig;
-        $this->ApiObjectService = $ApiObjectService;
+        $this->twig = $twig;
+        $this->apiObjectService = $apiObjectService;
         $this->idPrefix = StringHelper::createRandomString(6);
     }
 
@@ -50,53 +50,53 @@ class ApiFormBuilderExtension extends \Twig_Extension
     public function buildApiObjectForm($objectName)
     {
         if (strpos($objectName, '\\') !== false)
-            $objectName = $this->ApiObjectService->getObjectNameFromClass($objectName);
+            $objectName = $this->apiObjectService->getObjectNameFromClass($objectName);
 
-        $TwigTemplate = $this->Twig->loadTemplate($this->formTemplatePath);
-        $Object = $this->ApiObjectService->createObject($objectName);
-        $defaultValues = $Object->getValues();
+        $twigTemplate = $this->twig->loadTemplate($this->formTemplatePath);
+        $object = $this->apiObjectService->createObject($objectName);
+        $defaultValues = $object->getValues();
         $form = '';
 
         foreach ($defaultValues as $propName => $propValue)
         {
-            $Type = $Object->getPropertyMeta($propName, 'Type');
+            $type = $object->getPropertyMeta($propName, 'Type');
             $renderData = ['id' => $this->createId(), 'name' => $propName];
             $element = '';
 
-            if ($Type->getType() === 'string')
+            if ($type->getType() === 'string')
             {
-                if ($Type->get('allowedValues'))
+                if ($type->get('allowedValues'))
                 {
-                    $element = $TwigTemplate->renderBlock('select', $renderData + [
-                        'values' => array_map([$this, 'filterName'], $Type->get('allowedValues')),
+                    $element = $twigTemplate->renderBlock('select', $renderData + [
+                        'values' => array_map([$this, 'filterName'], $type->get('allowedValues')),
                         'default' => $propValue
                     ]);
                 }
                 else
                 {
-                    $element = $TwigTemplate->renderBlock('textInput', $renderData + [
+                    $element = $twigTemplate->renderBlock('textInput', $renderData + [
                         'default' => $propValue,
-                        'maxLength' => $Type->get('maxLength')
+                        'maxLength' => $type->get('maxLength')
                     ]);
                 }
             }
-            elseif ($Type->getType() === 'number')
+            elseif ($type->getType() === 'number')
             {
-                $element = $TwigTemplate->renderBlock('numberInput', $renderData + [
+                $element = $twigTemplate->renderBlock('numberInput', $renderData + [
                     'default' => $propValue,
-                    'minValue' => $Type->get('minValue'),
-                    'maxValue' => $Type->get('maxValue'),
-                    'allowFloat' => $Type->get('allowFloat')
+                    'minValue' => $type->get('minValue'),
+                    'maxValue' => $type->get('maxValue'),
+                    'allowFloat' => $type->get('allowFloat')
                 ]);
             }
-            elseif ($Type->getType() === 'boolean')
+            elseif ($type->getType() === 'boolean')
             {
-                $element = $TwigTemplate->renderBlock('checkbox', $renderData + ['checked' => $propValue]);
+                $element = $twigTemplate->renderBlock('checkbox', $renderData + ['checked' => $propValue]);
             }
-            elseif ($Type->getType() === 'array' && $Type->get('allowedValues'))
+            elseif ($type->getType() === 'array' && $type->get('allowedValues'))
             {
-                $element = $TwigTemplate->renderBlock('multiSelect', $renderData + [
-                    'values' => array_map([$this, 'filterName'], $Type->get('allowedValues')),
+                $element = $twigTemplate->renderBlock('multiSelect', $renderData + [
+                    'values' => array_map([$this, 'filterName'], $type->get('allowedValues')),
                     'default' => $propValue
                 ]);
             }
@@ -104,9 +104,9 @@ class ApiFormBuilderExtension extends \Twig_Extension
 
             if ($element)
             {
-                $form .= $TwigTemplate->renderBlock('formrow', [
+                $form .= $twigTemplate->renderBlock('formrow', [
                     'id' => $renderData['id'],
-                    'label' => $Object->getPropertyMeta($propName, 'Name')->getName(),
+                    'label' => $object->getPropertyMeta($propName, 'Name')->getName(),
                     'element' => $element
                 ]);
             }

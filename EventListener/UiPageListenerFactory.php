@@ -13,18 +13,18 @@ use Agit\CoreBundle\Service\FileCollector;
 
 class UiPageListenerFactory
 {
-    private $FileCollector;
+    private $fileCollector;
 
-    private $TwigService;
+    private $twigService;
 
-    public function __construct(FileCollector $FileCollector, \Twig_Environment $TwigService)
+    public function __construct(FileCollector $fileCollector, \Twig_Environment $twigService)
     {
-        $this->FileCollector = $FileCollector;
-        $this->TwigService = $TwigService;
+        $this->fileCollector = $fileCollector;
+        $this->twigService = $twigService;
     }
 
     public function create($searchPath, $priority = 100)
     {
-        return new UiPageListener($this->FileCollector, $this->TwigService, $searchPath, $priority);
+        return new UiPageListener($this->fileCollector, $this->twigService, $searchPath, $priority);
     }
 }

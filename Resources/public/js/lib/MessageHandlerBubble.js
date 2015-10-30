@@ -26,7 +26,7 @@ Agit.MessageHandlerBubble = function($parent)
         });
     };
 
-    self.showMessage = function(Message)
+    self.showMessage = function(message)
     {
         var
             $msgBubble = (new Agit.TemplateFactory()).get('.message-bubble'),
@@ -34,10 +34,10 @@ Agit.MessageHandlerBubble = function($parent)
 
         window.setTimeout(function(){
             $msgBubble
-                .addClass(Message.getType())
+                .addClass(message.getType())
                 .appendTo($parent)
-                .find('.icon i.' + Message.getType()).addClass('on').end()
-                .find('.msg').text(Message.getText()).end()
+                .find('.icon i.' + message.getType()).addClass('on').end()
+                .find('.msg').text(message.getText()).end()
                 .fadeIn(400)
                 .click(removeThisBubble)
                 .animate({ opacity:0.9 }, 1000);
@@ -46,12 +46,12 @@ Agit.MessageHandlerBubble = function($parent)
             window.setTimeout(removeThisBubble, 10000);
         }, 200);
 
-        if (!$bubbles[Message.getCategory()])
+        if (!$bubbles[message.getCategory()])
         {
-            $bubbles[Message.getCategory()] = [];
+            $bubbles[message.getCategory()] = [];
         }
 
-        $bubbles[Message.getCategory()].push($msgBubble);
+        $bubbles[message.getCategory()].push($msgBubble);
     };
 
 

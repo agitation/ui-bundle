@@ -11,9 +11,9 @@ Agit.MessageHandlerAlert = function()
 
     };
 
-    self.showMessage = function(Message)
+    self.showMessage = function(message)
     {
-        alert(Message.getText());
+        alert(message.getText());
     };
 
     return self;

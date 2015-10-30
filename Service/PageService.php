@@ -18,11 +18,11 @@ use Agit\UserBundle\Service\UserService;
 use Agit\IntlBundle\Service\LocaleService;
 class PageService
 {
-    private $CacheLoader;
+    private $cacheLoader;
 
-    private $UrlService;
+    private $urlService;
 
-    private $UserService;
+    private $userService;
 
     private $pages = [];
 
@@ -30,14 +30,14 @@ class PageService
 
     private $activeLocales;
 
-    public function __construct(CacheLoader $CacheLoader, UrlService $UrlService, LocaleService $LocaleService, UserService $UserService = null)
+    public function __construct(CacheLoader $cacheLoader, UrlService $urlService, LocaleService $localeService, UserService $userService = null)
     {
-        $this->CacheLoader = $CacheLoader;
-        $this->UserService = $UserService;
-        $this->UrlService = $UrlService;
-        $this->primaryLocale = $LocaleService->getPrimaryLocale();
-        $this->activeLocales = $LocaleService->getActiveLocales();
-        $this->pages = $this->CacheLoader->loadPlugins();
+        $this->cacheLoader = $cacheLoader;
+        $this->userService = $userService;
+        $this->urlService = $urlService;
+        $this->primaryLocale = $localeService->getPrimaryLocale();
+        $this->activeLocales = $localeService->getActiveLocales();
+        $this->pages = $this->cacheLoader->loadPlugins();
     }
 
     public function parseRequest($request)
@@ -88,17 +88,17 @@ class PageService
         if ($locale && $locale !== $this->primaryLocale && in_array($locale, $this->activeLocales))
             $parts[] = substr($locale, 0, 2);
 
-        return $this->UrlService->createFrontendUrl(implode('/', $parts), $params);
+        return $this->urlService->createFrontendUrl(implode('/', $parts), $params);
     }
 
     public function createRedirectResponse($url, $status = 302)
     {
-        $Response = new Response(sprintf("<a href='%s'>%s</a>", htmlentities($url), 'Click here to continue.'), $status);
-        $Response->headers->set('Location', $url);
-        $Response->headers->set("Cache-Control", "no-cache, must-revalidate, max-age=0", true);
-        $Response->headers->set("Pragma", "no-store", true);
+        $response = new Response(sprintf("<a href='%s'>%s</a>", htmlentities($url), 'Click here to continue.'), $status);
+        $response->headers->set('Location', $url);
+        $response->headers->set("Cache-Control", "no-cache, must-revalidate, max-age=0", true);
+        $response->headers->set("Pragma", "no-store", true);
 
-        return $Response;
+        return $response;
     }
 
     public function loadPage($vPath)
@@ -114,7 +114,7 @@ class PageService
             if ($page['isVirtual'])
                 $page = $this->getPage('_notfound');
 
-            elseif ($page['caps'] && (!$this->UserService || !$this->UserService->currentUserCan($page['caps'])))
+            elseif ($page['caps'] && (!$this->userService || !$this->userService->currentUserCan($page['caps'])))
                 $page = $this->getPage('_unauthorized');
         }
 

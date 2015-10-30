@@ -18,6 +18,6 @@ Agit.Exception = function(code, message)
 
     this.toString = function()
     {
-        return Agit.sprintf("Error of type '%s': %s", code, message);;
+        return Agit.sprintf("Error of type '%s': %s", code, message);
     };
 };

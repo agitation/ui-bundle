@@ -1,7 +1,7 @@
 /*jslint bitwise: false, continue: false, debug: false, eqeq: true, es5: false, evil: false, forin: false, newcap: false, nomen: true, plusplus: true, regexp: true, undef: false, unparam: true, sloppy: true, stupid: false, sub: false, todo: true, vars: false, white: true, css: false, on: false, fragment: false, passfail: false, browser: true, devel: true, node: false, rhino: false, windows: false, indent: 4, maxerr: 100 */
 /*global Tx, $, jQuery, OpenLayers, JSON */
 
-Agit.ApiCall = function(Endpoint, RequestObject, successCallback, _params)
+Agit.ApiCall = function(endpoint, requestObject, successCallback, _params)
 {
     var
         defaultParams = {
@@ -49,19 +49,19 @@ Agit.ApiCall = function(Endpoint, RequestObject, successCallback, _params)
             return expand(payload);
         },
 
-        processMessages = function(MessageList)
+        processMessages = function(messageList)
         {
             var i = 0;
 
-            if (MessageList.length > 0)
+            if (messageList.length > 0)
             {
                 params.messageHandler.clear('agit.api');
 
-                for (i; i < MessageList.length; i++)
+                for (i; i < messageList.length; i++)
                 {
                     params.messageHandler.showMessage(new Agit.Message(
-                        MessageList[i].text,
-                        MessageList[i].type,
+                        messageList[i].text,
+                        messageList[i].type,
                         'agit.api'
                     ));
                 }
@@ -74,13 +74,13 @@ Agit.ApiCall = function(Endpoint, RequestObject, successCallback, _params)
             if (!res ||
                 typeof(res) !== 'object' ||
                 res.payload === undefined ||
-                res.MessageList === undefined)
+                res.messageList === undefined)
             {
                 res =
                 {
                     success : false,
                     payload : null,
-                    MessageList : [{type: "error", text: Agit.L10n.t("Call failed or returned an invalid response.")}]
+                    messageList : [{type: "error", text: Agit.L10n.t("Call failed or returned an invalid response.")}]
                 };
             }
 
@@ -88,7 +88,7 @@ Agit.ApiCall = function(Endpoint, RequestObject, successCallback, _params)
             {
                 finishCallback = function()
                 {
-                    processMessages(res.MessageList);
+                    processMessages(res.messageList);
                     res.payload = processPayload(res.payload, res.entityList);
                     successCallback(params.processType === 'api' ? res.payload : res);
                 }
@@ -127,14 +127,14 @@ Agit.ApiCall = function(Endpoint, RequestObject, successCallback, _params)
     {
         var
             request = 'request=' +
-                JSON.stringify(RequestObject.getData())
+                JSON.stringify(requestObject.getData())
                     .replace(/\+/g, '%2b')
                     .replace(/&/g, '%26') +
                 "&locale=" + Agit.locale,
 
             ajaxOpts = {
                 type         : 'POST',
-                url          : Endpoint.getCallUrl(),
+                url          : endpoint.getCallUrl(),
                 data         : request,
                 success      : combinedCallback,
                 error        : combinedCallback,
@@ -163,7 +163,7 @@ Agit.ApiCall = function(Endpoint, RequestObject, successCallback, _params)
 };
 
 // shortcut
-Agit.apiCall = function(Endpoint, RequestObject, successCallback, params)
+Agit.apiCall = function(endpoint, requestObject, successCallback, params)
 {
-    return new Agit.ApiCall(Endpoint, RequestObject, successCallback, params).doCall();
+    return new Agit.ApiCall(endpoint, requestObject, successCallback, params).doCall();
 };

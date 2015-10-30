@@ -11,19 +11,19 @@ namespace Agit\UiBundle\TwigMeta;
 
 class PageConfigTokenParser extends \Twig_TokenParser
 {
-    public function parse(\Twig_Token $Token)
+    public function parse(\Twig_Token $token)
     {
         $config = [];
 
-        $TokenStream = $this->parser->getStream();
-        $dot = $TokenStream->expect(\Twig_Token::PUNCTUATION_TYPE)->getValue();
-        $field = $TokenStream->expect(\Twig_Token::NAME_TYPE)->getValue();
-        $value = $TokenStream->expect(\Twig_Token::STRING_TYPE)->getValue();
-        $TokenStream->expect(\Twig_Token::BLOCK_END_TYPE);
+        $tokenStream = $this->parser->getStream();
+        $dot = $tokenStream->expect(\Twig_Token::PUNCTUATION_TYPE)->getValue();
+        $field = $tokenStream->expect(\Twig_Token::NAME_TYPE)->getValue();
+        $value = $tokenStream->expect(\Twig_Token::STRING_TYPE)->getValue();
+        $tokenStream->expect(\Twig_Token::BLOCK_END_TYPE);
 
         $config[$field] = $value;
 
-        return new PageConfigNode($config, $Token->getLine(), $this->getTag());
+        return new PageConfigNode($config, $token->getLine(), $this->getTag());
     }
 
     public function getTag()
