@@ -2,44 +2,14 @@ services:
 
     agit.ui.page:
         class: Agit\UiBundle\Service\PageService
-        arguments: [@agit.ui.page.loader, @agit.core.url, @agit.intl.locale, @?agit.user]
-
-    agit.ui.page.loader:
-        private: true
-        class: CacheLoader
-        factory_service:  agit.plugin.cache.loader.factory
-        factory_method:   create
-        arguments: [ agit.ui.page ]
-
-    # registration listener
-    agit.ui.page.register:
-        private: true
-        class: CacheAwareServiceListener
-        factory_service:  agit.pluggable.cache.listener.factory
-        factory_method:   create
-        arguments: [ agit.ui.page ]
-        tags: [{ name: kernel.event_listener, event: agit.pluggable, method: onRegistration }]
-
-    agit.ui.page.listener.factory:
-        arguments: [ @agit.core.filecollector, @twig ]
-        class: Agit\UiBundle\EventListener\UiPageListenerFactory
-
-
-    agit.ui.page.plugins:
-        private: true
-        class: UiPageListener
-        factory_service:  agit.ui.page.listener.factory
-        factory_method:   create
-        arguments: [ AgitUiBundle:Resources:views, 10 ]
-        tags: [{ name: kernel.event_listener, event: agit.ui.page, method: onRegistration }]
-
+        arguments: [@agit.pluggable.cache.loader_factory, @agit.core.url, @agit.intl.locale, @?agit.user]
+        tags: [{ name: agit.pluggable, type: cache, tag: agit.ui.pages, validator: Agit\UiBundle\Plugin\UiPagePluginValidator }]
 
     # Handles our custom Twig syntax for the page meta data
     agit.ui.custom:
         class: Agit\UiBundle\TwigMeta\PageConfigTokenExtension
         tags:
             - { name: twig.extension }
-        arguments:  []
 
     # misc template functions
     agit.ui.pagecontent:

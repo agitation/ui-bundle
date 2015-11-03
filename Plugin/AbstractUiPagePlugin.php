@@ -7,59 +7,53 @@
  * @license    http://opensource.org/licenses/MIT
  */
 
-namespace Agit\UiBundle\EventListener;
+namespace Agit\UiBundle\Plugin;
 
-use Agit\CoreBundle\Pluggable\Strategy\Cache\CacheRegistrationEvent;
 use Agit\CoreBundle\Exception\InternalErrorException;
-use Agit\CoreBundle\Service\FileCollector;
+use Agit\PluggableBundle\Strategy\ServiceAwarePluginTrait;
+use Agit\PluggableBundle\Strategy\ServiceAwarePluginInterface;
 use Agit\UiBundle\TwigMeta\PageConfigNode;
+use Agit\PluggableBundle\Strategy\Depends;
+use Agit\PluggableBundle\Strategy\Cache\CacheEntry;
+use Agit\PluggableBundle\Strategy\Cache\CachePluginInterface;
 
-class UiPageListener
+/**
+ * @Depends({"agit.core.filecollector", "twig"})
+ */
+abstract class AbstractUiPagePlugin implements CachePluginInterface, ServiceAwarePluginInterface
 {
-    private $fileCollector;
-
-    private $twigService;
-
-    private $searchPath;
-
-    private $priority;
+    use ServiceAwarePluginTrait;
 
     private $availableTypes = ['page' => 'Page', 'special' => 'Special'];
 
-    public function __construct(
-        FileCollector $fileCollector,
-        \Twig_Environment $twigService,
-        $searchPath,
-        $priority)
-    {
-        $this->fileCollector = $fileCollector;
-        $this->twigService = $twigService;
-        $this->searchPath = $searchPath;
-        $this->priority = $priority;
-    }
+    private $entryList = [];
 
-    /**
-     * the event listener to be used in the service configuration
-     */
-    public function onRegistration(CacheRegistrationEvent $registrationEvent)
+    abstract protected function getSearchPath();
+
+    public function load()
     {
-        // actually, we only have two cache entries, "page" and "special"
-        // we collect all pages and sort them into the both of them.
+        $fileCollector = $this->getService('agit.core.filecollector');
 
         foreach ($this->availableTypes as $type => $subdir)
         {
             $extension = "html.twig";
-            $basePath = $this->fileCollector->resolve("{$this->searchPath}:$subdir");
+            $basePath = $fileCollector->resolve($this->getSearchPath() . ":$subdir");
 
-            foreach ($this->fileCollector->collect($basePath, $extension) as $pagePath)
+            foreach ($fileCollector->collect($basePath, $extension) as $pagePath)
             {
+                $cacheEntry = new CacheEntry();
                 $data = $this->getData($type, $subdir, $basePath, $pagePath, $extension);
-                $cacheData = $registrationEvent->createContainer();
-                $cacheData->setId($data['vPath']);
-                $cacheData->setData($data);
-                $registrationEvent->register($cacheData, $this->priority);
+
+                $cacheEntry->setId($data['vPath']);
+                $cacheEntry->setData($data);
+                $this->entryList[] = $cacheEntry;
             }
         }
+    }
+
+    public function nextCacheEntry()
+    {
+        return array_shift($this->entryList);
     }
 
     protected function getData($type, $subdir, $basePath, $pagePath, $extension)
@@ -83,7 +77,7 @@ class UiPageListener
         $data['pageId'] = $this->makePageId($data['vPath']); // NOTE: The page ID is unique only within its page set.
         $data['status'] = isset($config['status']) ? (int)$config['status'] : 200;
 
-        $twigTemplate = $this->twigService->loadTemplate($data['template']);
+        $twigTemplate = $this->getService('twig')->loadTemplate($data['template']);
         $hasParent = (bool)$twigTemplate->getParent([]);
         $data['isVirtual'] = !$hasParent; // a rather simple convention, but should be ok for our scenarios
         $data['name'] = $twigTemplate->renderBlock('title', []);
@@ -112,7 +106,7 @@ class UiPageListener
 
     protected function pathToTemplateName($page, $subdir, $extension)
     {
-        $nsPath = strstr($this->searchPath, ':', true);
+        $nsPath = strstr($this->getSearchPath(), ':', true);
         return "$nsPath:$subdir:$page.$extension";
     }
 
@@ -152,8 +146,8 @@ class UiPageListener
 
     private function getConfigFromTemplate($pagePath)
     {
-        $tokenStream = $this->twigService->tokenize(file_get_contents($pagePath));
-        $rootNode = $this->twigService->parse($tokenStream);
+        $tokenStream = $this->getService('twig')->tokenize(file_get_contents($pagePath));
+        $rootNode = $this->getService('twig')->parse($tokenStream);
 
         return $this->findConfigInNode($rootNode);
     }
