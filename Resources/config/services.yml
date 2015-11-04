@@ -2,8 +2,8 @@ services:
 
     agit.ui.page:
         class: Agit\UiBundle\Service\PageService
-        arguments: [@agit.pluggable.cache.loader_factory, @agit.core.url, @agit.intl.locale, @?agit.user]
-        tags: [{ name: agit.pluggable, type: cache, tag: agit.ui.pages, validator: Agit\UiBundle\Plugin\UiPagePluginValidator }]
+        arguments: [ @agit.pluggable.cache.loader_factory, @agit.core.url, @agit.intl.locale, @?agit.user ]
+        tags: [{ name: agit.pluggable, type: cache, tag: agit.ui.pages, baseClass: Agit\UiBundle\Plugin\AbstractUiPagePlugin }]
 
     # Handles our custom Twig syntax for the page meta data
     agit.ui.custom:
@@ -16,7 +16,7 @@ services:
         class: Agit\UiBundle\Twig\PageContentExtension
         tags:
             - { name: twig.extension }
-        arguments:  [@agit.ui.page, @agit.intl.locale, @?agit.localedata.language]
+        arguments:  [ @agit.ui.page, @agit.intl.locale, @?agit.localedata.language ]
 
     # page navigation functions
     agit.ui.pagenavigation:
@@ -30,7 +30,7 @@ services:
         class: Agit\UiBundle\Twig\ApiFormBuilderExtension
         tags:
             - { name: twig.extension }
-        arguments:  [@twig, @agit.api.object]
+        arguments:  [ @twig, @agit.api.object ]
 
 
     #
