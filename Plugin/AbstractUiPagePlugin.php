@@ -9,7 +9,7 @@
 
 namespace Agit\UiBundle\Plugin;
 
-use Agit\CoreBundle\Exception\InternalErrorException;
+use Agit\CommonBundle\Exception\InternalErrorException;
 use Agit\PluggableBundle\Strategy\ServiceAwarePluginTrait;
 use Agit\PluggableBundle\Strategy\ServiceAwarePluginInterface;
 use Agit\UiBundle\TwigMeta\PageConfigNode;
@@ -18,7 +18,7 @@ use Agit\PluggableBundle\Strategy\Cache\CacheEntry;
 use Agit\PluggableBundle\Strategy\Cache\CachePluginInterface;
 
 /**
- * @Depends({"agit.core.filecollector", "twig"})
+ * @Depends({"agit.common.filecollector", "twig"})
  */
 abstract class AbstractUiPagePlugin implements CachePluginInterface, ServiceAwarePluginInterface
 {
@@ -32,7 +32,7 @@ abstract class AbstractUiPagePlugin implements CachePluginInterface, ServiceAwar
 
     public function load()
     {
-        $fileCollector = $this->getService('agit.core.filecollector');
+        $fileCollector = $this->getService('agit.common.filecollector');
 
         foreach ($this->availableTypes as $type => $subdir)
         {

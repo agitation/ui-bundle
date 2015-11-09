@@ -10,7 +10,7 @@
 namespace Agit\UiBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Agit\CoreBundle\Exception\InternalErrorException;
+use Agit\CommonBundle\Exception\InternalErrorException;
 use Agit\UiBundle\Exception\NotFoundException;
 use Agit\UiBundle\Exception\UnauthorizedException;
 

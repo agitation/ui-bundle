@@ -9,8 +9,8 @@
 
 namespace Agit\UiBundle\Exception;
 
-use Agit\CoreBundle\Exception\AgitException;
-use Agit\CoreBundle\Exception\ExceptionCode;
+use Agit\CommonBundle\Exception\AgitException;
+use Agit\CommonBundle\Exception\ExceptionCode;
 
 /**
  * @ExceptionCode("7.1")

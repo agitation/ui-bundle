@@ -10,8 +10,8 @@
 namespace Agit\UiBundle\Twig;
 
 use Agit\ApiBundle\Service\ObjectService;
-use Agit\CoreBundle\Exception\InternalErrorException;
-use Agit\CoreBundle\Helper\StringHelper;
+use Agit\CommonBundle\Exception\InternalErrorException;
+use Agit\CommonBundle\Helper\StringHelper;
 use Agit\ApiBundle\Api\Meta\Property\Name;
 
 class ApiFormBuilderExtension extends \Twig_Extension

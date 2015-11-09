@@ -11,9 +11,9 @@ namespace Agit\UiBundle\Service;
 
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\HttpFoundation\Response;
-use Agit\CoreBundle\Exception\InternalErrorException;
+use Agit\CommonBundle\Exception\InternalErrorException;
 use Agit\PluggableBundle\Strategy\Cache\CacheLoaderFactory;
-use Agit\CoreBundle\Service\UrlService;
+use Agit\CommonBundle\Service\UrlService;
 use Agit\UserBundle\Service\UserService;
 use Agit\IntlBundle\Service\LocaleService;
 

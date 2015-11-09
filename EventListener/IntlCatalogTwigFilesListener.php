@@ -11,7 +11,7 @@ namespace Agit\UiBundle\EventListener;
 
 use Agit\IntlBundle\Event\BundleFilesRegistrationEvent;
 use Agit\IntlBundle\EventListener\AbstractTemporaryFilesListener;
-use Agit\CoreBundle\Service\FileCollector;
+use Agit\CommonBundle\Service\FileCollector;
 
 class IntlCatalogTwigFilesListener extends AbstractTemporaryFilesListener
 {
