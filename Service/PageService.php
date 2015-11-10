@@ -86,7 +86,7 @@ class PageService
         if ($locale && $locale !== $this->primaryLocale && in_array($locale, $this->activeLocales))
             $parts[] = substr($locale, 0, 2);
 
-        return $this->urlService->createFrontendUrl(implode('/', $parts), $params);
+        return $this->urlService->createAppUrl(implode('/', $parts), $params);
     }
 
     public function createRedirectResponse($url, $status = 302)
