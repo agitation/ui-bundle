@@ -25,14 +25,6 @@ services:
             - { name: twig.extension }
         arguments:  [@agit.ui.page]
 
-    # simple form builder for API objects
-    agit.ui.formbuilder:
-        class: Agit\UiBundle\Twig\ApiFormBuilderExtension
-        tags:
-            - { name: twig.extension }
-        arguments:  [ @twig, @agit.api.object ]
-
-
     #
     # listeners for the intl catalog service
     #
