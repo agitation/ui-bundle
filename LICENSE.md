@@ -32,7 +32,5 @@ learn more about their licensing.
 
 ---
 
-The files in the `Resources/public/fonts` are subject to other licenses:
-
-- The files in `Resources/public/fonts/fontawesome` are © Dave Gandy and are licensed under the SIL Open Font License v1.1.
-- The files in `Resources/public/fonts/sourcesanspro` are © Adobe Systems Inc. and are licensed under the SIL Open Font License v1.1.
+The files in `Resources/public/fonts/fontawesome` are © Dave Gandy and are
+licensed under the SIL Open Font License v1.1.
