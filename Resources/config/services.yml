@@ -3,7 +3,7 @@ services:
     agit.ui.page:
         class: Agit\UiBundle\Service\PageService
         arguments: [ @agit.pluggable.cache.loader_factory, @agit.common.url, @agit.intl.locale, @?agit.user ]
-        tags: [{ name: agit.pluggable, type: cache, tag: agit.ui.pages, baseClass: Agit\UiBundle\Plugin\AbstractUiPagePlugin }]
+        tags: [{ name: agit.pluggable, type: cache, tag: agit.ui.pages, baseClass: Agit\UiBundle\Plugin\UiPagePlugin }]
 
     # Handles our custom Twig syntax for the page meta data
     agit.ui.custom:
