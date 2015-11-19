@@ -1,0 +1,10 @@
+{# language redirect, as early as possible #}
+
+{% javascripts
+    '@AgitUiBundle/Resources/public/js/external/cookies.js'
+    '@AgitUiBundle/Resources/public/js/lib/langswitch.js'
+
+    filter='?uglifyjs2'
+%}
+<script src="{{ asset_url }}" type="text/javascript"></script>
+{% endjavascripts %}
