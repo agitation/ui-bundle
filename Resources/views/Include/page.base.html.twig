@@ -12,13 +12,7 @@
         <link rel="icon" href="/favicon.ico">
         <meta name="description" content="{{ block('summary') }}">
 
-        {% if canonicalUrl is defined and localeUrls is defined %}
-            <link rel="canonical" href="{{ canonicalUrl }}" />
-
-            {% for loc,url in localeUrls %}{% if loc != locale %}
-                <link rel="alternate" hreflang="{{ loc|slice(0,2) }}" href="{{ url }}" />
-            {% endif %}{% endfor %}
-        {% endif %}
+        {% include 'AgitUiBundle:Include:include.urls.html.twig' %}
 
         {% block page_meta %}
         {% endblock %}

@@ -1,0 +1,8 @@
+{% if canonicalUrl is defined and localeUrls is defined %}
+    <link rel="canonical" href="{{ canonicalUrl }}" />
+
+    {% for loc,url in localeUrls %}{% if loc != locale %}
+        <link rel="alternate" hreflang="{{ loc|slice(0,2) }}" href="{{ url }}" />
+    {% endif %}{% endfor %}
+{% endif %}
+
