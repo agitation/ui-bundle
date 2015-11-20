@@ -1,5 +1,5 @@
 .message-bubbles                        { position: fixed; z-index: 9000; bottom: 1em; right: 1em; } /* apply this class to the container */
-.message-bubble                         { width: 25em; margin: 1.5em 0 0; padding: 1em; background: #111; overflow: hidden; border-radius: .2em; cursor: pointer; display: none; }
+.message-bubble                         { width: 25em; margin: 1.5em 0 0; padding: 1em; background: #111; overflow: hidden; border-radius: .3em; cursor: pointer; display: none; border: 1px solid #777 }
 .message-bubble:hover                   { background: #000; }
 
 .message-bubble .msg                    { float: right; width: 21em; line-height: 1.5em }
