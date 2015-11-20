@@ -1,9 +1,9 @@
 {% extends 'AgitUiBundle:Include:page.base.html.twig' %}
 
 {% agit.capability "" %}
-{% agit.status "401" %}
+{% agit.status "403" %}
 {% set noindex = 1 %}
-{% block title %}{{ x('Unauthorized', 'page title') }}{% endblock %}
+{% block title %}{{ x('Forbidden', 'page title') }}{% endblock %}
 
 {% block body %}
 <div class="container padded" role="main">
@@ -12,7 +12,7 @@
             <h3 class="panel-title">{{ block('title') }}</h3>
         </div>
         <div class="panel-body">
-            <p>{{ t('Please log in to access this page.') }}</p>
+            <p>{{ t('You are not allowed to access this page.') }}</p>
         </div>
     </div>
 </div>

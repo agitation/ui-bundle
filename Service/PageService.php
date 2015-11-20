@@ -110,10 +110,16 @@ class PageService
             $page = $this->getPage($vPath);
 
             if ($page['isVirtual'])
+            {
                 $page = $this->getPage('_notfound');
-
-            elseif ($page['caps'] && (!$this->userService || !$this->userService->currentUserCan($page['caps'])))
-                $page = $this->getPage('_unauthorized');
+            }
+            elseif ($page['caps'])
+            {
+                if (!$this->userService || !$this->userService->getCurrentUser())
+                    $page = $this->getPage('_unauthorized');
+                elseif (!$this->userService->currentUserCan($page['caps']))
+                    $page = $this->getPage('_forbidden');
+            }
         }
 
         return $page;
