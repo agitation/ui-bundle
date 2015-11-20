@@ -1,5 +1,5 @@
 /*jslint bitwise: false, continue: false, debug: false, eqeq: true, es5: false, evil: false, forin: false, newcap: false, nomen: true, plusplus: true, regexp: true, undef: false, unparam: true, sloppy: true, stupid: false, sub: false, todo: true, vars: false, white: true, css: false, on: false, fragment: false, passfail: false, browser: true, devel: true, node: false, rhino: false, windows: false, indent: 4, maxerr: 100 */
-/*global Tx, $, jQuery, OpenLayers, JSON */
+/*global Agit, $, jQuery */
 
 Agit.Object = function(objectName, _defaultValues)
 {
@@ -17,12 +17,12 @@ Agit.Object = function(objectName, _defaultValues)
             }
         };
 
-    if (!Agit.ApiObjects[namespace] || !Agit.ApiObjects[namespace][objectName])
+    if (!Agit.Object.list[objectName])
     {
         throw new Agit.Exception('api.object', Agit.sprintf("Object does not exist: %s", objectName));
     }
 
-    $.each(Agit.ApiObjects[namespace][objectName], function(key, value){
+    $.each(Agit.Object.list[objectName], function(key, value){
         values[key] = (defaultValues[key] === undefined) ? value : defaultValues[key];
     });
 
@@ -54,4 +54,18 @@ Agit.Object = function(objectName, _defaultValues)
     {
         return values;
     };
+};
+
+Agit.Object.list = {};
+
+Agit.Object.register = function(name, requestObject)
+{
+    Agit.Object.list[name] = requestObject;
+};
+
+Agit.Object.registerList = function(list)
+{
+    Object.keys(list).map(function(key){
+        Agit.Object.register(key, list[key]);
+    });
 };
