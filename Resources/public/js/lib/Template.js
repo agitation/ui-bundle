@@ -1,7 +1,7 @@
 /*jslint bitwise: false, continue: false, debug: false, eqeq: true, es5: false, evil: false, forin: false, newcap: false, nomen: true, plusplus: true, regexp: true, undef: false, unparam: true, sloppy: true, stupid: false, sub: false, todo: true, vars: false, white: true, css: false, on: false, fragment: false, passfail: false, browser: true, devel: true, node: false, rhino: false, windows: false, indent: 4, maxerr: 100 */
 /*global Tx, $, jQuery, OpenLayers, JSON */
 
-Agit.TemplateFactory = function()
+Agit.Template = function()
 {
     var
         $body = $('body'),
@@ -39,12 +39,12 @@ Agit.TemplateFactory = function()
     };
 };
 
-Agit.TemplateFactory.get = function(selector)
+Agit.Template.get = function(selector)
 {
-    if (Agit.TemplateFactory._instance === undefined)
+    if (Agit.Template._instance === undefined)
     {
-        Agit.TemplateFactory._instance = new Agit.TemplateFactory();
+        Agit.Template._instance = new Agit.Template();
     }
 
-    return Agit.TemplateFactory._instance.get(selector);
+    return Agit.Template._instance.get(selector);
 };

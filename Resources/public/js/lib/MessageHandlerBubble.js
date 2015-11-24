@@ -29,7 +29,7 @@ Agit.MessageHandlerBubble = function($parent)
     self.showMessage = function(message)
     {
         var
-            $msgBubble = (new Agit.TemplateFactory()).get('.message-bubble'),
+            $msgBubble = (new Agit.Template()).get('.message-bubble'),
             removeThisBubble = function(){ removeBubble($msgBubble) };
 
         window.setTimeout(function(){

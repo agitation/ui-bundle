@@ -3,7 +3,7 @@
 
 Agit.Modal = function()
 {
-    var $modal = Agit.TemplateFactory.get('div.modal');
+    var $modal = Agit.Template.get('div.modal');
 
     $modal.setTitle = function($elem)
     {
@@ -44,7 +44,7 @@ Agit.Modal = function()
 
 Agit.Modal.getButton = function(type, text, callback)
 {
-    return Agit.TemplateFactory
+    return Agit.Template
         .get('.modal-btn.' + type)
         .text(text)
         .click(callback || function(){})
