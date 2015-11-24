@@ -102,16 +102,16 @@ if (window.jQuery)
                 }
                 else
                 {
-                    value = ($.isArray(value)) ? Agit.arrayMap(Agit.toInt, value) : Agit.toInt(value);
+                    value = ($.isArray(value)) ? value.map(Agit.toInt) : Agit.toInt(value);
                 }
             }
             else if ($field.is('*[data-type=float]'))
             {
-                value = ($.isArray(value)) ? Agit.arrayMap(Agit.toFloat, value) : Agit.toFloat(value);
+                value = ($.isArray(value)) ? value.map(Agit.toFloat) : Agit.toFloat(value);
             }
             else if ($field.is('*[data-type=bool]'))
             {
-                value = ($.isArray(value)) ? Agit.arrayMap(Agit.toBool, value) : Agit.toBool(value);
+                value = ($.isArray(value)) ? value.map(Agit.toBool) : Agit.toBool(value);
             }
 
             if (((value === 0 || value === '0') && $field.is('*[data-zero-is-null=true]')) || ((value === '') && $field.is('*[data-empty-is-null=true]')))
