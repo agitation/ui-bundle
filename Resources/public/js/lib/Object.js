@@ -6,8 +6,8 @@ Agit.Object = function(objectName, _defaultValues)
     var
         self = this,
         defaultValues = _defaultValues || {},
-        values = {},
-        namespace = objectName.split('/')[0];
+        objectMeta = Agit.Object.list[objectName],
+        values = {};
 
         checkPropertyExists = function(key)
         {
@@ -15,9 +15,16 @@ Agit.Object = function(objectName, _defaultValues)
                 throw Agit.sprintf("Object %s does not have a property named %s.", name, key);
         };
 
-    $.each(Agit.Object.list[objectName], function(key, value){
-        values[key] = (defaultValues[key] === undefined) ? value : defaultValues[key];
+    Object.keys(objectMeta).forEach(function(key){
+        values[key] = (defaultValues[key] !== undefined)
+            ? defaultValues[key]
+            : objectMeta[key].default;
     });
+
+    this.getPropMeta = function(propName)
+    {
+        return objectMeta[propName];
+    };
 
     this.set = function(key, value)
     {
