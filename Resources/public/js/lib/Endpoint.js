@@ -3,9 +3,6 @@
 
 Agit.Endpoint = function(endpointName)
 {
-    var
-        namespace = endpointName.split('/')[0];
-
     if (!Agit.Endpoint.list[endpointName])
     {
         throw new Agit.Exception('api.endpoint', Agit.sprintf("Invalid endpoint: %s", endpointName));
