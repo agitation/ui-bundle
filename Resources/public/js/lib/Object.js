@@ -18,7 +18,7 @@ Agit.Object = function(objectName, _defaultValues)
     Object.keys(objectMeta).forEach(function(key){
         values[key] = (defaultValues[key] !== undefined)
             ? defaultValues[key]
-            : objectMeta[key].default;
+            : objectMeta[key].default || null;
     });
 
     this.getPropMeta = function(propName)
