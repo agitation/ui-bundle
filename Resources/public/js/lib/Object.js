@@ -12,15 +12,8 @@ Agit.Object = function(objectName, _defaultValues)
         checkPropertyExists = function(key)
         {
             if (values[key] === undefined)
-            {
                 throw Agit.sprintf("Object %s does not have a property named %s.", name, key);
-            }
         };
-
-    if (!Agit.Object.list[objectName])
-    {
-        throw new Agit.Exception('api.object', Agit.sprintf("Object does not exist: %s", objectName));
-    }
 
     $.each(Agit.Object.list[objectName], function(key, value){
         values[key] = (defaultValues[key] === undefined) ? value : defaultValues[key];
