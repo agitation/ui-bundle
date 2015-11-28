@@ -1,0 +1,7 @@
+{% if jsconfig is not defined %}
+    {% set jsconfig = {} %}
+{% endif %}
+
+<script type="text/javascript">/* <![CDATA[ */
+    window.Agit = {{ jsconfig|json_encode()|raw }};
+/* ]]> */</script>
