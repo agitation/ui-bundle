@@ -24,18 +24,3 @@ services:
         tags:
             - { name: twig.extension }
         arguments:  [@agit.ui.page]
-
-    #
-    # listeners for the intl catalog service
-    #
-
-    # checks if a bundle has Twig templates, and prepares them for extraction
-    agit.ui.intl.twig:
-        class: Agit\UiBundle\EventListener\IntlCatalogTwigFilesListener
-        arguments: [ @agit.common.filecollector, @twig ]
-        tags: [{ name: kernel.event_listener, event: agit.intl.files.register, method: onRegistration }]
-
-    # cleans up temporary files
-    agit.ui.intl.twig.cleanup:
-        parent: agit.intl.listener.files.cleanup
-        tags: [{ name: kernel.event_listener, event: agit.intl.files.cleanup, method: onRegistration }]
