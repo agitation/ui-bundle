@@ -6,7 +6,24 @@ Agit.ApiForm = function($form, endpoint, requestObject, callback)
     var
         fieldHandlers = {},
         defaultValues,
-        autoFields = null; // fields that will be automatically collected. null: collect all
+        autoFields = null, // fields that will be automatically collected. null: collect all
+
+        collectFormValues = function()
+        {
+            var values = {};
+
+            $form.find('input[name], select[name], textarea[name]').each(function(){
+                var
+                    $this = $(this),
+                    name = $this.attr('name'),
+                    val = $this.getFieldValue();
+
+                if ($this.attr('data-ignore') !== 'true' && name && val !== null && val !== undefined)
+                    values[name] = val;
+            });
+
+            return values;
+        };
 
     $form.registerFieldHandler = function(fieldName, handler)
     {
@@ -47,7 +64,7 @@ Agit.ApiForm = function($form, endpoint, requestObject, callback)
     $form.getFieldsByName = function()
     {
         var
-            preValues = Agit.collectFormValues($form),
+            preValues = collectFormValues(),
             values = {};
 
         $.each(preValues, function(key, value){
