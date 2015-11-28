@@ -1,6 +1,0 @@
-AgitUiBundle:
-    pattern:  /{request}
-    host: %agit.common.domain.app%
-    defaults: { _controller: AgitUiBundle:Catchall:dispatcher }
-    requirements:
-        request: ".*"
