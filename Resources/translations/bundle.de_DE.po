@@ -12,21 +12,3 @@ msgstr "Der Aufruf ist fehlgeschlagen oder hat ein ungültiges Ergebnis geliefer
 #: @AgitUiBundle/Resources/public/js/lib/MessageHandlerDialog.js:15
 msgid "Ok"
 msgstr "Ok"
-
-#: @AgitUiBundle/Resources/views/Special/notfound.html.twig:34
-msgctxt "page title"
-msgid "Page not found"
-msgstr "Die Seite wurde nicht gefunden"
-
-#: @AgitUiBundle/Resources/views/Special/notfound.html.twig:52
-msgid "The requested page could not be found. Please check the spelling of the address, or notify the owner of the referring web page."
-msgstr "Die gewünschte Seite wurde nicht gefunden. Bitte prüfen Sie die Schreibweise der Adresse oder benachrichtigen Sie ggf. den Betreiber der verweisenden Seite."
-
-#: @AgitUiBundle/Resources/views/Special/unauthorized.html.twig:34
-msgctxt "page title"
-msgid "Forbidden"
-msgstr "Zugriff nicht gestattet"
-
-#: @AgitUiBundle/Resources/views/Special/unauthorized.html.twig:52
-msgid "The requested page cannot be viewed by you. Please log in, or contact an administrator if you need to access this page."
-msgstr "Die gewünschte Seite darf von Ihnen nicht aufgerufen werden. Bitte loggen Sie sich ein oder kontaktieren Sie einen Administrator, falls Sie Zugriff auf diese Seite benötigen."
