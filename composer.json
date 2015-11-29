@@ -5,13 +5,13 @@
     "require": {
         "php": ">=5.4.9",
         "symfony/symfony": "2.3.*",
-        "agitation/common": "dev-master",
-        "agitation/intl": "dev-master",
-        "agitation/pluggable": "dev-master"
+        "agitation/common-bundle": "dev-master",
+        "agitation/intl-bundle": "dev-master",
+        "agitation/pluggable-bundle": "dev-master"
     },
     "suggest": {
-        "agitation/user": "Required to check user capabilities. Without it, pages requiring a capability cannot be displayed.",
-        "agitation/localedata": "Required to display a language switcher with actual localized language names."
+        "agitation/user-bundle": "Required to check user capabilities. Without it, pages requiring a capability cannot be displayed.",
+        "agitation/localedata-bundle": "Required to display a language switcher with actual localized language names."
     },
     "autoload": {
         "psr-4": {
@@ -24,18 +24,5 @@
             "name": "AGITsol GmbH",
             "homepage": "http://www.agitsol.com/"
         }
-    ],
-    "description": "Provides an extendable component for user interfaces (i.e. web pages) and their templates for the Agitation framework.",
-    "keywords": [
-        "agit",
-        "agitation",
-        "tixys",
-        "user",
-        "authentication",
-        "authorisation",
-        "authorization",
-        "roles",
-        "capabilities",
-        "pluggable"
     ]
 }
