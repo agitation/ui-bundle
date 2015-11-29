@@ -1,5 +1,5 @@
 {
-    "name": "agitation/ui",
+    "name": "agitation/ui-bundle",
     "type": "symfony-bundle",
     "minimum-stability": "dev",
     "require": {
