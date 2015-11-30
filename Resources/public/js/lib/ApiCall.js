@@ -84,7 +84,7 @@ Agit.ApiCall = function(endpoint, requestObject, successCallback, _params)
                 };
             }
 
-            if (Agit.inArray(params.processType, ['api', 'apicomplete']))
+            if (['api', 'apicomplete'].indexOf(params.processType) > -1)
             {
                 finishCallback = function()
                 {
