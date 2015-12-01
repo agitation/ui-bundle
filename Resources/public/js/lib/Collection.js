@@ -18,18 +18,18 @@ Agit.Collection = function(list, options)
 
     self.get = function(id)
     {
-        return elements[opts.idCol];
+        return elements[id];
     };
 
     self.add = function(element)
     {
-        elements[opts.idCol] = element;
+        elements[element[opts.idCol]] = element;
         updateLength();
     };
 
     self.update = function(element)
     {
-        elements[opts.idCol] = element;
+        elements[element[opts.idCol]] = element;
         updateLength();
     };
 
