@@ -14,6 +14,35 @@ Agit.ApiCall = function(endpoint, requestObject, successCallback, _params)
 
         params = $.extend(defaultParams, _params || {}),
 
+        requestNormalizer = function(value)
+        {
+            var normalizedValue;
+
+            if (value instanceof Object)
+            {
+                normalizedValue = {};
+
+                (value instanceof Agit.Object) && (value = value.getData());
+
+                Object.keys(value).forEach(function(key){
+                    normalizedValue[key] = requestNormalizer(value[key]);
+                });
+            }
+            else if (value instanceof Array)
+            {
+                normalizedValue = [];
+                value.forEach(function(val){
+                    normalizedValue.push(requestNormalizer(val));
+                });
+            }
+            else
+            {
+                normalizedValue = value;
+            }
+
+            return normalizedValue;
+        },
+
         processPayload = function(payload, entityList)
         {
             var
@@ -127,7 +156,7 @@ Agit.ApiCall = function(endpoint, requestObject, successCallback, _params)
     {
         var
             request = 'request=' +
-                JSON.stringify(requestObject.getData())
+                JSON.stringify(requestNormalizer(requestObject))
                     .replace(/\+/g, '%2b')
                     .replace(/&/g, '%26') +
                 "&locale=" + Agit.locale,
