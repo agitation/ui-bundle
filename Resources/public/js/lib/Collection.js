@@ -50,11 +50,25 @@ Agit.Collection = function(list, options)
         updateLength();
     };
 
-
     self.forEach = function(callback)
     {
         Object.keys(elements).forEach(function(key){
             callback(elements[key], key);
+        });
+    };
+
+    self.sort = function(field, callback)
+    {
+        var elemList = [];
+
+        field = field || "name";
+
+        Object.keys(elements).forEach(function(key){
+            elemList.push(elements[key]);
+        });
+
+        return elemList.sort(callback || function(elem1, elem2){
+            return Agit.out(elem1[field]).localeCompare(Agit.out(elem2[field]));
         });
     };
 
