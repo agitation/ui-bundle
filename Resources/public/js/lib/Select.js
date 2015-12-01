@@ -21,6 +21,31 @@ Agit.Select = function(elementOrAttributes, options, selectCallback)
         $select.attr(elementOrAttributes);
     }
 
+    $select.entityToOption = function(entity, isSelected)
+    {
+        return {
+            value: entity.id,
+            text: Agit.out(entity.name),
+            selected : isSelected
+        };
+    };
+
+    $select.entitiesToOptions = function(entityList, selected)
+    {
+        var options = [];
+
+        selected = selected || [];
+        $.isArray(selected) || (selected = [selected]);
+
+        entityList.forEach(function(entity){
+            entity &&
+            entity.id &&
+            options.push($select.entityToOption(entity, selected.indexOf(entity.id) > -1));
+        });
+
+        return options;
+    };
+
     $select.setOptions = function(options)
     {
         var
