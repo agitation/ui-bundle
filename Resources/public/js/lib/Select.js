@@ -5,6 +5,12 @@ Agit.Select = function(elementOrAttributes, options, selectCallback)
 {
     var
         $select = $("<select class='form-control'>"),
+        hasIntro = false, // a "please select" pseudo-option
+
+        createIntro = function()
+        {
+            return $("<option value='' disabled selected hidden>").text(Agit.L10n.t("– Please select –"));
+        },
 
         getSelectedOption = function()
         {
@@ -66,7 +72,8 @@ Agit.Select = function(elementOrAttributes, options, selectCallback)
             ));
         });
 
-        $select.html($(html.join("")));
+        hasIntro && $select.html(createIntro());
+        $select.append($(html.join("")));
 
         if (selected.length)
         {
@@ -79,6 +86,12 @@ Agit.Select = function(elementOrAttributes, options, selectCallback)
         }
 
         return $select;
+    };
+
+    $select.addIntro = function()
+    {
+        hasIntro = true;
+        $select.prepend(createIntro());
     };
 
     options && options.length && $select.setOptions(options);
