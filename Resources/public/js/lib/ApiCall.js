@@ -18,7 +18,14 @@ Agit.ApiCall = function(endpoint, requestObject, successCallback, _params)
         {
             var normalizedValue;
 
-            if (value instanceof Object)
+            if (value instanceof Array)
+            {
+                normalizedValue = [];
+                value.forEach(function(val){
+                    normalizedValue.push(requestNormalizer(val));
+                });
+            }
+            else if (value instanceof Object)
             {
                 normalizedValue = {};
 
@@ -26,13 +33,6 @@ Agit.ApiCall = function(endpoint, requestObject, successCallback, _params)
 
                 Object.keys(value).forEach(function(key){
                     normalizedValue[key] = requestNormalizer(value[key]);
-                });
-            }
-            else if (value instanceof Array)
-            {
-                normalizedValue = [];
-                value.forEach(function(val){
-                    normalizedValue.push(requestNormalizer(val));
                 });
             }
             else
