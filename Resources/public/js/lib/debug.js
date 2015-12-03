@@ -18,4 +18,5 @@ var _getValueSource = function(val)
 };
 
 function a(val) { alert(_getValueSource(val)); }
+function c(val) { console.log(_getValueSource(val)); }
 function p(val) { $('body').append((_getValueSource(val))+'<br /><br />'); }

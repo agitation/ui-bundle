@@ -13,9 +13,9 @@ Agit.Endpoint = function(endpointName)
         return Agit.sprintf('%s/%s', Agit.apiBaseUrl, endpointName);
     };
 
-    this.getExpectedObjectName = function()
+    this.createRequestObject = function(values)
     {
-        return Agit.Endpoint.list[endpointName];
+        return new Agit.Object(Agit.Endpoint.list[endpointName], values);
     };
 };
 
