@@ -23,15 +23,12 @@ Agit.Map = function()
 
         // TODO: Migrate to MutationObserver as soon as old IEs are extinct
         insertionListener = window.setInterval(function(){
-            if ($map[0].ownerDocument.body.contains($map[0]))
+            if ($map.is(":visible"))
             {
                 window.clearInterval(insertionListener);
-//                 window.setTimeout(function(){
-//                     a($map.outerWidth());
-                    olMap.setTarget($map[0]);
-//                 }, 5000);
+                olMap.setTarget($map[0]);
             }
-        }, 50);
+        }, 250);
 
     $map.ol = olMap;
 
