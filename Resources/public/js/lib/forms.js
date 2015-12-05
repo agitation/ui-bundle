@@ -4,7 +4,15 @@
 if (window.jQuery)
 {
     (function($) {
-        $.fn.setFieldValue = function(origValue)
+
+        // NOTE: _setValue and _getValue should only be used by a form field
+        // instance itself, usually overwriting its own val() method.
+
+        // copying .val() to a different key, because it’s likely to be overridden
+        // when we call it in _setValue and _getValue
+        $.fn._origVal = $.fn.val;
+
+        $.fn._setValue = function(origValue)
         {
             var
                 $field = $(this),
@@ -12,91 +20,61 @@ if (window.jQuery)
 
             if (value !== undefined)
             {
-                if ($field.is('input[type=radio]'))
+                if ($field.is("input[type=radio]"))
                 {
                     // NB: we expect the complete set of radio inputs in this case
-                    $field.filter('[value='+value+']').attr('checked', 'checked');
+                    $field.filter("[value="+value+"]").attr("checked", "checked");
                 }
-                else if ($field.is('input[type=checkbox]'))
+                else if ($field.is("input[type=checkbox]"))
                 {
-                    $field.attr('checked', (!value || value === '0') ? false : true);
+                    $field.attr("checked", (!value || value === "0") ? false : true);
                 }
-                else if ($field.is('input, textarea'))
+                else if ($field.is("select[multiple=multiple]"))
                 {
-                    if ($field.is('input[data-type=float]') && $field.hasClass('currency') && value !== '')
-                    {
-                        value = Agit.currencyFormat(value);
-                    }
-                    else if ($field.is('*[data-type=bool]'))
-                    {
-                        value = (value === "true" || Agit.toBool(value)) ? '1' : '0';
-                    }
-
-                    $field.val(value);
+                    $field._origVal($.isArray(value) ? value : [value]);
                 }
-                else if ($field.is('select[multiple=multiple]'))
-                {
-                    $field.val($.isArray(value) ? value : [value]);
-                }
-                else if ($field.is('select'))
+                else if ($field.is("select"))
                 {
                     if (value === null)
                     {
-                        value = $field.find($field.children('option[selected]').length ? 'option[selected]' : 'option:first-child').attr('value');
+                        value = $field.find($field.children("option[selected]").length ? "option[selected]" : "option:first-child").attr("value");
                     }
 
-                    $field.val(value);
+                    $field._origVal(value);
                 }
-
-                $field.trigger('setFieldValue', origValue);
             }
 
             return this;
         };
 
-        $.fn.disable = function()
-        {
-            return $(this).attr('disabled', 'disabled');
-        };
-
-        $.fn.enable = function()
-        {
-            return $(this).attr('disabled', false);
-        };
-
-        $.fn.clear = function()
-        {
-            return $(this).filter('input[type=text], input[type=password], input[type=number], textarea').setFieldValue('');
-        };
-
-        $.fn.getFieldValue = function()
+        $.fn._getValue = function()
         {
             var value = null, $field = $(this);
 
             // getting the value ...
 
-            if ($field.is('input[data-callback=true]'))
+            if ($field.is("input[data-callback=true]"))
             {
                 value = $field.getValue();
             }
-            else if ($field.is('input[type=radio]'))
+            else if ($field.is("input[type=radio]"))
             {
-                value = $('input[name='+$field.attr('name')+']:checked').val();
+                value = $("input[name="+$field.attr("name")+"]:checked")._origVal();
             }
-            else if ($field.is('input[type=checkbox]'))
+            else if ($field.is("input[type=checkbox]"))
             {
-                value = $field.is(':checked');
+                value = $field.is(":checked");
             }
-            else if ($field.is('input, textarea, select'))
+            else if ($field.is("input, textarea, select"))
             {
-                value = $field.val();
+                value = $field._origVal();
             }
 
             // typecasting ...
 
-            if ($field.is('*[data-type=int]'))
+            if ($field.is("*[data-type=int]"))
             {
-                if ($field.is('select[multiple=multiple]') && value === null)
+                if ($field.is("select[multiple=multiple]") && value === null)
                 {
                     value = [];
                 }
@@ -105,21 +83,36 @@ if (window.jQuery)
                     value = ($.isArray(value)) ? value.map(Agit.toInt) : Agit.toInt(value);
                 }
             }
-            else if ($field.is('*[data-type=float]'))
+            else if ($field.is("*[data-type=float]"))
             {
                 value = ($.isArray(value)) ? value.map(Agit.toFloat) : Agit.toFloat(value);
             }
-            else if ($field.is('*[data-type=bool]'))
+            else if ($field.is("*[data-type=bool]"))
             {
                 value = ($.isArray(value)) ? value.map(Agit.toBool) : Agit.toBool(value);
             }
 
-            if (((value === 0 || value === '0') && $field.is('*[data-zero-is-null=true]')) || ((value === '') && $field.is('*[data-empty-is-null=true]')))
+            if (((value === 0 || value === "0") && $field.is("*[data-zero-is-null=true]")) || ((value === "") && $field.is("*[data-empty-is-null=true]")))
             {
                 value = null;
             }
 
             return value;
+        };
+
+        $.fn.disable = function()
+        {
+            return $(this).attr("disabled", "disabled");
+        };
+
+        $.fn.enable = function()
+        {
+            return $(this).attr("disabled", false);
+        };
+
+        $.fn.clear = function()
+        {
+            return $(this).filter("input[type=text], input[type=password], input[type=number], textarea").setValue("");
         };
     }(jQuery));
 }

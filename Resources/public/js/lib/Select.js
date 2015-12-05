@@ -15,7 +15,7 @@ Agit.Select = function(elementOrAttributes, options, selectCallback)
         getSelectedOption = function()
         {
             var $this = $(this);
-            selectCallback && selectCallback($this.attr("name"), $this.getFieldValue());
+            selectCallback && selectCallback($this.attr("name"), $this.val());
         };
 
     if ($(elementOrAttributes).is("select"))
@@ -82,7 +82,7 @@ Agit.Select = function(elementOrAttributes, options, selectCallback)
                 selected = selected[0];
             }
 
-            $select.setFieldValue(selected);
+            $select.val(selected);
         }
 
         return $select;
@@ -97,6 +97,22 @@ Agit.Select = function(elementOrAttributes, options, selectCallback)
     options && options.length && $select.setOptions(options);
 
     $select.change(getSelectedOption);
+
+    $select.val = function(value)
+    {
+        // setter
+        if (value !== undefined)
+        {
+            $select._setValue(value);
+            return $select;
+        }
+
+        // getter
+        else
+        {
+            return $select._getValue();
+        }
+    };
 
     return $select;
 };
