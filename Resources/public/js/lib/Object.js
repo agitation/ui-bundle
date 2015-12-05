@@ -21,6 +21,11 @@ Agit.Object = function(objectName, _defaultValues)
             : objectMeta[key].default || null;
     });
 
+    this.getMeta = function()
+    {
+        return objectMeta;
+    };
+
     this.getPropMeta = function(propName)
     {
         return objectMeta[propName];
