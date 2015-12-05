@@ -109,7 +109,7 @@ Agit.ApiCall = function(endpoint, requestObject, successCallback, _params)
                 {
                     success : false,
                     payload : null,
-                    messageList : [{type: "error", text: Agit.L10n.t("Call failed or returned an invalid response.")}]
+                    messageList : [{ type: "error", text: "Error while loading the requested data." }]
                 };
             }
 
