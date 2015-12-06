@@ -1,65 +1,51 @@
 /*jslint bitwise: false, continue: false, debug: false, eqeq: true, es5: false, evil: false, forin: false, newcap: false, nomen: true, plusplus: true, regexp: true, undef: false, unparam: true, sloppy: true, stupid: false, sub: false, todo: true, vars: false, white: true, css: false, on: false, fragment: false, passfail: false, browser: true, devel: true, node: false, rhino: false, windows: false, indent: 4, maxerr: 100 */
 /*global Agit, $, jQuery */
 
-Agit.Object = function(objectName, _defaultValues)
-{
+Agit.Object = (function() {
     var
-        self = this,
-        defaultValues = _defaultValues || {},
-        objectMeta = Agit.Object.list[objectName],
-        values = {};
-
-        checkPropertyExists = function(key)
+        factoryProto =
         {
-            if (values[key] === undefined)
-                throw Agit.sprintf("Object %s does not have a property named %s.", name, key);
+            getName : function()
+            {
+                return this._name;
+            },
+
+            getMeta : function()
+            {
+                return this._meta;
+            },
+
+            getPropMeta : function(propName)
+            {
+                return this._meta[propName];
+            }
         };
 
-    Object.keys(objectMeta).forEach(function(key){
-        values[key] = (defaultValues[key] !== undefined)
-            ? defaultValues[key]
-            : objectMeta[key].default || null;
-    });
-
-    this.getMeta = function()
+    return function(objectName, defaultValues)
     {
-        return objectMeta;
-    };
+        var
+            objectMeta = Agit.Object.list[objectName],
+            values = {},
+            object = Object.create(factoryProto);
 
-    this.getPropMeta = function(propName)
-    {
-        return objectMeta[propName];
-    };
+        Object.keys(objectMeta).forEach(function(prop){
+            values[prop] = (defaultValues[prop] !== undefined)
+                ? defaultValues[prop]
+                : objectMeta[prop].default || null;
 
-    this.set = function(key, value)
-    {
-        checkPropertyExists(key);
-        values[key] = value;
-    };
-
-    this.get = function(key)
-    {
-        checkPropertyExists(key);
-        return values[key];
-    };
-
-    this.getName = function()
-    {
-        return name;
-    };
-
-    this.setData = function(data)
-    {
-        $.each(data, function(key, value){
-            self.set(key, value);
+            Object.defineProperty(object, prop, {
+                get: function() { return values[prop]; },
+                set: function(value) { values[prop] = value; },
+                enumerable: true
+            });
         });
-    };
 
-    this.getData = function()
-    {
-        return values;
+        Object.defineProperty(object, "_name", { value: objectName });
+        Object.defineProperty(object, "_meta", { value: objectMeta });
+
+        return object;
     };
-};
+})();
 
 Agit.Object.list = {};
 
