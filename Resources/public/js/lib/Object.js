@@ -1,6 +1,3 @@
-/*jslint bitwise: false, continue: false, debug: false, eqeq: true, es5: false, evil: false, forin: false, newcap: false, nomen: true, plusplus: true, regexp: true, undef: false, unparam: true, sloppy: true, stupid: false, sub: false, todo: true, vars: false, white: true, css: false, on: false, fragment: false, passfail: false, browser: true, devel: true, node: false, rhino: false, windows: false, indent: 4, maxerr: 100 */
-/*global Agit, $, jQuery */
-
 Agit.Object = (function() {
     var
         factoryProto =
@@ -23,6 +20,8 @@ Agit.Object = (function() {
 
     return function(objectName, defaultValues)
     {
+        defaultValues = defaultValues || {};
+
         var
             objectMeta = Agit.Object.list[objectName],
             values = {},
@@ -49,14 +48,9 @@ Agit.Object = (function() {
 
 Agit.Object.list = {};
 
-Agit.Object.register = function(name, requestObject)
+Agit.Object.register = function(objects)
 {
-    Agit.Object.list[name] = requestObject;
-};
-
-Agit.Object.registerList = function(list)
-{
-    Object.keys(list).map(function(key){
-        Agit.Object.register(key, list[key]);
+    Object.keys(objects).map(function(key){
+        Agit.Object.list[key] = objects[key];
     });
 };
