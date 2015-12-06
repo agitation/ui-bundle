@@ -3,7 +3,12 @@
 
 Agit.Endpoint = function(endpointName)
 {
-    if (!Agit.Endpoint.list[endpointName])
+    var
+        endpointMeta = Agit.Endpoint.list[endpointName],
+        expectedRequest = endpointMeta[0],
+        expectedResponse = endpointMeta[1];
+
+    if (!endpointMeta)
     {
         throw new Agit.Exception('api.endpoint', Agit.sprintf("Invalid endpoint: %s", endpointName));
     }
@@ -13,9 +18,19 @@ Agit.Endpoint = function(endpointName)
         return Agit.sprintf('%s/%s', Agit.apiBaseUrl, endpointName);
     };
 
+    this.getRequestObjectName = function()
+    {
+        return endpointMeta[0];
+    };
+
+    this.getResponseObjectName = function()
+    {
+        return endpointMeta[1];
+    };
+
     this.createRequestObject = function(values)
     {
-        return new Agit.Object(Agit.Endpoint.list[endpointName], values);
+        return new Agit.Object(this.getRequestObjectName(), values);
     };
 };
 
