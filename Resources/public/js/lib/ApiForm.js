@@ -16,7 +16,7 @@ Agit.ApiForm = function($form, endpoint, requestObject, callback)
                 var
                     $this = $(this),
                     name = $this.attr('name'),
-                    val = $this.getFieldValue();
+                    val = $this.val();
 
                 if ($this.attr('data-ignore') !== 'true' && name && val !== null && val !== undefined)
                     values[name] = val;
@@ -37,12 +37,12 @@ Agit.ApiForm = function($form, endpoint, requestObject, callback)
 
     $form.setFieldByName = function(key, value)
     {
-        $form.find('*[name='+key+']').setFieldValue(value);
+        $form.find('*[name='+key+']').val(value);
     };
 
     $form.getFieldByName = function(key)
     {
-        return $form.find('*[name='+key+']').getFieldValue();
+        return $form.find('*[name='+key+']').val();
     };
 
     $form.setFieldsByName = function(item)
@@ -52,7 +52,7 @@ Agit.ApiForm = function($form, endpoint, requestObject, callback)
         $.each(item, function(key, value){
             if (fieldHandlers[key])
             {
-                fieldHandlers[key].setFieldValue(value);
+                fieldHandlers[key].val(value);
             }
             else if (autoFields === null || Agit.inArray(key, autoFields))
             {
@@ -75,7 +75,7 @@ Agit.ApiForm = function($form, endpoint, requestObject, callback)
         });
 
         $.each(fieldHandlers, function(key, handler){
-            values[key] = handler.getFieldValue();
+            values[key] = handler.val();
         });
 
         return values;
@@ -99,9 +99,15 @@ Agit.ApiForm = function($form, endpoint, requestObject, callback)
     };
 
     $form.submit(function(ev){
-        Agit.stopEvent(ev);
-        requestObject.setData($form.getFieldsByName());
+        var formData = $form.getFieldsByName();
+
+        Object.keys(requestObject.getMeta()).forEach(function(key){
+            formData[key] && (requestObject[key] = formData[key]);
+        });
+
         new Agit.apiCall(endpoint, requestObject, callback, { processType : 'apicomplete' });
+
+        Agit.stopEvent(ev);
     });
 
     defaultValues = $form.getFieldsByName();
