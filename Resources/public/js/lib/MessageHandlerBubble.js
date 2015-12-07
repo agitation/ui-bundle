@@ -4,17 +4,14 @@
 Agit.MessageHandlerBubble = function($parent)
 {
     var
-        self = new Agit.MessageHandler(),
+        msgH = Object.create(Agit.MessageHandler),
         $bubbles = {},
         removeBubble = function($msgBubble)
         {
-            if ($msgBubble)
-            {
-                $msgBubble.fadeOut(1500, $msgBubble.remove);
-            }
+            $msgBubble && $msgBubble.fadeOut(1500, $msgBubble.remove);
         };
 
-    self.clear = function(category)
+    msgH.clear = function(category)
     {
         $.each($bubbles, function(cat, $bubbleList){
             if (category === undefined || cat === category)
@@ -26,10 +23,10 @@ Agit.MessageHandlerBubble = function($parent)
         });
     };
 
-    self.showMessage = function(message)
+    msgH.showMessage = function(message)
     {
         var
-            $msgBubble = (new Agit.Template()).get('.message-bubble'),
+            $msgBubble = Agit.Template.get('.message-bubble'),
             removeThisBubble = function(){ removeBubble($msgBubble) };
 
         window.setTimeout(function(){
@@ -55,5 +52,5 @@ Agit.MessageHandlerBubble = function($parent)
     };
 
 
-    return self;
+    return msgH;
 };

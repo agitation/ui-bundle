@@ -7,7 +7,7 @@ Agit.OverlayIndicator = (function(){
         Animator = function(parentParams)
         {
             var
-                $anim = $("<div class='anim'></div>"),
+                $anim = $("<div class='anim'>"),
                 maxSize = 50,
 
                 setSize = function()
@@ -48,7 +48,6 @@ Agit.OverlayIndicator = (function(){
 
         createIndicator = function(parent)
         {
-
             var
                 indicator = Object.create(Agit.Indicator),
                 parentIsWindow = (parent === window),
@@ -100,21 +99,15 @@ Agit.OverlayIndicator = (function(){
 
             indicator.finish = function(callback)
             {
-                var
-                    delay = 600; // a little delay to make it feel like "something happened", also to finish the rendering
+                --instanceCount;
 
-                window.setTimeout(function() {
-                    --instanceCount;
+                if (!instanceCount)
+                {
+                    $animator.stop();
+                    $indicator.fadeOut();
+                }
 
-                    if (!instanceCount)
-                    {
-                        $animator.stop();
-                        $indicator.fadeOut();
-                    }
-
-                    if (callback) { callback(); }
-
-                }, delay);
+                if (callback) { callback(); }
             };
 
             parentIsWindow && $indicator.addClass('window');

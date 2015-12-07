@@ -3,9 +3,9 @@
 
 Agit.MessageHandlerDialog = function()
 {
-    var self = new Agit.MessageHandler();
+    var msgH = Object.create(Agit.MessageHandler);
 
-    self.showMessage = function(Message)
+    msgH.showMessage = function(Message)
     {
         var
             Modal = new Agit.Modal();
@@ -17,5 +17,5 @@ Agit.MessageHandlerDialog = function()
             .appear();
     };
 
-    return self;
+    return msgH;
 };

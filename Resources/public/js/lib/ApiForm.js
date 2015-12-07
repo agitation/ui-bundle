@@ -105,7 +105,7 @@ Agit.ApiForm = function($form, endpoint, requestObject, callback)
             formData[key] && (requestObject[key] = formData[key]);
         });
 
-        new Agit.apiCall(endpoint, requestObject, callback, { processType : 'apicomplete' });
+        Agit.Service.get("api").doCall(endpoint, requestObject, callback, { processType : 'apicomplete' });
 
         Agit.stopEvent(ev);
     });
