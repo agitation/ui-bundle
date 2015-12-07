@@ -1,21 +1,22 @@
-div.indicator                           { position: absolute; top: 0; left: 0; display: none; z-index: 1505; }
-div.indicator div.overlay               { display: none; height: 100%; width: 100%; background: #fff; opacity: 0.7; position: absolute; top: 0; left: 0; z-index: 1510;
-                                          -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=70)"; filter: alpha(opacity=70); }
+.indicator                              { position: absolute; top: 0; left: 0; display: none; z-index: 1500; height: 100%; width: 100%; background: rgba(255, 255, 255, .7); text-align: center; }
+.indicator .anim                        { position: absolute; top: 50%; left: 50%; border-radius: 50%; box-sizing: border-box; border: solid 3px rgba(50, 120, 180, 0.4); border-top-color: #3278b4; }
+.indicator .anim.on                     { animation: ind-spin 1s infinite linear; -webkit-animation: ind-spin 1s infinite linear; }
 
-.indicator .anim                        { visibility: hidden; display: inline-block; border-radius: 50%; box-sizing: border-box; border: solid 3px rgba(50, 120, 180, 0.4); border-top-color: #3278b4; }
+.indicator.window,
+.indicator.window .anim                 { position: fixed; }
 
+.indicator.inverse                      { background: rgba(0, 0, 0, .7); }
 .indicator.inverse .anim                { border: solid 3px #a9ceed; border-top-color: #fff; }
+.indicator.nobg                         { background: none; }
 
-.indicator .anim.on                     { visibility: visible; animation: indicator-spin 1s infinite linear; -webkit-animation: indicator-spin 1s infinite linear; }
+@keyframes ind-spin
+{
+    from { transform: translate(-50%, -50%) rotate(0deg);  }
+    to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
 
-div.indicator .anim                     { display: block; position: absolute; z-index: 1520; }
-span.indicator .anim                    { display: inline-block; margin: 0; }
-
-span.indicator .overlay                 { display: none; }
-
-div.indicator.window,
-div.indicator.window div.overlay,
-div.indicator.window div.anim           { position: fixed; }
-
-@keyframes indicator-spin               { 100% { transform: rotate(360deg); -webkit-transform: rotate(360deg); } }
-@-webkit-keyframes indicator-spin       { 100% { transform: rotate(360deg); -webkit-transform: rotate(360deg); } }
+@-webkit-keyframes ind-spin
+{
+    from { -webkit-transform: translate(-50%, -50%) rotate(0deg);  }
+    to   { -webkit-transform: translate(-50%, -50%) rotate(360deg); }
+}
