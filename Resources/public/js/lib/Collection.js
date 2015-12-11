@@ -7,12 +7,12 @@ Agit.Collection = function(list, options)
         self = this,
         defaultOptions = { idCol : "id" },
         elements = {},
-        opts = $.extend(true, defaultOptions, options || {});
+        opts = $.extend(true, defaultOptions, options || {}),
+
         updateLength = function()
         {
             self.length = Object.keys(elements).length;
         };
-
 
     self.length = 0;
 
