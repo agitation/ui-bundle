@@ -33,9 +33,9 @@ if (window.jQuery)
                 {
                     $field._origVal($.isArray(value) ? value : [value]);
                 }
-                else if ($field.is("select"))
+                else
                 {
-                    if (value === null)
+                    if ($field.is("select") && value === null)
                     {
                         value = $field.find($field.children("option[selected]").length ? "option[selected]" : "option:first-child").attr("value");
                     }
