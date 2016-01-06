@@ -16,6 +16,17 @@ Agit.Collection = function(list, options)
 
     self.length = 0;
 
+    self.getList = function()
+    {
+        var elemList = [];
+
+        Object.keys(elements).forEach(function(key){
+            elemList.push(elements[key]);
+        });
+
+        return elemList;
+    };
+
     self.get = function(id)
     {
         return elements[id];
@@ -59,15 +70,9 @@ Agit.Collection = function(list, options)
 
     self.sort = function(field, callback)
     {
-        var elemList = [];
-
         field = field || "name";
 
-        Object.keys(elements).forEach(function(key){
-            elemList.push(elements[key]);
-        });
-
-        return elemList.sort(callback || function(elem1, elem2){
+        return self.getList().sort(callback || function(elem1, elem2){
             return Agit.out(elem1[field]).localeCompare(Agit.out(elem2[field]));
         });
     };
