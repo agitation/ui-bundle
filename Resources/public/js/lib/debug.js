@@ -9,10 +9,8 @@ var _getValueSource = function(val)
         { ret = 'undefined'; }
     else if (val === null)
         { ret = 'null'; }
-    else if (val.toSource !== undefined)
-        { ret =  val.toSource(); }
     else
-        { ret = JSON.stringify(val); }
+        { ret = JSON.stringify(val, null, 4); }
 
     return ret;
 };
