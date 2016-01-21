@@ -114,5 +114,42 @@ if (window.jQuery)
         {
             return $(this).filter("input[type=text], input[type=password], input[type=number], textarea").setValue("");
         };
+
+
+        // collects all form field values within a container element
+        $.fn.getValues = function()
+        {
+            var values = {};
+
+            $(this).find("input[name], select[name], textarea[name]").each(function(){
+                var
+                    $field = $(this),
+                    name = $field.attr("name");
+
+                if ($field.attr("data-ignore") !== "true" && name)
+                    values[name] = $field._getValue();
+            });
+
+            return values;
+        };
+
+        // collects all form field values within a container element
+        $.fn.setValues = function(values)
+        {
+            var $form = $(this);
+
+            if (values instanceof Object)
+            {
+                Object.keys(values).forEach(function(key){
+                    var $field = $form.find("[name=" + key + "]");
+
+                    if ($field.length && $field.attr("data-ignore") !== "true")
+                        $field._setValue(values[key]);
+                });
+            }
+
+            return $form;
+        };
+
     }(jQuery));
 }
