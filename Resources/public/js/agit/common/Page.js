@@ -23,10 +23,10 @@ agit.common.Page = function(title, $views, options)
     {
         var
             visibleView,
-            stateManager = agit.common.Service.get("state"),
+            stateManager = agit.srv("state"),
             reqView = stateManager.getRequestedView();
 
-        agit.common.Service.get("indicator").start();
+        agit.srv("indicator").start();
         stateManager.registerPageController($page);
 
         $page.find("h1").text(title);
@@ -41,8 +41,8 @@ agit.common.Page = function(title, $views, options)
             }
         });
 
-        agit.common.Service.get("preloader").run(function(){
-            agit.common.Service.get("indicator").finish();
+        agit.srv("preloader").run(function(){
+            agit.srv("indicator").finish();
             stateManager.init();
         });
 
