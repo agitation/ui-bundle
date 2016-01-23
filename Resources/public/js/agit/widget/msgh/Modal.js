@@ -1,9 +1,8 @@
-agit.ns("agit.msgh");
+agit.ns("agit.widget.msgh");
 
-
-agit.msgh.Modal = function()
+agit.widget.msgh.Modal = function()
 {
-    var msgH = Object.create(agit.msgh.proto);
+    var msgH = Object.create(agit.api.MessageHandler);
 
     msgH.showMessage = function(Message)
     {

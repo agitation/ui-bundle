@@ -1,10 +1,9 @@
-agit.ns("agit.msgh");
+agit.ns("agit.widget.msgh");
 
-
-agit.msgh.Bubbles = function($parent)
+agit.widget.msgh.Bubbles = function($parent)
 {
     var
-        msgH = Object.create(agit.msgh.proto),
+        msgH = Object.create(agit.api.MessageHandler),
         $bubbles = {},
         removeBubble = function($msgBubble)
         {
