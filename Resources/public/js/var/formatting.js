@@ -41,7 +41,7 @@ Agit.numberFormat = function(val, _decimals, _trim)
         value;
 
     fractpart = Agit.numpad(Math.round(fractpart), decimals);
-    value = intpart + Agit.L10n.tc(".|decimal separator") + fractpart;
+    value = intpart + agit.intl.L10n.tc(".|decimal separator") + fractpart;
 
     if (trim)
     {

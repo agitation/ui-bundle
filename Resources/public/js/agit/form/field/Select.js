@@ -9,7 +9,7 @@ agit.form.field.Select = function(elementOrAttributes, options, selectCallback)
 
         createIntro = function()
         {
-            return $("<option value='' disabled selected hidden>").text(Agit.L10n.t("– Please select –"));
+            return $("<option value='' disabled selected hidden>").text(agit.intl.L10n.t("– Please select –"));
         },
 
         getSelectedOption = function()

@@ -85,9 +85,9 @@ Agit.out = function(string)
     string = Agit.esc(string);
 
     // filter: translate multilang content
-    if (window.Agit.L10n)
+    if (window.agit.intl.L10n)
     {
-        string = Agit.L10n.mlStringTranslate(string, Agit.locale);
+        string = agit.intl.L10n.mlStringTranslate(string, Agit.locale);
     }
 
     return string;
