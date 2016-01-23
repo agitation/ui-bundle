@@ -31,7 +31,7 @@ agit.form.field.Select = function(elementOrAttributes, options, selectCallback)
     {
         return {
             value: entity.id,
-            text: Agit.out(entity.name),
+            text: agit.srv("format").out(entity.name),
             selected : isSelected
         };
     };
@@ -65,10 +65,10 @@ agit.form.field.Select = function(elementOrAttributes, options, selectCallback)
         options.forEach(function(option){
             option.selected && selected.push(option.value);
 
-            html.push(Agit.sprintf("<option value='%s'%s>%s</option>",
-                Agit.esc(option.value),
+            html.push(agit.srv("format").sprintf("<option value='%s'%s>%s</option>",
+                agit.srv("format").esc(option.value),
                 option.selected ? " selected='selected'" : "",
-                Agit.esc(option.text)
+                agit.srv("format").esc(option.text)
             ));
         });
 

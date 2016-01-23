@@ -12,7 +12,7 @@ agit.widget.msgh.Modal = function()
         Modal
             .setTitle(null)
             .setFooter(agit.widget.Modal.getButton('confirm', agit.intl.L10n.t("Ok")))
-            .setContent(Agit.sprintf("<p class='msg msg-%s'>%s</p>", Message.getType(), Message.getText()))
+            .setContent(agit.srv("format").sprintf("<p class='msg msg-%s'>%s</p>", Message.getType(), Message.getText()))
             .appear();
     };
 

@@ -5,6 +5,56 @@ if (window.jQuery)
 {
     (function($) {
 
+        var
+            toInt = function(val)
+            {
+                var newVal;
+
+                if (typeof(val) === "boolean")
+                {
+                    newVal = val ? 1 : 0;
+                }
+                else
+                {
+                    if (typeof(val) === "string")
+                    {
+                        val = val.replace(",", ".");
+                    }
+
+                    newVal = parseInt(val, 10);
+                }
+
+                if (isNaN(newVal))
+                {
+                    newVal = 0;
+                }
+
+                return newVal;
+            },
+
+            toFloat = function(val)
+            {
+                if (typeof(val) === "string")
+                {
+                    val = val.replace(",", ".");
+                }
+
+                var newVal = parseFloat(val);
+
+                if (isNaN(newVal))
+                {
+                    newVal = 0;
+                }
+
+                return newVal;
+            },
+
+            toBool = function(val)
+            {
+                return !!toInt(val);
+            };
+
+
         // NOTE: _setValue and _getValue should only be used by a form field
         // instance itself, usually overwriting its own val() method.
 
@@ -80,16 +130,16 @@ if (window.jQuery)
                 }
                 else
                 {
-                    value = ($.isArray(value)) ? value.map(Agit.toInt) : Agit.toInt(value);
+                    value = ($.isArray(value)) ? value.map(toInt) : toInt(value);
                 }
             }
             else if ($field.is("*[data-type=float]"))
             {
-                value = ($.isArray(value)) ? value.map(Agit.toFloat) : Agit.toFloat(value);
+                value = ($.isArray(value)) ? value.map(toFloat) : toFloat(value);
             }
             else if ($field.is("*[data-type=bool]"))
             {
-                value = ($.isArray(value)) ? value.map(Agit.toBool) : Agit.toBool(value);
+                value = ($.isArray(value)) ? value.map(toBool) : toBool(value);
             }
 
             if (((value === 0 || value === "0") && $field.is("*[data-zero-is-null=true]")) || ((value === "") && $field.is("*[data-empty-is-null=true]")))
