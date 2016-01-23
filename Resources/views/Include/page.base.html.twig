@@ -10,10 +10,10 @@
         {% block page_title %}<title>{% block title %}{% endblock %}</title>{% endblock %}
 
         <link rel="icon" href="/favicon.ico">
-        <meta name="description" content="{{ block('summary') }}">
+        <meta name="description" content="{{ block("summary") }}">
 
-        {% include 'AgitUiBundle:Include:include.urls.html.twig' %}
-        {% include 'AgitUiBundle:Include:include.langswitch.html.twig' %}
+        {% include "AgitUiBundle:Include:include.urls.html.twig" %}
+        {% include "AgitUiBundle:Include:include.langswitch.html.twig" %}
 
         {% block page_meta %}
         {% endblock %}
@@ -21,11 +21,11 @@
 
     {% block base_css %}
         {% stylesheets
-            '@AgitUiBundle/Resources/public/css/bootstrap.css'
-            '@AgitUiBundle/Resources/public/css/bootstrap-theme.css'
-            '@AgitUiBundle/Resources/public/css/common.css'
+            "@AgitUiBundle/Resources/public/css/bootstrap.css"
+            "@AgitUiBundle/Resources/public/css/bootstrap-theme.css"
+            "@AgitUiBundle/Resources/public/css/common.css"
 
-            filter='?uglifycss'
+            filter="?uglifycss"
         %}
         <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
         {% endstylesheets %}
@@ -40,11 +40,11 @@
 
     {% block base_js %}
         {% javascripts
-            '@AgitUiBundle/Resources/public/js/external/jquery.js'
-            '@AgitUiBundle/Resources/public/js/external/bootstrap.js'
-            '@AgitUiBundle/Resources/public/js/external/ie10-viewport-bug-workaround.js'
+            "@AgitUiBundle/Resources/public/js/ext/jquery.js"
+            "@AgitUiBundle/Resources/public/js/ext/bootstrap.js"
+            "@AgitUiBundle/Resources/public/js/ext/ie10-viewport-bug-workaround.js"
 
-            filter='?uglifyjs2'
+            filter="?uglifyjs2"
         %}
         <script src="{{ asset_url }}" type="text/javascript"></script>
         {% endjavascripts %}
