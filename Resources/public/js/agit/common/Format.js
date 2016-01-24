@@ -107,9 +107,10 @@ agit.common.Format = function()
         string = self.esc(string);
 
         // filter: translate multilang content
-        string = agit.intl.L10n.mlStringTranslate(string, self.cfg.locale);
+        string = agit.intl.L10n.mlStringTranslate(string, agit.cfg.locale);
 
         return string;
     };
-
 };
+
+agit.srv("format", new agit.common.Format());
