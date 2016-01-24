@@ -1,20 +1,20 @@
 agit.ns("agit.widget.msgh");
 
-agit.widget.msgh.Modal = function()
-{
-    var msgH = Object.create(agit.api.MessageHandler);
+(function(){
+    var msgH = function() {};
 
-    msgH.showMessage = function(Message)
+    msgH.prototype = Object.create(agit.common.MessageHandler.prototype);
+
+    msgH.prototype.showMessage = function(message)
     {
-        var
-            Modal = new agit.widget.Modal();
+        var modal = new agit.widget.Modal();
 
-        Modal
+        modal
             .setTitle(null)
             .setFooter(agit.widget.Modal.getButton('confirm', agit.intl.L10n.t("Ok")))
-            .setContent(agit.srv("format").sprintf("<p class='msg msg-%s'>%s</p>", Message.getType(), Message.getText()))
+            .setContent(agit.srv("format").sprintf("<p class='msg msg-%s'>%s</p>", message.getType(), message.getText()))
             .appear();
     };
 
-    return msgH;
-};
+    agit.widget.msgh.Modal = msgH;
+})();

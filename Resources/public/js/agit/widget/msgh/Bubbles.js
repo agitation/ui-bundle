@@ -1,39 +1,48 @@
 agit.ns("agit.widget.msgh");
 
-agit.widget.msgh.Bubbles = function($parent)
-{
+(function(){
     var
-        msgH = Object.create(agit.api.MessageHandler),
+        msgH = function(container)
+        {
+            this.container = $(container);
+        },
+
         $bubbles = {},
+
         removeBubble = function($msgBubble)
         {
             $msgBubble && $msgBubble.fadeOut(1500, $msgBubble.remove);
         };
 
-    msgH.clear = function(category)
+    msgH.prototype = Object.create(agit.common.MessageHandler.prototype);
+    msgH.constructor = msgH;
+    agit.widget.msgh.Bubbles = msgH;
+
+    msgH.prototype.clear = function(category)
     {
-        $.each($bubbles, function(cat, $bubbleList){
+        Object.keys($bubbles).forEach(function(cat){
             if (category === undefined || cat === category)
             {
-                $.each($bubbleList, function(k, $msgBubble){
+                $bubbles[cat].forEach(function($msgBubble){
                     removeBubble($msgBubble);
                 });
             }
         });
     };
 
-    msgH.showMessage = function(message)
+    msgH.prototype.showMessage = function(message)
     {
         var
-            $msgBubble = agit.common.Template.get('.message-bubble'),
-            removeThisBubble = function(){ removeBubble($msgBubble) };
+            $container = this.container,
+            $msgBubble = agit.common.Template.get(".message-bubble"),
+            removeThisBubble = function(){ removeBubble($msgBubble); };
 
         window.setTimeout(function(){
             $msgBubble
                 .addClass(message.getType())
-                .appendTo($parent)
-                .find('.icon i.' + message.getType()).addClass('on').end()
-                .find('.msg').text(message.getText()).end()
+                .appendTo($container)
+                .find(".icon i." + message.getType()).addClass("on").end()
+                .find(".msg").text(message.getText()).end()
                 .fadeIn(400)
                 .click(removeThisBubble)
                 .animate({ opacity:0.9 }, 1000);
@@ -51,5 +60,5 @@ agit.widget.msgh.Bubbles = function($parent)
     };
 
 
-    return msgH;
-};
+})();
+
