@@ -49,7 +49,7 @@ agit.widget.OverlayIndicator = (function(){
         createIndicator = function(parent)
         {
             var
-                indicator = Object.create(agit.widget.Indicator),
+                indicator = Object.create(agit.api.Indicator),
                 parentIsWindow = (parent === window),
                 $parent = $(parent),
                 $indicator = $('<div class="indicator">'),
