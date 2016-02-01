@@ -77,7 +77,7 @@ if (window.jQuery)
                 }
                 else if ($field.is("input[type=checkbox]"))
                 {
-                    $field.attr("checked", (!value || value === "0") ? false : true);
+                    $field.prop("checked", (!value || value === "0") ? false : true);
                 }
                 else if ($field.is("select[multiple=multiple]"))
                 {
