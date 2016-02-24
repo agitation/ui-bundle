@@ -1,7 +1,45 @@
-body                                    { font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; }
-textarea                                { resize: vertical; min-height: 5em; }
-div.container.padded                    { margin-top: 4em; margin-bottom: 4em; }
-template                                { display: none }
-p:last-child, ul:last-child             { margin-bottom: 0; }
-a                                       { cursor: pointer; }
-.btn.disabled, .btn[disabled]           { cursor: default }
+/* STRUCTURAL ELEMENTS */
+
+html, body                                          { height: 100%; font-family: roboto, Arial, sans-serif; }
+main                                                { min-height:100%; position:relative; }
+
+.navbar-wrapper                                     { position: fixed; top: 0; left: 0; right: 0; z-index: 10; background: rgba(64,100,130, 1);
+                                                      border-bottom: 1px solid rgba(65,101,132, 0.87); box-shadow: 0 -20px 8px 21px rgba(40, 40, 40, 0.75); }
+.navbar-wrapper .navbar                             { margin: 0; border: 0; background: 0 }
+.navbar a                                           { color: #fff }
+.navbar .dropdown-toggle *                          { vertical-align: middle; display: inline-block; }
+.navbar .dropdown-toggle .fa                        { font-size: 1.3em; }
+.navbar .dropdown-toggle span                       { margin: 0 .4em; }
+.navbar .dropdown-menu                              { min-width: 100%; }
+
+.navbar .navbar-nav > li > a                        { color: #fff; }
+.navbar .navbar-nav > li > a:hover                  { color: #eee }
+.navbar .navbar-nav > li > a.register               { font-weight: bold; }
+
+
+.content                                            { padding-top: 100px; padding-bottom: 60px; }
+.content h1                                         { margin: 25px auto 50px; }
+.content                                            { margin: 0 auto; padding: 0 0 3em; }
+.content > *:first-child                            { margin-top: 0; }
+.content h2                                         { margin: 2em auto 1.4em; }
+.content h3                                         { margin: 1.6em auto 1.2em; }
+.content p, .content ul                             { margin: 1em auto; }
+.content p:last-child, .content ul:last-child       { margin-bottom: 0; }
+.content li                                         { margin: .7em auto 0; }
+
+footer                                              { background-color: #585858; padding:20px 0; color: #ccc; position: absolute; bottom: 0; width:100%; }
+footer ul, footer li                                { margin: 0; padding: 0; list-style: none; text-align: right; }
+footer li                                           { margin-left: 1em; display: inline-block; }
+
+footer a, footer a:link, footer a:visited           {  color:#eee; }
+footer a:focus, footer a:active, footer a:hover     {  color:#fff; }
+
+
+
+
+/* VARIOUS ENHANCEMENTS AND FIXES */
+
+textarea                                            { resize: vertical; min-height: 5em; }
+template                                            { display: none }
+a                                                   { cursor: pointer; }
+.btn.disabled, .btn[disabled]                       { cursor: default; }

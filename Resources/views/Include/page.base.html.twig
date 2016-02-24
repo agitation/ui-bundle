@@ -6,23 +6,22 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    {% block meta %}
-        {% block page_title %}<title>{% block title %}{% endblock %}</title>{% endblock %}
+    <link rel="icon" href="/favicon.png">
 
-        <link rel="icon" href="/favicon.ico">
-        <meta name="description" content="{{ block("summary") }}">
+    {% include "AgitPageBundle:Include:include.links.html.twig" %}
+    {% include "AgitUiBundle:Include:include.langswitch.html.twig" %}
 
-        {% include "AgitUiBundle:Include:include.urls.html.twig" %}
-        {% include "AgitUiBundle:Include:include.langswitch.html.twig" %}
+    <title>{{ block("title") }}</title>
 
-        {% block page_meta %}
-        {% endblock %}
-    {% endblock %}
-
-    {% block base_css %}
+    {% block common_css %}
         {% stylesheets
             "@AgitUiBundle/Resources/public/css/bootstrap.css"
             "@AgitUiBundle/Resources/public/css/bootstrap-theme.css"
+
+            "@AgitUiBundle/Resources/public/css/font.awesome.css"
+            "@AgitUiBundle/Resources/public/css/font.roboto.css"
+            "@AgitUiBundle/Resources/public/css/overlay.css"
+            "@AgitUiBundle/Resources/public/css/indicator.css"
             "@AgitUiBundle/Resources/public/css/common.css"
 
             filter="?uglifycss"
@@ -31,18 +30,72 @@
         {% endstylesheets %}
     {% endblock %}
 
-    {% block page_css %}
+    {% block area_css %}
+        {# area CSS #}
+    {% endblock %}
+
+    {% block css %}
+        {# page CSS #}
     {% endblock %}
 </head>
 <body role="document">
     {% block body %}
+        <main>
+            <header>
+                {% block header %}
+                {% endblock %}
+            </header>
+
+            {% block content %}
+                <div class="content">
+                </div>
+            {% endblock %}
+
+            <footer>
+                {% block footer %}
+                {% endblock %}
+            </footer>
+        </main>
     {% endblock %}
 
-    {% block base_js %}
+    {% block common_js %}
         {% javascripts
+            "@AgitCommonBundle/Resources/public/js/var/init.js"
+            "@AgitCommonBundle/Resources/public/js/agit/common/Collection.js"
+            "@AgitCommonBundle/Resources/public/js/agit/common/Message.js"
+            "@AgitCommonBundle/Resources/public/js/agit/common/MessageHandler.js"
+
+            "@AgitIntlBundle/Resources/public/js/agit/intl/L10n.js"
+
             "@AgitUiBundle/Resources/public/js/ext/jquery.js"
             "@AgitUiBundle/Resources/public/js/ext/bootstrap.js"
             "@AgitUiBundle/Resources/public/js/ext/ie10-viewport-bug-workaround.js"
+
+            "@AgitApiBundle/Resources/public/js/agit/common/Api.js"
+            "@AgitApiBundle/Resources/public/js/agit/common/Preloader.js"
+            "@AgitApiBundle/Resources/public/js/agit/api/ApiError.js"
+            "@AgitApiBundle/Resources/public/js/agit/api/Endpoint.js"
+            "@AgitApiBundle/Resources/public/js/agit/api/Object.js"
+            "@AgitApiBundle/Resources/public/js/agit/api/Indicator.js"
+            "@AgitApiBundle/Resources/public/js/var/api.js"
+
+            "@AgitUiBundle/Resources/public/js/agit/common/Format.js"
+            "@AgitUiBundle/Resources/public/js/agit/common/Template.js"
+            "@AgitUiBundle/Resources/public/js/agit/common/State.js"
+            "@AgitUiBundle/Resources/public/js/agit/common/Page.js"
+            "@AgitUiBundle/Resources/public/js/agit/common/Date.js"
+            "@AgitUiBundle/Resources/public/js/agit/form/Form.js"
+            "@AgitUiBundle/Resources/public/js/agit/form/FormError.js"
+            "@AgitUiBundle/Resources/public/js/agit/form/field/Text.js"
+            "@AgitUiBundle/Resources/public/js/agit/form/field/Number.js"
+            "@AgitUiBundle/Resources/public/js/agit/form/field/Select.js"
+            "@AgitUiBundle/Resources/public/js/agit/form/field/Boolean.js"
+            "@AgitUiBundle/Resources/public/js/agit/widget/Modal.js"
+            "@AgitUiBundle/Resources/public/js/agit/widget/msgh/Modal.js"
+            "@AgitUiBundle/Resources/public/js/agit/widget/Overlay.js"
+            "@AgitUiBundle/Resources/public/js/agit/widget/OverlayIndicator.js"
+            "@AgitUiBundle/Resources/public/js/var/forms.js"
+            "@AgitUiBundle/Resources/public/js/var/debug.js"
 
             filter="?uglifyjs2"
         %}
@@ -50,7 +103,28 @@
         {% endjavascripts %}
     {% endblock %}
 
-    {% block page_js %}
+    {% block area_js %}
+        {# area JS #}
+    {% endblock %}
+
+    {% block js %}
+        {# page JS #}
+    {% endblock %}
+
+    {% block common_templates %}
+        {% include "AgitUiBundle:Include:include.indicator.html.twig" %}
+        {% include "AgitUiBundle:Include:include.modal.html.twig" %}
+        {% include "AgitUiBundle:Include:template.forms.html.twig" %}
+
+        {% include "AgitAdminBundle:Include:template.page.html.twig" %}
+    {% endblock %}
+
+    {% block area_templates %}
+        {# area template includes #}
+    {% endblock %}
+
+    {% block templates %}
+        {# page template includes #}
     {% endblock %}
 </body>
 </html>
