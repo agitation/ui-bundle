@@ -1,0 +1,42 @@
+.callout                                            { padding: 1em 1.3em; margin: 2em auto; }
+.callout-info                                       { border-left: 4px solid #6ca3d2; background: #edf7ff; }
+.callout-warning                                    { border-left: 4px solid #ed7500; background: #ffeede; }
+
+table.form                                          { padding: 0; margin: 0; width: 100%; box-shadow: 0 0 4px #c4d0db; border-top: 2px solid #71abdb; }
+table.form tbody,
+table.form thead,
+table.form tfoot                                    { border: 0; border-collapse: collapse; }
+table.form th, table.form td                        { border: 0; background: #fafdff; vertical-align: top; padding: 13px; }
+table.form th[scope=row]                            { width: 1%; }
+table.form td                                       { padding: 7px }
+
+table.form thead tr > *                             { background: #edf7ff; }
+table.form tfoot tr > *                             { background: #f1f8fc; }
+table.form th label                                 { margin: 0; white-space: nowrap }
+
+@media (min-width: 480px)
+{
+    /* give top and bottom cells a bit more padding */
+    table.form tr:first-child th                    { padding-top: 15px; }
+    table.form tr:first-child td                    { padding-top: 10px; }
+    table.form tr:last-child th                     { padding-bottom: 15px; }
+    table.form tr:last-child td                     { padding-bottom: 10px; }
+    table.form td:last-child                        { padding-right: 10px; }
+}
+
+@media (max-width: 479px) {
+    table.break-xs, table.break-xs thead,
+    table.break-xs tbody, table.break-xs tfoot,
+    table.break-xs tr, table.break-xs th,
+    table.break-xs th[scope=row],
+    table.break-xs td                               { display: block; width: 100%; }
+    table.break-xs th                               { padding: 12px 15px 0 15px; }
+    table.break-xs td                               { padding: 3px 12px 12px 12px; }
+}
+
+form .form-control                                  { display: inline-block; }
+form .form-control[disabled]                        { cursor: default; background: #fff; }
+form .form-control[readonly]                        { cursor: pointer; background: #fff; }
+form .actions                                       { margin: 30px 0 0; text-align: right; }
+form .actions .btn                                  { margin: 0 10px 10px 0; }
+form .actions .btn:last-child                       { margin-right: 0; }
