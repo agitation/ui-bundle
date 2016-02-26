@@ -1,6 +1,6 @@
-agit.ns("agit.form");
+agit.ns("agit.common");
 
-agit.form.Form =
+agit.common.Form =
 {
     stopEvent : function(ev)
     {

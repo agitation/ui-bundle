@@ -1,8 +1,8 @@
-agit.ns("agit.widget");
+agit.ns("agit.misc");
 
 
 
-agit.widget.OverlayIndicator = (function(){
+agit.misc.OverlayIndicator = (function(){
     var
         Animator = function(parentParams)
         {

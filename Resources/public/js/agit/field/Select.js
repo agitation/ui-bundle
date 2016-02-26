@@ -1,7 +1,7 @@
-agit.ns("agit.form.field");
+agit.ns("agit.field");
 
 
-agit.form.field.Select = function(elementOrAttributes, options, selectCallback)
+agit.field.Select = function(elementOrAttributes, options, selectCallback)
 {
     var
         $select = $("<select class='form-control'>"),

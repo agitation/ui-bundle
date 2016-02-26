@@ -1,4 +1,4 @@
-agit.ns("agit.form");
+agit.ns("agit.error");
 
 (function(){
     var
@@ -11,5 +11,5 @@ agit.ns("agit.form");
     err.prototype = Object.create(Error.prototype);
     err.prototype.constructor = err;
 
-    agit.form.FormError = err;
+    agit.error.FormError = err;
 })();

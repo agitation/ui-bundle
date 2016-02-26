@@ -1,6 +1,6 @@
-agit.ns("agit.common");
+agit.ns("agit.context");
 
-agit.common.Page = function(title, $views, options)
+agit.context.Page = function(title, $views, options)
 {
     var
         $page = agit.common.Template.get(".page"),
@@ -24,9 +24,17 @@ agit.common.Page = function(title, $views, options)
         var
             visibleView,
             stateManager = agit.srv("state"),
-            reqView = stateManager.getRequestedView();
+            preloader = agit.srv("preloader"),
+            indicator = agit.srv("indicator"),
+            reqView = stateManager.getRequestedView(),
 
-        agit.srv("indicator").start();
+            finishCallback = function()
+            {
+                indicator.finish();
+                stateManager.init();
+            }
+
+        indicator.start();
         stateManager.registerPageController($page);
 
         $page.find("h1").text(title);
@@ -41,10 +49,10 @@ agit.common.Page = function(title, $views, options)
             }
         });
 
-        agit.srv("preloader").run(function(){
-            agit.srv("indicator").finish();
-            stateManager.init();
-        });
+        if (preloader)
+            preloader.run(finishCallback)
+        else
+            finishCallback();
 
         return $page;
     };

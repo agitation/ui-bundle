@@ -1,6 +1,6 @@
-agit.ns("agit.common");
+agit.ns("agit.context");
 
-agit.common.State = function()
+agit.context.State = function()
 {
     // The state manager is a simple implementation for state-aware single-page
     // applications. It allows view elements to register and have a callback

@@ -1,6 +1,6 @@
-agit.ns("agit.widget");
+agit.ns("agit.elem");
 
-agit.widget.Map = function()
+agit.elem.Map = function()
 {
     var
         $map = agit.common.Template.get(".map"),

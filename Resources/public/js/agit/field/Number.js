@@ -1,6 +1,6 @@
-agit.ns("agit.form.field");
+agit.ns("agit.field");
 
-agit.form.field.Number = function(params)
+agit.field.Number = function(params)
 {
     var
         defaultParams = { min : null, max : null, step : null },

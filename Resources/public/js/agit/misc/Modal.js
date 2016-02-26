@@ -1,7 +1,7 @@
-agit.ns("agit.widget");
+agit.ns("agit.misc");
 
 
-agit.widget.Modal = function()
+agit.misc.Modal = function()
 {
     var $modal = agit.common.Template.get('div.modal');
 
@@ -33,16 +33,16 @@ agit.widget.Modal = function()
 
     $modal.appear = function()
     {
-        agit.widget.Overlay.show();
+        agit.misc.Overlay.show();
 
-        // the BS's own backdrop is disabled; better use agit.widget.Overlay in the caller
-        return $modal.modal({ backdrop: false }).on('hidden.bs.modal', agit.widget.Overlay.hide);
+        // the BS's own backdrop is disabled; better use agit.misc.Overlay in the caller
+        return $modal.modal({ backdrop: false }).on('hidden.bs.modal', agit.misc.Overlay.hide);
     };
 
     return $modal;
 };
 
-agit.widget.Modal.getButton = function(type, text, callback)
+agit.misc.Modal.getButton = function(type, text, callback)
 {
     return agit.common.Template
         .get('.modal-btn.' + type)

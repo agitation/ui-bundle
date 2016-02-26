@@ -1,4 +1,4 @@
-agit.ns("agit.widget.msgh");
+agit.ns("agit.misc.msgh");
 
 (function(){
     var
@@ -16,7 +16,7 @@ agit.ns("agit.widget.msgh");
 
     msgH.prototype = Object.create(agit.common.MessageHandler.prototype);
     msgH.constructor = msgH;
-    agit.widget.msgh.Bubbles = msgH;
+    agit.misc.msgh.Bubbles = msgH;
 
     msgH.prototype.clear = function(category)
     {

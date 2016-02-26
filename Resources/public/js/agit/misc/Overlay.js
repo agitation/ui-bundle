@@ -1,7 +1,7 @@
-agit.ns("agit.widget");
+agit.ns("agit.misc");
 
 
-agit.widget.Overlay = new (function()
+agit.misc.Overlay = new (function()
 {
     var $overlay, count = 0;
 

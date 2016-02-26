@@ -1,6 +1,6 @@
-agit.ns("agit.form.field");
+agit.ns("agit.field");
 
-agit.form.field.Text = function()
+agit.field.Text = function()
 {
     var $field = $("<input class='form-control'>");
 

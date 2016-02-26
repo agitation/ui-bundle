@@ -1,6 +1,6 @@
-agit.ns("agit.form.field");
+agit.ns("agit.field");
 
-agit.form.field.Boolean = function(labelText)
+agit.field.Boolean = function(labelText)
 {
     var
         $field = agit.common.Template.get(".boolean"),

@@ -1,4 +1,26 @@
 <template>
+    <form class="api-form" method="post" action="">
+        <table>
+            <tbody>
+                <tr>
+                    <th scope="row">
+                        <label></label>
+                        <span class="optional">{{ t("(optional)") }}</span>
+                    </th>
+                    <td></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td>
+                        <button class="btn btn-primary" type="submit">{{ t("submit") }}</button>
+                    </td>
+                </tr>
+            </tfoot>
+        </table>
+    </form>
+
     <input type="text" class="form-control">
 
     <select class="form-control">
