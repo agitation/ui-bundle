@@ -1,0 +1,11 @@
+{% extends ["::page.public.html.twig", "AppBundle:Include:page.public.html.twig", "AgitUiBundle:Include:page.public.html.twig"] %}
+
+{% agit.capability "" %}
+{% agit.status "403" %}
+{% set noindex = 1 %}
+{% block title %}{{ x("Forbidden", "page title") }}{% endblock %}
+
+{% block content %}
+    <h1>{{ x("Forbidden", "page title") }}</h1>
+    <div class="callout callout-warning">{{ t("You are not allowed to access this page. Please contact an administrator to upgrade your privileges.") }}</div>
+{% endblock %}

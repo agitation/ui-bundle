@@ -1,0 +1,11 @@
+{% extends ["::page.public.html.twig", "AppBundle:Include:page.public.html.twig", "AgitUiBundle:Include:page.public.html.twig"] %}
+
+{% agit.capability "" %}
+{% agit.status "404" %}
+{% set noindex = 1 %}
+{% block title %}{{ x("Page not found", "page title") }}{% endblock %}
+
+{% block content %}
+    <h1>{{ x("Page not found", "page title") }}</h1>
+    <div class="callout callout-warning">{{ t("The requested page could not be found. Please check the spelling of the address, or notify the owner of the referring web page.") }}</div>
+{% endblock %}
