@@ -2,5 +2,5 @@ agit.ns("agit.context");
 
 agit.context.View = function()
 {
-    return $("<div class='view'>").append(arguments);
+    return $("<div class='view'>").append([].slice.call(arguments));
 };
