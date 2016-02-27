@@ -1,6 +1,6 @@
 agit.ns("agit.elem");
 
-agit.elem.ApiForm = function(endpoint, fields, callback)
+agit.elem.ApiForm = function(endpoint, $rows, $footer, callback)
 {
     var
         $form = agit.common.Template.get(".api-form"),
@@ -8,25 +8,18 @@ agit.elem.ApiForm = function(endpoint, fields, callback)
         $tbody = $form.find("tbody").empty(),
         apiService = agit.srv("api");
 
-    Object.keys(fields).forEach(function(key){
-        var
-            field = fields[key],
-            $row = agit.common.Template.get(".api-form tbody tr");
+    $tbody.append($rows);
 
-        $row.find("th label").text(field.label);
-        $row.find("td").html(field.element);
-
-        field.optional || $row.find("th .optional").remove();
-        $tbody.append($row);
-    });
+    $table.find("tfoot").remove();
+    $table.append($footer);
 
     $form.on("submit", function(ev){
-        agit.form.Form.stopEvent(ev);
+        agit.common.Form.stopEvent(ev);
 
         var values = {};
 
-        Object.keys(fields).forEach(function(key){
-            values[key] = fields[key].element.val();
+        $rows.forEach(function($row){
+            values[$row.getName()] = $row.getValue();
         });
 
         apiService.doCall(
