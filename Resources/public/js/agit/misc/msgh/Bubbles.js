@@ -2,10 +2,7 @@ agit.ns("agit.misc.msgh");
 
 (function(){
     var
-        msgH = function(container)
-        {
-            this.container = $(container);
-        },
+        msgH = function() {},
 
         $bubbles = {},
 
@@ -33,7 +30,7 @@ agit.ns("agit.misc.msgh");
     msgH.prototype.showMessage = function(message)
     {
         var
-            $container = this.container,
+            $container = $("<div class='message-bubbles'>").appendTo($("body")),
             $msgBubble = agit.common.Template.get(".message-bubble"),
             removeThisBubble = function(){ removeBubble($msgBubble); };
 
