@@ -38,25 +38,29 @@
     {% block css %}
         {# page CSS #}
     {% endblock %}
+
+    {% block local_css %}
+        {# local CSS #}
+    {% endblock %}
 </head>
 <body role="document">
     {% block body %}
-        <main>
+        <div class="body">
             <header>
                 {% block header %}
                 {% endblock %}
             </header>
 
-            {% block content %}
-                <div class="content">
-                </div>
-            {% endblock %}
+            <main class="container">
+                {% block content %}
+                {% endblock %}
+            </main>
 
             <footer>
                 {% block footer %}
                 {% endblock %}
             </footer>
-        </main>
+        </div>
     {% endblock %}
 
     {% block common_js %}
@@ -125,6 +129,10 @@
         {# page JS #}
     {% endblock %}
 
+    {% block local_js %}
+        {# local JS #}
+    {% endblock %}
+
     {% block common_templates %}
         {% include "AgitUiBundle:Include:template.page.html.twig" %}
         {% include "AgitUiBundle:Include:template.forms.html.twig" %}
@@ -139,6 +147,11 @@
     {% block templates %}
         {# page template includes #}
     {% endblock %}
+
+    {% block local_templates %}
+        {# local template includes #}
+    {% endblock %}
+
 </body>
 </html>
 {% endspaceless %}
