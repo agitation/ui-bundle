@@ -7,6 +7,8 @@ agit.context.Page = function(title, $views, options)
         defaultOptions = {},
         opts = $.extend(true, defaultOptions, options || {});
 
+    $page.container = $("main");
+
     $page.load = function(entities, settings)
     {
         return $page;
@@ -53,6 +55,8 @@ agit.context.Page = function(title, $views, options)
             preloader.run(finishCallback)
         else
             finishCallback();
+
+        $page.container.html($page);
 
         return $page;
     };
