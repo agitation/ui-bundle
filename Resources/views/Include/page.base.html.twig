@@ -48,16 +48,27 @@
         <div class="body">
             <header>
                 {% block header %}
+                    {% embed "AgitUiBundle:Include:include.header.html.twig" %}
+                        {% block menu %}
+                            {% import "AgitUiBundle:Include:macro.menu.html.twig" as nav %}
+                            {{ nav.menu(getPageTree("/")) }}
+                        {% endblock %}
+                    {% endembed %}
                 {% endblock %}
             </header>
 
             <main class="container">
-                {% block content %}
+                {% block main %}
                 {% endblock %}
             </main>
 
             <footer>
                 {% block footer %}
+                    {% embed "AgitUiBundle:Include:include.footer.html.twig" %}
+                        {% block left %}
+                            Powered by <a href="https://github.com/agitation" target="_blank">Agitation</a>
+                        {% endblock %}
+                    {% endembed %}
                 {% endblock %}
             </footer>
         </div>
@@ -151,7 +162,6 @@
     {% block local_templates %}
         {# local template includes #}
     {% endblock %}
-
 </body>
 </html>
 {% endspaceless %}

@@ -1,17 +1,1 @@
 {% extends "AgitUiBundle:Include:page.base.html.twig" %}
-
-{% block header %}
-    {% embed "AgitUiBundle:Include:include.header.html.twig" %}
-        {% block menu %}
-            <li><a href="{{ createUrl("/") }}">{{ x("Home", "page title") }}</a></li>
-        {% endblock %}
-    {% endembed %}
-{% endblock %}
-
-{% block footer %}
-    {% embed "AgitUiBundle:Include:include.footer.html.twig" %}
-        {% block left %}
-            Powered by <a href="https://github.com/agitation" target="_blank">Agitation</a>
-        {% endblock %}
-    {% endembed %}
-{% endblock %}
