@@ -1,0 +1,22 @@
+{% macro menu(tree) %}
+    {% import _self as nav %}
+        {% for branch in tree %}
+            {% set hasChildren = (branch.children is defined) %}
+
+            {% if branch.data is defined %}
+                {% if branch.data.pageId is defined %}
+                    <li>
+                        <a href="{{ createUrl(branch.data.vPath) }}" data-caps="{{ branch.data.caps }}">{{ branch.data.name }}</a>
+                    </li>
+                {% elseif hasChildren %}
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ branch.data.name }}</a>
+                        <ul class="dropdown-menu">
+                            {{ nav.menu(branch.children) }}
+                        </ul>
+                    </li>
+                {% endif %}
+            {% endif %}
+        </li>
+    {% endfor %}
+{% endmacro %}
