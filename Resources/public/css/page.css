@@ -6,7 +6,6 @@ html, body                                          { height: 100%; font-family:
 header .navbar-wrapper                              { position: fixed; top: 0; left: 0; right: 0; z-index: 10; background: rgba(64,100,130, 1);
                                                       border-bottom: 1px solid rgba(65,101,132, 0.87); box-shadow: 0 -20px 8px 21px rgba(40, 40, 40, 0.75); }
 header .navbar-wrapper .navbar                      { margin: 0; border: 0; background: 0 }
-header .navbar a                                    { color: #fff }
 header .navbar .dropdown-toggle *                   { vertical-align: middle; display: inline-block; }
 header .navbar .dropdown-toggle .fa                 { font-size: 1.3em; }
 header .navbar .dropdown-toggle span                { margin: 0 .4em; }
