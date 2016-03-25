@@ -1,12 +1,14 @@
 agit.ns("agit.context");
 
-agit.context.Page = function(title, $views, options)
+agit.context.Page = function(title, views, options)
 {
     var
-        $page = agit.common.Template.get(".page"),
         defaultOptions = {},
-        opts = $.extend(true, defaultOptions, options || {});
+        opts = $.extend(true, defaultOptions, options || {}),
+        cache = new agit.context.Cache(),
+        $page = agit.tool.tpl(".page");
 
+    // default container, may be overwritten before calling $page.init()
     $page.container = $("main");
 
     $page.load = function(entities, settings)
@@ -14,10 +16,15 @@ agit.context.Page = function(title, $views, options)
         return $page;
     };
 
+    $page.getCache = function()
+    {
+        return cache;
+    };
+
     $page.switchToView = function(view)
     {
-        Object.keys($views).forEach(function(key) {
-             $views[key][key === view ? "show" : "hide"]();
+        Object.keys(views).forEach(function(key) {
+             views[key][key === view ? "show" : "hide"]();
         });
     };
 
@@ -34,19 +41,21 @@ agit.context.Page = function(title, $views, options)
             {
                 indicator.finish();
                 stateManager.init();
-            }
+            };
 
         indicator.start();
         stateManager.registerPageController($page);
 
         $page.find("h1").text(title);
 
-        Object.keys($views).forEach(function(key) {
-            $page.find(".views").append($views[key]);
+        Object.keys(views).forEach(function(key) {
+            $page.find(".views").append(views[key]);
+
+            views[key].setPage && views[key].setPage($page);
 
             if (key === reqView || (!reqView && !visibleView))
             {
-                $views[key].show();
+                views[key].show();
                 visibleView = key;
             }
         });

@@ -3,7 +3,7 @@ agit.ns("agit.elem");
 agit.elem.ApiForm = function(endpoint, $rows, $footer, callback)
 {
     var
-        $form = agit.common.Template.get(".api-form"),
+        $form = agit.tool.tpl(".api-form"),
         $table = $form.find("table"),
         $tbody = $form.find("tbody").empty(),
         apiService = agit.srv("api");

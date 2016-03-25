@@ -1,50 +1,53 @@
-agit.ns("agit.common");
+agit.ns("agit.tool");
 
-
-agit.common.Template = function()
-{
+(function(){
     var
-        $body = $('body'),
+        $body = $("body"),
 
-        uaSupportsTemplateTag = ('content' in document.createElement('template')),
+        uaSupportsTemplateTag = ("content" in document.createElement("template")),
 
-        $templateNodeList = (function(){
-            var list = [];
+        $templateNodeList,
 
-            $body.find('template').each(function(){
+        createNodeList = function()
+        {
+            $templateNodeList = [];
 
+            $body.find("template").each(function(){
                 if (uaSupportsTemplateTag)
-                {
-                    list.push($(document.importNode(this.content, true)));
-                }
+                    $templateNodeList.push($(document.importNode(this.content, true)));
                 else
-                {
-                    list.push($(this));
-                }
+                    $templateNodeList.push($(this));
+            });
+        };
+
+        // caching already found elements by selector
+        foundElements = {};
+
+    agit.tool.tpl = function(selector)
+    {
+        var $tplElem;
+
+        // extract template nodes on first run
+        if (!($templateNodeList instanceof Array))
+            createNodeList();
+
+        if (foundElements[selector])
+        {
+            $tplElem = foundElements[selector];
+        }
+        else
+        {
+            $.each($templateNodeList, function(k, $templateNode){
+                $tplElem = $templateNode.find(selector);
+                if ($tplElem && $tplElem.length) return false; // break on found element
             });
 
-            return list;
-        })();
+            if (!$tplElem)
+                throw new Error("Element not found!");
 
-    this.get = function(selector)
-    {
-        var $elem;
+            foundElements[selector] = $tplElem;
+        }
 
-        $.each($templateNodeList, function(k, $templateNode){
-            $elem = $templateNode.find(selector);
-            if ($elem && $elem.length) { return false; } // break on found element
-        });
-
-        return $elem ? $elem.clone() : null;
+        return $tplElem.clone();
     };
-};
-
-agit.common.Template.get = function(selector)
-{
-    if (agit.common.Template._instance === undefined)
-    {
-        agit.common.Template._instance = new agit.common.Template();
-    }
-
-    return agit.common.Template._instance.get(selector);
-};
+})()

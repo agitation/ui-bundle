@@ -1,31 +1,39 @@
 agit.ns("agit.elem");
 
-agit.elem.FormRow = function(key, label, $field, options)
-{
-    options = options || {};
-
-    var $row = agit.common.Template.get(".api-form tbody tr");
-
-    $row.find("th label").text(label);
-    $row.find("td").html($field);
-
-    options.optional || $row.find("th .optional").remove();
-
-    $row.getName = function()
+(function(){
+    var formRow = function(key, label, $field, options)
     {
-        return key;
+        this.extend(this, agit.tool.tpl(".api-form tbody tr"));
+
+        options = options || {};
+        options.optional || this.find("th .optional").remove();
+
+        this.$field = $field;
+        this.key = key;
+
+        this.find("th label").text(label);
+        this.find("td").html($field);
     };
 
-    $row.setValue = function(value)
+    formRow.prototype = Object.create(jQuery.prototype);
+
+    formRow.prototype.setValue = function(value)
     {
-        $field.val(value);
-        return $row;
+        this.$field.setValue(value);
+        return this;
     };
 
-    $row.getValue = function()
+    formRow.prototype.getValue = function()
     {
-        return $field.val();
+        return this.$field.getValue();
     };
 
-    return $row;
-};
+
+
+    formRow.prototype.getName = function()
+    {
+        return this.key;
+    };
+
+    agit.elem.FormRow = formRow;
+})();

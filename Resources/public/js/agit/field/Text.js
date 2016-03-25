@@ -1,13 +1,9 @@
 agit.ns("agit.field");
 
-agit.field.Text = function()
+agit.field.Text = function($elem, attr)
 {
-    var $field = $("<input class='form-control'>");
-
-    $field.setTargetId = function(id)
-    {
-        $field.attr("id", id);
-    };
-
-    return $field;
+    this.extend(this, $elem || $("<input class='form-control'>"));
+    attr && this.attr(attr);
 };
+
+agit.field.Text.prototype = Object.create(agit.field.Field.prototype);

@@ -1,8 +1,9 @@
 agit.ns("agit.field");
 
-agit.field.Password = function()
+agit.field.Password = function($elem, attr)
 {
-    var $field = $("<input class='form-control' type='password'>");
-
-    return $field;
+    this.extend(this, $elem || $("<input type='password' class='form-control'>"));
+    attr && this.attr(attr);
 };
+
+agit.field.Password.prototype = Object.create(agit.field.Field.prototype);

@@ -1,33 +1,30 @@
 agit.ns("agit.field");
 
-agit.field.Boolean = function(labelText)
-{
-    var
-        $field = agit.common.Template.get(".boolean"),
-        $input = $field.find("input");
-
-    $field.val = function(value)
+(function(){
+    var boolField = function(labelText)
     {
-        // setter
-        if (value !== undefined)
-        {
-            $input._setValue(value);
-            return $field;
-        }
-
-        // getter
-        else
-        {
-            return $input._getValue(value);
-        }
+        this.extend(this, agit.tool.tpl(".boolean"));
+        this.find("span").text(labelText);
+        this.$input = agit.field.Checkbox(this.find("input"));
     };
 
-    $field.find("span").text(labelText);
+    boolField.prototype = Object.create(agit.field.Field.prototype);
 
-    $field.setTargetId = function(id)
+    boolField.prototype.setTargetId = function(id)
     {
-        $input.attr("id", id);
+        this.$input.attr("id", id);
     };
 
-    return $field;
-};
+    boolField.prototype.setValue = function(value)
+    {
+        this.$input.setValue(value);
+        return this;
+    };
+
+    boolField.prototype.getValue = function()
+    {
+        return this.$input.getValue();
+    };
+
+    agit.field.Boolean = boolField;
+})();

@@ -1,3 +1,5 @@
+/*globals: Cookies */
+
 /*
   NOTE:
     - executes immediately

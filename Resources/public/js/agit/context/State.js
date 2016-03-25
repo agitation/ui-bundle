@@ -13,8 +13,18 @@ agit.context.State = function()
         defaultPath = "",
         currentPath = "",
 
+        removeTrailingSlash = function(path)
+        {
+            if (path.charAt(path.length - 1) === "/")
+                path = path.substr(0, path.length - 1);
+
+            return path;
+        },
+
         createHash = function(path, request)
         {
+            path = removeTrailingSlash(path);
+
             var
                 locPath = "#!" + path,
                 requestString;
@@ -35,7 +45,7 @@ agit.context.State = function()
         {
             var
                 path = pathRegex.test(currentPath) ? currentPath.match(pathRegex)[0] : "",
-                pathComponents = path.substr(1).split('/'),
+                pathComponents = path.substr(1).split("/"),
                 requestString = decodeURIComponent(currentPath.substr(path.length + 1)), // length + 1 because of trailing slash
                 request,
                 state =
@@ -80,8 +90,10 @@ agit.context.State = function()
 
     this.registerViewElement = function(path, callback, isDefault)
     {
+        path = removeTrailingSlash(path);
+
         if (!path.match(pathRegex))
-            throw new SyntaxError("path doesn’t match the required pattern.");
+            throw new SyntaxError("Path " + path + " doesn’t match the required pattern.");
 
         elements[path] = callback;
         isDefault && (defaultPath = path);
@@ -112,7 +124,7 @@ agit.context.State = function()
     this.init = function()
     {
         run();
-        $(window).on('hashchange', run);
+        $(window).on("hashchange", run);
     };
 
 };

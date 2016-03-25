@@ -1,64 +1,46 @@
 agit.ns("agit.field");
 
-
-agit.field.Select = function(elementOrAttributes, options, selectCallback)
-{
+(function(){
     var
-        $select = $("<select class='form-control'>"),
-        hasIntro = false, // a "please select" pseudo-option
-
         createIntro = function()
         {
             return $("<option value='' disabled selected hidden>").text(agit.intl.L10n.t("– Please select –"));
         },
 
-        getSelectedOption = function()
+        selectField = function(elementOrAttributes, options, onChangeCallback)
         {
-            var $this = $(this);
-            selectCallback && selectCallback($this.attr("name"), $this.val());
+            if ($(elementOrAttributes).is("select"))
+            {
+                this.extend(this, $(elementOrAttributes));
+            }
+            else
+            {
+                this.extend(this, $("<select class='form-control'>"));
+
+                if (elementOrAttributes instanceof Object)
+                    this.attr(elementOrAttributes);
+            }
+
+            options && options.length && this.setOptions(options);
+
+            this.change(onChangeCallback);
         };
 
-    if ($(elementOrAttributes).is("select"))
-    {
-        $select = $(elementOrAttributes);
-    }
-    else if ($.isPlainObject(elementOrAttributes))
-    {
-        $select.attr(elementOrAttributes);
-    }
+    selectField.prototype = Object.create(agit.field.Field.prototype);
 
-    $select.entityToOption = function(entity, isSelected)
+    selectField.prototype.addIntro = function()
     {
-        return {
-            value: entity.id,
-            text: agit.srv("format").out(entity.name),
-            selected : isSelected
-        };
+        this.hasIntro = true;
+        this.prepend(createIntro());
     };
 
-    $select.entitiesToOptions = function(entityList, selected)
-    {
-        var options = [];
-
-        selected = selected || [];
-        $.isArray(selected) || (selected = [selected]);
-
-        entityList.forEach(function(entity){
-            entity &&
-            entity.id &&
-            options.push($select.entityToOption(entity, selected.indexOf(entity.id) > -1));
-        });
-
-        return options;
-    };
-
-    $select.setOptions = function(options)
+    selectField.prototype.setOptions = function(options)
     {
         var
             selected = [],
             html = [];
 
-        $select
+        this
             .empty()
             .attr("disabled", options.length ? false : "disabled");
 
@@ -72,47 +54,49 @@ agit.field.Select = function(elementOrAttributes, options, selectCallback)
             ));
         });
 
-        hasIntro && $select.html(createIntro());
-        $select.append($(html.join("")));
+        this.hasIntro && this.html(createIntro());
+        this.append($(html.join("")));
 
         if (selected.length)
         {
-            if (!$select.is("select[multiple=multiple]"))
+            if (!this.is("select[multiple=multiple]"))
             {
                 selected = selected[0];
             }
 
-            $select.val(selected);
+            this.origVal(selected);
         }
 
-        return $select;
+        return this;
     };
 
-    $select.addIntro = function()
+    selectField.prototype.setValue = function(value)
     {
-        hasIntro = true;
-        $select.prepend(createIntro());
+        if (this.is("[multiple=multiple]") && !$.isArray(value))
+            value = [value];
+
+        else if (value === null) // reset
+                value = this.find(this.children("option[selected]").length ? "option[selected]" : "option:first-child").attr("value");
+
+        return this.origVal(value);
     };
 
-    options && options.length && $select.setOptions(options);
-
-    $select.change(getSelectedOption);
-
-    $select.val = function(value)
+    selectField.prototype.getValue = function()
     {
-        // setter
-        if (value !== undefined)
-        {
-            $select._setValue(value);
-            return $select;
-        }
+            var value = this.origVal();
 
-        // getter
-        else
-        {
-            return $select._getValue();
-        }
+            if (this.is("[multiple=multiple]") && value === null)
+            {
+                value = [];
+            }
+
+            if (this.is("[data-type=int]"))
+            {
+                value = ($.isArray(value)) ? value.map(parseInt) : parseInt(value);
+            }
+
+            return value;
     };
 
-    return $select;
-};
+    agit.field.Select = selectField;
+})();

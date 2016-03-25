@@ -3,7 +3,7 @@ agit.ns("agit.misc");
 
 agit.misc.Modal = function()
 {
-    var $modal = agit.common.Template.get('div.modal');
+    var $modal = agit.tool.tpl('div.modal');
 
     $modal.setTitle = function($elem)
     {
@@ -44,8 +44,7 @@ agit.misc.Modal = function()
 
 agit.misc.Modal.getButton = function(type, text, callback)
 {
-    return agit.common.Template
-        .get('.modal-btn.' + type)
+    return agit.tool.tpl('.modal-btn.' + type)
         .text(text)
         .click(callback || function(){})
         .button();

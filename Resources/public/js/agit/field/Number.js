@@ -1,37 +1,31 @@
 agit.ns("agit.field");
 
-agit.field.Number = function(params)
-{
+(function(){
     var
-        defaultParams = { min : null, max : null, step : null },
-        $field = $("<input class='form-control' data-type='int' type='number'>");
-
-    $field.val = function(value)
-    {
-        // setter
-        if (value !== undefined)
+        numberField = function($elem, attr)
         {
-            $field._setValue(value);
-            return $field;
-        }
+            this.extend(this, $elem || $("<input class='form-control' data-type='int' type='number'>"));
+            attr && this.attr(attr);
+        };
 
-        // getter
+    numberField.prototype = Object.create(agit.field.Field.prototype);
+
+    numberField.prototype.getValue = function()
+    {
+        var value = this.origVal();
+
+        if (this.is("[data-type=float]"))
+        {
+            value = value.replace(",", ".");
+            value = parseFloat(value);
+        }
         else
         {
-            return $field._getValue();
+            value = parseInt(value);
         }
+
+        return value;
     };
 
-    $field.setTargetId = function(id)
-    {
-        $field.attr("id", id);
-    };
-
-    params = $.extend(params || {}, defaultParams);
-
-    Object.keys(defaultParams).forEach(function(key){
-        key !== null && $field.attr(key, params[key]);
-    });
-
-    return $field;
-};
+    agit.field.Number = numberField;
+})();

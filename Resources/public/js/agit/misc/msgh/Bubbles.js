@@ -31,7 +31,7 @@ agit.ns("agit.misc.msgh");
     {
         var
             $container = $("<div class='message-bubbles'>").appendTo($("body")),
-            $msgBubble = agit.common.Template.get(".message-bubble"),
+            $msgBubble = agit.tool.tpl(".message-bubble"),
             removeThisBubble = function(){ removeBubble($msgBubble); };
 
         window.setTimeout(function(){

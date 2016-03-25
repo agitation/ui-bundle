@@ -1,9 +1,11 @@
+/*globals ol */
+
 agit.ns("agit.elem");
 
 agit.elem.Map = function()
 {
     var
-        $map = agit.common.Template.get(".map"),
+        $map = agit.tool.tpl(".map"),
 
         olMap = new ol.Map({
             layers : [
@@ -17,11 +19,6 @@ agit.elem.Map = function()
                 zoom : 3
             })
         }),
-
-        resize = function()
-        {
-            olMap.updateSize();
-        },
 
         // TODO: Migrate to MutationObserver as soon as old IEs are extinct
         insertionListener = window.setInterval(function(){
