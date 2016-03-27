@@ -85,6 +85,7 @@ agit.ns("agit.field");
     {
             var value = this.origVal();
 
+
             if (this.is("[multiple=multiple]") && value === null)
             {
                 value = [];
@@ -92,7 +93,7 @@ agit.ns("agit.field");
 
             if (this.is("[data-type=int]"))
             {
-                value = ($.isArray(value)) ? value.map(parseInt) : parseInt(value);
+                value = $.isArray(value) ? value.map(function(val){ return parseInt(val); }) : parseInt(value);
             }
 
             return value;
