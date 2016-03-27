@@ -47,10 +47,10 @@ agit.ns("agit.field");
         options.forEach(function(option){
             option.selected && selected.push(option.value);
 
-            html.push(agit.srv("format").sprintf("<option value='%s'%s>%s</option>",
-                agit.srv("format").esc(option.value),
+            html.push(agit.tool.fmt.sprintf("<option value='%s'%s>%s</option>",
+                agit.tool.fmt.esc(option.value),
                 option.selected ? " selected='selected'" : "",
-                agit.srv("format").esc(option.text)
+                agit.tool.fmt.esc(option.text)
             ));
         });
 

@@ -69,7 +69,7 @@ agit.ns("agit.field");
     {
         return {
             value: entity.id,
-            text: agit.srv("format").out(entity.name),
+            text: agit.tool.fmt.out(entity.name),
             selected : isSelected
         };
     };

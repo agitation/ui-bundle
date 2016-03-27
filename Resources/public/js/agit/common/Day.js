@@ -3,10 +3,9 @@ agit.ns("agit.common");
 agit.common.Day = function(day, month, year)
 {
     var
-        fmt = agit.srv("format"),
         pad = function(num, len)
         {
-            return fmt.numpad(num, len || 2);
+            return agit.tool.fmt.numpad(num, len || 2);
         };
 
     this.d = day;

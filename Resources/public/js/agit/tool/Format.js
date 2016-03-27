@@ -1,6 +1,6 @@
-agit.ns("agit.common");
+agit.ns("agit.tool");
 
-agit.common.Format = function()
+agit.tool.fmt = function()
 {
     var self = this;
 
@@ -26,7 +26,7 @@ agit.common.Format = function()
         var args = [];
 
         $.each(arguments, function(k, arg){
-            if (k) { args.push(arg); }
+            k && args.push(arg);
         });
 
         return self.vsprintf(string, args);
@@ -68,12 +68,8 @@ agit.common.Format = function()
         value = intpart + agit.intl.L10n.tc(".|decimal separator") + fractpart;
 
         if (trim)
-        {
             while (value.match(/[0\.,]$/) && value.match(/[\.,]/))
-            {
                 value = value.substr(0, value.length - 1);
-            }
-        }
 
         return value;
     };
@@ -112,5 +108,3 @@ agit.common.Format = function()
         return string;
     };
 };
-
-agit.srv("format", new agit.common.Format());
