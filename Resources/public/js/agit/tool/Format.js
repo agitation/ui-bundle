@@ -1,10 +1,9 @@
 agit.ns("agit.tool");
 
-agit.tool.fmt = function()
-{
-    var self = this;
+(function(){
+    var formatTool = {};
 
-    self.vsprintf = function(string, values)
+    formatTool.vsprintf = function(string, values)
     {
         var i = 0;
 
@@ -21,7 +20,7 @@ agit.tool.fmt = function()
         return string;
     };
 
-    self.sprintf = function(string)
+    formatTool.sprintf = function(string)
     {
         var args = [];
 
@@ -29,10 +28,10 @@ agit.tool.fmt = function()
             k && args.push(arg);
         });
 
-        return self.vsprintf(string, args);
+        return formatTool.vsprintf(string, args);
     };
 
-    self.varpad = function(_val, _cnt, _fill)
+    formatTool.varpad = function(_val, _cnt, _fill)
     {
         var
             val = _val ? _val.toString() : '',
@@ -47,12 +46,12 @@ agit.tool.fmt = function()
         return val;
     };
 
-    self.numpad = function(val, _cnt)
+    formatTool.numpad = function(val, _cnt)
     {
-        return self.varpad(val, _cnt, '0');
+        return formatTool.varpad(val, _cnt, '0');
     };
 
-    self.numberFormat = function(val, decimals, trim)
+    formatTool.numberFormat = function(val, decimals, trim)
     {
         decimals = decimals || 2;
         trim = trim || true;  // if trim is true: use decimals for rounding, then trim trailing zeros
@@ -64,7 +63,7 @@ agit.tool.fmt = function()
             fractpart = floatVal * factor - intpart * factor,
             value;
 
-        fractpart = self.numpad(Math.round(fractpart), decimals);
+        fractpart = formatTool.numpad(Math.round(fractpart), decimals);
         value = intpart + agit.intl.L10n.tc(".|decimal separator") + fractpart;
 
         if (trim)
@@ -75,12 +74,12 @@ agit.tool.fmt = function()
     };
 
     // DEPRECATED; use L10n functions
-    self.currencyFormat = function(val) // format currency xxx.xx
+    formatTool.currencyFormat = function(val) // format currency xxx.xx
     {
-        return self.numberFormat(val, 2);
+        return formatTool.numberFormat(val, 2);
     };
 
-    self.esc = function(string)
+    formatTool.esc = function(string)
     {
         var replacements = { "<" : "&lt;", ">" : "&gt;", "\"" : "&quot;", "'" : "&#038;" };
 
@@ -97,14 +96,16 @@ agit.tool.fmt = function()
     // this function returns strings that come from an untrusted source and
     // makes them ready for being inserted in the HTML. This is done via filters.
     // Filters are currently hardcoded, might become pluggable one day.
-    self.out = function(string)
+    formatTool.out = function(string)
     {
         // filter: convert "dangerous" characters
-        string = self.esc(string);
+        string = formatTool.esc(string);
 
         // filter: translate multilang content
         string = agit.intl.L10n.mlStringTranslate(string, agit.cfg.locale);
 
         return string;
     };
-};
+
+    agit.tool.fmt = formatTool;
+})();
