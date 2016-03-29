@@ -2,7 +2,7 @@ agit.ns("agit.field");
 
 (function(){
     var
-        entitySelectField = function($select, entities, onChangeCallback)
+        entitySelectField = function($select, entities)
         {
             var self = this;
 
@@ -13,7 +13,6 @@ agit.ns("agit.field");
 
             this.change(function(){
                 self.currentValue = self.getValue();
-                onChangeCallback && onChangeCallback();
             });
 
             this.refresh();
