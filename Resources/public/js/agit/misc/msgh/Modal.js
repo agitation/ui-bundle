@@ -11,7 +11,7 @@ agit.ns("agit.misc.msgh");
 
         modal
             .setTitle(null)
-            .setFooter(agit.misc.Modal.getButton("confirm", agit.intl.L10n.t("Ok")))
+            .setFooter(agit.misc.Modal.getButton("confirm", agit.intl.t("Ok")))
             .setContent(agit.tool.fmt.sprintf("<p class='msg msg-%s'>%s</p>", message.getType(), message.getText()))
             .appear();
     };

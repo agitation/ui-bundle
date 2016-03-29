@@ -4,7 +4,7 @@ agit.ns("agit.tool");
     var
         dateTool = {},
 
-        l10n = agit.intl.L10n,
+        intl = agit.intl,
         fmt = agit.tool.fmt,
 
         numToString = function(num) { return num.toString(); },
@@ -33,35 +33,35 @@ agit.ns("agit.tool");
 
     dateTool.getMonthNames = function()
     {
-        return [ l10n.t("January"), l10n.t("February"), l10n.t("March"),
-                l10n.t("April"), l10n.t("May"), l10n.t("June"),
-                l10n.t("July"), l10n.t("August"), l10n.t("September"),
-                l10n.t("October"), l10n.t("November"), l10n.t("December") ];
+        return [ intl.t("January"), intl.t("February"), intl.t("March"),
+                intl.t("April"), intl.t("May"), intl.t("June"),
+                intl.t("July"), intl.t("August"), intl.t("September"),
+                intl.t("October"), intl.t("November"), intl.t("December") ];
     };
 
     dateTool.getMonthNamesShort = function()
     {
-        return [ l10n.t("Jan"), l10n.t("Feb"), l10n.t("Mar"), l10n.t("Apr"),
-                l10n.t("May"), l10n.t("Jun"), l10n.t("Jul"), l10n.t("Aug"),
-                l10n.t("Sep"), l10n.t("Oct"), l10n.t("Nov"), l10n.t("Dec") ];
+        return [ intl.t("Jan"), intl.t("Feb"), intl.t("Mar"), intl.t("Apr"),
+                intl.t("May"), intl.t("Jun"), intl.t("Jul"), intl.t("Aug"),
+                intl.t("Sep"), intl.t("Oct"), intl.t("Nov"), intl.t("Dec") ];
     };
 
     dateTool.getWeekdayNames = function()
     {
-        return [ l10n.t("Sunday"), l10n.t("Monday"), l10n.t("Tuesday"),
-                l10n.t("Wednesday"), l10n.t("Thursday"),
-                l10n.t("Friday"), l10n.t("Saturday") ];
+        return [ intl.t("Sunday"), intl.t("Monday"), intl.t("Tuesday"),
+                intl.t("Wednesday"), intl.t("Thursday"),
+                intl.t("Friday"), intl.t("Saturday") ];
     };
 
     dateTool.getWeekdayNamesShort = function()
     {
-        return [ l10n.t("Sun"), l10n.t("Mon"), l10n.t("Tue"), l10n.t("Wed"),
-                l10n.t("Thu"), l10n.t("Fri"), l10n.t("Sat") ];
+        return [ intl.t("Sun"), intl.t("Mon"), intl.t("Tue"), intl.t("Wed"),
+                intl.t("Thu"), intl.t("Fri"), intl.t("Sat") ];
     };
 
     dateTool.getFirstDayOfWeek = function()
     {
-        return parseInt(l10n.tc("0|first day of week; 0: Sunday, 1: Monday"));
+        return parseInt(intl.tc("0|first day of week; 0: Sunday, 1: Monday"));
     };
 
     dateTool.format = function(dateObj, string)

@@ -4,7 +4,7 @@ agit.ns("agit.field");
     var
         createIntro = function()
         {
-            return $("<option value='' disabled selected hidden>").text(agit.intl.L10n.t("– Please select –"));
+            return $("<option value='' disabled selected hidden>").text(agit.intl.t("– Please select –"));
         },
 
         selectField = function(elementOrAttributes, options, onChangeCallback)

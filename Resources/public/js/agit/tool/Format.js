@@ -64,7 +64,7 @@ agit.ns("agit.tool");
             value;
 
         fractpart = formatTool.numpad(Math.round(fractpart), decimals);
-        value = intpart + agit.intl.L10n.tc(".|decimal separator") + fractpart;
+        value = intpart + agit.intl.tc(".|decimal separator") + fractpart;
 
         if (trim)
             while (value.match(/[0\.,]$/) && value.match(/[\.,]/))
@@ -102,7 +102,7 @@ agit.ns("agit.tool");
         string = formatTool.esc(string);
 
         // filter: translate multilang content
-        string = agit.intl.L10n.mlStringTranslate(string, agit.cfg.locale);
+        string = agit.intl.mlStringTranslate(string, agit.cfg.locale);
 
         return string;
     };
