@@ -11,12 +11,9 @@ agit.ns("agit.field");
             this.entities = entities || new agit.common.Collection();
             this.currentValue = null;
 
-            // our entities usually have integer IDs
-            this.attr("data-type", "int");
-
             this.change(function(){
                 self.currentValue = self.getValue();
-                onChangeCallback();
+                onChangeCallback && onChangeCallback();
             });
 
             this.refresh();
@@ -40,8 +37,10 @@ agit.ns("agit.field");
         if (value instanceof Object)
             value = value.id;
 
-        // make sure the current value is contained in the updated collection
-        this.currentValue = value ? this.entities.get(value) : null;
+        if (value)
+            value = this.entities.get(value);
+
+        this.currentValue = value.id || null;
 
         agit.field.Select.prototype.setValue.call(this, this.currentValue || "");
 
