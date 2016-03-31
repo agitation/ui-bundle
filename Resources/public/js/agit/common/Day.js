@@ -18,6 +18,11 @@ agit.ns("agit.common");
         this.y = year || today.getFullYear();
     };
 
+    agit.common.Day.prototype.toNumber = function()
+    {
+        return this.y * 10000 + this.m * 100 + this.d;
+    };
+
     agit.common.Day.prototype.toString = function()
     {
         return pad(this.y, 4) + "-" + pad(this.m) + "-" + pad(this.d);
@@ -27,5 +32,18 @@ agit.ns("agit.common");
     {
         var date = new Date(this.y, this.m - 1, this.d);
         return agit.tool.date.format(date, fmt);
+    };
+
+    agit.common.Day.prototype.compare = function(day)
+    {
+        var
+            d1 = this.toNumber(),
+            d2 = day.toNumber(),
+            ret = 0;
+
+        if      (d1 > d2)   ret = 1;
+        else if (d1 < d2)   ret = -1;
+
+        return ret;
     };
 })();
