@@ -1,4 +1,5 @@
-window.c = function(value)
+window.c = function()
 {
-    console.log(JSON.stringify(value, null, 4));
+    for (var i = 0; i < arguments.length; i++)
+        console.log(JSON.stringify(arguments[i], null, 4));
 };
