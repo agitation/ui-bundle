@@ -3,12 +3,9 @@ agit.ns("agit.tool");
 (function(){
     var
         dateTool = {},
-
         intl = agit.intl,
-        fmt = agit.tool.fmt,
-
         numToString = function(num) { return num.toString(); },
-        pad = function(num) { return fmt.numpad(num, 2); },
+        pad = function(num) { return agit.tool.fmt.numpad(num, 2); },
 
         dateFn = {
                 j : function(dateObj) { return numToString(dateObj.getDate()); }, // Day of the month without leading zeros, 1 to 31
