@@ -1,17 +1,8 @@
 agit.ns("agit.context");
 
-agit.context.State = function()
-{
-    // The state manager is a simple implementation for state-aware single-page
-    // applications. It allows view elements to register and have a callback
-    // executed when the URL hash changes to a certain value.
-
+(function(){
     var
-        pageController,
-        elements = {},
         pathRegex = new RegExp("^/[a-z]+/[a-z]+"),
-        defaultPath = "",
-        currentPath = "",
 
         removeTrailingSlash = function(path)
         {
@@ -41,7 +32,7 @@ agit.context.State = function()
             return locPath + (requestString !== undefined ? "/" + requestString : "");
         },
 
-        getState = function()
+        getState = function(currentPath)
         {
             var
                 path = pathRegex.test(currentPath) ? currentPath.match(pathRegex)[0] : "",
@@ -77,54 +68,62 @@ agit.context.State = function()
 
         run = function()
         {
-            currentPath = location.hash.substr(0, 2) === "#!" ? location.hash.substr(2) : defaultPath;
+            this.currentPath = location.hash.substr(0, 2) === "#!" ? location.hash.substr(2) : this.defaultPath;
 
-            var state = getState();
+            var state = getState(this.currentPath);
 
-            if (state.path && elements[state.path])
+            if (state.path && this.elements[state.path])
             {
-                pageController.switchToView(state.view);
-                elements[state.path](state.request);
+                this.pageController.switchToView(state.view);
+                this.elements[state.path](state.request);
             }
+        },
+
+        state = function()
+        {
+            this.pageController = null;
+            this.elements = {};
+            this.defaultPath = "";
+            this.currentPath = "";
         };
 
-    this.registerViewElement = function(path, callback, isDefault)
+    state.prototype.registerViewElement = function(path, callback, isDefault)
     {
         path = removeTrailingSlash(path);
 
         if (!path.match(pathRegex))
             throw new SyntaxError("Path " + path + " doesn’t match the required pattern.");
 
-        elements[path] = callback;
-        isDefault && (defaultPath = path);
+        this.elements[path] = callback;
+        isDefault && (this.defaultPath = path);
     };
 
-    this.registerPageController = function(pageCtl)
+    state.prototype.registerPageController = function(pageCtl)
     {
-        pageController = pageCtl;
+        this.pageController = pageCtl;
     };
 
-    this.getRequestedView = function()
+    state.prototype.getRequestedView = function()
     {
-        return getState().view;
+        return getState(this.currentPath).view;
     };
 
-    this.switchTo = function(path, request)
+    state.prototype.switchTo = function(path, request)
     {
-        location.hash = createHash(path, request)
+        location.hash = createHash(path, request);
     };
 
-    this.update = function(path, request)
+    state.prototype.update = function(path, request)
     {
         history.replaceState(null, "", createHash(path, request));
     };
 
-    // should be called by the page controller after all preparations
-    // (e.g. preloader calls) are finished.
-    this.init = function()
+    // to be called by the page controller after preparations (e.g. preloader calls).
+    state.prototype.init = function()
     {
-        run();
-        $(window).on("hashchange", run);
+        run.call(this);
+        $(window).on("hashchange", run.bind(this));
     };
 
-};
+    agit.context.State = state;
+})();

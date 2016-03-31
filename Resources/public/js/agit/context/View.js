@@ -1,3 +1,5 @@
+agit.ns("agit.context");
+
 (function(){
     var view = function()
     {
@@ -17,6 +19,5 @@
         return this.page;
     };
 
-    agit.ns("agit.context");
     agit.context.View = view;
 })();

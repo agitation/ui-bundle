@@ -1,21 +1,25 @@
 agit.ns("agit.context");
 
-agit.context.Cache = function()
-{
-    var values = {};
-
-    this.set = function(key, value)
+(function(){
+    var cache = function()
     {
-        values[key] = value;
+        this.clear();
     };
 
-    this.get = function(key)
+    cache.prototype.set = function(key, value)
     {
-        return values[key];
+        this.values[key] = value;
     };
 
-    this.clear = function()
+    cache.prototype.get = function(key)
     {
-        values = {};
+        return this.values[key];
     };
-};
+
+    cache.prototype.clear = function()
+    {
+        this.values = {};
+    };
+
+    agit.context.Cache = cache;
+})();
