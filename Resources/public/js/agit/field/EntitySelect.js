@@ -22,12 +22,10 @@ agit.ns("agit.field");
 
     entitySelectField.prototype.refresh = function()
     {
-        var options = this.entitiesToOptions(entities.sort());
-
         this.empty();
         this.addIntro();
 
-        this.setOptions(options);
+        agit.field.Select.prototype.setOptions.call(this, this.entitiesToOptions(this.entities.sort()));
         this.setValue(this.currentValue);
     };
 
@@ -36,10 +34,9 @@ agit.ns("agit.field");
         if (value instanceof Object)
             value = value.id;
 
-        if (value)
-            value = this.entities.get(value);
+        value = this.entities.get(value);
 
-        this.currentValue = value.id || null;
+        this.currentValue = value ? value.id : null;
 
         agit.field.Select.prototype.setValue.call(this, this.currentValue || "");
 
@@ -48,8 +45,13 @@ agit.ns("agit.field");
 
     entitySelectField.prototype.update = function(collection)
     {
-        this.entities = collection;
+        this.entities = collection || new agit.common.Collection();
         this.refresh();
+    };
+
+    entitySelectField.prototype.setOptions = function()
+    {
+        throw new Error("Method is not available, use .update().");
     };
 
     // returns the number of selectable items
