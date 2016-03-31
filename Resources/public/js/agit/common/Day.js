@@ -1,16 +1,21 @@
 agit.ns("agit.common");
 
 (function(){
-    var pad = function(num, len)
-    {
-        return agit.tool.fmt.numpad(num, len || 2);
-    };
+    var
+        today,
 
-    agit.common.Day = function(day, month, year)
+        pad = function(num, len)
+        {
+            return agit.tool.fmt.numpad(num, len || 2);
+        };
+
+    agit.common.Day = function(year, month, day)
     {
-        this.d = day;
-        this.m = month; // NOTE: This is the natural month number, i.e. Jan => 1, ...
-        this.y = year;
+        today = today || new Date();
+
+        this.d = day || today.getDate();
+        this.m = month || today.getMonth() + 1;
+        this.y = year || today.getFullYear();
     };
 
     agit.common.Day.prototype.toString = function()
