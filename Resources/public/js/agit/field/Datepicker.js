@@ -53,6 +53,7 @@ agit.ns("agit.field");
                 self.selDay = self.calendar.getValue();
                 updateInputField.call(self);
                 hideCalendar.call(self);
+                self.trigger("change");
             });
         };
 
