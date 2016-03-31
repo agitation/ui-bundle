@@ -9,13 +9,21 @@ agit.ns("agit.common");
             return agit.tool.fmt.numpad(num, len || 2);
         };
 
-    agit.common.Day = function(year, month, day)
+    agit.common.Day = function(yearOrString, month, day)
     {
         today = today || new Date();
 
-        this.d = day || today.getDate();
-        this.m = month || today.getMonth() + 1;
-        this.y = year || today.getFullYear();
+        if (typeof(yearOrString) === "string")
+        {
+            // year can also be a string
+            this.fromString(yearOrString);
+        }
+        else
+        {
+            this.d = day || today.getDate();
+            this.m = month || today.getMonth() + 1;
+            this.y = yearOrString || today.getFullYear();
+        }
     };
 
     agit.common.Day.prototype.toNumber = function()
@@ -26,6 +34,19 @@ agit.ns("agit.common");
     agit.common.Day.prototype.toString = function()
     {
         return pad(this.y, 4) + "-" + pad(this.m) + "-" + pad(this.d);
+    };
+
+    // expects a string such as "2020-12-30"
+    agit.common.Day.prototype.fromString = function(value)
+    {
+        var parts = value.split("-").map(function(part){ return parseInt(part); });
+
+        if (parts[0] >= 1900 && parts[0] <= 2100 && parts[1] >= 1 && parts[1] <= 12 && parts[2] >= 1 && parts[2] <= 31)
+        {
+            this.y = parts[0];
+            this.m = parts[1];
+            this.d = parts[2];
+        }
     };
 
     agit.common.Day.prototype.format = function(fmt)
