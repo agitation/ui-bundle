@@ -16,7 +16,7 @@ agit.ns("agit.context");
             this.attr(attr || {});
             this.fields = {};
 
-            this.on("submit" stopEvent);
+            this.on("submit", stopEvent);
         };
 
     form.prototype = Object.create(jQuery.prototype);
