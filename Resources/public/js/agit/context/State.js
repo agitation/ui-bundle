@@ -68,18 +68,17 @@ agit.ns("agit.context");
 
         run = function()
         {
-            this.currentPath = location.hash.substr(0, 2) === "#!" ? location.hash.substr(2) : this.defaultPath;
+            var state = getState(location.hash.substr(2));
 
-            var state = getState(this.currentPath);
+            if (!state.path || !this.elements[state.path])
+                state = getState(this.defaultPath);
 
-            if (state.path && this.elements[state.path])
-            {
-                if (state.path === this.defaultPath && !state.request)
-                    history.replaceState(null, "", location.pathname);
+            if (state.path === this.defaultPath && !state.request)
+                this.update(this.defaultPath, "");
 
-                this.pageController.switchToView(state.view);
-                this.elements[state.path](state.request);
-            }
+            this.currentPath = state.path;
+            this.pageController.switchToView(state.view);
+            this.elements[state.path](state.request);
         },
 
         state = function()
@@ -118,7 +117,13 @@ agit.ns("agit.context");
 
     state.prototype.update = function(path, request)
     {
-        history.replaceState(null, "", createHash(path, request));
+        path = removeTrailingSlash(path);
+
+        var newState = (path === this.defaultPath && !request)
+            ? location.pathname
+            : createHash(path, request);
+
+        history.replaceState(null, "", newState);
     };
 
     // to be called by the page controller after preparations (e.g. preloader calls).
