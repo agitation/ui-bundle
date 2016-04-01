@@ -1,5 +1,6 @@
 agit.ns("agit.common");
 
+// DEPRECATED: use agit.context.Form
 agit.common.Form =
 {
     stopEvent : function(ev)
