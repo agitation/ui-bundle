@@ -74,6 +74,9 @@ agit.ns("agit.context");
 
             if (state.path && this.elements[state.path])
             {
+                if (state.path === this.defaultPath && !state.request)
+                    history.replaceState(null, "", location.pathname);
+
                 this.pageController.switchToView(state.view);
                 this.elements[state.path](state.request);
             }
