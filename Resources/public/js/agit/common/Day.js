@@ -15,7 +15,6 @@ agit.ns("agit.common");
 
         if (typeof(yearOrString) === "string")
         {
-            // year can also be a string
             this.fromString(yearOrString);
         }
         else

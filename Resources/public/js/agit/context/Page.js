@@ -1,36 +1,41 @@
 agit.ns("agit.context");
 
-agit.context.Page = function(title, views, options)
-{
+(function(){
     var
         defaultOptions = {},
-        opts = $.extend(true, defaultOptions, options || {}),
-        cache = new agit.context.Cache(),
-        $page = agit.tool.tpl(".page");
 
-    // default container, may be overwritten before calling $page.init()
-    $page.container = $("main");
+        page = function(title, views, options)
+        {
+            this.extend(this, agit.tool.tpl(".page"));
 
-    $page.load = function(entities, settings)
+            this.find("h1").text(title);
+
+            this.opts = $.extend(true, defaultOptions, options || {}),
+            this.cache = new agit.context.Cache(),
+            this.views = views;
+            this.container = $("main");
+        };
+
+    page.prototype = Object.create(jQuery.prototype);
+
+    page.prototype.getCache = function()
     {
-        return $page;
+        return this.cache;
     };
 
-    $page.getCache = function()
+    page.prototype.switchToView = function(view)
     {
-        return cache;
-    };
+        var self = this;
 
-    $page.switchToView = function(view)
-    {
-        Object.keys(views).forEach(function(key) {
-             views[key][key === view ? "show" : "hide"]();
+        Object.keys(this.views).forEach(function(key) {
+             self.views[key][key === view ? "show" : "hide"]();
         });
     };
 
-    $page.init = function()
+    page.prototype.initialize = function()
     {
         var
+            self = this,
             visibleView,
             stateManager = agit.srv("state"),
             preloader = agit.srv("preloader"),
@@ -44,18 +49,16 @@ agit.context.Page = function(title, views, options)
             };
 
         indicator.start();
-        stateManager.registerPageController($page);
+        stateManager.registerPageController(this);
 
-        $page.find("h1").text(title);
+        Object.keys(this.views).forEach(function(key) {
+            self.find(".views").append(self.views[key]);
 
-        Object.keys(views).forEach(function(key) {
-            $page.find(".views").append(views[key]);
-
-            views[key].setPage && views[key].setPage($page);
+            self.views[key].setPage && self.views[key].setPage(self);
 
             if (key === reqView || (!reqView && !visibleView))
             {
-                views[key].show();
+                self.views[key].show();
                 visibleView = key;
             }
         });
@@ -65,10 +68,10 @@ agit.context.Page = function(title, views, options)
         else
             finishCallback();
 
-        $page.container.html($page);
+        this.container.html(this);
 
-        return $page;
+        return this;
     };
 
-    return $page;
-};
+    agit.context.Page = page;
+})();
