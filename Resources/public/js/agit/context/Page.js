@@ -12,7 +12,7 @@ agit.ns("agit.context");
 
             this.opts = $.extend(true, defaultOptions, options || {}),
             this.cache = new agit.context.Cache(),
-            this.views = views;
+            this.views = views || {};
             this.container = $("main");
         };
 
