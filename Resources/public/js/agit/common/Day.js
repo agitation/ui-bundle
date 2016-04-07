@@ -66,4 +66,23 @@ agit.ns("agit.common");
 
         return ret;
     };
+
+    agit.common.Day.prototype.getDate = function()
+    {
+        return new Date(this.y, this.m - 1, this.d);
+    };
+
+    agit.common.Day.prototype.clone = function()
+    {
+        return new agit.common.Day(this.y, this.m, this.d);
+    };
+
+    agit.common.Day.prototype.diff = function(offset)
+    {
+        var date = this.getDate();
+
+        date.setDate(date.getDate() + offset);
+
+        return new agit.common.Day(date.getFullYear(), date.getMonth() + 1, date.getDate());
+    };
 })();
