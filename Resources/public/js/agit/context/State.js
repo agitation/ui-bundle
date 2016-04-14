@@ -70,21 +70,25 @@ agit.ns("agit.context");
         {
             var state = getState(location.hash.substr(2));
 
-            if (!state.path || !this.elements[state.path])
+            if (!state.path || !this.views[state.path])
                 state = getState(this.defaultPath);
 
             if (state.path === this.defaultPath && !state.request)
                 this.update(this.defaultPath, "");
 
             this.currentPath = state.path;
-            this.pageController.switchToView(state.view);
-            this.elements[state.path](state.request);
+
+            if (this.views[state.path])
+            {
+                this.pageController.switchToView(state.view);
+                this.views[state.path](state.request);
+            }
         },
 
         state = function()
         {
             this.pageController = null;
-            this.elements = {};
+            this.views = {};
             this.defaultPath = "";
             this.currentPath = "";
         };
@@ -96,7 +100,7 @@ agit.ns("agit.context");
         if (!path.match(pathRegex))
             throw new SyntaxError("Path " + path + " doesn’t match the required pattern.");
 
-        this.elements[path] = callback;
+        this.views[path] = callback;
         isDefault && (this.defaultPath = path);
     };
 
