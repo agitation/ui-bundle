@@ -25,8 +25,7 @@ agit.elem.ApiForm = function(endpoint, $rows, $footer, callback)
         apiService.doCall(
             endpoint,
             values,
-            callback,
-            { fullResponse : true }
+            callback
         );
     });
 
