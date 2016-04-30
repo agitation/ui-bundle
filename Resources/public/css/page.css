@@ -21,7 +21,7 @@ main p, main ul                                     { margin: 1em auto; }
 main p:last-child, main ul:last-child               { margin-bottom: 0; }
 main li                                             { margin: .7em auto 0; }
 
-main .page                                          { margin-bottom: 40px; }
+main .page                                          { margin-bottom: 50px; }
 main .page .view                                    { display: none; }
 
 footer                                              { background-color: #585858; padding:20px 0; color: #ccc; position: absolute; bottom: 0; width:100%; }
