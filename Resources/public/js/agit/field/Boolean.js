@@ -5,7 +5,7 @@ agit.ns("agit.field");
     {
         this.extend(this, agit.tool.tpl(".boolean"));
         this.find("span").text(labelText);
-        this.$input = agit.field.Checkbox(this.find("input"));
+        this.$input = new agit.field.Checkbox(this.find("input"));
     };
 
     boolField.prototype = Object.create(agit.field.Field.prototype);
