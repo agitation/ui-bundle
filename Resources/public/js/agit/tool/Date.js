@@ -8,24 +8,24 @@ agit.ns("agit.tool");
         pad = function(num) { return agit.tool.fmt.numpad(num, 2); },
 
         dateFn = {
-                j : function(dateObj) { return numToString(dateObj.getDate()); }, // Day of the month without leading zeros, 1 to 31
-                d : function(dateObj) { return pad(dateObj.getDate()); }, // Day of the month, 2 digits with leading zeros, 01 to 31
+                j : function(dateObj) { return numToString(dateObj.getUTCDate()); }, // Day of the month without leading zeros, 1 to 31
+                d : function(dateObj) { return pad(dateObj.getUTCDate()); }, // Day of the month, 2 digits with leading zeros, 01 to 31
 
-                w : function(dateObj) { return numToString(dateObj.getDay()); }, // Numeric representation of the day of the week, 0 (for Sunday) through 6 (for Saturday)
-                D : function(dateObj) { return dateTool.getWeekdayNamesShort()[dateObj.getDay()]; }, // A textual representation of a day, three letters, Mon through Sun
-                l : function(dateObj) { return dateTool.getWeekdayNames()[dateObj.getDay()]; }, // A full textual representation of the day of the week Sunday through Saturday
+                w : function(dateObj) { return numToString(dateObj.getUTCDay()); }, // Numeric representation of the day of the week, 0 (for Sunday) through 6 (for Saturday)
+                D : function(dateObj) { return dateTool.getWeekdayNamesShort()[dateObj.getUTCDay()]; }, // A textual representation of a day, three letters, Mon through Sun
+                l : function(dateObj) { return dateTool.getWeekdayNames()[dateObj.getUTCDay()]; }, // A full textual representation of the day of the week Sunday through Saturday
 
-                F : function(dateObj) { return dateTool.getMonthNames()[dateObj.getMonth()]; }, // A full textual representation of a month, January through December
-                M : function(dateObj) { return dateTool.getMonthNamesShort()[dateObj.getMonth()]; }, // A short textual representation of a month, three letters, Jan through Dec
-                n : function(dateObj) { return numToString(dateObj.getMonth() + 1); }, // Numeric representation of a month, without leading zeros, 1 through 12
-                m : function(dateObj) { return pad(dateObj.getMonth() + 1); }, // Numeric representation of a month, with leading zeros, 01 through 12
+                F : function(dateObj) { return dateTool.getMonthNames()[dateObj.getUTCMonth()]; }, // A full textual representation of a month, January through December
+                M : function(dateObj) { return dateTool.getMonthNamesShort()[dateObj.getUTCMonth()]; }, // A short textual representation of a month, three letters, Jan through Dec
+                n : function(dateObj) { return numToString(dateObj.getUTCMonth() + 1); }, // Numeric representation of a month, without leading zeros, 1 through 12
+                m : function(dateObj) { return pad(dateObj.getUTCMonth() + 1); }, // Numeric representation of a month, with leading zeros, 01 through 12
 
-                Y : function(dateObj) { return numToString(dateObj.getFullYear()); }, // A full numeric representation of a year, 1999 or 2003
-                y : function(dateObj) { return numToString(dateObj.getFullYear()).substr(2); }, // A two digit representation of a year, 99 or 03
+                Y : function(dateObj) { return numToString(dateObj.getUTCFullYear()); }, // A full numeric representation of a year, 1999 or 2003
+                y : function(dateObj) { return numToString(dateObj.getUTCFullYear()).substr(2); }, // A two digit representation of a year, 99 or 03
 
-                H : function(dateObj) { return pad(dateObj.getHours()); }, // 24-hour format of an hour with leading zeros, 00 through 23
-                i : function(dateObj) { return pad(dateObj.getMinutes()); }, // Minutes with leading zeros, 00 to 59
-                s : function(dateObj) { return pad(dateObj.getSeconds()); }, // Seconds, with leading zeros, 00 through 59
+                H : function(dateObj) { return pad(dateObj.getUTCHours()); }, // 24-hour format of an hour with leading zeros, 00 through 23
+                i : function(dateObj) { return pad(dateObj.getUTCMinutes()); }, // Minutes with leading zeros, 00 to 59
+                s : function(dateObj) { return pad(dateObj.getUTCSeconds()); }, // Seconds, with leading zeros, 00 through 59
         };
 
     dateTool.getMonthNames = function()
@@ -70,4 +70,3 @@ agit.ns("agit.tool");
 
     agit.tool.date = dateTool;
 })();
-
