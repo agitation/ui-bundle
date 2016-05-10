@@ -73,10 +73,14 @@ agit.ns("agit.tool");
         return value;
     };
 
-    // DEPRECATED; use L10n functions
-    formatTool.currencyFormat = function(val) // format currency xxx.xx
+    formatTool.currency = function(val, symbol)
     {
-        return formatTool.numberFormat(val, 2);
+        var string = formatTool.numberFormat(val, 2);
+
+        if (symbol)
+            string += " " + symbol; // NOTE: the space is a "thin space" (U+2009)
+
+        return string;
     };
 
     formatTool.esc = function(string)
