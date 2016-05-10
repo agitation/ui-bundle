@@ -68,8 +68,8 @@ agit.ns("agit.field");
                 $tbody = $table.find("tbody").empty(),
                 $tr = $("<tr>"),
 
-                monthLength = (new Date(calInst.year, calInst.month, 0)).getDate(),
-                firstDayWeekday = new Date(calInst.year, calInst.month - 1, 1).getDay(),
+                monthLength = (new Date(Date.UTC(calInst.year, calInst.month, 0))).getDate(),
+                firstDayWeekday = (new Date(Date.UTC(calInst.year, calInst.month - 1, 1))).getDay(),
                 padColsBefore = (7 - dayOffset + firstDayWeekday) % 7,
                 padColsAfter = 7 - ((monthLength + firstDayWeekday - dayOffset) % 7);
 

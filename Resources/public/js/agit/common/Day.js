@@ -50,7 +50,7 @@ agit.ns("agit.common");
 
     agit.common.Day.prototype.format = function(fmt)
     {
-        var date = new Date(this.y, this.m - 1, this.d);
+        var date = new Date(new Date(Date.UTC(this.y, this.m - 1, this.d, 0, 0, 0)));
         return agit.tool.date.format(date, fmt);
     };
 
@@ -69,7 +69,7 @@ agit.ns("agit.common");
 
     agit.common.Day.prototype.getDate = function()
     {
-        return new Date(this.y, this.m - 1, this.d);
+        return new Date(Date.UTC(this.y, this.m - 1, this.d));
     };
 
     agit.common.Day.prototype.clone = function()
