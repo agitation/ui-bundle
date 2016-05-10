@@ -19,9 +19,9 @@ agit.ns("agit.common");
         }
         else
         {
-            this.d = day || today.getDate();
-            this.m = month || today.getMonth() + 1;
-            this.y = yearOrString || today.getFullYear();
+            this.d = day || today.getUTCDate();
+            this.m = month || today.getUTCMonth() + 1;
+            this.y = yearOrString || today.getUTCFullYear();
         }
     };
 
@@ -81,8 +81,8 @@ agit.ns("agit.common");
     {
         var date = this.getDate();
 
-        date.setDate(date.getDate() + offset);
+        date.setUTCDate(date.getUTCDate() + offset);
 
-        return new agit.common.Day(date.getFullYear(), date.getMonth() + 1, date.getDate());
+        return new agit.common.Day(date.getUTCFullYear(), date.getUTCMonth() + 1, date.getUTCDate());
     };
 })();
