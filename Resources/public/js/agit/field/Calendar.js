@@ -21,7 +21,7 @@ agit.ns("agit.field");
 
         renderTable = function()
         {
-            var $table = agit.tool.tpl("div.calendar table");
+            var $table = agit.tool.tpl("agitui-calendar", "table");
 
             fillHeader($table, this);
             fillWeekdays($table);

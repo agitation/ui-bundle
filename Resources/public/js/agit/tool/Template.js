@@ -2,52 +2,54 @@ agit.ns("agit.tool");
 
 (function(){
     var
-        $body = $("body"),
-
-        uaSupportsTemplateTag = ("content" in document.createElement("template")),
-
-        $templateNodeList,
+        $templates,
 
         createNodeList = function()
         {
-            $templateNodeList = [];
+            var uaSupportsTemplateTag = ("content" in document.createElement("template"));
 
-            $body.find("template").each(function(){
+            $templates = {};
+
+            $("body").find("template").each(function(){
+                var
+                    $tpl = $(this),
+                    id = $tpl.attr("id");
+
                 if (uaSupportsTemplateTag)
-                    $templateNodeList.push($(document.importNode(this.content, true)));
+                    $templates[id] = $(document.importNode(this.content, true));
                 else
-                    $templateNodeList.push($(this));
+                    $templates[id] = $tpl;
             });
         };
 
         // caching already found elements by selector
         foundElements = {};
 
-    agit.tool.tpl = function(selector)
+    agit.tool.tpl = function(template, selector)
     {
-        var $tplElem;
+        var $elem;
 
         // extract template nodes on first run
-        if (!($templateNodeList instanceof Array))
-            createNodeList();
+        $templates || createNodeList();
 
-        if (foundElements[selector])
+        if (foundElements[template] && foundElements[template][selector])
         {
-            $tplElem = foundElements[selector];
+            $elem = foundElements[template][selector];
         }
         else
         {
-            $.each($templateNodeList, function(k, $templateNode){
-                $tplElem = $templateNode.find(selector);
-                if ($tplElem && $tplElem.length) return false; // break on found element
-            });
+            if (!$templates[template])
+                throw new Error(agit.tool.fmt.sprintf("Template `%s` not found!", template));
 
-            if (!$tplElem)
-                throw new Error("Element not found!");
+            $elem = $templates[template].find(selector);
 
-            foundElements[selector] = $tplElem;
+            if (!$elem || !$elem.length)
+                throw new Error(agit.tool.fmt.sprintf("Element `%s` in template `%s` not found!", selector, template));
+
+            foundElements[template] = foundElements[template] || {};
+            foundElements[template][selector] = $elem;
         }
 
-        return $tplElem.clone();
+        return $elem.clone();
     };
 })()

@@ -3,7 +3,7 @@ agit.ns("agit.field");
 (function(){
     var boolField = function(labelText)
     {
-        this.extend(this, agit.tool.tpl(".boolean"));
+        this.extend(this, agit.tool.tpl("agitui-form", ".boolean"));
         this.find("span").text(labelText);
         this.$input = new agit.field.Checkbox(this.find("input"));
     };

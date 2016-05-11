@@ -5,7 +5,7 @@ agit.ns("agit.elem");
 agit.elem.Map = function()
 {
     var
-        $map = agit.tool.tpl(".map"),
+        $map = agit.tool.tpl("agitui-map", ".map"),
 
         olMap = new ol.Map({
             layers : [

@@ -3,7 +3,7 @@ agit.ns("agit.elem");
 (function(){
     var formRow = function(key, label, $field, options)
     {
-        this.extend(this, agit.tool.tpl(".api-form tbody tr"));
+        this.extend(this, agit.tool.tpl("agitui-form", ".api-form tbody tr"));
 
         options = options || {};
         options.optional || this.find("th .optional").remove();

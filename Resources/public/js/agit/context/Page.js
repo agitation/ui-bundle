@@ -6,7 +6,7 @@ agit.ns("agit.context");
 
         page = function(title, views, options)
         {
-            this.extend(this, agit.tool.tpl(".page"));
+            this.extend(this, agit.tool.tpl("agitui-page", ".page"));
 
             this.find("h1").text(title);
 

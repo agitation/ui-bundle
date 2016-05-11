@@ -30,8 +30,8 @@ agit.ns("agit.misc.msgh");
     msgH.prototype.showMessage = function(message)
     {
         var
+            $msgBubble = agit.tool.tpl("agitui-msg-bubbles", ".message-bubble"),
             $container = $("<div class='message-bubbles'>").appendTo($("body")),
-            $msgBubble = agit.tool.tpl(".message-bubble"),
             removeThisBubble = function(){ removeBubble($msgBubble); };
 
         window.setTimeout(function(){
