@@ -2,8 +2,6 @@ agit.ns("agit.common");
 
 (function(){
     var
-        today,
-
         pad = function(num, len)
         {
             return agit.tool.fmt.numpad(num, len || 2);
@@ -11,17 +9,19 @@ agit.ns("agit.common");
 
     agit.common.Day = function(yearOrString, month, day)
     {
-        today = today || new Date();
-
         if (typeof(yearOrString) === "string")
         {
             this.fromString(yearOrString);
         }
         else
         {
-            this.d = day || today.getUTCDate();
-            this.m = month || today.getUTCMonth() + 1;
-            this.y = yearOrString || today.getUTCFullYear();
+            var now;
+
+            day || now = new Date();
+
+            this.d = day || now.getUTCDate();
+            this.m = month || now.getUTCMonth() + 1;
+            this.y = yearOrString || now.getUTCFullYear();
         }
     };
 
