@@ -83,6 +83,12 @@ agit.ns("agit.tool");
         return string;
     };
 
+    formatTool.duration = function(minutes)
+    {
+        var hours = Math.floor(minutes / 60);
+        return formatTool.sprintf(agit.intl.t("%sh %smin"), hours, minutes - hours * 60);
+    };
+
     formatTool.esc = function(string)
     {
         var replacements = { "<" : "&lt;", ">" : "&gt;", "\"" : "&quot;", "'" : "&#038;" };
