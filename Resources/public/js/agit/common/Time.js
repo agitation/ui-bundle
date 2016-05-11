@@ -16,9 +16,7 @@ agit.ns("agit.common");
         }
         else
         {
-            var now;
-
-            minute || now = new Date();
+            var now = minute ? null : new Date();
 
             this.h = hourOrString || now.getUTCHours();
             this.m = minute || now.getUTCMinutes();

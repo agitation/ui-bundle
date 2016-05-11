@@ -15,9 +15,7 @@ agit.ns("agit.common");
         }
         else
         {
-            var now;
-
-            day || now = new Date();
+            var now = day ? null : new Date();
 
             this.d = day || now.getUTCDate();
             this.m = month || now.getUTCMonth() + 1;
