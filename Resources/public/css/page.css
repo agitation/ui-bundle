@@ -15,8 +15,8 @@ header .navbar .navbar-nav > li > a:hover           { color: #eee }
 
 main                                                { margin: 0 auto; padding-top: 100px; padding-bottom: 60px; }
 main h1                                             { margin: 20px auto 50px; font-weight: 100; font-size: 50px; }
-main h2                                             { margin: 1.6em auto 1.3em; }
-main h3                                             { margin: 1.6em auto 1.2em; }
+main h2                                             { margin: 1em auto .6em; font-weight: 300; }
+main h3                                             { margin: .8em auto .4em; font-weight: 300; }
 main p, main ul                                     { margin: 1em auto; }
 main p:last-child, main ul:last-child               { margin-bottom: 0; }
 main li                                             { margin: .7em auto 0; }
