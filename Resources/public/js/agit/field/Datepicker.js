@@ -62,7 +62,9 @@ agit.ns("agit.field");
     datepickerField.prototype.setValue = function(value)
     {
         this.selDay = value;
+        this.calendar.setValue(value);
         updateInputField.call(this);
+        this.trigger("change");
 
         return this;
     };
@@ -75,11 +77,13 @@ agit.ns("agit.field");
     datepickerField.prototype.setMinDay = function(day)
     {
         this.minDay = day;
+        this.calendar.setMinDay(this.minDay);
 
-        if (this.selDay.compare(this.minDay) <= 0)
+        if (this.selDay.compare(this.minDay) < 0)
         {
             this.selDay = this.minDay;
             updateInputField.call(this);
+            this.trigger("change");
         }
 
         return this;
@@ -88,11 +92,13 @@ agit.ns("agit.field");
     datepickerField.prototype.setMaxDay = function(day)
     {
         this.maxDay = day;
+        this.calendar.setMaxDay(this.maxDay);
 
-        if (this.selDay.compare(this.maxDay) >= 0)
+        if (this.selDay.compare(this.maxDay) > 0)
         {
             this.selDay = this.maxDay;
             updateInputField.call(this);
+            this.trigger("change");
         }
 
         return this;

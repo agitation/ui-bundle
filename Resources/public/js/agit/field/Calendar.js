@@ -153,6 +153,7 @@ agit.ns("agit.field");
         this.selDay = value;
         this.month = this.selDay.m;
         this.year = this.selDay.y;
+        renderTable.call(this);
 
         return this;
     };
@@ -166,12 +167,14 @@ agit.ns("agit.field");
     {
         this.minDay = day;
 
-        if (this.selDay.compare(this.minDay) <= 0)
+        if (this.selDay.compare(this.minDay) < 0)
         {
             this.selDay = this.minDay;
             this.month = this.selDay.m;
             this.year = this.selDay.y;
         }
+
+        renderTable.call(this);
 
         return this;
     };
@@ -180,12 +183,14 @@ agit.ns("agit.field");
     {
         this.maxDay = day;
 
-        if (this.selDay.compare(this.maxDay) >= 0)
+        if (this.selDay.compare(this.maxDay) > 0)
         {
             this.selDay = this.maxDay;
             this.month = this.selDay.m;
             this.year = this.selDay.y;
         }
+
+        renderTable.call(this);
 
         return this;
     };
