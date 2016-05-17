@@ -16,10 +16,10 @@ agit.ns("agit.common");
         }
         else
         {
-            var now = minute ? null : new Date();
+            var now = minute === undefined ? null : new Date();
 
             this.h = hourOrString || now.getUTCHours();
-            this.m = minute || now.getUTCMinutes();
+            this.m = minute === undefined ? now.getUTCMinutes() : minute;
         }
     };
 
