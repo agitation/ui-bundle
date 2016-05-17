@@ -34,7 +34,7 @@ agit.ns("agit.context");
 
         updateHreflangLinks = function(newState)
         {
-            $("[rel=alternate][hreflang]").each(function(){
+            this.altLinks.each(function(){
                 var
                     $link = $(this),
                     href = $link.attr("href").split("#")[0];
@@ -93,7 +93,7 @@ agit.ns("agit.context");
             {
                 this.pageController.switchToView(state.view);
                 this.views[state.path](state.request);
-                updateHreflangLinks(createHash(state.path, state.request));
+                updateHreflangLinks.call(this, createHash(state.path, state.request));
             }
         },
 
@@ -103,6 +103,7 @@ agit.ns("agit.context");
             this.views = {};
             this.defaultPath = "";
             this.currentPath = "";
+            this.altLinks = $("[rel=alternate][hreflang]");
         };
 
     state.prototype.registerViewElement = function(path, callback, isDefault)
@@ -143,7 +144,7 @@ agit.ns("agit.context");
                 : hash
 
         history.replaceState(null, "", newState);
-        updateHreflangLinks(hash);
+        updateHreflangLinks.call(this, hash);
     };
 
     // to be called by the page controller after preparations (e.g. preloader calls).
