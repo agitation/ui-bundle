@@ -40,15 +40,8 @@ agit.ns("agit.context");
             stateManager = agit.srv("state"),
             preloader = agit.srv("preloader"),
             indicator = agit.srv("indicator"),
-            reqView = stateManager.getRequestedView(),
+            reqView = stateManager.getRequestedView();
 
-            finishCallback = function()
-            {
-                indicator.finish();
-                stateManager.init();
-            };
-
-        indicator.start();
         stateManager.registerPageController(this);
 
         Object.keys(this.views).forEach(function(key) {
@@ -64,9 +57,18 @@ agit.ns("agit.context");
         });
 
         if (preloader)
-            preloader.run(finishCallback)
+        {
+            indicator.start();
+
+            preloader.run(function() {
+                indicator.finish();
+                stateManager.init();
+            });
+        }
         else
-            finishCallback();
+        {
+            stateManager.init();
+        }
 
         this.container.html(this);
 
