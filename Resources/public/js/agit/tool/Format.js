@@ -53,8 +53,8 @@ agit.ns("agit.tool");
 
     formatTool.numberFormat = function(val, decimals, trim)
     {
-        decimals = decimals || 2;
-        trim = trim || true;  // if trim is true: use decimals for rounding, then trim trailing zeros
+        decimals = decimals !== undefined ? decimals : 2;
+        trim = trim !== undefined ? trim : true;  // if trim is true: use decimals for rounding, then trim trailing zeros
 
         var
             floatVal = parseFloat(val),
@@ -75,7 +75,7 @@ agit.ns("agit.tool");
 
     formatTool.currency = function(val, symbol)
     {
-        var string = formatTool.numberFormat(val, 2);
+        var string = formatTool.numberFormat(val, 2, false);
 
         if (symbol)
             string += " " + symbol; // NOTE: the space is a "thin space" (U+2009)
