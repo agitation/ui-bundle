@@ -82,7 +82,6 @@
             "@AgitCommonBundle/Resources/public/js/lib/MessageHandler.js"
             "@AgitCommonBundle/Resources/public/js/lib/Date.js"
             "@AgitCommonBundle/Resources/public/js/lib/Time.js"
-            "@AgitCommonBundle/Resources/public/js/lib/Form.js"
 
             "@AgitIntlBundle/Resources/public/js/lib/intl.js"
 
@@ -130,9 +129,9 @@
 
     {% block config_js %}
         <script type="text/javascript">/* <![CDATA[ */
-            agit.cfg.locale ="{{ locale }}";
-            agit.cfg.apiBaseUrl ="{{ getApiUrlBase() }}";
-            agit.cfg.csrfToken ="{{ getCsrfToken() }}";
+            ag.cfg.locale ="{{ locale }}";
+            ag.cfg.apiBaseUrl ="{{ getApiUrlBase() }}";
+            ag.cfg.csrfToken ="{{ getCsrfToken() }}";
         /* ]]> */</script>
     {% endblock %}
 

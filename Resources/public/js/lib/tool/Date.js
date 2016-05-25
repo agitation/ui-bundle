@@ -3,7 +3,7 @@ ag.ns("ag.ui.tool");
 (function(){
     var
         dateTool = {},
-        intl = agit.intl,
+        intl = ag.intl,
         numToString = function(num) { return num.toString(); },
         pad = function(num) { return ag.ui.tool.fmt.numpad(num, 2); },
 

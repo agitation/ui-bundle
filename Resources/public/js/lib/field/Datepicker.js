@@ -26,7 +26,7 @@ ag.ns("ag.ui.field");
 
         updateInputField = function()
         {
-            this.origVal(this.selDay ? this.selDay.format(agit.intl.t("d/m/Y")) : "");
+            this.origVal(this.selDay ? this.selDay.format(ag.intl.t("d/m/Y")) : "");
         },
 
         datepickerField = function($elem, day, minDay, maxDay)

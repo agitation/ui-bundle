@@ -11,7 +11,7 @@ ag.ns("ag.ui.elem");
 
         modal
             .setTitle(null)
-            .setFooter(ag.ui.elem.ModalMessageHandler.getButton("confirm", agit.intl.t("Ok")))
+            .setFooter(ag.ui.elem.ModalMessageHandler.getButton("confirm", ag.intl.t("Ok")))
             .setContent(ag.ui.tool.fmt.sprintf("<p class='msg msg-%s'>%s</p>", message.getType(), message.getText()))
             .appear();
     };

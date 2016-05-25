@@ -64,7 +64,7 @@ ag.ns("ag.ui.tool");
             value;
 
         fractpart = formatTool.numpad(Math.round(fractpart), decimals);
-        value = intpart + agit.intl.tc(".|decimal separator") + fractpart;
+        value = intpart + ag.intl.tc(".|decimal separator") + fractpart;
 
         if (trim)
             while (value.match(/[0\.,]$/) && value.match(/[\.,]/))
@@ -86,7 +86,7 @@ ag.ns("ag.ui.tool");
     formatTool.duration = function(minutes)
     {
         var hours = Math.floor(minutes / 60);
-        return formatTool.sprintf(agit.intl.t("%sh %smin"), hours, minutes - hours * 60);
+        return formatTool.sprintf(ag.intl.t("%sh %smin"), hours, minutes - hours * 60);
     };
 
     formatTool.esc = function(string)
@@ -112,7 +112,7 @@ ag.ns("ag.ui.tool");
         string = formatTool.esc(string);
 
         // filter: translate multilang content
-        string = agit.intl.mlStringTranslate(string, agit.cfg.locale);
+        string = ag.intl.mlStringTranslate(string, ag.cfg.locale);
 
         return string;
     };
