@@ -1,11 +1,15 @@
 ag.ns("ag.ui.elem");
 
-ag.ui.elem.ApiForm = function(endpoint, $rows, $footer, callback)
+(function(){
+
+var apiForm = function(endpoint, $rows, $footer, callback)
 {
+    this.extend(this, ag.ui.tool.tpl("agitui-form", ".api-form"));
+
     var
-        $form = ag.ui.tool.tpl("agitui-form", ".api-form"),
-        $table = $form.find("table"),
-        $tbody = $form.find("tbody").empty(),
+        self = this,
+        $table = this.find("table"),
+        $tbody = this.find("tbody").empty(),
         apiService = ag.srv("api");
 
     $tbody.append($rows);
@@ -13,8 +17,8 @@ ag.ui.elem.ApiForm = function(endpoint, $rows, $footer, callback)
     $table.find("tfoot").remove();
     $table.append($footer);
 
-    $form.on("submit", function(ev){
-        ag.ui.ctxt.Form.stopEvent(ev);
+    this.on("submit", function(ev){
+        self.stopEvent(ev);
 
         var values = {};
 
@@ -22,12 +26,11 @@ ag.ui.elem.ApiForm = function(endpoint, $rows, $footer, callback)
             values[$row.getName()] = $row.getValue();
         });
 
-        apiService.doCall(
-            endpoint,
-            values,
-            callback
-        );
+        apiService.doCall(endpoint, values, callback);
     });
-
-    return $form;
 };
+
+apiForm.prototype = Object.create(ag.ui.ctxt.Form.prototype);
+
+ag.ui.elem.ApiForm = apiForm;
+})();

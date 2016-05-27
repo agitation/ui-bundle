@@ -2,21 +2,13 @@ ag.ns("ag.ui.ctxt");
 
 (function(){
     var
-        stopEvent = function(ev)
-        {
-            if (ev.preventDefault)
-                ev.preventDefault();
-            else
-                ev.returnValue = false;
-        },
-
         form = function($elem, attr)
         {
             this.extend(this, $elem || $("<form role='form' action='' method='' autocomplete='off'>"));
             this.attr(attr || {});
             this.fields = {};
 
-            this.on("submit", stopEvent);
+            this.on("submit", this.stopEvent);
         };
 
     form.prototype = Object.create(jQuery.prototype);
@@ -24,6 +16,14 @@ ag.ns("ag.ui.ctxt");
     form.prototype.addField = function(key, field)
     {
         this.fields[key] = field;
+    };
+
+    form.prototype.stopEvent = function(ev)
+    {
+            if (ev.preventDefault)
+                ev.preventDefault();
+            else
+                ev.returnValue = false;
     };
 
     form.prototype.getValues = function()
