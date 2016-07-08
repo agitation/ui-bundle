@@ -1,0 +1,5 @@
+.spinner                    { border-radius: 50%; box-sizing: border-box; border: solid 3px rgba(50, 120, 180, 0.4);
+                              border-top-color: #3278b4; animation: spinner 1s infinite linear;
+                              display: inline-block; height: 3.5em; width: 3.5em; }
+
+@keyframes spinner          { from { transform: rotate(0deg);  } to { transform: rotate(360deg); } }
