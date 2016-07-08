@@ -21,6 +21,8 @@
             "@AgitUiBundle/Resources/public/css/font.roboto.css"
             "@AgitUiBundle/Resources/public/css/page.css"
             "@AgitUiBundle/Resources/public/css/overlay.css"
+            "@AgitUiBundle/Resources/public/css/modal.css"
+            "@AgitUiBundle/Resources/public/css/message.modal.css"
             "@AgitUiBundle/Resources/public/css/indicator.css"
             "@AgitUiBundle/Resources/public/css/forms.css"
             "@AgitUiBundle/Resources/public/css/common.css"
@@ -72,6 +74,26 @@
                 {% endblock %}
             </footer>
         </div>
+    {% endblock %}
+
+    {% block common_templates %}
+        {% include "AgitUiBundle:Include:template.page.html.twig" %}
+        {% include "AgitUiBundle:Include:template.forms.html.twig" %}
+        {% include "AgitUiBundle:Include:include.modal.html.twig" %}
+        {% include "AgitUiBundle:Include:include.message.modal.html.twig" %}
+        {% include "AgitUiBundle:Include:include.indicator.html.twig" %}
+    {% endblock %}
+
+    {% block area_templates %}
+        {# area template includes #}
+    {% endblock %}
+
+    {% block templates %}
+        {# page template includes #}
+    {% endblock %}
+
+    {% block local_templates %}
+        {# local template includes #}
     {% endblock %}
 
     {% block common_js %}
@@ -145,25 +167,6 @@
 
     {% block local_js %}
         {# local JS #}
-    {% endblock %}
-
-    {% block common_templates %}
-        {% include "AgitUiBundle:Include:template.page.html.twig" %}
-        {% include "AgitUiBundle:Include:template.forms.html.twig" %}
-        {% include "AgitUiBundle:Include:include.modal.html.twig" %}
-        {% include "AgitUiBundle:Include:include.indicator.html.twig" %}
-    {% endblock %}
-
-    {% block area_templates %}
-        {# area template includes #}
-    {% endblock %}
-
-    {% block templates %}
-        {# page template includes #}
-    {% endblock %}
-
-    {% block local_templates %}
-        {# local template includes #}
     {% endblock %}
 </body>
 </html>

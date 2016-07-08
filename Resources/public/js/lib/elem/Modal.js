@@ -1,51 +1,54 @@
 ag.ns("ag.ui.elem");
 
+(function(){
+    var
+        modal = function()
+        {
+            this.extend(this, ag.ui.tool.tpl("agitui-modal", ".modal"));
 
-ag.ui.elem.ModalMessageHandler = function()
-{
-    var $modal = ag.ui.tool.tpl("agitui-modal", "div.modal");
+            this.isVisible = false;
+            this.overlay = ag.ui.elem.Overlay;
 
-    $modal.setTitle = function($elem)
+            this.elements = {
+                header : this.find(".header"),
+
+                // keep in mind that .main is "display: table"
+                // if you don't need it as such, hide/remove/replace it
+                main : this.find(".main"),
+                visual : this.find(".main .visual"),
+                message : this.find(".main .message"),
+                footer : this.find(".footer")
+            };
+
+            this.appendTo($("body"));
+        };
+
+    modal.prototype = Object.create(jQuery.prototype);
+
+    modal.prototype.appear = function()
     {
-        var $header = $modal.find(".modal-header");
-
-        if ($elem)  { $header.find("h4").html($elem); }
-        else        { $header.hide(); }
-
-        return $modal;
+        if (!this.isVisible)
+        {
+            this.overlay.show();
+            this.show();
+            this.isVisible = true;
+        }
     };
 
-    $modal.setContent = function($elem)
+    modal.prototype.disappear = function()
     {
-        $modal.find(".modal-body").html($elem);
-        return $modal;
+        if (this.isVisible)
+        {
+            this.overlay.hide();
+            this.hide();
+            this.isVisible = false;
+        }
     };
 
-    $modal.setFooter = function($elem)
+    modal.prototype.getArea = function(area)
     {
-        var $footer = $modal.find(".modal-footer");
-
-        if ($elem)  { $footer.html($elem); }
-        else        { $footer.hide(); }
-
-        return $modal;
+            return this.elements[area];
     };
 
-    $modal.appear = function()
-    {
-        ag.ui.elem.Overlay.show();
-
-        // the BS"s own backdrop is disabled; better use ag.ui.elem.Overlay in the caller
-        return $modal.modal({ backdrop: false }).on("hidden.bs.modal", ag.ui.elem.Overlay.hide);
-    };
-
-    return $modal;
-};
-
-ag.ui.elem.ModalMessageHandler.getButton = function(type, text, callback)
-{
-    return ag.ui.tool.tpl("agitui-modal", ".modal-btn." + type)
-        .text(text)
-        .click(callback || function(){})
-        .button();
-};
+    ag.ui.elem.Modal = modal;
+})();
