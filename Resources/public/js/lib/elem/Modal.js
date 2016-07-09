@@ -4,6 +4,8 @@ ag.ns("ag.ui.elem");
     var
         modal = function()
         {
+            var self = this;
+
             this.extend(this, ag.ui.tool.tpl("agitui-modal", ".modal"));
 
             this.isVisible = false;
@@ -21,6 +23,10 @@ ag.ns("ag.ui.elem");
             };
 
             this.appendTo($("body"));
+
+            this.keydown(function(ev){
+                ev.which === 27 && self.disappear();
+            });
         };
 
     modal.prototype = Object.create(jQuery.prototype);
@@ -30,7 +36,7 @@ ag.ns("ag.ui.elem");
         if (!this.isVisible)
         {
             this.overlay.show();
-            this.show();
+            this.show().focus();
             this.isVisible = true;
         }
     };
