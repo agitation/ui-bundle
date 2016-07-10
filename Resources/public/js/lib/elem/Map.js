@@ -10,7 +10,7 @@ ag.ui.elem.Map = function()
         olMap = new ol.Map({
             layers : [
                 new ol.layer.Tile({
-                    source: new ol.source.MapQuest({ layer: "osm" })
+                    source: new ol.source.OSM({ layer: "osm" })
                 })
             ],
             controls : ol.control.defaults({ attribution: false }),
