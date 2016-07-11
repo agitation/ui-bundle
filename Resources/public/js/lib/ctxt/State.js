@@ -2,7 +2,7 @@ ag.ns("ag.ui.ctxt");
 
 (function(){
     var
-        pathRegex = new RegExp("^/[a-z]+/[a-z]+"),
+        pathRegex = new RegExp("^(/[a-z]+)+"),
 
         removeTrailingSlash = function(path)
         {
@@ -47,53 +47,42 @@ ag.ns("ag.ui.ctxt");
         {
             var
                 path = pathRegex.test(currentPath) ? currentPath.match(pathRegex)[0] : "",
-                pathComponents = path.substr(1).split("/"),
                 requestString = decodeURIComponent(currentPath.substr(path.length + 1)), // length + 1 because of trailing slash
-                request,
-                state =
-                {
-                    path : null,
-                    view : null,
-                    module : null,
-                    request : null
-                };
+                request;
 
-            if (pathComponents.length === 2)
-            {
-                state.path = path,
-                state.view = pathComponents[0],
-                state.module = pathComponents[1]
+            try {
+                request = JSON.parse(requestString);
+            }
+            catch(err) {
+                request = requestString;
+            }
+
+            return {
+                path : path,
+                request : request
             };
-
-            try
-            {
-                state.request = JSON.parse(requestString);
-            }
-            catch(err)
-            {
-                state.request = requestString;
-            }
-
-            return state;
         },
 
         run = function()
         {
-            var state = getState(location.hash.substr(2));
+            var
+                state = getState(location.hash.substr(2)),
+                action;
 
-            if (!state.path || !this.views[state.path])
+            if (!state.path || !this.actions[state.path])
                 state = getState(this.defaultPath);
 
             if (state.path === this.defaultPath && !state.request)
                 this.update(this.defaultPath, "");
 
-            this.currentPath = state.path;
+            action = this.actions[state.path];
 
-            if (this.views[state.path])
+            if (action)
             {
-                this.pageController.switchToView(state.view);
-                this.views[state.path](state.request);
+                this.pageController.switchToView(action.view);
+                action.callback(state.request);
                 updateHreflangLinks.call(this, createHash(state.path, state.request));
+                this.currentPath = state.path;
             }
         },
 
@@ -101,30 +90,32 @@ ag.ns("ag.ui.ctxt");
         {
             this.pageController = null;
             this.views = {};
+            this.actions = {};
             this.defaultPath = "";
             this.currentPath = "";
             this.altLinks = $("[rel=alternate][hreflang]");
         };
 
-    state.prototype.registerViewElement = function(path, callback, isDefault)
+
+    state.prototype.registerView = function(name, view)
+    {
+        this.views[name] = view;
+    };
+
+    state.prototype.registerAction = function(path, view, callback, isDefault)
     {
         path = removeTrailingSlash(path);
 
         if (!path.match(pathRegex))
             throw new SyntaxError("Path " + path + " doesn’t match the required pattern.");
 
-        this.views[path] = callback;
+        this.actions[path] = { view : view, callback : callback };
         isDefault && (this.defaultPath = path);
     };
 
     state.prototype.registerPageController = function(pageCtl)
     {
         this.pageController = pageCtl;
-    };
-
-    state.prototype.getRequestedView = function()
-    {
-        return getState(this.currentPath).view;
     };
 
     state.prototype.switchTo = function(path, request)
@@ -152,6 +143,14 @@ ag.ns("ag.ui.ctxt");
     {
         run.call(this);
         $(window).on("hashchange", run.bind(this));
+
+        if (!this.defaultPath)
+        {
+            var views = Object.keys(this.views);
+
+            if (views.length)
+                this.pageController.switchToView(this.views[views[0]])
+        }
     };
 
     ag.ui.ctxt.State = state;

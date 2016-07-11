@@ -4,13 +4,40 @@ ag.ns("ag.ui.ctxt");
     var
         defaultOptions = {},
 
-        page = function(title, views, options)
+        registerViews = function(stateManager, views)
+        {
+            // the first action of the first view is by definition the default one
+            var defaultAction;
+
+
+            Object.keys(views).forEach(function(vName){
+
+                var
+                    view = views[vName],
+                    actions = view.getActions(),
+                    actionNames = Object.keys(actions),
+                    path = "/" + vName;
+
+                stateManager.registerView(vName, view);
+
+                actionNames.forEach(function(aName){
+                    // if there is only one action for this view, we use the
+                    // view’s name as path. otherwise we must add the block name.
+                    var aPath = actionNames.length === 1 ? path : path + "/" + aName;
+
+                    stateManager.registerAction(aPath, view, actions[aName], !defaultAction);
+
+                    defaultAction = true;
+                });
+            });
+        },
+
+        page = function(title, views)
         {
             this.extend(this, ag.ui.tool.tpl("agitui-page", ".page"));
 
             this.find("h1").text(title);
 
-            this.opts = $.extend(true, defaultOptions, options || {}),
             this.cache = new ag.ui.ctxt.Cache(),
             this.views = views || {};
             this.container = $("main");
@@ -25,10 +52,10 @@ ag.ns("ag.ui.ctxt");
 
     page.prototype.switchToView = function(view)
     {
-        var self = this;
+        var views = this.views;
 
-        Object.keys(this.views).forEach(function(key) {
-             self.views[key][key === view ? "show" : "hide"]();
+        Object.keys(views).forEach(function(key) {
+             views[key][views[key] === view ? "show" : "hide"]();
         });
     };
 
@@ -36,24 +63,16 @@ ag.ns("ag.ui.ctxt");
     {
         var
             self = this,
-            visibleView,
             stateManager = ag.srv("state"),
             preloader = ag.srv("preloader"),
-            indicator = ag.srv("indicator"),
-            reqView = stateManager.getRequestedView();
+            indicator = ag.srv("indicator");
 
         stateManager.registerPageController(this);
+        registerViews(stateManager, this.views);
 
         Object.keys(this.views).forEach(function(key) {
             self.find(".views").append(self.views[key]);
-
             self.views[key].setPage && self.views[key].setPage(self);
-
-            if (key === reqView || (!reqView && !visibleView))
-            {
-                self.views[key].show();
-                visibleView = key;
-            }
         });
 
         if (preloader)
