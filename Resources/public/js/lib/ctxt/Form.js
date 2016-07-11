@@ -11,7 +11,7 @@ ag.ns("ag.ui.ctxt");
             this.on("submit", this.stopEvent);
         };
 
-    form.prototype = Object.create(jQuery.prototype);
+    form.prototype = Object.create(ag.ui.ctxt.Block.prototype);
 
     form.prototype.addField = function(key, field)
     {

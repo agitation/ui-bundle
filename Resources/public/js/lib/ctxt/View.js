@@ -1,10 +1,17 @@
 ag.ns("ag.ui.ctxt");
 
 (function(){
-    var view = function()
+    var view = function(blocks)
     {
+        var self = this;
+
         this.extend(this, $("<div class='view'>"));
-        this.append([].slice.call(arguments));
+        this.blocks = blocks;
+
+        Object.keys(blocks).forEach(function(key){
+            self.append(blocks[key]);
+            blocks[key].setView && blocks[key].setView(self);
+        });
     };
 
     view.prototype = Object.create(jQuery.prototype);
