@@ -34,6 +34,15 @@ ag.ns("ag.ui.ctxt");
     };
 
     /**
+     * NOTE: the view may (still) be visible/invisible to the user
+     * but this flag means that this is the now active view.
+     */
+    view.prototype.setStatus = function(status)
+    {
+        this.isActive = status;
+    };
+
+    /**
      * A block can define an "action" which is actually a callback. the callback
      * will be executed if the block's path is called through the URL hash. The
      * block's path is composed of the view's name and the block's name, as
@@ -54,6 +63,8 @@ ag.ns("ag.ui.ctxt");
 
         return actions;
     };
+
+    view.prototype.isActive = false;
 
     ag.ui.ctxt.View = view;
 })();

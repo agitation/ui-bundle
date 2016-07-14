@@ -55,7 +55,9 @@ ag.ns("ag.ui.ctxt");
         var views = this.views;
 
         Object.keys(views).forEach(function(key) {
-             views[key][views[key] === view ? "show" : "hide"]();
+            var isSelected = (views[key] === view);
+             views[key][isSelected ? "show" : "hide"]();
+             views[key].setStatus(isSelected);
         });
     };
 
