@@ -29,7 +29,7 @@ ag.ns("ag.ui.ctxt");
                 requestString = new String(request);
             }
 
-            return locPath + (requestString !== undefined ? "/" + requestString : "");
+            return locPath + (requestString !== undefined ? "?" + requestString : "");
         },
 
         updateHreflangLinks = function(newState)
@@ -47,7 +47,7 @@ ag.ns("ag.ui.ctxt");
         {
             var
                 path = pathRegex.test(currentPath) ? currentPath.match(pathRegex)[0] : "",
-                requestString = decodeURIComponent(currentPath.substr(path.length + 1)), // length + 1 because of trailing slash
+                requestString = decodeURIComponent(currentPath.substr(path.length + 1)), // length + 1 because of question mark
                 request;
 
             try {
@@ -74,6 +74,7 @@ ag.ns("ag.ui.ctxt");
 
             if (state.path === this.defaultPath && !state.request)
                 this.update(this.defaultPath, "");
+
 
             action = this.actions[state.path];
 
