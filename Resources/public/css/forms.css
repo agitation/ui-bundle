@@ -40,3 +40,9 @@ form .form-control[readonly]                        { cursor: pointer; backgroun
 form .actions                                       { margin: 30px 0 0; text-align: right; }
 form .actions .btn                                  { margin: 0 10px 10px 0; }
 form .actions .btn:last-child                       { margin-right: 0; }
+
+
+/* BOOLEAN */
+.boolean                                                    { padding-top: 5px; white-space: nowrap; }
+.boolean *                                                  { display: inline-block; vertical-align: top; }
+.boolean input                                              { margin: 0 .7em 0 0; }

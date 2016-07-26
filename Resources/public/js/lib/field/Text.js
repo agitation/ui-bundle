@@ -2,7 +2,7 @@ ag.ns("ag.ui.field");
 
 ag.ui.field.Text = function($elem, attr)
 {
-    this.extend(this, $elem || $("<input class='form-control'>"));
+    this.extend(this, $elem || $("<input type='text' class='form-control'>"));
     attr && this.attr(attr);
 };
 
