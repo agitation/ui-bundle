@@ -112,7 +112,7 @@ ag.ns("ag.ui.tool");
         string = formatTool.esc(string);
 
         // filter: translate multilang content
-        string = ag.intl.mlStringTranslate(string, ag.cfg.locale);
+        string = ag.mlang.mlStringTranslate(string, ag.cfg.locale);
 
         return string;
     };
