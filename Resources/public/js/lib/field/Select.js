@@ -9,6 +9,9 @@ ag.ns("ag.ui.field");
 
         selectField = function(elementOrAttributes, options, onChangeCallback)
         {
+            // track current option values for quick lookup
+            this.optionValues = [];
+
             if ($(elementOrAttributes).is("select"))
             {
                 this.extend(this, $(elementOrAttributes));
@@ -37,6 +40,7 @@ ag.ns("ag.ui.field");
     selectField.prototype.setOptions = function(options)
     {
         var
+            self = this,
             selected = [],
             html = [];
 
@@ -44,8 +48,12 @@ ag.ns("ag.ui.field");
             .empty()
             .attr("disabled", options.length ? false : "disabled");
 
+        this.optionValues = [];
+
         options.forEach(function(option){
             option.selected && selected.push(option.value);
+
+            self.optionValues.push(option.value);
 
             html.push(ag.ui.tool.fmt.sprintf("<option value='%s'%s>%s</option>",
                 ag.ui.tool.fmt.esc(option.value),
@@ -98,6 +106,12 @@ ag.ns("ag.ui.field");
 
             return value;
     };
+
+    selectField.prototype.containsOption = function(value)
+    {
+        return this.optionValues.indexOf(value) > -1;
+    };
+
 
     ag.ui.field.Select = selectField;
 })();
