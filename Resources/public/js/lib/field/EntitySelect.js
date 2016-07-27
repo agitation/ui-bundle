@@ -26,7 +26,9 @@ ag.ns("ag.ui.field");
         this.addIntro();
 
         ag.ui.field.Select.prototype.setOptions.call(this, this.entitiesToOptions(this.entities.sort()));
-        this.setValue(this.currentValue);
+
+        if (this.currentValue && this.containsOption(this.currentValue))
+            this.setValue(this.currentValue);
     };
 
     entitySelectField.prototype.setValue = function(value)
