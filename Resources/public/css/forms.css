@@ -46,3 +46,4 @@ form .actions .btn:last-child                       { margin-right: 0; }
 .boolean                                                    { padding-top: 5px; white-space: nowrap; }
 .boolean *                                                  { display: inline-block; vertical-align: top; }
 .boolean input                                              { margin: 0 .7em 0 0; }
+.boolean label                                              { font-weight: normal }

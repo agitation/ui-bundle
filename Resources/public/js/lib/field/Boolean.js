@@ -1,12 +1,17 @@
 ag.ns("ag.ui.field");
 
 (function(){
-    var boolField = function(labelText)
-    {
-        this.extend(this, ag.ui.tool.tpl("agitui-form", ".boolean"));
-        this.find("span").text(labelText);
-        this.$input = new ag.ui.field.Checkbox(this.find("input"));
-    };
+    var
+        fieldCounter = 0,
+
+        boolField = function(labelText)
+        {
+            var fieldId = "ag-ui-field-boolean-" + fieldCounter++;
+
+            this.extend(this, ag.ui.tool.tpl("agitui-form", ".boolean"));
+            this.find("label").text(labelText).attr("for", fieldId);
+            this.$input = new ag.ui.field.Checkbox(this.find("input").attr("id", fieldId));
+        };
 
     boolField.prototype = Object.create(ag.ui.field.Field.prototype);
 
