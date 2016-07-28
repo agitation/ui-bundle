@@ -43,11 +43,11 @@ ag.ns("ag.ui.ctxt");
             });
         },
 
-        getState = function(currentPath)
+        parseState = function(reqPath)
         {
             var
-                path = pathRegex.test(currentPath) ? currentPath.match(pathRegex)[0] : "",
-                requestString = decodeURIComponent(currentPath.substr(path.length + 1)), // length + 1 because of question mark
+                path = pathRegex.test(reqPath) ? reqPath.match(pathRegex)[0] : "",
+                requestString = decodeURIComponent(reqPath.substr(path.length + 1)), // length + 1 because of question mark
                 request;
 
             try {
@@ -66,24 +66,25 @@ ag.ns("ag.ui.ctxt");
         run = function()
         {
             var
-                state = getState(location.hash.substr(2)),
+                state = parseState(location.hash.substr(2)),
                 action;
 
             if (!state.path || !this.actions[state.path])
-                state = getState(this.defaultPath);
+                state = parseState(this.defaultPath);
 
             if (state.path === this.defaultPath && !state.request)
                 this.update(this.defaultPath, "");
 
 
             action = this.actions[state.path];
+            this.currentState = { path: null, request: null };
 
             if (action)
             {
                 this.pageController.switchToView(action.view);
                 action.callback(state.request);
                 updateHreflangLinks.call(this, createHash(state.path, state.request));
-                this.currentPath = state.path;
+                this.currentState = state;
             }
         },
 
@@ -92,8 +93,8 @@ ag.ns("ag.ui.ctxt");
             this.pageController = null;
             this.views = {};
             this.actions = {};
+            this.currentState = {};
             this.defaultPath = "";
-            this.currentPath = "";
             this.altLinks = $("[rel=alternate][hreflang]");
         };
 
@@ -122,6 +123,11 @@ ag.ns("ag.ui.ctxt");
     state.prototype.switchTo = function(path, request)
     {
         location.hash = createHash(path, request);
+    };
+
+    state.prototype.getCurrentState = function()
+    {
+        return this.currentState;
     };
 
     state.prototype.update = function(path, request)
