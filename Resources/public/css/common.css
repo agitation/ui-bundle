@@ -1,5 +1,5 @@
 textarea                                            { resize: vertical; min-height: 5em; }
 template                                            { display: none }
 a                                                   { cursor: pointer; }
-.btn                                                { font-weight: 500 }
+.btn.strong                                         { font-weight: 500 }
 .btn.disabled, .btn[disabled]                       { cursor: default; }
