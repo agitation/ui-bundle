@@ -48,6 +48,7 @@ ag.ns("ag.ui.field");
     entitySelectField.prototype.update = function(collection)
     {
         this.entities = collection || new ag.common.Collection();
+        this.currentValue = null;
         this.refresh();
     };
 
