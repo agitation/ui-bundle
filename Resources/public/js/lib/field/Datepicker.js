@@ -18,6 +18,12 @@ ag.ns("ag.ui.field");
             this.$calendar.show();
         },
 
+        updateOtherDatepicker = function(otherDatepicker, minRange, maxRange)
+        {
+            otherDatepicker.setMinDay(this.selDay.diff(minRange));
+            otherDatepicker.setMaxDay(this.selDay.diff(maxRange));
+        },
+
         hideCalendar = function()
         {
             this.$calendar.hide();
@@ -105,6 +111,13 @@ ag.ns("ag.ui.field");
         }
 
         return this;
+    };
+
+    // useful to combine two datepickers to select a period
+    datepickerField.prototype.connectWith = function(otherDatepicker, minRange, maxRange)
+    {
+        updateOtherDatepicker.apply(this, arguments);
+        this.change(updateOtherDatepicker.bind(this, otherDatepicker, minRange, maxRange));
     };
 
     ag.ui.field.Datepicker = datepickerField;
