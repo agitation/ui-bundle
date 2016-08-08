@@ -29,11 +29,15 @@ ag.ns("ag.ui.field");
             this.origVal(this.selDay ? this.selDay.format(ag.intl.t("d/m/Y")) : "");
         },
 
-        datepickerField = function($elem, day, minDay, maxDay)
+        datepickerField = function(day, minDay, maxDay)
         {
             var self = this;
 
-            this.extend(this, $elem || $("<input class='form-control datepicker'>"));
+            this.extend(this, ag.ui.tool.tpl("agitui-form", ".datepicker"));
+
+            this.one("DOMNodeInserted", function(ev) {
+                self.after(ag.ui.tool.tpl("agitui-form", ".datepicker-icon"));
+            });
 
             this.calendar = new ag.ui.field.Calendar(null, day, minDay, maxDay);
             this.$calendar = $("<div class='dp-cal'>").append(this.calendar);
@@ -47,7 +51,6 @@ ag.ns("ag.ui.field");
             this.setValue(day || new ag.common.Date());
             minDay && this.setMinDay(minDay);
             maxDay && this.setMaxDay(maxDay);
-
 
             this.calendar.change(function(){
                 self.selDay = self.calendar.getValue();
