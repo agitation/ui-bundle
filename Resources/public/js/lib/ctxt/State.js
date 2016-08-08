@@ -77,7 +77,7 @@ ag.ns("ag.ui.ctxt");
 
 
             action = this.actions[state.path];
-            this.currentState = { path: null, request: null };
+            this.currentState = { path: this.defaultPath, request: null };
 
             if (action)
             {
@@ -132,7 +132,7 @@ ag.ns("ag.ui.ctxt");
 
     state.prototype.update = function(path, request)
     {
-        path = removeTrailingSlash(path);
+        path = path !== null ? removeTrailingSlash(path) : this.currentState.path;
 
         var
             isDefaultAndEmpty = (path === this.defaultPath && !request),
