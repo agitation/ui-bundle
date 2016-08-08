@@ -150,7 +150,7 @@ ag.ns("ag.ui.field");
 
     calendarField.prototype.setValue = function(value)
     {
-        this.selDay = value;
+        this.selDay = new ag.common.Date(value);
         this.month = this.selDay.month;
         this.year = this.selDay.year;
         renderTable.call(this);
