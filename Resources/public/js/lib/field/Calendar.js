@@ -9,8 +9,8 @@ ag.ns("ag.ui.field");
         compareMonths = function(day1, day2)
         {
             var
-                d1 = day1.y * 100 + day1.m,
-                d2 = day2.y * 100 + day2.m,
+                d1 = day1.year * 100 + day1.month,
+                d2 = day2.year * 100 + day2.month,
                 ret = 0;
 
             if      (d1 > d2)   { ret = 1; }
@@ -100,7 +100,7 @@ ag.ns("ag.ui.field");
             var
                 isInactive = (calInst.minDay && day.compare(calInst.minDay) < 0 || calInst.maxDay && day.compare(calInst.maxDay) > 0),
 
-                $day = $(ag.ui.tool.fmt.sprintf("<td class='day'>%s</td>", day.d))
+                $day = $(ag.ui.tool.fmt.sprintf("<td class='day'>%s</td>", day.day))
                     .click(function(){
                         if (!isInactive)
                         {
@@ -140,8 +140,8 @@ ag.ns("ag.ui.field");
             minDay && this.setMinDay(minDay);
             maxDay && this.setMaxDay(maxDay);
 
-            this.month = this.selDay.m;
-            this.year = this.selDay.y;
+            this.month = this.selDay.month;
+            this.year = this.selDay.year;
 
             renderTable.call(this);
         };
@@ -151,8 +151,8 @@ ag.ns("ag.ui.field");
     calendarField.prototype.setValue = function(value)
     {
         this.selDay = value;
-        this.month = this.selDay.m;
-        this.year = this.selDay.y;
+        this.month = this.selDay.month;
+        this.year = this.selDay.year;
         renderTable.call(this);
 
         return this;
@@ -170,8 +170,8 @@ ag.ns("ag.ui.field");
         if (this.selDay.compare(this.minDay) < 0)
         {
             this.selDay = this.minDay;
-            this.month = this.selDay.m;
-            this.year = this.selDay.y;
+            this.month = this.selDay.month;
+            this.year = this.selDay.year;
         }
 
         renderTable.call(this);
@@ -186,8 +186,8 @@ ag.ns("ag.ui.field");
         if (this.selDay.compare(this.maxDay) > 0)
         {
             this.selDay = this.maxDay;
-            this.month = this.selDay.m;
-            this.year = this.selDay.y;
+            this.month = this.selDay.month;
+            this.year = this.selDay.year;
         }
 
         renderTable.call(this);
