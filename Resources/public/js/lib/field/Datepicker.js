@@ -70,8 +70,8 @@ ag.ns("ag.ui.field");
 
     datepickerField.prototype.setValue = function(value)
     {
-        this.selDay = value;
-        this.calendar.setValue(value);
+        this.selDay = new ag.common.Date(value);
+        this.calendar.setValue(this.selDay);
         updateInputField.call(this);
         this.trigger("change");
 
