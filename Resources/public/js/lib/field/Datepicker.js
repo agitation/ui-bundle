@@ -6,16 +6,16 @@ ag.ns("ag.ui.field");
         {
             // determine if we need to align to the input element
             // (if not, we go fullscreen through a media query in the CSS)
-            if (this.$calendar.css("position") === "absolute")
+            if (this.calContainer.css("position") === "absolute")
             {
-                this.$calendar.css({
+                this.calContainer.css({
                     top : this.offset().top + this.outerHeight(),
                     left : this.offset().left
                 });
             }
 
-            this.$overlay.show();
-            this.$calendar.show();
+            this.overlay.show();
+            this.calContainer.show();
         },
 
         updateOtherDatepicker = function(otherDatepicker, minRange, maxRange)
@@ -26,8 +26,8 @@ ag.ns("ag.ui.field");
 
         hideCalendar = function()
         {
-            this.$calendar.hide();
-            this.$overlay.hide();
+            this.calContainer.hide();
+            this.overlay.hide();
         },
 
         updateInputField = function()
@@ -35,24 +35,24 @@ ag.ns("ag.ui.field");
             this.origVal(this.selDay ? this.selDay.format(ag.intl.t("d/m/Y")) : "");
         },
 
-        datepickerField = function(day, minDay, maxDay)
+        datepickerField = function(elem, day, minDay, maxDay)
         {
             var self = this;
 
-            this.extend(this, ag.ui.tool.tpl("agitui-form", ".datepicker"));
+            this.extend(this, elem || ag.ui.tool.tpl("agitui-form", ".datepicker"));
 
             this.one("DOMNodeInserted", function(ev) {
                 self.after(ag.ui.tool.tpl("agitui-form", ".datepicker-icon"));
             });
 
-            this.calendar = new ag.ui.field.Calendar(null, day, minDay, maxDay);
-            this.$calendar = $("<div class='dp-cal'>").append(this.calendar);
-            this.$overlay = $("<div class='datepicker-overlay'>");
+            this.calendar = new ag.ui.field.Calendar(day, minDay, maxDay);
+            this.calContainer = $("<div class='dp-cal'>").append(this.calendar);
+            this.overlay = $("<div class='datepicker-overlay'>");
 
             this.focus(function() { showCalendar.call(self); });
-            this.$overlay.click(function() { hideCalendar.call(self); });
+            this.overlay.click(function() { hideCalendar.call(self); });
 
-            $("body").append([this.$overlay, this.$calendar]);
+            $("body").append([this.overlay, this.calContainer]);
 
             this.setValue(day || new ag.common.Date());
             minDay && this.setMinDay(minDay);
@@ -66,7 +66,7 @@ ag.ns("ag.ui.field");
             });
         };
 
-    datepickerField.prototype = Object.create(ag.ui.field.Field.prototype);
+    datepickerField.prototype = Object.create(ag.ui.field.NativeField.prototype);
 
     datepickerField.prototype.setValue = function(value)
     {

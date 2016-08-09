@@ -131,10 +131,9 @@ ag.ns("ag.ui.field");
             renderTable.call(this);
         },
 
-        calendarField = function($elem, day, minDay, maxDay)
+        calendarField = function(day, minDay, maxDay)
         {
-            this.extend(this, $elem || $("<div>"));
-            this.addClass("calendar");
+            this.extend(this, $("<div class='calendar'>"));
 
             this.setValue(day || new ag.common.Date());
             minDay && this.setMinDay(minDay);
@@ -146,7 +145,7 @@ ag.ns("ag.ui.field");
             renderTable.call(this);
         };
 
-    calendarField.prototype = Object.create(ag.ui.field.Field.prototype);
+    calendarField.prototype = Object.create(ag.ui.field.ComplexField.prototype);
 
     calendarField.prototype.setValue = function(value)
     {

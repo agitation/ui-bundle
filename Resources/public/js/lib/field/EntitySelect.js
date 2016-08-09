@@ -2,11 +2,15 @@ ag.ns("ag.ui.field");
 
 (function(){
     var
-        entitySelectField = function($select, entities)
+        entitySelectField = function(elem, entities)
         {
             var self = this;
 
-            this.extend(this, ag.ui.field.Select.call(this, $select));
+            ag.ui.field.Select.call(this, elem);
+
+            // this.setOptions expects a flat array of options and must not be used.
+            // this.update is to be used instead.
+            delete(this.setOptions);
 
             this.entities = entities || new ag.common.Collection();
             this.currentValue = null;
@@ -50,11 +54,6 @@ ag.ns("ag.ui.field");
         this.entities = collection || new ag.common.Collection();
         this.currentValue = null;
         this.refresh();
-    };
-
-    entitySelectField.prototype.setOptions = function()
-    {
-        throw new Error("Method is not available, use .update().");
     };
 
     // returns the number of selectable items

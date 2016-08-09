@@ -2,13 +2,13 @@ ag.ns("ag.ui.field");
 
 (function(){
     var
-        numberField = function($elem, attr)
+        numberField = function(elem, attr)
         {
-            this.extend(this, $elem || $("<input class='form-control' data-type='int' type='number'>"));
+            this.extend(this, elem || $("<input class='form-control' data-type='int' type='number'>"));
             attr && this.attr(attr);
         };
 
-    numberField.prototype = Object.create(ag.ui.field.Field.prototype);
+    numberField.prototype = Object.create(ag.ui.field.NativeField.prototype);
 
     numberField.prototype.getValue = function()
     {

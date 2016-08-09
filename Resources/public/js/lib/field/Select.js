@@ -7,29 +7,13 @@ ag.ns("ag.ui.field");
             return $("<option value='' disabled selected hidden>").text(ag.intl.t("– Please select –"));
         },
 
-        selectField = function(elementOrAttributes, options, onChangeCallback)
+        selectField = function(elem, options)
         {
-            // track current option values for quick lookup
-            this.optionValues = [];
-
-            if ($(elementOrAttributes).is("select"))
-            {
-                this.extend(this, $(elementOrAttributes));
-            }
-            else
-            {
-                this.extend(this, $("<select class='form-control'>"));
-
-                if (elementOrAttributes instanceof Object)
-                    this.attr(elementOrAttributes);
-            }
-
-            options && options.length && this.setOptions(options);
-
-            this.change(onChangeCallback);
+            this.extend(this, elem || $("<select class='form-control'>"));
+            this.setOptions(options || []);
         };
 
-    selectField.prototype = Object.create(ag.ui.field.Field.prototype);
+    selectField.prototype = Object.create(ag.ui.field.NativeField.prototype);
 
     selectField.prototype.addIntro = function()
     {
@@ -84,34 +68,28 @@ ag.ns("ag.ui.field");
             value = [value];
 
         else if (value === null) // reset
-                value = this.find(this.children("option[selected]").length ? "option[selected]" : "option:first-child").attr("value");
+            value = this.find(this.children("option[selected]").length ? "option[selected]" : "option:first-child").attr("value");
 
         return this.origVal(value);
     };
 
     selectField.prototype.getValue = function()
     {
-            var value = this.origVal();
+        var value = this.origVal();
 
+        if (this.is("[multiple=multiple]") && value === null)
+            value = [];
 
-            if (this.is("[multiple=multiple]") && value === null)
-            {
-                value = [];
-            }
+        if (this.is("[data-type=int]"))
+            value = $.isArray(value) ? value.map(function(val){ return parseInt(val); }) : parseInt(value);
 
-            if (this.is("[data-type=int]"))
-            {
-                value = $.isArray(value) ? value.map(function(val){ return parseInt(val); }) : parseInt(value);
-            }
-
-            return value;
+        return value;
     };
 
     selectField.prototype.containsOption = function(value)
     {
         return this.optionValues.indexOf(value) > -1;
     };
-
 
     ag.ui.field.Select = selectField;
 })();

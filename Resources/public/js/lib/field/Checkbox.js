@@ -1,13 +1,13 @@
 ag.ns("ag.ui.field");
 
 (function(){
-    var checkboxField = function($elem, attr)
+    var checkboxField = function(elem, attr)
     {
-        this.extend(this, $elem || $("<input type='checkbox' class='form-control'>"));
+        this.extend(this, elem || $("<input type='checkbox' class='form-control'>"));
         attr && this.attr(attr);
     };
 
-    checkboxField.prototype = Object.create(ag.ui.field.Field.prototype);
+    checkboxField.prototype = Object.create(ag.ui.field.NativeField.prototype);
 
     checkboxField.prototype.setValue = function(value)
     {
