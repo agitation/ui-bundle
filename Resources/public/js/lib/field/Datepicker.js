@@ -70,10 +70,13 @@ ag.ns("ag.ui.field");
 
     datepickerField.prototype.setValue = function(value)
     {
-        this.selDay = new ag.common.Date(value);
-        this.calendar.setValue(this.selDay);
-        updateInputField.call(this);
-        this.trigger("change");
+        if ((!this.minDay || this.selDay.compare(this.minDay) > 0) && (!this.maxDay || this.selDay.compare(this.maxDay) < 0))
+        {
+            this.selDay = new ag.common.Date(value);
+            this.calendar.setValue(this.selDay);
+            updateInputField.call(this);
+            this.trigger("change");
+        }
 
         return this;
     };
@@ -116,7 +119,9 @@ ag.ns("ag.ui.field");
     // useful to combine two datepickers to select a period
     datepickerField.prototype.connectWith = function(otherDatepicker, minRange, maxRange)
     {
-        updateOtherDatepicker.apply(this, arguments);
+        minRange = minRange || 0;
+        maxRange = maxRange || 365;
+        updateOtherDatepicker.call(this, otherDatepicker, minRange, maxRange);
         this.change(updateOtherDatepicker.bind(this, otherDatepicker, minRange, maxRange));
     };
 
