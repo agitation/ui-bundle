@@ -24,7 +24,18 @@ ag.ns("ag.ui.field");
             value = parseInt(value);
         }
 
+        if (isNaN(value))
+         value = null;
+
         return value;
+    };
+
+    numberField.prototype.setValue = function(value)
+    {
+        if (isNaN(value))
+         value = "";
+
+        return this.origVal(value);
     };
 
     ag.ui.field.Number = numberField;
