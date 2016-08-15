@@ -15,7 +15,7 @@ ag.ns("ag.ui.elem");
         this.find("td").html($field);
     };
 
-    formRow.prototype = Object.create(jQuery.prototype);
+    formRow.prototype = Object.create(ag.ui.ctxt.Element.prototype);
 
     formRow.prototype.setValue = function(value)
     {

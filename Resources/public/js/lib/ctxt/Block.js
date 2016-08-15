@@ -5,7 +5,7 @@ ag.ns("ag.ui.ctxt");
     {
     };
 
-    block.prototype = Object.create(jQuery.prototype);
+    block.prototype = Object.create(ag.ui.ctxt.Element.prototype);
 
     block.prototype.setView = function(view)
     {

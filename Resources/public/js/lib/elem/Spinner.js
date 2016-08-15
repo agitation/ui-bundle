@@ -7,7 +7,7 @@ ag.ns("ag.ui.elem");
             this.extend(this, $("<div class='spinner'>"));
         };
 
-    spinner.prototype = Object.create(jQuery.prototype);
+    spinner.prototype = Object.create(ag.ui.ctxt.Element.prototype);
 
     ag.ui.elem.Spinner = spinner;
 })();

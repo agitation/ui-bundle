@@ -29,7 +29,7 @@ ag.ns("ag.ui.elem");
             });
         };
 
-    modal.prototype = Object.create(jQuery.prototype);
+    modal.prototype = Object.create(ag.ui.ctxt.Element.prototype);
 
     modal.prototype.appear = function()
     {

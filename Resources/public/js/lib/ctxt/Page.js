@@ -43,7 +43,7 @@ ag.ns("ag.ui.ctxt");
             this.container = $("main");
         };
 
-    page.prototype = Object.create(jQuery.prototype);
+    page.prototype = Object.create(ag.ui.ctxt.Element.prototype);
 
     page.prototype.getCache = function()
     {

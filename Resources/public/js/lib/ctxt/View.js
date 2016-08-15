@@ -11,7 +11,7 @@ ag.ns("ag.ui.ctxt");
         });
     };
 
-    view.prototype = Object.create(jQuery.prototype);
+    view.prototype = Object.create(ag.ui.ctxt.Element.prototype);
 
     view.prototype.addBlock = function(name, elem, target)
     {

@@ -3,7 +3,7 @@ ag.ns("ag.ui.field");
 (function(){
     var field = function(){};
 
-    field.prototype = Object.create(jQuery.prototype);
+    field.prototype = Object.create(ag.ui.ctxt.Element.prototype);
 
     // set ID on a focusable element so it can be used as label target
     field.prototype.setTargetId = function(id) { };
