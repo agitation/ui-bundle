@@ -133,7 +133,7 @@ ag.ns("ag.ui.field");
 
         calendarField = function(day, minDay, maxDay)
         {
-            this.extend(this, $("<div class='calendar'>"));
+            this.extend(this, $("<div class='field calendar'>"));
 
             this.setValue(day || new ag.common.Date());
             minDay && this.setMinDay(minDay);

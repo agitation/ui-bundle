@@ -1,22 +1,22 @@
-.calendar table                      { margin: 0 }
-.calendar table td                   { width: 14.28571428571428571428%; text-align: center; padding: .4em .6em; vertical-align: middle; background: #f4f4f4; border: 1px solid #fff }
+.field.calendar table                      { margin: 0 }
+.field.calendar table td                   { width: 14.28571428571428571428%; text-align: center; padding: .4em .6em; vertical-align: middle; background: #f4f4f4; border: 1px solid #fff }
 
-.calendar tr.month td                { background: #333; color: #eee; font-weight: bold; }
-.calendar tr.weekdays td             { background: #bbb; font-weight: bold; }
+.field.calendar tr.month td                { background: #333; color: #eee; font-weight: bold; }
+.field.calendar tr.weekdays td             { background: #bbb; font-weight: bold; }
 
-.calendar .prevnext,
-.calendar .day                       { cursor: pointer }
+.field.calendar .prevnext,
+.field.calendar .day                       { cursor: pointer }
 
-.calendar .prevnext                  { font-size: .8em }
-.calendar .prevnext:hover            { background: #000; color: #fff }
-.calendar .prevnext.inactive,
-.calendar .prevnext.inactive:hover   { background: #333; color: #888; cursor: default; }
+.field.calendar .prevnext                  { font-size: .8em }
+.field.calendar .prevnext:hover            { background: #000; color: #fff }
+.field.calendar .prevnext.inactive,
+.field.calendar .prevnext.inactive:hover   { background: #333; color: #888; cursor: default; }
 
-.calendar td.day                     { background: #eee; }
-.calendar td.day:hover               { color: #000; background: #e3e3e3; }
+.field.calendar td.day                     { background: #eee; }
+.field.calendar td.day:hover               { color: #000; background: #e3e3e3; }
 
-.calendar td.day.inactive            { color: #bbb; cursor: default; }
-.calendar td.day.inactive:hover      { background: #eee; }
+.field.calendar td.day.inactive            { color: #bbb; cursor: default; }
+.field.calendar td.day.inactive:hover      { background: #eee; }
 
-.calendar td.day.current             { background: #222; color: #fff }
-.calendar td.day.current:hover       { background: #000; }
+.field.calendar td.day.current             { background: #222; color: #fff }
+.field.calendar td.day.current:hover       { background: #000; }
