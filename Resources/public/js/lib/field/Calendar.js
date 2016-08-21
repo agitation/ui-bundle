@@ -102,7 +102,7 @@ ag.ns("ag.ui.field");
 
                 $day = $(ag.ui.tool.fmt.sprintf("<td class='day'>%s</td>", day.day))
                     .click(function(){
-                        if (!isInactive)
+                        if (!isInactive && !calInst.disabled)
                         {
                             calInst.selDay = day;
                             $day.closest("tbody").find(".day").removeClass("current");
@@ -159,7 +159,7 @@ ag.ns("ag.ui.field");
 
     calendarField.prototype.getValue = function()
     {
-        return this.selDay;
+        return this.disabled ? null : this.selDay;
     };
 
     calendarField.prototype.setMinDay = function(day)

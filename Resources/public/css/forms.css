@@ -35,15 +35,23 @@ table.form th label                                 { margin: 0; white-space: no
 }
 
 form .form-control                                  { display: inline-block; }
-form .form-control[disabled]                        { cursor: default; background: #fff; }
 form .form-control[readonly]                        { cursor: pointer; background: #fff; }
 form .actions                                       { margin: 30px 0 0; text-align: right; }
 form .actions .btn                                  { margin: 0 10px 10px 0; }
 form .actions .btn:last-child                       { margin-right: 0; }
 
+/* FIELDS */
+input[type=text].disabled,
+input[type=text][disabled],
+input[type=number].disabled,
+input[type=number][disabled],
+select.disabled,
+select[disabled]                                    { cursor: default; color: transparent; background-color: #f4f4f4; background-image: repeating-linear-gradient(-45deg, transparent, transparent 5px, #fff 5px, #fff 10px); }
+
+
 
 /* BOOLEAN */
 .boolean                                            { padding-top: 10px; white-space: nowrap; }
-.boolean *                                          { display: inline-block; vertical-align: top; }
+.boolean *                                          { display: inline-block; vertical-align: top; line-height: 1em; }
 .boolean input                                      { margin: 0 .7em 0 0; }
 .boolean label                                      { font-weight: normal }

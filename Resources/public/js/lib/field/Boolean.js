@@ -31,5 +31,17 @@ ag.ns("ag.ui.field");
         return this.input.getValue();
     };
 
+    boolField.prototype.disable = function()
+    {
+        ag.ui.field.ComplexField.prototype.disable.call(this);
+        this.input.disable();
+    };
+
+    boolField.prototype.enable = function()
+    {
+        ag.ui.field.ComplexField.prototype.enable.call(this);
+        this.input.enable();
+    };
+
     ag.ui.field.Boolean = boolField;
 })();

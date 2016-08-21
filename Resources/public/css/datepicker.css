@@ -1,10 +1,6 @@
 input.datepicker                                { width: 9em; text-align: right; padding-right: 30px; display: inline-block }
 input.datepicker + i.fa                         { position: relative; top: 0; left: -23px; color: #555; pointer-events: none; margin-right: -15px }
-input.datepicker[disabled=disabled],
-input.datepicker.disabled                       { color: #fff }
-
-input.datepicker[disabled=disabled] + i.fa,
-input.datepicker.disabled  + i.fa               { color: #ccc }
+input.datepicker[disabled] + i.fa               { color: #ccc }
 
 .dp-cal                                         { display: none; position: absolute; z-index: 510; padding: .2%; border-radius: .3em; border: .5% solid #999; background: #fff;
                                                   box-shadow: 0px 0px 3px #999; -moz-box-shadow: 0px 0px 3px #999; -webkit-box-shadow: 0px 0px 3px #999; }

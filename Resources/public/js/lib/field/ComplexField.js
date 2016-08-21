@@ -8,5 +8,17 @@ ag.ns("ag.ui.field");
 
     complexField.prototype = Object.create(ag.ui.field.Field.prototype);
 
+    complexField.prototype.disable = function()
+    {
+        this.disabled = true;
+        this.addClass("disabled");
+    };
+
+    complexField.prototype.enable = function()
+    {
+        this.disabled = false;
+        this.removeClass("disabled");
+    };
+
     ag.ui.field.ComplexField = complexField;
 })();
