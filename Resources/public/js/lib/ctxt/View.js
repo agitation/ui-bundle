@@ -33,6 +33,31 @@ ag.ns("ag.ui.ctxt");
         return this.page;
     };
 
+    // find blocks by a reference to their prototype
+    view.prototype.getBlocks = function(proto)
+    {
+        var
+            allBlocks = this.blocks,
+            foundBlocks = {};
+
+        Object.keys(allBlocks).forEach(function(name) {
+            if (allBlocks[name] instanceof proto)
+                foundBlocks[name] = allBlocks[name];
+        });
+
+        return foundBlocks;
+    };
+
+    // gets a single block by a reference to its prototype
+    view.prototype.getBlock = function(proto)
+    {
+        var
+            foundBlocks = this.getBlocks(proto),
+            keys = Object.keys(foundBlocks);
+
+        return keys.length ? foundBlocks[keys[0]] : undefined;
+    };
+
     /**
      * NOTE: the view may (still) be visible/invisible to the user
      * but this flag means that this is the now active view.

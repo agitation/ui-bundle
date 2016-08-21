@@ -61,6 +61,31 @@ ag.ns("ag.ui.ctxt");
         });
     };
 
+    // find views by a reference to their prototype
+    page.prototype.getViews = function(proto)
+    {
+        var
+            allViews = this.views,
+            foundViews = {};
+
+        Object.keys(allViews).forEach(function(name) {
+            if (allViews[name] instanceof proto)
+                foundViews[name] = allViews[name];
+        });
+
+        return foundViews;
+    };
+
+    // gets a single view by a reference to its prototype
+    page.prototype.getView = function(proto)
+    {
+        var
+            foundViews = this.getViews(proto),
+            keys = Object.keys(foundViews);
+
+        return keys.length ? foundViews[keys[0]] : undefined;
+    };
+
     page.prototype.initialize = function()
     {
         var
