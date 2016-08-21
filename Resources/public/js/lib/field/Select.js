@@ -7,9 +7,10 @@ ag.ns("ag.ui.field");
             return $("<option value='' disabled selected hidden>").text(ag.intl.t("– Please select –"));
         },
 
-        selectField = function(elem, options)
+        selectField = function(elem, attr, options)
         {
             this.extend(this, elem || $("<select class='form-control'>"));
+            attr && this.attr(attr);
             this.setOptions(options || []);
         };
 
@@ -52,9 +53,7 @@ ag.ns("ag.ui.field");
         if (selected.length)
         {
             if (!this.is("select[multiple=multiple]"))
-            {
                 selected = selected[0];
-            }
 
             this.origVal(selected);
         }
