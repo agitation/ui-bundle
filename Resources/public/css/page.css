@@ -12,6 +12,8 @@ header .navbar .dropdown-toggle span                { margin: 0 .4em; }
 header .navbar .dropdown-menu                       { min-width: 100%; }
 header .navbar .navbar-nav > li > a                 { color: #fff; }
 header .navbar .navbar-nav > li > a:hover           { color: #eee }
+header .navbar-inverse                              { border-radius: 0 }
+
 
 main                                                { margin: 0 auto; padding-top: 100px; padding-bottom: 60px; }
 main h1                                             { margin: 20px auto 50px; font-weight: 100; font-size: 50px; }
