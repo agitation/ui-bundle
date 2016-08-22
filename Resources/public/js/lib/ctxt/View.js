@@ -5,7 +5,7 @@ ag.ns("ag.ui.ctxt");
     {
         var self = this;
 
-        this.extend(this, $("<div class='view'>"));
+        this.nodify();
         this.blocks = {};
 
         Object.keys(blocks).forEach(function(name){
@@ -14,6 +14,11 @@ ag.ns("ag.ui.ctxt");
     };
 
     view.prototype = Object.create(ag.ui.ctxt.Element.prototype);
+
+    view.prototype.nodify = function()
+    {
+        this.extend(this, $("<div class='view'>"));
+    };
 
     view.prototype.addBlock = function(name, elem, target)
     {
