@@ -4,7 +4,9 @@ ag.ns("ag.ui.ctxt");
     var view = function(blocks)
     {
         var self = this;
-        self.extend(self, $("<div class='view'>"));
+
+        this.extend(this, $("<div class='view'>"));
+        this.blocks = {};
 
         Object.keys(blocks).forEach(function(name){
             self.addBlock(name, blocks[name]);
@@ -16,7 +18,6 @@ ag.ns("ag.ui.ctxt");
     view.prototype.addBlock = function(name, elem, target)
     {
         target = target || this;
-        this.blocks = this.blocks || {};
 
         this.blocks[name] = elem;
         target.append(elem);
