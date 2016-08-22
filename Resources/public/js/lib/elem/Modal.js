@@ -35,7 +35,7 @@ ag.ns("ag.ui.elem");
     {
         if (!this.isVisible)
         {
-            this.overlay.show();
+            this.overlay.appear();
             this.show().focus();
             this.isVisible = true;
         }
@@ -45,7 +45,7 @@ ag.ns("ag.ui.elem");
     {
         if (this.isVisible)
         {
-            this.overlay.hide();
+            this.overlay.disappear();
             this.hide();
             this.isVisible = false;
         }

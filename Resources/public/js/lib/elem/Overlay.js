@@ -1,32 +1,28 @@
 ag.ns("ag.ui.elem");
 
-
-ag.ui.elem.Overlay = new (function()
+(function()
 {
-    var $overlay, count = 0;
-
-    this.show = function()
-    {
-        ++count;
-
-        if (!$overlay)
+    var
+        overlay = function()
         {
-            $overlay = $("<div class='overlay'>").appendTo($('body'));
-        }
+            this.instCount = 0;
+            this.extend(this, $("<div class='overlay'>")).appendTo($("body"));
+        };
 
-        if (count === 1)
-        {
-            $overlay.css('opacity', 0.4).show();
-        }
-    };
+overlay.prototype = Object.create(ag.ui.ctxt.Element.prototype);
 
-    this.hide = function()
-    {
-        --count;
+overlay.prototype.appear = function()
+{
+    ++this.instCount;
+    this.instCount === 1 && this.show();
+};
 
-        if (count <= 0 && $overlay)
-        {
-            $overlay.hide();
-        }
-    }
+overlay.prototype.disappear = function()
+{
+    --this.instCount;
+    this.instCount <= 0 && this.hide();
+};
+
+ag.ui.elem.Overlay = new overlay();
+
 })();
