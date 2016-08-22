@@ -31,3 +31,4 @@ footer ul, footer li                                { margin: 0; padding: 0; lis
 footer li                                           { margin-left: 1em; display: inline-block; }
 footer a, footer a:link, footer a:visited           {  color:#eee; }
 footer a:focus, footer a:active, footer a:hover     {  color:#fff; }
+footer:empty                                        { display: none }
