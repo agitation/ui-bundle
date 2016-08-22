@@ -1,4 +1,4 @@
-/*globals: Cookies */
+/* globals Cookies */
 
 /*
   NOTE:

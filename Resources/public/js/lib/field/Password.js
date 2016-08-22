@@ -1,6 +1,6 @@
 ag.ns("ag.ui.field");
 
-ag.ui.field.Password = function(elem, attr)
+ag.ui.field.Password = function()
 {
     ag.ui.field.Text.apply(this, arguments);
     this.attr("type", "password");

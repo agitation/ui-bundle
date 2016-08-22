@@ -20,7 +20,7 @@ ag.ns("ag.ui.tool");
                 else
                     $templates[id] = $tpl;
             });
-        };
+        },
 
         // caching already found elements by selector
         foundElements = {};
@@ -52,4 +52,4 @@ ag.ns("ag.ui.tool");
 
         return $elem.clone();
     };
-})()
+})();

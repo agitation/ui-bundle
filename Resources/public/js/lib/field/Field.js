@@ -1,3 +1,5 @@
+/* jshint -W098 */ // suppresses warnings about unused variables
+
 ag.ns("ag.ui.field");
 
 (function(){

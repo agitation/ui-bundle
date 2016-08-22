@@ -1,3 +1,5 @@
+/* jshint -W100 */ // suppresses the warning about the "unsafe" thin space in the .currency function
+
 ag.ns("ag.ui.tool");
 
 (function(){

@@ -32,9 +32,7 @@ ag.ns("ag.ui.field");
     // overriding .val() for consistency with jQuery
     nativeField.prototype.val = function(value)
     {
-        return (value === undefined)
-            ? this.getValue()
-            : this.setValue(value);
+        return (value === undefined) ? this.getValue() : this.setValue(value);
     };
 
     nativeField.prototype.setTargetId = function(id)

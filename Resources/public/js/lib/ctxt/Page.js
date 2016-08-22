@@ -2,8 +2,6 @@ ag.ns("ag.ui.ctxt");
 
 (function(){
     var
-        defaultOptions = {},
-
         registerViews = function(stateManager, views)
         {
             // the first action of the first view is by definition the default one
@@ -38,7 +36,7 @@ ag.ns("ag.ui.ctxt");
 
             this.find("h1").text(title);
 
-            this.cache = new ag.ui.ctxt.Cache(),
+            this.cache = new ag.ui.ctxt.Cache();
             this.views = views || {};
             this.container = $("main");
         };

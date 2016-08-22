@@ -26,7 +26,7 @@ ag.ns("ag.ui.ctxt");
             }
             else if (request !== undefined)
             {
-                requestString = new String(request);
+                requestString = String(request);
             }
 
             return locPath + (requestString !== undefined ? "?" + requestString : "");
@@ -137,9 +137,9 @@ ag.ns("ag.ui.ctxt");
         var
             isDefaultAndEmpty = (path === this.defaultPath && !request),
             hash = createHash(path, request),
-            newState = isDefaultAndEmpty
-                ? location.pathname
-                : hash
+            newState = isDefaultAndEmpty ?
+                location.pathname :
+                hash;
 
         history.replaceState(null, "", newState);
         updateHreflangLinks.call(this, hash);
@@ -156,7 +156,7 @@ ag.ns("ag.ui.ctxt");
             var views = Object.keys(this.views);
 
             if (views.length)
-                this.pageController.switchToView(this.views[views[0]])
+                this.pageController.switchToView(this.views[views[0]]);
         }
     };
 

@@ -41,7 +41,7 @@ ag.ns("ag.ui.field");
 
             this.extend(this, elem || ag.ui.tool.tpl("agitui-form", ".datepicker"));
 
-            this.one("DOMNodeInserted", function(ev) {
+            this.one("DOMNodeInserted", function() {
                 self.after(ag.ui.tool.tpl("agitui-form", ".datepicker-icon"));
             });
 

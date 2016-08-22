@@ -42,19 +42,16 @@ ag.ns("ag.ui.field");
             if (calInst.minDay && compareMonths(calInst.minDay, curMonth) >= 0)
                 $prev.addClass("inactive");
             else
-                $prev.click(function() { switchToPrevMonth.call(calInst) });
+                $prev.click(function() { switchToPrevMonth.call(calInst); });
 
             if (calInst.maxDay && compareMonths(calInst.maxDay, curMonth) <= 0)
                 $next.addClass("inactive");
             else
-                $next.click(function() { switchToNextMonth.call(calInst) });
+                $next.click(function() { switchToNextMonth.call(calInst); });
         },
 
         fillWeekdays = function($table)
         {
-            var
-                $tr = $("<tr class='weekdays'>");
-
             $table.find("thead .weekdays td").each(function(idx){
                 $(this).text(weekdayNames[(idx + dayOffset) % 7]);
             });
