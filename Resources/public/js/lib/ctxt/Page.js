@@ -7,7 +7,6 @@ ag.ns("ag.ui.ctxt");
             // the first action of the first view is by definition the default one
             var defaultAction;
 
-
             Object.keys(views).forEach(function(vName){
 
                 var
@@ -30,18 +29,20 @@ ag.ns("ag.ui.ctxt");
             });
         },
 
-        page = function(title, views)
+        page = function(views)
         {
-            this.extend(this, ag.ui.tool.tpl("agitui-page", ".page"));
-
-            this.find("h1").text(title);
-
+            this.nodify();
             this.cache = new ag.ui.ctxt.Cache();
             this.views = views || {};
-            this.container = $("main");
+            this.container = $("main"); // may be replaced
         };
 
     page.prototype = Object.create(ag.ui.ctxt.Element.prototype);
+
+    page.prototype.nodify = function()
+    {
+        this.extend(this, ag.ui.tool.tpl("agitui-page", ".page"));
+    };
 
     page.prototype.getCache = function()
     {

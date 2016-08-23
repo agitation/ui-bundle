@@ -19,7 +19,6 @@
             "@AgitUiBundle/Resources/public/css/bootstrap-theme.css"
             "@AgitUiBundle/Resources/public/css/font.awesome.css"
             "@AgitUiBundle/Resources/public/css/font.roboto.css"
-            "@AgitUiBundle/Resources/public/css/page.css"
             "@AgitUiBundle/Resources/public/css/overlay.css"
             "@AgitUiBundle/Resources/public/css/modal.css"
             "@AgitUiBundle/Resources/public/css/message.modal.css"
@@ -32,6 +31,11 @@
         %}
         <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
         {% endstylesheets %}
+
+    {% endblock %}
+
+    {% block layout_css %}
+        {# layout CSS #}
     {% endblock %}
 
     {% block area_css %}
@@ -48,33 +52,6 @@
 </head>
 <body role="document">
     {% block body %}
-        <div class="body">
-            <header>
-                {% block header %}
-                    {% embed "AgitUiBundle:Include:include.header.html.twig" %}
-                        {% block menu %}
-                            {% import "AgitUiBundle:Include:macro.menu.html.twig" as nav %}
-                            {{ nav.menu(getPageTree("/")) }}
-                        {% endblock %}
-                    {% endembed %}
-                {% endblock %}
-            </header>
-
-            <main class="container">
-                {% block main %}
-                {% endblock %}
-            </main>
-
-            <footer>
-                {% block footer %}
-                    {% embed "AgitUiBundle:Include:include.footer.html.twig" %}
-                        {% block left %}
-                            Powered by <a href="https://github.com/agitation" target="_blank">Agitation</a>
-                        {% endblock %}
-                    {% endembed %}
-                {% endblock %}
-            </footer>
-        </div>
     {% endblock %}
 
     {% block common_templates %}

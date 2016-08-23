@@ -1,0 +1,18 @@
+{% extends "AgitUiBundle:Include:page.base.html.twig" %}
+
+{% block layout_css %}
+    {% stylesheets
+        "@AgitUiBundle/Resources/public/css/layout.app.css"
+
+        filter="?uglifycss"
+    %}
+    <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block body %}
+    <main>
+        {% block main %}
+        {% endblock %}
+    </main>
+{% endblock %}

@@ -1,0 +1,43 @@
+{% extends "AgitUiBundle:Include:page.base.html.twig" %}
+
+{% block layout_css %}
+    {% stylesheets
+        "@AgitUiBundle/Resources/public/css/layout.web.css"
+
+        filter="?uglifycss"
+    %}
+    <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
+    {% endstylesheets %}
+{% endblock %}
+
+{% block body %}
+    <div class="body">
+        <header>
+            {% block header %}
+                {% embed "AgitUiBundle:Include:include.header.html.twig" %}
+                    {% block menu %}
+                        {% import "AgitUiBundle:Include:macro.menu.html.twig" as nav %}
+                        {{ nav.menu(getPageTree("/")) }}
+                    {% endblock %}
+                {% endembed %}
+            {% endblock %}
+        </header>
+
+        <h1 class="container">{{ block("title") }}</h1>
+
+        <main class="container">
+            {% block main %}
+            {% endblock %}
+        </main>
+
+        <footer>
+            {% block footer %}
+                {% embed "AgitUiBundle:Include:include.footer.html.twig" %}
+                    {% block left %}
+                        Powered by <a href="https://github.com/agitation" target="_blank">Agitation</a>
+                    {% endblock %}
+                {% endembed %}
+            {% endblock %}
+        </footer>
+    </div>
+{% endblock %}
