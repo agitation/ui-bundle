@@ -47,9 +47,14 @@ ag.ns("ag.ui.field");
             this.extend(this, elem || ag.ui.tool.tpl("agitui-form", ".datepicker"));
 
             if (elem)
+            {
                 attachIcon.call(this);
+                this.attr("readonly", "readonly");
+            }
             else
+            {
                 this.one("DOMNodeInserted", attachIcon.bind(this));
+            }
 
             this.calendar = new ag.ui.field.Calendar(day, minDay, maxDay);
             this.calContainer = $("<div class='dp-cal'>").append(this.calendar);
