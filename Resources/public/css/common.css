@@ -1,5 +1,14 @@
+html, body                                          { height: 100%; font-family: roboto, Arial, sans-serif; background: #fafafa }
+
 textarea                                            { resize: vertical; min-height: 5em; }
 template                                            { display: none }
+
+h2                                                  { margin: 0 auto .6em; font-weight: 300; }
+h3                                                  { margin: .8em auto .4em; font-weight: 300; }
+p, ul                                               { margin: 1em auto; }
+main p:last-child, main ul:last-child               { margin-bottom: 0; }
+main li                                             { margin: .7em auto 0; }
+
 a                                                   { cursor: pointer; }
 .btn.strong                                         { font-weight: 500 }
 .btn.disabled, .btn[disabled]                       { cursor: default; }

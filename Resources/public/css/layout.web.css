@@ -1,6 +1,5 @@
 /* STRUCTURAL ELEMENTS */
 
-html, body                                          { height: 100%; font-family: roboto, Arial, sans-serif; background: #fafafa }
 .body /* wrapper around all visible elements */     { min-height:100%; position: relative; overflow: hidden; }
 
 header .navbar-wrapper                              { position: fixed; top: 0; left: 0; right: 0; z-index: 10; background: rgba(64,100,130, 1);
@@ -16,16 +15,11 @@ header .navbar-inverse                              { border-radius: 0 }
 
 h1                                                  { margin: 100px auto 50px; font-weight: 100; font-size: 50px; }
 main                                                { margin: 0 auto 100px; }
-main h2                                             { margin: 0 auto .6em; font-weight: 300; }
-main h3                                             { margin: .8em auto .4em; font-weight: 300; }
-main p, main ul                                     { margin: 1em auto; }
 main > :first-child                                 { margin-top: 0; }
-main p:last-child, main ul:last-child               { margin-bottom: 0; }
-main li                                             { margin: .7em auto 0; }
 
 main .page .view                                    { display: none; }
 
-footer                                              { background-color: #585858; padding:20px 0; color: #ccc; position: absolute; bottom: 0; width:100%; }
+footer                                              { background-color: #585858; padding: 15px 0; color: #ccc; position: absolute; bottom: 0; width:100%; }
 footer ul, footer li                                { margin: 0; padding: 0; list-style: none; text-align: right; }
 footer li                                           { margin-left: 1em; display: inline-block; }
 footer a, footer a:link, footer a:visited           {  color:#eee; }

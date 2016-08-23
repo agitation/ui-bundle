@@ -1,4 +1,4 @@
-.callout                                            { padding: 1em 1.3em; margin: 2em auto; }
+.callout                                            { padding: 1em 1.3em; margin: 0 auto; }
 .callout-info                                       { border-left: 4px solid #6ca3d2; background: #edf7ff; }
 .callout-warning                                    { border-left: 4px solid #ed7500; background: #ffeede; }
 
@@ -47,8 +47,6 @@ input[type=number].disabled,
 input[type=number][disabled],
 select.disabled,
 select[disabled]                                    { cursor: default; color: transparent; background-color: #f4f4f4; background-image: repeating-linear-gradient(-45deg, transparent, transparent 5px, #fff 5px, #fff 10px); }
-
-
 
 /* BOOLEAN */
 .boolean                                            { padding-top: 10px; white-space: nowrap; }
