@@ -2,6 +2,11 @@ ag.ns("ag.ui.field");
 
 (function(){
     var
+        attachIcon = function()
+        {
+            this.after(ag.ui.tool.tpl("agitui-form", ".datepicker-icon"));
+        },
+
         showCalendar = function()
         {
             // determine if we need to align to the input element
@@ -41,9 +46,10 @@ ag.ns("ag.ui.field");
 
             this.extend(this, elem || ag.ui.tool.tpl("agitui-form", ".datepicker"));
 
-            this.one("DOMNodeInserted", function() {
-                self.after(ag.ui.tool.tpl("agitui-form", ".datepicker-icon"));
-            });
+            if (elem)
+                attachIcon.call(this);
+            else
+                this.one("DOMNodeInserted", attachIcon.bind(this));
 
             this.calendar = new ag.ui.field.Calendar(day, minDay, maxDay);
             this.calContainer = $("<div class='dp-cal'>").append(this.calendar);

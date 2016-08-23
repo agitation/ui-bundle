@@ -1,4 +1,4 @@
-input.datepicker                                { width: 9em; text-align: right; padding-right: 30px; display: inline-block }
+input.datepicker                                { width: 9em; text-align: right; padding-right: 30px; display: inline-block; cursor: pointer }
 input.datepicker + i.fa                         { position: relative; top: 0; left: -23px; color: #555; pointer-events: none; margin-right: -15px }
 input.datepicker[disabled] + i.fa               { color: #ccc }
 
@@ -12,7 +12,7 @@ input.datepicker[disabled] + i.fa               { color: #ccc }
 @media handheld, (max-width: 480px), (max-height: 480px)
 {
     .datepicker-overlay                         { background: #222; opacity: 0.5; }
-    .dp-cal                                     { position: fixed; top: 4.5%; left: 4.5%; width: 90%; top: 50%; transform: translate(0, -50%); }
+    .dp-cal                                     { position: fixed; left: 4.5%; width: 90%; top: 50%; transform: translate(0, -50%); }
     .dp-cal .calendar table                     { margin: 0 auto; }
     .dp-cal .calendar table td                  { padding: .6em .4em; }
 }
