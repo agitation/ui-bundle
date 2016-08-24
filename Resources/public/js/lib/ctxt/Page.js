@@ -34,7 +34,7 @@ ag.ns("ag.ui.ctxt");
             this.nodify();
             this.cache = new ag.ui.ctxt.Cache();
             this.views = views || {};
-            this.container = $("main"); // may be replaced
+            this.container = "main"; // may be replaced
         };
 
     page.prototype = Object.create(ag.ui.ctxt.Element.prototype);
@@ -97,7 +97,8 @@ ag.ns("ag.ui.ctxt");
         registerViews(stateManager, this.views);
 
         Object.keys(this.views).forEach(function(key) {
-            self.find(".views").append(self.views[key]);
+
+            self.append(self.views[key]);
             self.views[key].setPage && self.views[key].setPage(self);
         });
 
@@ -115,7 +116,7 @@ ag.ns("ag.ui.ctxt");
             stateManager.init();
         }
 
-        this.container.html(this);
+        this.prependTo(this.container);
 
         return this;
     };

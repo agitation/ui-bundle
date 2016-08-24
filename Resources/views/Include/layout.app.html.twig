@@ -10,9 +10,17 @@
     {% endstylesheets %}
 {% endblock %}
 
-{% block body %}
-    <main>
-        {% block main %}
-        {% endblock %}
-    </main>
+{% block layout_js %}
+        {% javascripts
+            "@AgitUiBundle/Resources/public/js/lib/layout/app/Page.js"
+            "@AgitUiBundle/Resources/public/js/lib/layout/app/Header.js"
+
+            filter="?uglifyjs2"
+        %}
+        <script src="{{ asset_url }}" type="text/javascript"></script>
+        {% endjavascripts %}
+{% endblock %}
+
+{% block layout_templates %}
+    {% include "AgitUiBundle:Include:template.layout.app.html.twig" %}
 {% endblock %}

@@ -55,11 +55,14 @@
     {% endblock %}
 
     {% block common_templates %}
-        {% include "AgitUiBundle:Include:template.page.html.twig" %}
         {% include "AgitUiBundle:Include:template.forms.html.twig" %}
         {% include "AgitUiBundle:Include:include.modal.html.twig" %}
         {% include "AgitUiBundle:Include:include.message.modal.html.twig" %}
         {% include "AgitUiBundle:Include:include.indicator.html.twig" %}
+    {% endblock %}
+
+    {% block layout_templates %}
+        {# layout template includes #}
     {% endblock %}
 
     {% block area_templates %}
@@ -109,9 +112,6 @@
             "@AgitUiBundle/Resources/public/js/lib/ctxt/Block.js"
             "@AgitUiBundle/Resources/public/js/lib/ctxt/Form.js"
             "@AgitUiBundle/Resources/public/js/lib/error/FormError.js"
-            "@AgitUiBundle/Resources/public/js/lib/elem/ApiForm.js"
-            "@AgitUiBundle/Resources/public/js/lib/elem/FormRow.js"
-            "@AgitUiBundle/Resources/public/js/lib/elem/FormFooter.js"
             "@AgitUiBundle/Resources/public/js/lib/field/Field.js"
             "@AgitUiBundle/Resources/public/js/lib/field/NativeField.js"
             "@AgitUiBundle/Resources/public/js/lib/field/ComplexField.js"
@@ -131,6 +131,10 @@
         %}
         <script src="{{ asset_url }}" type="text/javascript"></script>
         {% endjavascripts %}
+    {% endblock %}
+
+    {% block layout_js %}
+        {# layout JS #}
     {% endblock %}
 
     {% block config_js %}
