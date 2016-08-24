@@ -6,11 +6,6 @@ var
     {
         this.nodify();
         this.find("h1").text(title);
-
-        var backBtn = this.find("a").click(() => history.go(-1));
-
-        $(window).one("hashchange", () => backBtn.addClass("active"));
-
     };
 
 header.prototype = Object.create(ag.ui.ctxt.Element.prototype);
