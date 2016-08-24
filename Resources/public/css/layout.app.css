@@ -5,11 +5,12 @@ html, body, main                            { height: 100%; overflow: hidden }
 header                                      { position: relative; z-index: 20; padding: 15px; background: rgba(64, 100, 130, 1); border-bottom: 1px solid rgba(65,101,132); box-shadow: 0 -20px 8px 21px rgba(40, 40, 40, 0.75); }
 header .title                               { display: table; width: 100%; }
 header .title > *                           { display: table-cell; vertical-align: middle; text-align: center }
-header .title > :first-child                { text-align: left; }
-header .title > :last-child                 { text-align: right; }
-header h1                                   { font-size: 16px; font-weight: normal; color: #fff; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); width: 100% }
+header .title > .control:first-child        { text-align: left; width: 15% }
+header .title > .control:last-child         { text-align: right; width: 15% }
+
+header .btn                                 { background: transparent; border-color: #0c304e; }
+header h1                                   { font-size: 16px; font-weight: normal; color: #fff; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);  }
 header a.fa                                 { color: #fff; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); text-decoration: none }
 header a.fa:hover                           { color: #eee; }
-header .btn                                 { background: transparent; border-color: #0c304e }
 
 h2                                          { margin: 0 0 30px; font-size: 25px; text-transform: uppercase; color: #999; font-weight: normal }
