@@ -97,10 +97,11 @@ ag.ns("ag.ui.ctxt");
         registerViews(stateManager, this.views);
 
         Object.keys(this.views).forEach(function(key) {
-
-            self.append(self.views[key]);
+            self.append(self.views[key].hide());
             self.views[key].setPage && self.views[key].setPage(self);
         });
+
+        this.prependTo(this.container);
 
         if (preloader)
         {
@@ -115,8 +116,6 @@ ag.ns("ag.ui.ctxt");
         {
             stateManager.init();
         }
-
-        this.prependTo(this.container);
 
         return this;
     };
