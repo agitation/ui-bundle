@@ -1,4 +1,4 @@
-{% extends "AgitUiBundle:Include:page.base.html.twig" %}
+{% extends "AgitUiBundle:Include:page.html.twig" %}
 
 {% block layout_css %}
     {% stylesheets
@@ -21,6 +21,10 @@
         {% endjavascripts %}
 {% endblock %}
 
+{% block content %}
+    <main></main>
+{% endblock %}
+
 {% block layout_templates %}
-    {% include "AgitUiBundle:Include:template.layout.app.html.twig" %}
+    {% include "AgitUiBundle:Include:layout/app/template.html.twig" %}
 {% endblock %}

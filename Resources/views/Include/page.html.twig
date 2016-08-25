@@ -51,14 +51,19 @@
     {% endblock %}
 </head>
 <body role="document">
-    {% block body %}
+    {% block content %}
+        <h1 class="container">{{ block("title") }}</h1>
+
+        <main class="container">
+            {% block main %}
+            {% endblock %}
+        </main>
     {% endblock %}
 
     {% block common_templates %}
         {% include "AgitUiBundle:Include:template.forms.html.twig" %}
-        {% include "AgitUiBundle:Include:include.modal.html.twig" %}
-        {% include "AgitUiBundle:Include:include.message.modal.html.twig" %}
-        {% include "AgitUiBundle:Include:include.indicator.html.twig" %}
+        {% include "AgitUiBundle:Include:template.modal.html.twig" %}
+        {% include "AgitUiBundle:Include:template.indicator.html.twig" %}
     {% endblock %}
 
     {% block layout_templates %}

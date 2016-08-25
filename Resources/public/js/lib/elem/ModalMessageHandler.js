@@ -9,7 +9,7 @@ ag.ns("ag.ui.elem");
         this.modal.addClass("message-modal");
         this.modal.getArea("header").remove();
 
-        var button = ag.ui.tool.tpl("agitui-msg-modal", "button")
+        var button = ag.ui.tool.tpl("agitui-modal", ".alert-modal button")
             .click(function(){ self.modal.disappear(); });
 
         this.modal.getArea("footer").html(button);
@@ -19,7 +19,7 @@ ag.ns("ag.ui.elem");
 
     msgH.prototype.showMessage = function(message)
     {
-        this.modal.getArea("visual").html(ag.ui.tool.tpl("agitui-msg-modal", "i." + message.getType()));
+        this.modal.getArea("visual").html(ag.ui.tool.tpl("agitui-modal", ".alert-modal i." + message.getType()));
         this.modal.getArea("message").html(message.getText());
         this.modal.appear();
     };

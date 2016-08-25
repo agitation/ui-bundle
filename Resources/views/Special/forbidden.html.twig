@@ -1,8 +1,7 @@
-{% extends ["::layout.web.html.twig", "AppBundle:Include:layout.web.html.twig", "AgitUiBundle:Include:layout.web.html.twig"] %}
+{% extends ["::layout.web.html.twig", "AppBundle:Include:layout.web.html.twig", "AgitUiBundle:Include:layout/web/page.html.twig"] %}
 
 {% agit.capability "" %}
 {% agit.status "403" %}
-{% set noindex = 1 %}
 {% block title %}{{ x("Forbidden", "page title") }}{% endblock %}
 
 {% block main %}

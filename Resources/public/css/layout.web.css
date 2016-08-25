@@ -1,6 +1,6 @@
 /* STRUCTURAL ELEMENTS */
 
-.body /* wrapper around all visible elements */     { min-height:100%; position: relative; overflow: hidden; }
+.content /* wrapper around all visible elements */  { min-height:100%; position: relative; overflow: hidden; }
 
 header .navbar-wrapper                              { position: fixed; top: 0; left: 0; right: 0; z-index: 10; background: rgba(64,100,130, 1);
                                                       border-bottom: 1px solid rgba(65,101,132, 0.87); box-shadow: 0 -20px 8px 21px rgba(40, 40, 40, 0.75); }
@@ -13,11 +13,8 @@ header .navbar .navbar-nav > li > a                 { color: #fff; }
 header .navbar .navbar-nav > li > a:hover           { color: #eee }
 header .navbar-inverse                              { border-radius: 0 }
 
-h1                                                  { margin: 100px auto 50px; font-weight: 100; font-size: 50px; }
 main                                                { margin: 0 auto 100px; }
-main > :first-child                                 { margin-top: 0; }
-
-main .page .view                                    { display: none; }
+main > * > :first-child                             { margin-top: 0; }
 
 footer                                              { background-color: #585858; padding: 15px 0; color: #ccc; position: absolute; bottom: 0; width:100%; }
 footer ul, footer li                                { margin: 0; padding: 0; list-style: none; text-align: right; }

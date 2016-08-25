@@ -3,8 +3,9 @@ html, body                                          { height: 100%; font-family:
 textarea                                            { resize: vertical; min-height: 5em; }
 template                                            { display: none }
 
-h2                                                  { margin: 0 auto .6em; font-weight: 300; }
-h3                                                  { margin: .8em auto .4em; font-weight: 300; }
+h1                                                  { margin: 3em auto 1em; font-weight: 300; font-size: 40px; }
+h2                                                  { margin: 2em auto 1em; font-weight: 300; font-size: 30px; }
+h3                                                  { margin: 2em auto 1em; font-weight: 300; font-size: 22px; }
 p, ul                                               { margin: 1em auto; }
 li                                                  { margin: .3em auto; }
 p:first-child, ul:first-child, li:first-child       { margin-top: 0; }

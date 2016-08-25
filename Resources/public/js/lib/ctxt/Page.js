@@ -31,17 +31,16 @@ ag.ns("ag.ui.ctxt");
 
         page = function(views)
         {
-            this.nodify();
             this.cache = new ag.ui.ctxt.Cache();
             this.views = views || {};
-            this.container = "main"; // may be replaced
+            this.container = "main"; // can be changed before initialize()
         };
 
     page.prototype = Object.create(ag.ui.ctxt.Element.prototype);
 
     page.prototype.nodify = function()
     {
-        this.extend(this, ag.ui.tool.tpl("agitui-page", ".page"));
+        this.extend(this, $(this.container));
     };
 
     page.prototype.getCache = function()
@@ -93,6 +92,8 @@ ag.ns("ag.ui.ctxt");
             preloader = ag.srv("preloader"),
             indicator = ag.srv("indicator");
 
+        this.nodify();
+
         stateManager.registerPageController(this);
         registerViews(stateManager, this.views);
 
@@ -100,8 +101,6 @@ ag.ns("ag.ui.ctxt");
             self.append(self.views[key].hide());
             self.views[key].setPage && self.views[key].setPage(self);
         });
-
-        this.prependTo(this.container);
 
         if (preloader)
         {
