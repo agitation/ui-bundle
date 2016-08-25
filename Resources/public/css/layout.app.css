@@ -2,7 +2,7 @@ html, body, main                            { height: 100%; overflow: hidden }
 
 .view                                       { height: 100%; display: flex; flex-direction: column; }
 
-header                                      { position: relative; z-index: 20; padding: 15px; background: rgba(64, 100, 130, 1); border-bottom: 1px solid rgba(65,101,132); box-shadow: 0 -20px 8px 21px rgba(40, 40, 40, 0.75); }
+header                                      { flex-shrink: 0; position: relative; z-index: 20; padding: 15px; background: rgba(64, 100, 130, 1); border-bottom: 1px solid rgba(65,101,132); box-shadow: 0 -20px 8px 21px rgba(40, 40, 40, 0.75); }
 header .title                               { display: table; width: 100%; }
 header .title > *                           { display: table-cell; vertical-align: middle; text-align: center }
 header .title > .control:first-child        { text-align: left; width: 15% }

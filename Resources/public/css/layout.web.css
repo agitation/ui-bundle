@@ -19,5 +19,5 @@ main > * > :first-child                             { margin-top: 0; }
 footer                                              { background-color: #585858; padding: 15px 0; color: #ccc; position: absolute; bottom: 0; width:100%; }
 footer ul, footer li                                { margin: 0; padding: 0; list-style: none; text-align: right; }
 footer li                                           { margin-left: 1em; display: inline-block; }
-footer a, footer a:link, footer a:visited           {  color:#eee; }
-footer a:focus, footer a:active, footer a:hover     {  color:#fff; }
+footer a, footer a:link, footer a:visited           { color:#eee; }
+footer a:focus, footer a:active, footer a:hover     { color:#fff; }
