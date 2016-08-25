@@ -3,7 +3,7 @@ html, body                                                      { height: 100%; 
 textarea                                                        { resize: vertical; min-height: 5em; }
 template                                                        { display: none }
 
-main h1                                                         { margin: 3em auto 1em; font-weight: 300; font-size: 40px; }
+h1                                                              { margin: 3em auto 1em; font-weight: 300; font-size: 40px; }
 main h2                                                         { margin: 2em auto 1em; font-weight: 300; font-size: 30px; }
 main h3                                                         { margin: 2em auto 1em; font-weight: 300; font-size: 22px; }
 main p, main ul                                                 { margin: 1em auto; }
