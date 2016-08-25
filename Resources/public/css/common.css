@@ -1,16 +1,16 @@
-html, body                                          { height: 100%; font-family: roboto, Arial, sans-serif; background: #fafafa }
+html, body                                                      { height: 100%; font-family: roboto, Arial, sans-serif; background: #fafafa }
 
-textarea                                            { resize: vertical; min-height: 5em; }
-template                                            { display: none }
+textarea                                                        { resize: vertical; min-height: 5em; }
+template                                                        { display: none }
 
-h1                                                  { margin: 3em auto 1em; font-weight: 300; font-size: 40px; }
-h2                                                  { margin: 2em auto 1em; font-weight: 300; font-size: 30px; }
-h3                                                  { margin: 2em auto 1em; font-weight: 300; font-size: 22px; }
-p, ul                                               { margin: 1em auto; }
-li                                                  { margin: .3em auto; }
-p:first-child, ul:first-child, li:first-child       { margin-top: 0; }
-p:last-child, ul:last-child, li:last-child          { margin-bottom: 0; }
+main h1                                                         { margin: 3em auto 1em; font-weight: 300; font-size: 40px; }
+main h2                                                         { margin: 2em auto 1em; font-weight: 300; font-size: 30px; }
+main h3                                                         { margin: 2em auto 1em; font-weight: 300; font-size: 22px; }
+main p, main ul                                                 { margin: 1em auto; }
+main li                                                         { margin: .3em auto; }
+main p:first-child, main ul:first-child, main li:first-child    { margin-top: 0; }
+main p:last-child, main ul:last-child, main li:last-child       { margin-bottom: 0; }
 
-a                                                   { cursor: pointer; }
-.btn.strong                                         { font-weight: 500 }
-.btn.disabled, .btn[disabled]                       { cursor: default; }
+a                                                               { cursor: pointer; }
+.btn.strong                                                     { font-weight: 500 }
+.btn.disabled, .btn[disabled]                                   { cursor: default; }
