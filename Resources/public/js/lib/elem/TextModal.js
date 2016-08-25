@@ -25,8 +25,6 @@ ag.ns("ag.ui.elem");
             this.elements.main.scrollTop(this);
         };
 
-
-
     textModal.prototype = Object.create(ag.ui.elem.Modal.prototype);
 
     ag.ui.elem.TextModal = textModal;

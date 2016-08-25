@@ -15,8 +15,8 @@ var
         this.elements.visual.html(ag.ui.tool.tpl("agitui-modal", ".confirm-modal i"));
         this.elements.message.html(message);
 
-        this.okBtn = ag.ui.tool.tpl("agitui-modal", "button.ok");
-        this.cancelBtn = ag.ui.tool.tpl("agitui-modal", "button.cancel");
+        this.okBtn = ag.ui.tool.tpl("agitui-modal", ".confirm-modal button.ok");
+        this.cancelBtn = ag.ui.tool.tpl("agitui-modal", ".confirm-modal button.cancel");
 
         this.okBtn.click(function(){
             self.disappear();
