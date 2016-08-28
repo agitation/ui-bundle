@@ -81,6 +81,16 @@
         {# local template includes #}
     {% endblock %}
 
+    {% block config_js %}
+        <script type="text/javascript">/* <![CDATA[ */
+            window.ag = window.ag || {};
+            ag.cfg = ag.cfg || {};
+            ag.cfg.locale = "{{ locale }}";
+            ag.cfg.apiBaseUrl = "{{ getApiUrlBase() }}";
+            ag.cfg.csrfToken = "{{ getCsrfToken() }}";
+        /* ]]> */</script>
+    {% endblock %}
+
     {% block common_js %}
         {% javascripts
             "@AgitCommonBundle/Resources/public/js/var/init.js"
@@ -90,6 +100,7 @@
             "@AgitCommonBundle/Resources/public/js/lib/Date.js"
             "@AgitCommonBundle/Resources/public/js/lib/Time.js"
 
+            "@AgitIntlBundle/Resources/public/js/lib/plurals.js"
             "@AgitIntlBundle/Resources/public/js/lib/intl.js"
             "@AgitMultilangBundle/Resources/public/js/lib/mlang.js"
 
@@ -141,14 +152,6 @@
 
     {% block layout_js %}
         {# layout JS #}
-    {% endblock %}
-
-    {% block config_js %}
-        <script type="text/javascript">/* <![CDATA[ */
-            ag.cfg.locale ="{{ locale }}";
-            ag.cfg.apiBaseUrl ="{{ getApiUrlBase() }}";
-            ag.cfg.csrfToken ="{{ getCsrfToken() }}";
-        /* ]]> */</script>
     {% endblock %}
 
     {% block area_js %}

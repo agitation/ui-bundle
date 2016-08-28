@@ -66,7 +66,7 @@ ag.ns("ag.ui.tool");
             value;
 
         fractpart = formatTool.numpad(Math.round(fractpart), decimals);
-        value = intpart + ag.intl.tc(".|decimal separator") + fractpart;
+        value = intpart + ag.intl.x("decimal separator", ".") + fractpart;
 
         if (trim)
             while (value.match(/[0\.,]$/) && value.match(/[\.,]/))
