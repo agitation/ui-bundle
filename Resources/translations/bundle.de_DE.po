@@ -1,215 +1,365 @@
 msgid ""
 msgstr ""
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"nplurals=2; plural=(n != 1);\n"
+"Language: de_DE\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
 
-#: @AgitUiBundle/Resources/public/js/lib/field/Datepicker.js:29
-msgid "d/m/Y"
-msgstr ""
-
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:32
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:32
 #: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:33
-msgid "February"
-msgstr ""
-
-#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:33
+#: localedata:month:1
 msgid "January"
-msgstr ""
+msgstr "Januar"
+
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:32
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:32
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:33
+#: localedata:month:2
+msgid "February"
+msgstr "Februar"
+
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:32
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:32
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:33
+#: localedata:month:3
+msgid "March"
+msgstr "März"
 
 #: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:33
-msgid "March"
-msgstr ""
-
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:33
 #: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:34
+#: localedata:month:4
 msgid "April"
-msgstr ""
+msgstr "April"
 
-#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:34
-msgid "June"
-msgstr ""
-
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:33
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:41
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:33
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:41
 #: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:34
 #: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:42
+#: localedata:month:5
 msgid "May"
-msgstr ""
+msgstr "Mai"
 
-#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:35
-msgid "August"
-msgstr ""
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:33
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:33
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:34
+#: localedata:month:6
+msgid "June"
+msgstr "Juni"
 
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:34
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:34
 #: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:35
+#: localedata:month:7
 msgid "July"
-msgstr ""
+msgstr "Juli"
+
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:34
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:34
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:35
+#: localedata:month:8
+msgid "August"
+msgstr "August"
+
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:34
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:34
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:35
+#: localedata:month:9
+msgid "September"
+msgstr "September"
 
 #: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:35
-msgid "September"
-msgstr ""
-
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:35
 #: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:36
-msgid "December"
-msgstr ""
-
-#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:36
-msgid "November"
-msgstr ""
-
-#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:36
+#: localedata:month:10
 msgid "October"
-msgstr ""
+msgstr "Oktober"
 
-#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:41
-msgid "Apr"
-msgstr ""
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:35
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:35
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:36
+#: localedata:month:11
+msgid "November"
+msgstr "November"
 
-#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:41
-msgid "Feb"
-msgstr ""
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:35
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:35
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:36
+#: localedata:month:12
+msgid "December"
+msgstr "Dezember"
 
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:40
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:40
 #: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:41
+#: localedata:month:1
 msgid "Jan"
-msgstr ""
+msgstr "Jan"
+
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:40
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:40
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:41
+#: localedata:month:2
+msgid "Feb"
+msgstr "Feb"
+
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:40
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:40
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:41
+#: localedata:month:3
+msgid "Mar"
+msgstr "Mär"
+
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:40
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:40
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:41
+#: localedata:month:4
+msgid "Apr"
+msgstr "Apr"
 
 #: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:41
-msgid "Mar"
-msgstr ""
-
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:41
 #: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:42
-msgid "Aug"
-msgstr ""
-
-#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:42
-msgid "Jul"
-msgstr ""
-
-#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:42
+#: localedata:month:6
 msgid "Jun"
-msgstr ""
+msgstr "Jun"
 
-#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:43
-msgid "Dec"
-msgstr ""
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:41
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:41
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:42
+#: localedata:month:7
+msgid "Jul"
+msgstr "Jul"
 
-#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:43
-msgid "Nov"
-msgstr ""
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:41
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:41
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:42
+#: localedata:month:8
+msgid "Aug"
+msgstr "Aug"
 
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:42
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:42
 #: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:43
-msgid "Oct"
-msgstr ""
-
-#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:43
+#: localedata:month:9
 msgid "Sep"
-msgstr ""
+msgstr "Sep"
 
-#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:48
-msgid "Monday"
-msgstr ""
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:42
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:42
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:43
+#: localedata:month:10
+msgid "Oct"
+msgstr "Okt"
 
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:42
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:42
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:43
+#: localedata:month:11
+msgid "Nov"
+msgstr "Nov"
+
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:42
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:42
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:43
+#: localedata:month:12
+msgid "Dec"
+msgstr "Dez"
+
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:47
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:47
 #: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:48
+#: localedata:weekday:sun
 msgid "Sunday"
-msgstr ""
+msgstr "Sonntag"
+
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:47
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:47
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:48
+#: localedata:weekday:mon
+msgid "Monday"
+msgstr "Montag"
+
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:47
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:47
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:48
+#: localedata:weekday:tue
+msgid "Tuesday"
+msgstr "Dienstag"
 
 #: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:48
-msgid "Tuesday"
-msgstr ""
-
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:48
 #: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:49
-msgid "Thursday"
-msgstr ""
-
-#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:49
+#: localedata:weekday:wed
 msgid "Wednesday"
-msgstr ""
+msgstr "Mittwoch"
 
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:48
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:48
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:49
+#: localedata:weekday:thu
+msgid "Thursday"
+msgstr "Donnerstag"
+
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:49
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:49
 #: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:50
+#: localedata:weekday:fri
 msgid "Friday"
-msgstr ""
+msgstr "Freitag"
 
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:49
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:49
 #: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:50
+#: localedata:weekday:sat
 msgid "Saturday"
-msgstr ""
+msgstr "Samstag"
 
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:54
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:54
 #: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:55
-msgid "Mon"
-msgstr ""
-
-#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:55
+#: localedata:weekday:sun
 msgid "Sun"
-msgstr ""
+msgstr "So"
 
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:54
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:54
 #: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:55
+#: localedata:weekday:mon
+msgid "Mon"
+msgstr "Mo"
+
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:54
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:54
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:55
+#: localedata:weekday:tue
 msgid "Tue"
-msgstr ""
+msgstr "Di"
+
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:54
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:54
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:55
+#: localedata:weekday:wed
+msgid "Wed"
+msgstr "Mi"
 
 #: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:55
-msgid "Wed"
-msgstr ""
-
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:55
 #: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:56
-msgid "Fri"
-msgstr ""
-
-#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:56
-msgid "Sat"
-msgstr ""
-
-#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:56
+#: localedata:weekday:thu
 msgid "Thu"
+msgstr "Do"
+
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:55
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:55
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:56
+#: localedata:weekday:fri
+msgid "Fri"
+msgstr "Fr"
+
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:55
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:55
+#: @AgitUiBundle/Resources/public/js/lib/tool/Date.js:56
+#: localedata:weekday:sat
+msgid "Sat"
+msgstr "Sa"
+
+#: @AgitUiBundle/Resources/public/js/lib/tool/Format.js:69
+#: @AgitUiBundle/Resources/public/js/lib/tool/Format.js:69
+#: @TixysCommonTicketBundle/Service/TicketContentHelper.php:128
+msgctxt "decimal separator"
+msgid "."
 msgstr ""
 
+#: @AgitUiBundle/Resources/public/js/lib/tool/Format.js:91
+#: @AgitUiBundle/Resources/public/js/lib/tool/Format.js:91
 #: @AgitUiBundle/Resources/public/js/lib/tool/Format.js:89
 #, javascript-format
 msgid "%sh %smin"
 msgstr ""
 
-#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:31
-msgid "(optional)"
-msgstr ""
-
-#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:43
-msgid "submit"
-msgstr ""
-
+#: @AgitUiBundle/Resources/public/js/lib/field/Select.js:7
+#: @AgitUiBundle/Resources/public/js/lib/field/Select.js:7
+#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:56
 #: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:56
 msgid "– Please select –"
 msgstr ""
 
-#: @AgitUiBundle/Resources/views/Include/include.message.modal.html.twig:25
-msgctxt "button label"
-msgid "Ok"
+#: @AgitUiBundle/Resources/public/js/lib/field/Datepicker.js:40
+#: @AgitUiBundle/Resources/public/js/lib/field/Datepicker.js:40
+#: @AgitUiBundle/Resources/public/js/lib/field/Datepicker.js:29
+#: @TixysCommonAdminBundle/Resources/public/js/lib/TimetableDayHeader.js:27
+#: @TixysCommonAdminBundle/Resources/public/js/lib/TimetableDayHeader.js:28
+#: @TixysCommonAdminBundle/Plugin/Api/AdminV1/Endpoint/ToursDeleteTrait.php:48
+#: @TixysCommonTicketBundle/Resources/views/Ticket/ticket.html.twig:178
+#: @TixysCommonTicketBundle/Resources/views/Ticket/ticket.html.twig:493
+#: @AgitAdminBundle/Resources/public/js/lib/EntityListTable.js:326
+#: @AgitAdminBundle/Resources/public/js/lib/ObjectListTable.js:246
+msgid "d/m/Y"
 msgstr ""
 
-#: @AgitUiBundle/Resources/views/Special/forbidden.html.twig:42
-#: @AgitUiBundle/Resources/views/Special/forbidden.html.twig:56
-msgctxt "page title"
+#: @AgitUiBundle/Resources/views/Special/forbidden.html.twig:39
+#: @AgitUiBundle/Resources/views/Special/forbidden.html.twig:39
 msgid "Forbidden"
 msgstr ""
 
+#: @AgitUiBundle/Resources/views/Special/forbidden.html.twig:53
+#: @AgitUiBundle/Resources/views/Special/forbidden.html.twig:53
 #: @AgitUiBundle/Resources/views/Special/forbidden.html.twig:60
 msgid "You are not allowed to access this page. Please contact an administrator to upgrade your privileges."
 msgstr ""
 
-#: @AgitUiBundle/Resources/views/Include/include.header.html.twig:105
-msgid "Language"
-msgstr ""
-
-#: @AgitUiBundle/Resources/views/Special/notfound.html.twig:42
-#: @AgitUiBundle/Resources/views/Special/notfound.html.twig:56
-msgctxt "page title"
-msgid "Page not found"
-msgstr ""
-
-#: @AgitUiBundle/Resources/views/Special/notfound.html.twig:60
-msgid "The requested page could not be found. Please check the spelling of the address, or notify the owner of the referring web page."
-msgstr ""
-
 #: @AgitUiBundle/Resources/views/Special/unauthorized.html.twig:42
-#: @AgitUiBundle/Resources/views/Special/unauthorized.html.twig:56
-msgctxt "page title"
+#: @AgitUiBundle/Resources/views/Special/unauthorized.html.twig:42
 msgid "Authorization required"
 msgstr ""
 
+#: @AgitUiBundle/Resources/views/Special/unauthorized.html.twig:56
+#: @AgitUiBundle/Resources/views/Special/unauthorized.html.twig:56
 #: @AgitUiBundle/Resources/views/Special/unauthorized.html.twig:60
 msgid "Please log in to view this page."
+msgstr ""
+
+#: @AgitUiBundle/Resources/views/Special/notfound.html.twig:42
+#: @AgitUiBundle/Resources/views/Special/notfound.html.twig:42
+#: @AgitPageBundle/Resources/views/Special/notfound.html.twig:42
+msgid "Page not found"
+msgstr ""
+
+#: @AgitUiBundle/Resources/views/Special/notfound.html.twig:56
+#: @AgitUiBundle/Resources/views/Special/notfound.html.twig:56
+#: @AgitUiBundle/Resources/views/Special/notfound.html.twig:60
+#: @AgitPageBundle/Resources/views/Special/notfound.html.twig:28
+msgid "The requested page could not be found. Please check the spelling of the address, or notify the owner of the referring web page."
+msgstr "Die gewünschte Seite wurde nicht gefunden. Bitte prüfen Sie die Schreibweise der Adresse oder benachrichtigen Sie ggf. den Betreiber der verweisenden Seite."
+
+#: @AgitUiBundle/Resources/views/Include/template.modal.html.twig:38
+#: @AgitUiBundle/Resources/views/Include/template.modal.html.twig:54
+#: @AgitUiBundle/Resources/views/Include/template.modal.html.twig:38
+#: @AgitUiBundle/Resources/views/Include/template.modal.html.twig:54
+msgid "Ok"
+msgstr ""
+
+#: @AgitUiBundle/Resources/views/Include/template.modal.html.twig:50
+#: @AgitUiBundle/Resources/views/Include/template.modal.html.twig:50
+msgid "Cancel"
+msgstr ""
+
+#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:31
+#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:31
+#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:42
+msgid "(optional)"
+msgstr ""
+
+#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:43
+#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:43
+#: @AgitAdminBundle/Resources/views/Include/template.editview.html.twig:58
+msgid "submit"
+msgstr ""
+
+#: @AgitUiBundle/Resources/views/Include/layout/web/include.header.html.twig:105
+#: @AgitUiBundle/Resources/views/Include/layout/web/include.header.html.twig:105
+#: @AgitUiBundle/Resources/views/Include/include.header.html.twig:105
+msgid "Language"
 msgstr ""
