@@ -1,35 +1,55 @@
-/*globals ol */
+/*globals L */
 
 ag.ns("ag.ui.elem");
 
-ag.ui.elem.Map = function()
-{
+(function(){
+
+var
+    map = function()
+    {
+    this.extend(this, ag.ui.tool.tpl("agitui-map", ".map"));
+
     var
-        $map = ag.ui.tool.tpl("agitui-map", ".map"),
+        self = this,
+        lMap = L.map(this[0], {
+            center: [ 51.027, 9.58 ],
+            zoom: 3
+        });
 
-        olMap = new ol.Map({
-            layers : [
-                new ol.layer.Tile({
-                    source: new ol.source.OSM({ layer: "osm" })
-                })
-            ],
-            controls : ol.control.defaults({ attribution: false }),
-            view : new ol.View({
-                center : ol.proj.fromLonLat([ 9.58, 51.027 ]),
-                zoom : 3
-            })
-        }),
+    L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+        maxZoom: 17
+    }).addTo(lMap);
 
-        // TODO: Migrate to MutationObserver as soon as old IEs are extinct
-        insertionListener = window.setInterval(function(){
-            if ($map.is(":visible"))
-            {
-                window.clearInterval(insertionListener);
-                olMap.setTarget($map[0]);
-            }
-        }, 250);
+    // TODO: Migrate to MutationObserver as soon as old IEs are extinct
+    insertionListener = window.setInterval(function(){
+        if (self.is(":visible"))
+        {
+            window.clearInterval(insertionListener);
+            lMap.invalidateSize();
+        }
+    }, 250);
 
-    $map.ol = olMap;
+    this.on("map-container-resize", function(){
+        lMap.invalidateSize();
+    });
 
-    return $map;
+    this.lMap = lMap;
 };
+
+map.prototype = Object.create(jQuery.prototype);
+
+map.prototype.createMarker = function()
+{
+    var icon = L.divIcon();
+
+    icon.createIcon = function() {
+        return ag.ui.tool.tpl("agitui-map", ".marker")[0];
+    };
+
+    return L.marker([51, 10], {icon : icon}).addTo(this.lMap);
+
+};
+
+ag.ui.elem.Map = map;
+
+})();
