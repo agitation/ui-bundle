@@ -1,95 +1,159 @@
 @font-face {
     font-family: "roboto";
-    src: url("/bundles/agitui/fonts/roboto/roboto-thin.woff2") format("woff2"),
-         url("/bundles/agitui/fonts/roboto/roboto-thin.woff") format("woff");
+    src:
+        local("Roboto Thin"),
+        local("Roboto-Thin"),
+        local("RobotoThin"),
+        url("/bundles/agitui/fonts/roboto/roboto-thin.woff2") format("woff2"),
+        url("/bundles/agitui/fonts/roboto/roboto-thin.woff") format("woff");
     font-weight: 100;
     font-style: normal;
 }
 
 @font-face {
     font-family: "roboto";
-    src: url("/bundles/agitui/fonts/roboto/roboto-thinitalic.woff2") format("woff2"),
-         url("/bundles/agitui/fonts/roboto/roboto-thinitalic.woff") format("woff");
+    src:
+        local("Roboto Thin Italic"),
+        local("Roboto-Thin-Italic"),
+        local("RobotoThin-Italic"),
+        local("Roboto-ThinItalic"),
+        local("RobotoThinItalic"),
+        url("/bundles/agitui/fonts/roboto/roboto-thinitalic.woff2") format("woff2"),
+        url("/bundles/agitui/fonts/roboto/roboto-thinitalic.woff") format("woff");
     font-weight: 100;
     font-style: italic;
 }
 
 @font-face {
     font-family: "roboto";
-    src: url("/bundles/agitui/fonts/roboto/roboto-light.woff2") format("woff2"),
-         url("/bundles/agitui/fonts/roboto/roboto-light.woff") format("woff");
+    src:
+        local("Roboto Light"),
+        local("Roboto-Light"),
+        local("RobotoLight"),
+        url("/bundles/agitui/fonts/roboto/roboto-light.woff2") format("woff2"),
+        url("/bundles/agitui/fonts/roboto/roboto-light.woff") format("woff");
     font-weight: 300;
     font-style: normal;
 }
 
 @font-face {
     font-family: "roboto";
-    src: url("/bundles/agitui/fonts/roboto/roboto-lightitalic.woff2") format("woff2"),
-         url("/bundles/agitui/fonts/roboto/roboto-lightitalic.woff") format("woff");
+    src:
+        local("Roboto Light Italic"),
+        local("Roboto-Light-Italic"),
+        local("RobotoLight-Italic"),
+        local("Roboto-LightItalic"),
+        local("RobotoLightItalic"),
+        url("/bundles/agitui/fonts/roboto/roboto-lightitalic.woff2") format("woff2"),
+        url("/bundles/agitui/fonts/roboto/roboto-lightitalic.woff") format("woff");
     font-weight: 300;
     font-style: italic;
 }
 
 @font-face {
-    font-family: 'roboto';
-    src: url('/bundles/agitui/fonts/roboto/roboto-italic.woff2') format('woff2'),
-         url('/bundles/agitui/fonts/roboto/roboto-italic.woff') format('woff');
-    font-weight: 400;
-    font-style: italic;
-}
-
-@font-face {
-    font-family: 'roboto';
-    src: url('/bundles/agitui/fonts/roboto/roboto-regular.woff2') format('woff2'),
-         url('/bundles/agitui/fonts/roboto/roboto-regular.woff') format('woff');
+    font-family: "roboto";
+    src:
+        local("Roboto"),
+        local("Roboto Regular"),
+        local("Roboto-Regular"),
+        local("RobotoRegular"),
+        url("/bundles/agitui/fonts/roboto/roboto-regular.woff2") format("woff2"),
+        url("/bundles/agitui/fonts/roboto/roboto-regular.woff") format("woff");
     font-weight: 400;
     font-style: normal;
 }
 
 @font-face {
     font-family: "roboto";
-    src: url("/bundles/agitui/fonts/roboto/roboto-medium.woff2") format("woff2"),
-         url("/bundles/agitui/fonts/roboto/roboto-medium.woff") format("woff");
+    src:
+        local("Roboto Italic"),
+        local("Roboto-Italic"),
+        local("RobotoItalic"),
+        local("Roboto Regular Italic"),
+        local("Roboto-Regular-Italic"),
+        local("RobotoRegular-Italic"),
+        local("Roboto-RegularItalic"),
+        local("RobotoRegularItalic"),
+        url("/bundles/agitui/fonts/roboto/roboto-italic.woff2") format("woff2"),
+        url("/bundles/agitui/fonts/roboto/roboto-italic.woff") format("woff");
+    font-weight: 400;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: "roboto";
+    src:
+        local("Roboto Medium"),
+        local("Roboto-Medium"),
+        local("RobotoMedium"),
+        url("/bundles/agitui/fonts/roboto/roboto-medium.woff2") format("woff2"),
+        url("/bundles/agitui/fonts/roboto/roboto-medium.woff") format("woff");
     font-weight: 500;
     font-style: normal;
 }
 
 @font-face {
     font-family: "roboto";
-    src: url("/bundles/agitui/fonts/roboto/roboto-mediumitalic.woff2") format("woff2"),
-         url("/bundles/agitui/fonts/roboto/roboto-mediumitalic.woff") format("woff");
+    src:
+        local("Roboto Medium Italic"),
+        local("Roboto-Medium-Italic"),
+        local("RobotoMedium-Italic"),
+        local("Roboto-MediumItalic"),
+        local("RobotoMediumItalic"),
+        url("/bundles/agitui/fonts/roboto/roboto-mediumitalic.woff2") format("woff2"),
+        url("/bundles/agitui/fonts/roboto/roboto-mediumitalic.woff") format("woff");
     font-weight: 500;
     font-style: italic;
 }
 
 @font-face {
-    font-family: 'roboto';
-    src: url('/bundles/agitui/fonts/roboto/roboto-bold.woff2') format('woff2'),
-         url('/bundles/agitui/fonts/roboto/roboto-bold.woff') format('woff');
+    font-family: "roboto";
+    src:
+        local("Roboto Bold"),
+        local("Roboto-Bold"),
+        local("RobotoBold"),
+        url("/bundles/agitui/fonts/roboto/roboto-bold.woff2") format("woff2"),
+        url("/bundles/agitui/fonts/roboto/roboto-bold.woff") format("woff");
     font-weight: 700;
     font-style: normal;
 }
 
 @font-face {
-    font-family: 'roboto';
-    src: url('/bundles/agitui/fonts/roboto/roboto-bolditalic.woff2') format('woff2'),
-         url('/bundles/agitui/fonts/roboto/roboto-bolditalic.woff') format('woff');
+    font-family: "roboto";
+    src:
+        local("Roboto Bold Italic"),
+        local("Roboto-Bold-Italic"),
+        local("RobotoBold-Italic"),
+        local("Roboto-BoldItalic"),
+        local("RobotoBoldItalic"),
+        url("/bundles/agitui/fonts/roboto/roboto-bolditalic.woff2") format("woff2"),
+        url("/bundles/agitui/fonts/roboto/roboto-bolditalic.woff") format("woff");
     font-weight: 700;
     font-style: italic;
 }
 
 @font-face {
     font-family: "roboto";
-    src: url("/bundles/agitui/fonts/roboto/roboto-black.woff2") format("woff2"),
-         url("/bundles/agitui/fonts/roboto/roboto-black.woff") format("woff");
+    src:
+        local("Roboto Black"),
+        local("Roboto-Black"),
+        local("RobotoBlack"),
+        url("/bundles/agitui/fonts/roboto/roboto-black.woff2") format("woff2"),
+        url("/bundles/agitui/fonts/roboto/roboto-black.woff") format("woff");
     font-weight: 900;
     font-style: normal;
 }
 
 @font-face {
     font-family: "roboto";
-    src: url("/bundles/agitui/fonts/roboto/roboto-blackitalic.woff2") format("woff2"),
-         url("/bundles/agitui/fonts/roboto/roboto-blackitalic.woff") format("woff");
+    src:
+        local("Roboto Black Italic"),
+        local("Roboto-Black-Italic"),
+        local("RobotoBlack-Italic"),
+        local("Roboto-BlackItalic"),
+        local("RobotoBlackItalic"),
+        url("/bundles/agitui/fonts/roboto/roboto-blackitalic.woff2") format("woff2"),
+        url("/bundles/agitui/fonts/roboto/roboto-blackitalic.woff") format("woff");
     font-weight: 900;
     font-style: italic;
 }
