@@ -13,7 +13,7 @@
     },
     "autoload": {
         "psr-4": {
-            "Agit\\UiBundle\\": ""
+            "Agit\\UiBundle\\": "lib/"
         }
     },
     "license": "MIT",
