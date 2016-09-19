@@ -1,10 +1,3 @@
-{# language redirect, as early as possible #}
+{# language redirect, as early as possible. Source file: see js/lib/langswitch.js #}
 
-{% javascripts
-    "@AgitUiBundle/Resources/public/js/ext/cookies.js"
-    "@AgitUiBundle/Resources/public/js/var/langswitch.js"
-
-    filter="?uglifyjs2"
-%}
-<script src="{{ asset_url }}" type="text/javascript"></script>
-{% endjavascripts %}
+<script type="text/javascript">!function(){var e=sessionStorage,t="agit.lang",r=e.getItem(t),a=function(){var r=navigator.language.toLowerCase().replace("-","_"),a=r.substr(0,2),n=document.querySelectorAll("link[rel=alternate][hreflang][href]"),o={},l=0,g=function(r,a){e.setItem(t,r),location.href=a};for(l;l<n.length;l++)o[n[l].getAttribute("hreflang").toLowerCase()]=n[l].getAttribute("href");o[r]?g(r,o[r]):o[a]&&g(a,o[a])};r||a()}();</script>
