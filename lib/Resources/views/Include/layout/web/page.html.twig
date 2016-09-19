@@ -1,13 +1,7 @@
 {% extends "AgitUiBundle:Include:page.html.twig" %}
 
 {% block layout_css %}
-    {% stylesheets
-        "@AgitUiBundle/Resources/public/css/layout.web.css"
-
-        filter="?cleancss"
-    %}
-    <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
-    {% endstylesheets %}
+{# NOTE: css/layout.web.css must be included in the final page #}
 {% endblock %}
 
 {% block content %}
