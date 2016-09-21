@@ -86,8 +86,6 @@
             window.ag = window.ag || {};
             ag.cfg = ag.cfg || {};
             ag.cfg.locale = "{{ locale }}";
-            ag.cfg.apiBaseUrl = "{{ getApiUrlBase() }}";
-            ag.cfg.csrfToken = "{{ getCsrfToken() }}";
         /* ]]> */</script>
     {% endblock %}
 
@@ -101,8 +99,6 @@
             "@AgitBaseBundle/Resources/public/js/lib/Time.js"
             "@AgitBaseBundle/Resources/public/js/lib/plurals.js"
             "@AgitBaseBundle/Resources/public/js/lib/intl.js"
-
-            "@AgitMultilangBundle/Resources/public/js/lib/mlang.js"
 
             "@AgitUiBundle/Resources/public/js/ext/jquery.js"
             "@AgitUiBundle/Resources/public/js/ext/bootstrap.js"
