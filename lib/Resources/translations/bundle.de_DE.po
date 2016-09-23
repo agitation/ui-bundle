@@ -155,41 +155,41 @@ msgstr "Sa"
 #: @AgitUiBundle/Resources/public/js/lib/tool/Format.js:69
 msgctxt "decimal separator"
 msgid "."
-msgstr ""
+msgstr ","
 
 #: @AgitUiBundle/Resources/public/js/lib/tool/Format.js:91
 #, javascript-format
 msgid "%sh %smin"
-msgstr ""
+msgstr "%sh %smin"
 
 #: @AgitUiBundle/Resources/public/js/lib/field/Select.js:7
 #: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:56
 msgid "– Please select –"
-msgstr ""
+msgstr "– bitte wählen –"
 
 #: @AgitUiBundle/Resources/public/js/lib/field/Datepicker.js:40
 msgid "d/m/Y"
-msgstr ""
+msgstr "d.m.Y"
 
 #: @AgitUiBundle/Resources/views/Special/forbidden.html.twig:39
 msgid "Forbidden"
-msgstr ""
+msgstr "Nicht erlaubt"
 
 #: @AgitUiBundle/Resources/views/Special/forbidden.html.twig:55
 msgid "You are not allowed to access this page. Please contact an administrator to upgrade your privileges."
-msgstr ""
+msgstr "Sie dürfen diese Seite nicht betreten. Bitte kontaktieren Sie ggf. einen Administrator, um Ihre Berechtigungen anzupassen."
 
 #: @AgitUiBundle/Resources/views/Special/unauthorized.html.twig:42
 msgid "Authorization required"
-msgstr ""
+msgstr "Autorisierung erforderlich"
 
 #: @AgitUiBundle/Resources/views/Special/unauthorized.html.twig:58
 msgid "Please log in to view this page."
-msgstr ""
+msgstr "Bitte loggen Sie sich ein, um diese Seite anzusehen."
 
 #: @AgitUiBundle/Resources/views/Special/notfound.html.twig:42
 msgid "Page not found"
-msgstr ""
+msgstr "Seite nicht gefunden"
 
 #: @AgitUiBundle/Resources/views/Special/notfound.html.twig:58
 msgid "The requested page could not be found. Please check the spelling of the address, or notify the owner of the referring web page."
@@ -198,20 +198,20 @@ msgstr "Die gewünschte Seite wurde nicht gefunden. Bitte prüfen Sie die Schrei
 #: @AgitUiBundle/Resources/views/Include/template.modal.html.twig:38
 #: @AgitUiBundle/Resources/views/Include/template.modal.html.twig:54
 msgid "Ok"
-msgstr ""
+msgstr "Ok"
 
 #: @AgitUiBundle/Resources/views/Include/template.modal.html.twig:50
 msgid "Cancel"
-msgstr ""
+msgstr "Abbrechen"
 
 #: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:31
 msgid "(optional)"
-msgstr ""
+msgstr "(optional)"
 
 #: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:43
 msgid "submit"
-msgstr ""
+msgstr "absenden"
 
 #: @AgitUiBundle/Resources/views/Include/layout/web/include.header.html.twig:105
 msgid "Language"
-msgstr ""
+msgstr "Sprache"
