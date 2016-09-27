@@ -1,7 +1,7 @@
 {% macro menu(tree, locale) %}
     {% import _self as nav %}
         {% for branch in tree %}
-            {% set hasChildren = (branch.children is defined) %}
+            {% set hasChildren = (branch.children is defined and branch.children|length) %}
             {% set name = (locale is defined and branch.data.names[locale] is defined) ? branch.data.names[locale] : branch.data.name %}
 
             {% if branch.data is defined %}
