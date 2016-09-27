@@ -6,12 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="icon" href="/favicon.png">
+    <title>{% block name %}{{ block("name") }}{% endblock %}</title>
 
-    {% include "AgitPageBundle:Include:include.links.html.twig" %}
     {% include "AgitUiBundle:Include:include.langswitch.html.twig" %}
+    {% include "AgitPageBundle:Include:include.links.html.twig" %}
 
-    <title>{{ block("title") }}</title>
+    <link rel="icon" href="/favicon.png">
 
     {% block common_css %}
         {% stylesheets
@@ -48,10 +48,11 @@
     {% block local_css %}
         {# local CSS #}
     {% endblock %}
+
 </head>
 <body role="document">
     {% block content %}
-        <h1 class="container">{{ block("title") }}</h1>
+        <h1 class="container">{{ block("name") }}</h1>
 
         <main class="container">
             {% block main %}
