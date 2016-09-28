@@ -152,12 +152,12 @@ msgstr "Fr"
 msgid "Sat"
 msgstr "Sa"
 
-#: @AgitUiBundle/Resources/public/js/lib/tool/Format.js:69
+#: @AgitUiBundle/Resources/public/js/lib/tool/Format.js:67
 msgctxt "decimal separator"
 msgid "."
 msgstr ","
 
-#: @AgitUiBundle/Resources/public/js/lib/tool/Format.js:91
+#: @AgitUiBundle/Resources/public/js/lib/tool/Format.js:89
 #, javascript-format
 msgid "%sh %smin"
 msgstr "%sh %smin"
