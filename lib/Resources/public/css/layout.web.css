@@ -1,6 +1,6 @@
 /* STRUCTURAL ELEMENTS */
 
-.content /* wrapper around all visible elements */  { min-height:100%; position: relative; overflow: hidden; }
+body > .content /* wrapper around primary blocks */ { min-height:100%; position: relative; overflow: hidden; }
 
 header .navbar-wrapper                              { position: fixed; top: 0; left: 0; right: 0; z-index: 10; background: rgba(64,100,130, 1);
                                                       border-bottom: 1px solid rgba(65,101,132, 0.87); box-shadow: 0 -20px 8px 21px rgba(40, 40, 40, 0.75); }
