@@ -204,13 +204,13 @@ msgstr "Ok"
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:31
-msgid "submit"
-msgstr "absenden"
-
-#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:46
+#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:35
 msgid "(optional)"
 msgstr "(optional)"
+
+#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:50
+msgid "submit"
+msgstr "absenden"
 
 #: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:79
 msgid "show password"

@@ -204,12 +204,12 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:31
-msgid "submit"
+#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:35
+msgid "(optional)"
 msgstr ""
 
-#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:46
-msgid "(optional)"
+#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:50
+msgid "submit"
 msgstr ""
 
 #: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:79
