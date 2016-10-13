@@ -163,7 +163,7 @@ msgid "%sh %smin"
 msgstr ""
 
 #: @AgitUiBundle/Resources/public/js/lib/field/Select.js:7
-#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:56
+#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:62
 msgid "– Please select –"
 msgstr ""
 
@@ -205,11 +205,19 @@ msgid "Cancel"
 msgstr ""
 
 #: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:31
+msgid "submit"
+msgstr ""
+
+#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:46
 msgid "(optional)"
 msgstr ""
 
-#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:43
-msgid "submit"
+#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:79
+msgid "show password"
+msgstr ""
+
+#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:85
+msgid "hide password"
 msgstr ""
 
 #: @AgitUiBundle/Resources/views/Include/layout/web/include.header.html.twig:105
