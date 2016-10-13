@@ -34,4 +34,16 @@
 
     <input class="form-control datepicker" type="text" value="" readonly="readonly">
     <i class="datepicker-icon fa fa-calendar"></i>
+
+    <div class="password input-group">
+        <input type="password" class="form-control">
+        <span class="input-group-btn buttons">
+            <button class="show-pass btn btn-default" type="button" title="{{ t("show password") }}">
+                <i class="fa fa-eye"></i>
+            </button>
+            <button class="hide-pass btn btn-default" type="button" title="{{ t("hide password") }}">
+                <i class="fa fa-eye-slash"></i>
+            </button>
+        </span>
+    </div>
 </template>

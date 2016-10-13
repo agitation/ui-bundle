@@ -4,8 +4,8 @@ html, body                                                      { font-family: -
 textarea                                                        { resize: vertical; min-height: 5em; }
 template                                                        { display: none }
 
-h1                                                              { margin: 3em auto 1.5em; font-weight: 300; font-size: 40px; }
-main h2                                                         { margin: 2.2em auto 1.2em; font-weight: 300; font-size: 30px; }
+h1                                                              { margin: 3em auto .7em; font-weight: 300; font-size: 40px; }
+main h2                                                         { margin: 2.2em auto 1em; font-weight: 300; font-size: 30px; }
 main h3                                                         { margin: 2em auto 1em; font-weight: 300; font-size: 22px; }
 main h4                                                         { margin: 1.8em auto 1em; font-weight: 300; font-size: 18px; }
 main p, main ul                                                 { margin: 1em auto; }
