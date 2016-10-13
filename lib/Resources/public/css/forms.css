@@ -1,5 +1,5 @@
-.callout                                            { padding: 1em 1.3em; margin: 0 auto; }
-.callout-info                                       { border-left: 4px solid #6ca3d2; background: #edf7ff; }
+.callout                                            { padding: 1em 1.3em; margin: 2em auto; }
+.callout-info                                       { border-left: 4px solid #6ca3d2; background: #daecfb; }
 .callout-warning                                    { border-left: 4px solid #ed7500; background: #ffeede; }
 
 table.form                                          { padding: 0; margin: 0; width: 100%; box-shadow: 0 0 4px #c4d0db; border-top: 2px solid #71abdb; }
