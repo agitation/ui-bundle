@@ -1,6 +1,6 @@
 {% spaceless %}
 <!DOCTYPE html>
-<html lang="{{ locale }}">
+<html lang="{{ locale|slice(0, 2) }}">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -19,6 +19,7 @@
             "@AgitUiBundle/Resources/public/css/bootstrap-theme.css"
             "@AgitUiBundle/Resources/public/css/font.awesome.css"
             "@AgitUiBundle/Resources/public/css/font.roboto.css"
+            "@AgitUiBundle/Resources/public/css/layout.css"
             "@AgitUiBundle/Resources/public/css/overlay.css"
             "@AgitUiBundle/Resources/public/css/modal.css"
             "@AgitUiBundle/Resources/public/css/spinner.css"
@@ -30,11 +31,6 @@
         %}
         <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
         {% endstylesheets %}
-
-    {% endblock %}
-
-    {% block layout_css %}
-        {# layout CSS #}
     {% endblock %}
 
     {% block area_css %}
@@ -44,28 +40,17 @@
     {% block css %}
         {# page CSS #}
     {% endblock %}
-
-    {% block local_css %}
-        {# local CSS #}
-    {% endblock %}
-
 </head>
-<body role="document">
+<body>
     {% block content %}
-        <main class="container">
-            {% block main %}
-            {% endblock %}
-        </main>
+        <main></main>
     {% endblock %}
 
     {% block common_templates %}
+        {% include "AgitUiBundle:Include:template.page.html.twig" %}
         {% include "AgitUiBundle:Include:template.forms.html.twig" %}
         {% include "AgitUiBundle:Include:template.modal.html.twig" %}
         {% include "AgitUiBundle:Include:template.indicator.html.twig" %}
-    {% endblock %}
-
-    {% block layout_templates %}
-        {# layout template includes #}
     {% endblock %}
 
     {% block area_templates %}
@@ -74,10 +59,6 @@
 
     {% block templates %}
         {# page template includes #}
-    {% endblock %}
-
-    {% block local_templates %}
-        {# local template includes #}
     {% endblock %}
 
     {% block config_js %}
@@ -112,12 +93,12 @@
             "@AgitApiBundle/Resources/public/js/lib/Indicator.js"
             "@AgitApiBundle/Resources/public/js/var/api.js"
 
+            "@AgitUiBundle/Resources/public/js/var/swipe.js"
             "@AgitUiBundle/Resources/public/js/lib/tool/Date.js"
             "@AgitUiBundle/Resources/public/js/lib/tool/Format.js"
             "@AgitUiBundle/Resources/public/js/lib/tool/Template.js"
             "@AgitUiBundle/Resources/public/js/lib/ctxt/Element.js"
             "@AgitUiBundle/Resources/public/js/lib/ctxt/State.js"
-            "@AgitUiBundle/Resources/public/js/lib/ctxt/Cache.js"
             "@AgitUiBundle/Resources/public/js/lib/ctxt/Page.js"
             "@AgitUiBundle/Resources/public/js/lib/ctxt/View.js"
             "@AgitUiBundle/Resources/public/js/lib/ctxt/Block.js"
@@ -131,7 +112,13 @@
             "@AgitUiBundle/Resources/public/js/lib/field/Select.js"
             "@AgitUiBundle/Resources/public/js/lib/field/Checkbox.js"
             "@AgitUiBundle/Resources/public/js/lib/field/Password.js"
-            "@AgitUiBundle/Resources/public/js/lib/elem/Heading.js"
+            "@AgitUiBundle/Resources/public/js/lib/elem/Menu.js"
+            "@AgitUiBundle/Resources/public/js/lib/elem/MenuEntry.js"
+            "@AgitUiBundle/Resources/public/js/lib/elem/LanguageMenuEntry.js"
+            "@AgitUiBundle/Resources/public/js/lib/elem/NavigationMenuEntry.js"
+            "@AgitUiBundle/Resources/public/js/lib/elem/Header.js"
+            "@AgitUiBundle/Resources/public/js/lib/elem/Title.js"
+            "@AgitUiBundle/Resources/public/js/lib/elem/Footer.js"
             "@AgitUiBundle/Resources/public/js/lib/elem/Callout.js"
             "@AgitUiBundle/Resources/public/js/lib/elem/Modal.js"
             "@AgitUiBundle/Resources/public/js/lib/elem/AlertModal.js"
@@ -148,20 +135,12 @@
         {% endjavascripts %}
     {% endblock %}
 
-    {% block layout_js %}
-        {# layout JS #}
-    {% endblock %}
-
     {% block area_js %}
         {# area JS #}
     {% endblock %}
 
     {% block js %}
         {# page JS #}
-    {% endblock %}
-
-    {% block local_js %}
-        {# local JS #}
     {% endblock %}
 </body>
 </html>

@@ -1,10 +1,10 @@
-html, body                                                      { font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", "Fira Sans", Oxygen, Roboto, roboto, Arial, sans-serif;
-                                                                  height: 100%; background: #fafafa }
+html, body                                                      { font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", "Fira Sans", Oxygen, Roboto, roboto, Arial, sans-serif; }
 
 textarea                                                        { resize: vertical; min-height: 5em; }
 template                                                        { display: none }
 
-h1                                                              { margin: 3em auto .7em; font-weight: 300; font-size: 40px; }
+th                                                              { text-align: left }
+
 main h2                                                         { margin: 2.2em auto 1em; font-weight: 300; font-size: 30px; }
 main h3                                                         { margin: 2em auto 1em; font-weight: 300; font-size: 22px; }
 main h4                                                         { margin: 1.8em auto 1em; font-weight: 300; font-size: 18px; }
@@ -16,3 +16,5 @@ main p:last-child, main ul:last-child, main li:last-child       { margin-bottom:
 a                                                               { cursor: pointer; }
 .btn.strong                                                     { font-weight: 500 }
 .btn.disabled, .btn[disabled]                                   { cursor: default; }
+
+code, .mono                                                     { font-family: Menlo, Consolas, "Roboto Mono", "DejaVu Sans Mono", "Andale Mono", monospace; }

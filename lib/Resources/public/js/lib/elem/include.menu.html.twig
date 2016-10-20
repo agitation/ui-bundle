@@ -1,0 +1,22 @@
+{% macro menu(tree, locale) %}
+    {% import _self as nav %}
+        {% for branch in tree %}
+            {% set hasChildren = (branch.children is defined and branch.children|length) %}
+            {% set name = (locale is defined and branch.data.names[locale] is defined) ? branch.data.names[locale] : branch.data.name %}
+
+            {% if branch.data is defined %}
+                {% if branch.data.pageId is defined %}
+                    <li>
+                        <a href="{{ createUrl(branch.data.vPath) }}" data-caps="{{ branch.data.caps }}">{{ name }}</a>
+                    </li>
+                {% elseif hasChildren %}
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{ branch.data.name }}</a>
+                        <ul class="dropdown-menu">
+                            {{ nav.menu(branch.children, locale) }}
+                        </ul>
+                    </li>
+                {% endif %}
+            {% endif %}
+    {% endfor %}
+{% endmacro %}

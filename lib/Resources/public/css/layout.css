@@ -1,0 +1,83 @@
+nav                                                             { position: fixed; top: 0; left: 0; }
+nav *                                                           { margin: 0; font-size: 1em; line-height: 1em; font-weight: 400; }
+nav i.fa                                                        { margin-right: 5px }
+nav ul, nav li                                                  { list-style: none; margin: 0; padding: 0 }
+nav a:hover, nav a:focus, nav a:active                          { text-decoration: none; }
+
+@media (min-width: 992px) /*not handheld*/
+{
+header                                                          { margin: 90px 0 0 } /* margin-bottom is 0 because following elements will have a margin-top anyway for handheld */
+header .title h1                                                { margin: 0; font-weight: 300; font-size: 30px; text-transform: uppercase; }
+header .title .control                                          { display: none }
+section                                                         { margin: 30px auto; }
+
+nav                                                             { z-index: 500; width: 100%; background: rgba(64,100,130, 1); box-shadow: 0 -20px 8px 21px rgba(40, 40, 40, 0.75); }
+nav .menu                                                       { margin: 0 auto; }
+
+nav .menu .lg-top                                               { display: block; float: right; margin: 0; padding: 0; position: relative; cursor: default }
+nav .menu .primary .lg-top                                      { float: left }
+
+nav .menu .lg-top > :first-child                                { display: block; padding: 10px; line-height: 1.8em; color: #fff; text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5); }
+nav .menu .lg-top > :nth-child(2)                               { position: absolute; z-index: 490; display: none; padding: 5px 0; box-shadow: 0 0 8px 0 rgba(40, 40, 40, 0.4);
+                                                                  background: #fff; min-width: 100%; border-radius: 0 0 3px 3px }
+nav .menu .lg-top > :last-child h3,
+nav .menu .lg-top > :last-child a,
+nav .menu .lg-top > :last-child a:link,
+nav .menu .lg-top > :last-child a:visited                       { margin: 0; display: block; color: #222; padding: 8px 20px 8px 10px; font-size: 1em; white-space: nowrap; font-weight: normal; }
+nav .menu .lg-top > :last-child a:hover,
+nav .menu .lg-top > :last-child a:focus,
+nav .menu .lg-top > :last-child a:active                        { color: #000; background: #eee }
+
+nav .menu .lg-top:hover > :first-child                          { background: #000 }
+nav .menu .lg-top:hover > :nth-child(2)                         { display: block; }
+
+nav .lg-hide                                                    { display: none }
+}
+
+
+@media  (max-width: 991px) /* handheld*/
+{
+html, body, main, .view                                         { height:100%; min-height:100%; }
+
+section                                                         { overflow-y: auto; margin-top: 15px; margin-bottom: 15px }
+
+nav                                                             { z-index: 500; }
+nav .menu                                                       { position: fixed; z-index: 510; top: 0; left: 0; min-width: 50%; max-width: 80%; width: auto; height: 100%; background: #222; color: #ccc;
+                                                                  overflow-y: auto; padding: 0; transform: translateX(-100%); transition: .3s; }
+
+.nav-open nav                                                   { width: 100%; height: 100%; background: rgba(0, 0, 0, .1); }
+.nav-open nav .menu                                             { box-shadow: -20px 0px 25px 21px rgba(0,0,0,0.75); transform: translateX(0); }
+
+nav .menu > *                                                   { margin: 0 20px; padding: 20px 0 10px; }
+nav .menu > :not(:first-child)                                  { border-top: 1px solid #777 }
+nav .menu > * > :first-child                                    { margin: 10px; text-transform: uppercase; }
+
+nav p, nav ul                                                   { margin: 10px 0; }
+nav ul ul                                                       { margin: 0; padding: 0 }
+nav h3, nav a                                                   { padding: 10px; }
+nav h3                                                          { color: #fff; font-weight: 700 }
+nav a, nav a:link, nav a:visited                                { color: #def; display: block; text-decoration: none; }
+nav a:hover, nav a:focus, nav a:active                          { color: #fff; background: #444 }
+nav ul ul a, nav ul ul a:link, nav ul ul a:visited              { padding-left: 20px }
+
+nav .sm-hide                                                    { display: none }
+
+.view                                                           { height: 100%; display: flex; flex-direction: column; }
+.view .container                                                { width: 100% }
+
+header                                                          { flex-shrink: 0; width: 100%; }
+header .title                                                   { background: rgba(64, 100, 130, 1); box-shadow: 0 -20px 8px 21px rgba(40, 40, 40, 0.75);
+                                                                  color: #fff; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); line-height: 1em; }
+
+header .title > *                                               { display: inline-block; vertical-align: middle; text-align: center; line-height: 1em; }
+header .title h1                                                { margin: 0; width: 70%; font-size: 14px; padding: 15px 0; font-weight: normal; }
+header .title .control                                          { padding: 5px 0; }
+header .title .control:first-child                              { text-align: left; width: 15% }
+header .title .control:last-child                               { text-align: right; width: 15% }
+
+header .title .control a                                        { color: #fff; border: 1px solid #33495B; padding: 7px 10px; font-size: 14px; text-decoration: none;
+                                                                  border-radius: 2px; box-shadow: 1px 1px 0 #667C8E; background: linear-gradient(to bottom, #476e8c 0%, #3F5E78 100%) }
+header .title .control a:hover, header .title .control a:active { background: linear-gradient(to bottom, #3F5E78 0%, #476e8c 100%) }
+
+header .title .control span                                     { display: none }
+}
