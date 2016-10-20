@@ -31,6 +31,11 @@
         %}
         <link href="{{ asset_url }}" type="text/css" rel="stylesheet" />
         {% endstylesheets %}
+
+        <style type="text/css">
+            .init-nojs, .init-loading { margin: 30px; text-align: center; color: #888 }
+            .init-loading { display: none; }
+        </style>
     {% endblock %}
 
     {% block area_css %}
@@ -43,7 +48,10 @@
 </head>
 <body>
     {% block content %}
-        <main></main>
+        <main>
+            <div class="init-nojs">{{ t("Please activate JavaScript in your web browser to use this application.") }}</div>
+            <div class="init-loading">{{ t("Please wait while the application is loading.") }}</div>
+        </main>
     {% endblock %}
 
     {% block common_templates %}
@@ -70,6 +78,11 @@
     {% endblock %}
 
     {% block common_js %}
+        {# hide JS warning #}
+        <script type="text/javascript">
+            document.write("<style type='text/css'>.init-nojs { display: none; } .init-loading { display: block; }</style>");
+        </script>
+
         {% javascripts
             "@AgitBaseBundle/Resources/public/js/var/init.js"
             "@AgitBaseBundle/Resources/public/js/lib/Collection.js"
