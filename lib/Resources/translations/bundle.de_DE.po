@@ -163,7 +163,7 @@ msgid "%sh %smin"
 msgstr "%sh %smin"
 
 #: @AgitUiBundle/Resources/public/js/lib/field/Select.js:7
-#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:62
+#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:66
 msgid "– Please select –"
 msgstr "– bitte wählen –"
 
@@ -195,6 +195,14 @@ msgstr "Seite nicht gefunden"
 msgid "The requested page could not be found. Please check the spelling of the address, or notify the owner of the referring web page."
 msgstr "Die gewünschte Seite wurde nicht gefunden. Bitte prüfen Sie die Schreibweise der Adresse oder benachrichtigen Sie ggf. den Betreiber der verweisenden Seite."
 
+#: @AgitUiBundle/Resources/views/Include/page.html.twig:274
+msgid "Please activate JavaScript in your web browser to use this application."
+msgstr "Bitte aktivieren Sie JavaScript in Ihrem Webbrowser, um diese Anwendung nutzen zu können."
+
+#: @AgitUiBundle/Resources/views/Include/page.html.twig:278
+msgid "Please wait while the application is loading."
+msgstr "Bitte warten Sie, die Anwendung wird geladen."
+
 #: @AgitUiBundle/Resources/views/Include/template.modal.html.twig:38
 #: @AgitUiBundle/Resources/views/Include/template.modal.html.twig:54
 msgid "Ok"
@@ -204,22 +212,18 @@ msgstr "Ok"
 msgid "Cancel"
 msgstr "Abbrechen"
 
-#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:35
+#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:39
 msgid "(optional)"
 msgstr "(optional)"
 
-#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:50
+#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:54
 msgid "submit"
 msgstr "absenden"
 
-#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:79
+#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:83
 msgid "show password"
 msgstr "Passwort anzeigen"
 
-#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:85
+#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:89
 msgid "hide password"
 msgstr "Passwort verbergen"
-
-#: @AgitUiBundle/Resources/views/Include/layout/web/include.header.html.twig:105
-msgid "Language"
-msgstr "Sprache"

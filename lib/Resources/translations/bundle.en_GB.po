@@ -163,7 +163,7 @@ msgid "%sh %smin"
 msgstr ""
 
 #: @AgitUiBundle/Resources/public/js/lib/field/Select.js:7
-#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:62
+#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:66
 msgid "– Please select –"
 msgstr ""
 
@@ -195,6 +195,14 @@ msgstr ""
 msgid "The requested page could not be found. Please check the spelling of the address, or notify the owner of the referring web page."
 msgstr ""
 
+#: @AgitUiBundle/Resources/views/Include/page.html.twig:274
+msgid "Please activate JavaScript in your web browser to use this application."
+msgstr ""
+
+#: @AgitUiBundle/Resources/views/Include/page.html.twig:278
+msgid "Please wait while the application is loading."
+msgstr ""
+
 #: @AgitUiBundle/Resources/views/Include/template.modal.html.twig:38
 #: @AgitUiBundle/Resources/views/Include/template.modal.html.twig:54
 msgid "Ok"
@@ -204,22 +212,18 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:35
+#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:39
 msgid "(optional)"
 msgstr ""
 
-#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:50
+#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:54
 msgid "submit"
 msgstr ""
 
-#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:79
+#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:83
 msgid "show password"
 msgstr ""
 
-#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:85
+#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:89
 msgid "hide password"
-msgstr ""
-
-#: @AgitUiBundle/Resources/views/Include/layout/web/include.header.html.twig:105
-msgid "Language"
 msgstr ""
