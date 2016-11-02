@@ -32,6 +32,9 @@ nav .menu .lg-top:hover > :first-child                          { background: #0
 nav .menu .lg-top:hover > :nth-child(2)                         { display: block; }
 
 nav .lg-hide                                                    { display: none }
+
+footer                                                          { position: fixed; bottom: 0; left: 0; width: 100%; }
+
 }
 
 
@@ -39,7 +42,7 @@ nav .lg-hide                                                    { display: none 
 {
 html, body, main, .view                                         { height:100%; min-height:100%; }
 
-section                                                         { overflow-y: auto; margin-top: 15px; margin-bottom: 15px }
+section                                                         { overflow-y: auto; margin-top: 15px; margin-bottom: 15px; flex-grow: 1 }
 
 nav                                                             { z-index: 500; }
 nav .menu                                                       { position: fixed; z-index: 510; top: 0; left: 0; min-width: 50%; max-width: 80%; width: auto; height: 100%; background: #222; color: #ccc;
@@ -65,7 +68,7 @@ nav .sm-hide                                                    { display: none 
 .view                                                           { height: 100%; display: flex; flex-direction: column; }
 .view .container                                                { width: 100% }
 
-header                                                          { flex-shrink: 0; width: 100%; }
+header, footer                                                  { flex-shrink: 0; width: 100%; }
 header .title                                                   { background: rgba(64, 100, 130, 1); box-shadow: 0 -20px 8px 21px rgba(40, 40, 40, 0.75);
                                                                   color: #fff; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); line-height: 1em; }
 
