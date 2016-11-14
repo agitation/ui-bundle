@@ -5,8 +5,11 @@
 {% set noindex = 1 %}
 {% block name %}{{ t("Page not found") }}{% endblock %}
 
-{% block main %}
-    <main>
-        <div class="callout callout-warning">{{ t("The requested page could not be found. Please check the spelling of the address, or notify the owner of the referring web page.") }}</div>
-    </main>
+{% block js %}
+    {% javascripts
+        "@AgitUiBundle/Resources/public/js/ctl/notfound.js"
+        filter="?uglifyjs2"
+    %}
+    <script src="{{ asset_url }}" type="text/javascript"></script>
+    {% endjavascripts %}
 {% endblock %}

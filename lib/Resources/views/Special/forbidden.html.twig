@@ -2,10 +2,14 @@
 
 {% agit.capability "" %}
 {% agit.status "403" %}
+{% set noindex = 1 %}
 {% block name %}{{ t("Forbidden") }}{% endblock %}
 
-{% block main %}
-    <main>
-        <div class="callout callout-warning">{{ t("You are not allowed to access this page. Please contact an administrator to upgrade your privileges.") }}</div>
-    </main>
+{% block js %}
+    {% javascripts
+        "@AgitUiBundle/Resources/public/js/ctl/forbidden.js"
+        filter="?uglifyjs2"
+    %}
+    <script src="{{ asset_url }}" type="text/javascript"></script>
+    {% endjavascripts %}
 {% endblock %}
