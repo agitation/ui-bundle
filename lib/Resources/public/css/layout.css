@@ -33,7 +33,7 @@ nav .menu .lg-top:hover > :nth-child(2)                         { display: block
 
 nav .lg-hide                                                    { display: none }
 
-footer                                                          { position: fixed; bottom: 0; left: 0; width: 100%; }
+footer                                                          { position: fixed; z-index: 500; bottom: 0; left: 0; width: 100%; }
 
 }
 
