@@ -5,7 +5,7 @@
 .modal.visible                          { display: block }
 
 .modal .header                          { margin: 0 0 .6em; font-size: 1em; font-weight: 500; line-height: 1em; padding: 1em 1.5em; background: #f1f1f1; border-bottom: 1px solid #ccc }
-.modal .main                            { display: table; }
+.modal .main                            { display: table; width: 100% }
 .modal .main > *                        { display: table-cell; vertical-align: middle; padding: 1.5em; }
 .modal .main .visual                    { padding-right: 0; width: 6em; text-align: center; }
 .modal .main .visual i                  { font-size: 2.5em; }
@@ -23,6 +23,12 @@
 
 .confirm-modal .visual i                { color: #444 }
 .confirm-modal button.ok                { margin-left: 10px }
+
+.prompt-modal .visual i                 { color: #444 }
+.prompt-modal p                         { margin: 0 0 10px; }
+.prompt-modal form                      { display: table }
+.prompt-modal form span                 { display: table-cell; vertical-align: middle; }
+.prompt-modal form span:last-child      { width: 1%; padding-left: 10px }
 
 
 .map-modal                              { width: 90%; height: 90%; max-width: none; }
