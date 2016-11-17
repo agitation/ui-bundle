@@ -1,0 +1,33 @@
+{% spaceless %}
+
+{% agit.capability "" %}
+{% agit.name t("Something went wrong") %}
+
+<!DOCTYPE html>
+<html lang="{{ locale|slice(0, 2) }}">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="/favicon.png">
+
+    <title>{{ t("Something went wrong") }}</title>
+
+    <style type="text/css">
+        html, body { font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", "Fira Sans", Oxygen, Roboto, roboto, Arial, sans-serif; background: #f4f4f4 }
+        main       { margin: 100px auto 0; padding: 40px; max-width: 550px; border: 1px solid #bbb; box-shadow: 0px 0px 3px #bbb; background: #fff; color: #444; font-size: 14px; border-radius: 2px; }
+        h1         { margin: 0 0 10px; font-weight: 300; font-size: 30px; text-transform: uppercase; }
+        p          { margin: 15px 0 0; }
+        a          { color: rgb(64,100,130); text-decoration: none; }
+
+    </style>
+</head>
+<body>
+    <main>
+        <h1>{{ t("Something went wrong") }}</h1>
+        <p>{{ message }}</p>
+        <p><a href="/">{{ t("go to home page") }} ›</a></p>
+    </main>
+</body>
+</html>
+{% endspaceless %}

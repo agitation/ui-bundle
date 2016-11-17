@@ -1,9 +1,9 @@
 {% extends ["::page.html.twig", "AppBundle:Include:page.html.twig", "AgitUiBundle:Include:page.html.twig"] %}
 
 {% agit.capability "" %}
-{% agit.status "401" %}
+{% agit.status 401 %}
 {% set noindex = 1 %}
-{% block name %}{{ t("Authorization required") }}{% endblock %}
+{% agit.name t("Authorization required") %}
 
 {% block js %}
     {% javascripts
