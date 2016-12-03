@@ -47,8 +47,9 @@ input[type=text].disabled,
 input[type=text][disabled],
 input[type=number].disabled,
 input[type=number][disabled],
-select.disabled,
-select[disabled]                                    { cursor: default; color: transparent; background-color: #f4f4f4; background-image: repeating-linear-gradient(-45deg, transparent, transparent 5px, #fff 5px, #fff 10px); }
+.form-control.disabled,
+.form-control[disabled],
+select.disabled, select[disabled]                   { cursor: default; color: transparent; background: #f4f4f4; }
 
 /* BOOLEAN */
 .boolean                                            { padding-top: 10px; white-space: nowrap; }
