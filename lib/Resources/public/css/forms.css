@@ -51,6 +51,8 @@ input[type=number][disabled],
 .form-control[disabled],
 select.disabled, select[disabled]                   { cursor: default; color: transparent; background: #f4f4f4; }
 
+option.deleted                                      { text-decoration: line-through; }
+
 /* BOOLEAN */
 .boolean                                            { padding-top: 10px; white-space: nowrap; }
 .boolean *                                          { display: inline-block; vertical-align: top; line-height: 1em; }
