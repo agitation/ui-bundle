@@ -1,5 +1,5 @@
 <template id="agitui-form">
-    <form class="api-form container" method="post" action="">
+    <form class="form container" method="post" action="">
         <table class="form break-xs">
         </table>
     </form>
@@ -9,29 +9,16 @@
     </div>
 
     <table class="dummy">
-        <tbody class="api-form-row">
+        <tbody class="form-row">
             <tr>
                 <th scope="row">
                     <label></label>
-                    <span class="optional">{{ t("(optional)") }}</span>
                 </th>
                 <td>
-                    <div class="field"></div>
-                    <div class="description"></div>
                 </td>
             </tr>
         </tbody>
-        <tfoot class="api-form-footer">
-            <tr>
-                <td></td>
-                <td>
-                    <button class="btn btn-primary" type="submit">{{ t("submit") }}</button>
-                </td>
-            </tr>
-        </tfoot>
     </table>
-
-    <input type="text" class="form-control">
 
     <select class="form-control">
         <option class="pleaseselect" value="">{{ t("– Please select –") }}</option>
