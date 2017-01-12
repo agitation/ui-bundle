@@ -30,13 +30,13 @@ If you have activated multiple locales through the
 [AgitIntlBundle](https://github.com/agitation/AgitIntlBundle), there will be one
 URL per language for each page.
 
-For example: If you have activated the locales  `en_GB` and `de_DE`, with
-`en_GB` as your primary locale the page `/path/to/contactform` would also allow
+For example: If you have activated the locales  `en_US` and `de_DE`, with
+`en_US` as your primary locale the page `/path/to/contactform` would also allow
 entering `/path/to/contactform/de` (i.e. with the language part of the locale
 attached to the URL) into the browser to access the German page.
 
 As a bonus, this feature also supports canonical URLs. If a user would enter
 `/path/to/contactform/en`, they would be redirected to `/path/to/contactform` if
-your primary locale is `en_GB`.
+your primary locale is `en_US`.
 
 
