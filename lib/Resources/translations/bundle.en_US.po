@@ -4,7 +4,7 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: @AgitUiBundle/Resources/public/js/ctl/forbidden.js:5
-#: @AgitUiBundle/Resources/views/Special/forbidden.html.twig:42
+#: @AgitUiBundle/Resources/views/Special/forbidden.html.twig:1
 msgid "Forbidden"
 msgstr ""
 
@@ -13,7 +13,7 @@ msgid "You are not allowed to access this page. Please contact an administrator 
 msgstr ""
 
 #: @AgitUiBundle/Resources/public/js/ctl/unauthorized.js:5
-#: @AgitUiBundle/Resources/views/Special/unauthorized.html.twig:42
+#: @AgitUiBundle/Resources/views/Special/unauthorized.html.twig:1
 msgid "Authorization required"
 msgstr ""
 
@@ -22,7 +22,7 @@ msgid "Please log in to view this page."
 msgstr ""
 
 #: @AgitUiBundle/Resources/public/js/ctl/notfound.js:5
-#: @AgitUiBundle/Resources/views/Special/notfound.html.twig:42
+#: @AgitUiBundle/Resources/views/Special/notfound.html.twig:1
 msgid "Page not found"
 msgstr ""
 
@@ -190,12 +190,22 @@ msgid "%sh %smin"
 msgstr ""
 
 #: @AgitUiBundle/Resources/public/js/lib/field/Select.js:7
-#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:66
+#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:47
 msgid "– Please select –"
 msgstr ""
 
 #: @AgitUiBundle/Resources/public/js/lib/field/Datepicker.js:40
 msgid "d/m/Y"
+msgstr ""
+
+#: @AgitUiBundle/Resources/views/Special/exception.html.twig:41
+#: @AgitUiBundle/Resources/views/Special/exception.html.twig:57
+#: @AgitUiBundle/Resources/views/Special/exception.html.twig:1
+msgid "Something went wrong"
+msgstr ""
+
+#: @AgitUiBundle/Resources/views/Special/exception.html.twig:69
+msgid "go to home page"
 msgstr ""
 
 #: @AgitUiBundle/Resources/views/Include/page.html.twig:274
@@ -208,6 +218,7 @@ msgstr ""
 
 #: @AgitUiBundle/Resources/views/Include/template.modal.html.twig:38
 #: @AgitUiBundle/Resources/views/Include/template.modal.html.twig:54
+#: @AgitUiBundle/Resources/views/Include/template.modal.html.twig:70
 msgid "Ok"
 msgstr ""
 
@@ -215,18 +226,10 @@ msgstr ""
 msgid "Cancel"
 msgstr ""
 
-#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:39
-msgid "(optional)"
-msgstr ""
-
-#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:54
-msgid "submit"
-msgstr ""
-
-#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:83
+#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:64
 msgid "show password"
 msgstr ""
 
-#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:89
+#: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:70
 msgid "hide password"
 msgstr ""
