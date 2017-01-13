@@ -3,7 +3,7 @@
 .map.select,
 .map.select .leaflet-interactive        { cursor: crosshair }
 
-.map .credits                           { position: absolute; z-index: 10; bottom: 0; right: 0; padding: 2px 5px; background: rgba(255, 255, 255, .85); font-size: .85em; line-height: 1em; }
+.map .credits                           { position: absolute; z-index: 1000; bottom: 0; right: 0; padding: 2px 5px; background: rgba(255, 255, 255, .85); font-size: .85em; line-height: 1em; }
 
 .map .marker                            { position: relative }
 
