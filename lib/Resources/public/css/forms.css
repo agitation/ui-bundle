@@ -4,26 +4,24 @@
 .callout-warning p                                  { border-left: 4px solid #ed7500; background: #ffeede; }
 .callout-success p                                  { border-left: 4px solid #398439; background: #d0ecd0; }
 
-table.form                                          { padding: 0; margin: 0; width: 100%; box-shadow: 0 0 4px #c4d0db; border-top: 2px solid #71abdb; }
-table.form tbody,
-table.form thead,
-table.form tfoot                                    { border: 0; border-collapse: collapse; }
-table.form th, table.form td                        { border: 0; background: #fafdff; vertical-align: top; padding: 13px; }
-table.form th[scope=row]                            { width: 1%; }
-table.form td                                       { padding: 7px }
+.form-table                                         { padding: 0; margin: 0; width: 100%; }
+.form-table tbody,
+.form-table thead,
+.form-table tfoot                                   { border: 0; border-collapse: collapse; }
+.form-table th, .form-table td                      { border: 0; vertical-align: top; padding: 13px; }
+.form-table th[scope=row]                           { width: 1%; padding: 7px }
+.form-table td                                      { padding: 7px }
 
-table.form thead tr > *                             { background: #edf7ff; }
-table.form tfoot tr > *                             { background: #f1f8fc; }
-table.form th label                                 { margin: 0; white-space: nowrap }
+.form-table th label                                { margin: 0; white-space: nowrap }
 
 @media (min-width: 480px)
 {
     /* give top and bottom cells a bit more padding */
-    table.form tr:first-child th                    { padding-top: 15px; }
-    table.form tr:first-child td                    { padding-top: 10px; }
-    table.form tr:last-child th                     { padding-bottom: 15px; }
-    table.form tr:last-child td                     { padding-bottom: 10px; }
-    table.form td:last-child                        { padding-right: 10px; }
+    .form-table tr:first-child th                   { padding-top: 15px; }
+    .form-table tr:first-child td                   { padding-top: 10px; }
+    .form-table tr:last-child th                    { padding-bottom: 15px; }
+    .form-table tr:last-child td                    { padding-bottom: 10px; }
+    .form-table td:last-child                       { padding-right: 10px; }
 }
 
 @media (max-width: 479px) {
