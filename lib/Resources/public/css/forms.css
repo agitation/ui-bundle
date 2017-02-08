@@ -1,5 +1,5 @@
 .callout                                            { margin: 2em auto; }
-.callout p                                          { padding: 1em 1.3em; background: #eee; }
+.callout p                                          { padding: 1em 1.3em; background: #eee; font-size: 1.6em; font-weight: 300; }
 .callout-info p                                     { border-left: 4px solid #6ca3d2; background: #daecfb; }
 .callout-warning p                                  { border-left: 4px solid #ed7500; background: #ffeede; }
 .callout-success p                                  { border-left: 4px solid #398439; background: #d0ecd0; }
