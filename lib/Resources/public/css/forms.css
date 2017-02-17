@@ -51,6 +51,8 @@ select.disabled, select[disabled]                   { cursor: default; color: tr
 
 option.deleted                                      { text-decoration: line-through; }
 
+input.decimal                                       { text-align: right; }
+
 /* BOOLEAN */
 .boolean                                            { padding-top: 10px; white-space: nowrap; }
 .boolean *                                          { display: inline-block; vertical-align: top; line-height: 1em; }
