@@ -17,7 +17,7 @@ header .title .control span                                     { display: inlin
 
 section                                                         { margin: 30px auto; }
 
-nav                                                             { z-index: 500; width: 100%; background: rgba(64,100,130, 1); box-shadow: 0 -20px 8px 21px rgba(40, 40, 40, 0.75); }
+nav                                                             { z-index: 500; width: 100%; background: #406482; box-shadow: 0 -20px 8px 21px rgba(40, 40, 40, 0.5); }
 nav .menu                                                       { margin: 0 auto; }
 
 nav .menu .lg-top                                               { display: block; float: right; margin: 0; padding: 0; position: relative; cursor: default }
@@ -40,7 +40,6 @@ nav .menu .lg-top:hover > :nth-child(2)                         { display: block
 nav .lg-hide                                                    { display: none }
 
 footer                                                          { position: fixed; z-index: 500; bottom: 0; left: 0; width: 100%; }
-
 }
 
 
@@ -78,8 +77,12 @@ nav .sm-hide                                                    { display: none 
 .view .container                                                { width: 100% }
 
 header, footer                                                  { flex-shrink: 0; width: 100%; z-index: 10 }
-header .title                                                   { background: rgba(64, 100, 130, 1); box-shadow: 0 -20px 8px 21px rgba(40, 40, 40, 0.75);
-                                                                  color: #fff; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); line-height: 1em; }
+
+/* show drop shadow at bottom of last element */
+header > *                                                      { position: relative; z-index: 100 }
+header > :last-child                                            { box-shadow: 0 -20px 8px 21px rgba(40, 40, 40, 0.5); z-index: 50 }
+
+header .title                                                   { background: rgba(64, 100, 130, 1); color: #fff; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); line-height: 1em; }
 
 header .title > *                                               { display: inline-block; vertical-align: middle; text-align: center; line-height: 1em; }
 header .title h1                                                { margin: 0; width: 70%; font-size: 14px; padding: 15px 0; font-weight: normal; }
