@@ -18,21 +18,27 @@
     </nav>
 
     <div class="menu-entry navigation primary">
-        <h2><i class="fa fa-navicon"></i>Pages</h2>
+        <h2>
+            <i class="fa fa-navicon"></i>
+            <span>{{ t("Pages") }}</span>
+        </h2>
         <ul></ul>
     </div>
 
     <div class="menu-entry languages">
-        <h2><i class="fa fa-globe"></i>Language</h2>
+        <h2>
+            <i class="fa fa-globe"></i>
+            <span>{{ t("Languages") }}</span>
+        </h2>
         <ul></ul>
     </div>
 
     <ul>
-        <li class="language">
-            <a href=""></a>
+        <li class="page">
+            <a href=""><span></span></a> {# span needed for vertical-align #}
         </li>
 
-        <li class="page">
+        <li class="language">
             <a href=""></a>
         </li>
 

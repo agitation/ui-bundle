@@ -1,7 +1,7 @@
 nav                                                             { position: fixed; top: 0; left: 0; }
-nav *                                                           { margin: 0; font-size: 1em; line-height: 1em; font-weight: 400; }
-nav i.fa                                                        { margin-right: 5px }
-nav ul, nav li                                                  { list-style: none; margin: 0; padding: 0 }
+nav *                                                           { margin: 0; font-size: 1em; }
+nav i.fa                                                        { margin-right: 6px; font-size: 1.2em }
+nav ul, nav li                                                  { list-style: none; margin: 0; padding: 0; line-height: 1em; }
 nav a:hover, nav a:focus, nav a:active                          { text-decoration: none; }
 
 @media (min-width: 992px) /*not handheld*/
@@ -23,7 +23,9 @@ nav .menu                                                       { margin: 0 auto
 nav .menu .lg-top                                               { display: block; float: right; margin: 0; padding: 0; position: relative; cursor: default }
 nav .menu .primary .lg-top                                      { float: left }
 
-nav .menu .lg-top > :first-child                                { display: block; padding: 10px; line-height: 1.8em; color: #fff; text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5); }
+nav .menu .lg-top > :first-child                                { display: block; padding: 10px 12px; line-height: 1.8em; color: #fff; text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5); font-weight: 500; }
+nav .menu .lg-top > :first-child > *                            { vertical-align: middle; }
+
 nav .menu .lg-top > :nth-child(2)                               { position: absolute; z-index: 490; display: none; padding: 5px 0; box-shadow: 0 0 8px 0 rgba(40, 40, 40, 0.4);
                                                                   background: #fff; min-width: 100%; border-radius: 0 0 3px 3px }
 nav .menu .lg-top > :last-child h3,
