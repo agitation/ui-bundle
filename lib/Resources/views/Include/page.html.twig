@@ -2,16 +2,25 @@
 <!DOCTYPE html>
 <html lang="{{ locale|slice(0, 2) }}">
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block common_meta %}
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>{% block title %}{{ getPageName() }}{% endblock %}</title>
+        <title>{% block title %}{{ getPageName() }}{% endblock %}</title>
 
-    {% include "AgitUiBundle:Include:include.langswitch.html.twig" %}
-    {% include "AgitPageBundle:Include:include.links.html.twig" %}
+        {% include "AgitUiBundle:Include:include.langswitch.html.twig" %}
 
-    <link rel="icon" href="/favicon.png">
+        <link rel="icon" href="/favicon.png">
+    {% endblock %}
+
+    {% block area_meta %}
+        {# area meta #}
+    {% endblock %}
+
+    {% block meta %}
+        {# page meta #}
+    {% endblock %}
 
     {% block common_css %}
         {% stylesheets
@@ -95,15 +104,6 @@
             "@AgitUiBundle/Resources/public/js/ext/jquery.js"
             "@AgitUiBundle/Resources/public/js/ext/bootstrap.js"
             "@AgitUiBundle/Resources/public/js/var/translations.js"
-
-            "@AgitPageBundle/Resources/public/js/var/update-links.js"
-
-            "@AgitApiBundle/Resources/public/js/lib/Api.js"
-            "@AgitApiBundle/Resources/public/js/lib/ApiError.js"
-            "@AgitApiBundle/Resources/public/js/lib/Endpoint.js"
-            "@AgitApiBundle/Resources/public/js/lib/Object.js"
-            "@AgitApiBundle/Resources/public/js/lib/Indicator.js"
-            "@AgitApiBundle/Resources/public/js/var/api.js"
 
             "@AgitUiBundle/Resources/public/js/var/swipe.js"
             "@AgitUiBundle/Resources/public/js/lib/tool/Date.js"
