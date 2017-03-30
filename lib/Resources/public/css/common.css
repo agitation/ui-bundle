@@ -10,8 +10,8 @@ main h3                                                         { margin: 2em au
 main h4                                                         { margin: 1.8em auto 1em; font-weight: 300; font-size: 17px; }
 main p, main ul                                                 { margin: 1em auto; }
 main li                                                         { margin: .3em auto; }
-main p:first-child, main ul:first-child, main li:first-child    { margin-top: 0; }
-main p:last-child, main ul:last-child, main li:last-child       { margin-bottom: 0; }
+p:first-child, ul:first-child, li:first-child                   { margin-top: 0; }
+p:last-child, ul:last-child, li:last-child                      { margin-bottom: 0; }
 
 a                                                               { cursor: pointer; }
 .btn.strong                                                     { font-weight: 500 }
