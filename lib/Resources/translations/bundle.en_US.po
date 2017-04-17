@@ -189,7 +189,7 @@ msgstr ""
 msgid "%sh %smin"
 msgstr ""
 
-#: @AgitUiBundle/Resources/public/js/lib/field/Select.js:7
+#: @AgitUiBundle/Resources/public/js/lib/field/Select.js:15
 #: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:47
 msgid "– Please select –"
 msgstr ""
@@ -208,11 +208,11 @@ msgstr ""
 msgid "go to home page"
 msgstr ""
 
-#: @AgitUiBundle/Resources/views/Include/page.html.twig:274
+#: @AgitUiBundle/Resources/views/Include/page.html.twig:321
 msgid "Please activate JavaScript in your web browser to use this application."
 msgstr ""
 
-#: @AgitUiBundle/Resources/views/Include/page.html.twig:278
+#: @AgitUiBundle/Resources/views/Include/page.html.twig:325
 msgid "Please wait while the application is loading."
 msgstr ""
 
@@ -232,4 +232,12 @@ msgstr ""
 
 #: @AgitUiBundle/Resources/views/Include/template.forms.html.twig:70
 msgid "hide password"
+msgstr ""
+
+#: @AgitUiBundle/Resources/views/Include/template.page.html.twig:46
+msgid "Pages"
+msgstr ""
+
+#: @AgitUiBundle/Resources/views/Include/template.page.html.twig:57
+msgid "Languages"
 msgstr ""
