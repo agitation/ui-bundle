@@ -40,11 +40,13 @@
         {% endstylesheets %}
 
         <style type="text/css">
-            .init-nojs, .init-loading { margin: 100px 30px 0; text-align: center; color: #888 }
-            .init-loading { display: none; }
+            .init { margin: 100px 30px 0; text-align: center; color: #888 }
+            #init-upgrade { color: #944; }
+            #init-loading, #init-upgrade, #init.failed #init-loading { display: none; }
+            #init.failed #init-upgrade { display: block; }
         </style>
 
-        <script type="text/javascript">document.write("<style type='text/css'>.init-nojs { display: none; } .init-loading { display: block; }</style>");</script>
+        <script type="text/javascript">document.write("<style type='text/css'>#init-nojs { display: none; } #init-loading { display: block; }</style>");</script>
     {% endblock %}
 
     {% block area_css %}
@@ -58,8 +60,17 @@
 <body>
     {% block content %}
         <main>
-            <div class="init-nojs">{{ t("Please activate JavaScript in your web browser to use this application.") }}</div>
-            <div class="init-loading">{{ t("Please wait while the application is loading.") }}</div>
+            <div id="init">
+                <div class="init" id="init-nojs">{{ t("Please activate JavaScript in your web browser to use this application.") }}</div>
+                <div class="init" id="init-loading">{{ t("Please wait while the application is loading.") }}</div>
+                <div class="init" id="init-upgrade">{{ t("The application could not be initialized. This might be because of a network outage or an obsolete browser. Please check your network connection and make sure you have the latest version of your browser.") }}</div>
+            </div>
+
+            <script type="text/javascript">
+                setTimeout(function(){
+                    var init = document.getElementById("init"); if (init) init.className += "failed";
+                }, 10000)
+            </script>
         </main>
     {% endblock %}
 
