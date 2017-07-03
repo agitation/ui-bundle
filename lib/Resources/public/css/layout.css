@@ -84,10 +84,11 @@ header, footer                                                  { flex-shrink: 0
 header > *                                                      { position: relative; z-index: 100 }
 header > :last-child                                            { box-shadow: 0 -20px 8px 21px rgba(40, 40, 40, 0.5); z-index: 50 }
 
-header .title                                                   { background: rgba(64, 100, 130, 1); color: #fff; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); line-height: 1em; }
+header .title                                                   { display: flex; justify-content: space-between; flex-wrap: nowrap; align-items: center; align-content: center;
+                                                                  background: rgba(64, 100, 130, 1); color: #fff; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); line-height: 1em; }
 
 header .title > *                                               { display: inline-block; vertical-align: middle; text-align: center; line-height: 1em; }
-header .title h1                                                { margin: 0; width: 70%; font-size: 14px; padding: 15px 0; font-weight: normal; }
+header .title h1                                                { margin: 0; font-size: 14px; padding: 15px 0; font-weight: normal; flex-grow: 1 }
 header .title .control                                          { padding: 5px 0; }
 header .title .control:first-child                              { text-align: left; width: 15% }
 header .title .control:last-child                               { text-align: right; width: 15% }
