@@ -194,8 +194,8 @@ msgstr "%sh %smin"
 msgid "– Please select –"
 msgstr "– bitte wählen –"
 
-#: @AgitUiBundle/Resources/public/js/lib/field/Datepicker.js:40
-msgid "d/m/Y"
+#: @AgitUiBundle/Resources/public/js/lib/field/Datepicker.js:86
+msgid "Y-m-d"
 msgstr "d.m.Y"
 
 #: @AgitUiBundle/Resources/views/Special/exception.html.twig:41
@@ -208,13 +208,17 @@ msgstr "Ein Fehler ist aufgetreten"
 msgid "go to home page"
 msgstr "zur Startseite"
 
-#: @AgitUiBundle/Resources/views/Include/page.html.twig:321
+#: @AgitUiBundle/Resources/views/Include/page.html.twig:324
 msgid "Please activate JavaScript in your web browser to use this application."
 msgstr "Bitte aktivieren Sie JavaScript in Ihrem Webbrowser, um diese Anwendung nutzen zu können."
 
-#: @AgitUiBundle/Resources/views/Include/page.html.twig:325
+#: @AgitUiBundle/Resources/views/Include/page.html.twig:328
 msgid "Please wait while the application is loading."
 msgstr "Bitte warten Sie, die Anwendung wird geladen."
+
+#: @AgitUiBundle/Resources/views/Include/page.html.twig:332
+msgid "The application could not be initialized. This might be because of a network outage or an obsolete browser. Please check your network connection and make sure you have the latest version of your browser."
+msgstr "Die Anwendung konnte nicht gestartet werden. Das liegt möglicherweise an einem Netzwerkproblem oder einem veraltetem Browser. Bitte prüfen Sie Ihre Netzwerkverbindung und stellen Sie sicher, dass Sie die neueste Version Ihres Browsers verwenden."
 
 #: @AgitUiBundle/Resources/views/Include/template.modal.html.twig:38
 #: @AgitUiBundle/Resources/views/Include/template.modal.html.twig:54
@@ -239,5 +243,5 @@ msgid "Pages"
 msgstr "Seiten"
 
 #: @AgitUiBundle/Resources/views/Include/template.page.html.twig:57
-msgid "Languages"
-msgstr "Sprachen"
+msgid "Language"
+msgstr "Sprache"

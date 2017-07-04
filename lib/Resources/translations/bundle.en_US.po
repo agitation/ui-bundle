@@ -194,8 +194,8 @@ msgstr ""
 msgid "– Please select –"
 msgstr ""
 
-#: @AgitUiBundle/Resources/public/js/lib/field/Datepicker.js:40
-msgid "d/m/Y"
+#: @AgitUiBundle/Resources/public/js/lib/field/Datepicker.js:86
+msgid "Y-m-d"
 msgstr ""
 
 #: @AgitUiBundle/Resources/views/Special/exception.html.twig:41
@@ -208,12 +208,16 @@ msgstr ""
 msgid "go to home page"
 msgstr ""
 
-#: @AgitUiBundle/Resources/views/Include/page.html.twig:321
+#: @AgitUiBundle/Resources/views/Include/page.html.twig:324
 msgid "Please activate JavaScript in your web browser to use this application."
 msgstr ""
 
-#: @AgitUiBundle/Resources/views/Include/page.html.twig:325
+#: @AgitUiBundle/Resources/views/Include/page.html.twig:328
 msgid "Please wait while the application is loading."
+msgstr ""
+
+#: @AgitUiBundle/Resources/views/Include/page.html.twig:332
+msgid "The application could not be initialized. This might be because of a network outage or an obsolete browser. Please check your network connection and make sure you have the latest version of your browser."
 msgstr ""
 
 #: @AgitUiBundle/Resources/views/Include/template.modal.html.twig:38
@@ -239,5 +243,5 @@ msgid "Pages"
 msgstr ""
 
 #: @AgitUiBundle/Resources/views/Include/template.page.html.twig:57
-msgid "Languages"
+msgid "Language"
 msgstr ""
