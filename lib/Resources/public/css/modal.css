@@ -1,41 +1,41 @@
-.modal                                  { display: none; width: 90%; max-width: 500px;
-                                          z-index: 1010; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
-                                          background: #fff; box-shadow: 0px 0px 4px #333; outline: 0; }
+.modal                                  { display: none; z-index: 1010; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%);
+                                          max-height: 95%; max-width: 95%; background: #fff; box-shadow: 0px 0px 4px #333; outline: 0; }
 
 .modal.visible                          { display: block }
 
-.modal .header                          { margin: 0 0 .6em; font-size: 1em; font-weight: 500; line-height: 1em; padding: 1em 1.5em; background: #f1f1f1; border-bottom: 1px solid #ccc }
-.modal .main                            { display: table; width: 100% }
-.modal .main > *                        { display: table-cell; vertical-align: middle; padding: 1.5em; }
-.modal .main .visual                    { padding-right: 0; text-align: center; }
-.modal .main .visual i                  { font-size: 2.5em; }
-.modal .main p                          { margin: .4em 0; color: #444; }
-.modal .footer                          { padding: 0 1.5em 1.5em; text-align: center }
-
-.textmodal                              { max-height: 95%; max-width: 95%; }
-.textmodal-close                        { position: absolute; top: -16px; right: -16px; background: #d2a403; background: linear-gradient(to bottom, #666 0%, #222 100%);
+.modal-close                            { position: absolute; top: -16px; right: -16px; background: #d2a403; background: linear-gradient(to bottom, #666 0%, #222 100%);
                                           border: 2px solid #fff; border-radius: 50%; color: #fff; box-shadow: 0px 0px 4px #333; z-index: 1050; cursor: pointer; }
-.textmodal-close i.fa                   { display: block; margin: 2px; width: 30px; height: 30px; line-height: 30px; font-size: 24px; text-align: center; }
-.textmodal-content                      { overflow: hidden; overflow-y: auto; max-height: 500px; padding: 2em; }
+.modal-close i.fa                       { display: block; margin: 2px; width: 30px; height: 30px; line-height: 30px; font-size: 24px; text-align: center; }
 
-.alert-modal i.error                    { color: #900; }
+.display-modal .content                 { overflow: hidden; }
 
+.dialog-modal                           { max-width: 500px; }
+.dialog-modal .header                   { margin: 0 0 .6em; font-size: 1em; font-weight: 500; line-height: 1em; padding: 1em 1.5em; background: #f1f1f1; border-bottom: 1px solid #ccc }
+.dialog-modal .header:empty             { display: none }
+.dialog-modal .main                     { display: table; width: 100% }
+.dialog-modal .main > *                 { display: table-cell; vertical-align: middle; padding: 1.5em; }
+.dialog-modal .visual                   { padding-right: 0; text-align: center; }
+.dialog-modal .visual i                 { font-size: 2.5em; }
+.dialog-modal .visual i.error           { color: #900; }
+.dialog-modal .visual i.question        { color: #444 }
+.dialog-modal .message p                { margin: .4em 0; color: #444; }
+.dialog-modal .footer                   { padding: 0 1.5em 1.5em; text-align: center }
+.dialog-modal .footer:empty             { display: none }
+.dialog-modal button:not(:first-child)  { margin-left: 10px }
 
-.confirm-modal .visual i                { color: #444 }
-.confirm-modal button.ok                { margin-left: 10px }
+.text-modal                             {  }
+.text-modal .longtext                   { overflow: hidden; overflow-y: auto; max-height: 500px; padding: 2em; }
 
-.prompt-modal .visual i                 { color: #444 }
 .prompt-modal form                      { display: table; margin: 1em 0; }
 .prompt-modal form span                 { display: table-cell; vertical-align: middle; }
 .prompt-modal form span:last-child      { width: 1%; padding-left: 6px }
-
 
 .map-modal                              { width: 90%; height: 90%; max-width: none; }
 
 @media (min-width: 768px)
 {
-    .modal .main .visual                { padding-left: 3em; padding-right: 1.5em }
-    .modal .main .message               { padding-right: 3em }
+    .dialog-modal .visual               { padding-left: 3em; padding-right: 1.5em }
+    .dialog-modal .message              { padding-right: 3em }
 }
 
 @media (min-width: 992px) and (min-height: 768px)

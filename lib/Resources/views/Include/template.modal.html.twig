@@ -1,5 +1,13 @@
 <template id="agitui-modal">
-    <div class="modal" tabindex="0">
+    <div class="modal" tabindex="0"></div>
+
+    <div class="modal-close">
+        <i class="fa fa-times"></i>
+    </div>
+
+    <div class="longtext"></div>
+
+    <div class="dialog">
         <h3 class="header"></h3>
         <div class="main">
             <div class="visual"></div>
@@ -8,36 +16,23 @@
         <div class="footer"></div>
     </div>
 
-    <div class="textmodal-close"><i class="fa fa-times"></i></div>
-    <div class="textmodal-content"></div>
-
-    <div class="alert-modal">
-        <button class="btn btn-default">{{ t("Ok") }}</button>
-        <i class="error fa fa-exclamation-triangle"></i>
-        <i class="warning fa fa-exclamation-circle"></i>
-        <i class="success fa fa-check"></i>
-        <i class="info fa fa-info-circle"></i>
+    <div class="prompt">
+        <p></p>
+        <form action="" method="" autocomplete="false">
+            <span>
+                <input type="text" value="" class="form-control input-sm">
+            </span>
+            <span>
+                <button type="submit" class="btn btn-primary btn-sm">{{ t("Ok") }}</button>
+            </span>
+        </form>
     </div>
 
-    <div class="confirm-modal">
-        <i class="fa fa-question-circle"></i>
-        <button type="button" class="cancel btn btn-default btn-sm">{{ t("Cancel") }}</button>
-        <button type="button" class="ok btn btn-primary btn-sm">{{ t("Ok") }}</button>
-    </div>
-
-    <div class="prompt-modal">
-        <i class="fa fa-question-circle"></i>
-
-        <div>
-            <p></p>
-            <form action="" method="" autocomplete="false">
-                <span>
-                    <input type="text" value="" class="form-control input-sm">
-                </span>
-                <span>
-                    <button type="submit" class="ok btn btn-primary btn-sm">{{ t("Ok") }}</button>
-                </span>
-            </form>
-        </div>
-    </div>
+    <button type="button" class="ok btn btn-primary btn-sm">{{ t("Ok") }}</button>
+    <button type="button" class="cancel btn btn-default btn-sm">{{ t("Cancel") }}</button>
+    <i class="question fa fa-question-circle"></i>
+    <i class="error fa fa-exclamation-triangle"></i>
+    <i class="warning fa fa-exclamation-circle"></i>
+    <i class="success fa fa-check"></i>
+    <i class="info fa fa-info-circle"></i>
 </template>
