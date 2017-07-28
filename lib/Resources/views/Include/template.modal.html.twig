@@ -9,26 +9,30 @@
 
     <div class="dialog">
         <h3 class="header"></h3>
-        <div class="main">
-            <div class="visual"></div>
-            <div class="message"></div>
-        </div>
-        <div class="footer"></div>
+        <form action="" method="" autocomplete="off">
+            <div class="body"></div>
+            <div class="footer"></div>
+        </form>
+    </div>
+
+    <div class="emph"> {# used by alert, confirm, prompt #}
+        <div class="visual"></div>
+        <div class="message"></div>
     </div>
 
     <div class="prompt">
-        <p></p>
-        <form action="" method="" autocomplete="false">
+        <p class="msg"></p>
+        <p class="form">
             <span>
                 <input type="text" value="" class="form-control input-sm">
             </span>
             <span>
                 <button type="submit" class="btn btn-primary btn-sm">{{ t("Ok") }}</button>
             </span>
-        </form>
+        </p>
     </div>
 
-    <button type="button" class="ok btn btn-primary btn-sm">{{ t("Ok") }}</button>
+    <button type="submit" class="ok btn btn-primary btn-sm">{{ t("Ok") }}</button>
     <button type="button" class="cancel btn btn-default btn-sm">{{ t("Cancel") }}</button>
     <i class="question fa fa-question-circle"></i>
     <i class="error fa fa-exclamation-triangle"></i>
