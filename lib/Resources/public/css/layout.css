@@ -13,7 +13,7 @@ header .title h1                                                { margin: 0; fon
 
 header .title .control                                          { display: inline-block; margin-bottom: 8px; vertical-align: middle; }
 header .title .control a                                        { text-decoration: none }
-header .title .control span                                     { display: inline-block; margin-left: 5px; }
+header .title .control span                                     { display: inline-block; }
 
 section                                                         { margin: 30px auto; }
 
