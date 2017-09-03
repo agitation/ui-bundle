@@ -81,10 +81,11 @@ nav .sm-hide                                                    { display: none 
 header, footer                                                  { flex-shrink: 0; width: 100%; z-index: 10 }
 
 /* show drop shadow at bottom of last element */
-header > *                                                      { position: relative; z-index: 100 }
+header                                                          { display: flex; flex-direction: column; }
+header > *                                                      { order: 10 }
 header > :last-child                                            { box-shadow: 0 -20px 8px 21px rgba(40, 40, 40, 0.5); z-index: 50 }
 
-header .title                                                   { display: flex; justify-content: space-between; flex-wrap: nowrap; align-items: center; align-content: center;
+header .title                                                   { order: 5; display: flex; justify-content: space-between; flex-wrap: nowrap; align-items: center; align-content: center;
                                                                   background: rgba(64, 100, 130, 1); color: #fff; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); line-height: 1em; }
 
 header .title > *                                               { display: inline-block; vertical-align: middle; text-align: center; line-height: 1em; }

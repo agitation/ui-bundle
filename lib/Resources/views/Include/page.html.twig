@@ -11,7 +11,9 @@
 
         {% include "AgitUiBundle:Include:include.langswitch.html.twig" %}
 
-        <link rel="icon" href="/favicon.png">
+        {% block favicon %}
+            <link rel="icon" href="/favicon.png">
+        {% endblock %}
     {% endblock %}
 
     {% block area_meta %}
@@ -40,7 +42,7 @@
         {% endstylesheets %}
 
         <style type="text/css">
-            .init { margin: 100px 30px 0; text-align: center; color: #888 }
+            .init { margin: 30px; text-align: center; color: #888 }
             #init-upgrade { color: #944; }
             #init-loading, #init-upgrade, #init.failed #init-loading { display: none; }
             #init.failed #init-upgrade { display: block; }
@@ -120,9 +122,11 @@
             "@AgitUiBundle/Resources/public/js/lib/tool/Template.js"
             "@AgitUiBundle/Resources/public/js/lib/ctxt/Element.js"
             "@AgitUiBundle/Resources/public/js/lib/ctxt/Page.js"
+            "@AgitUiBundle/Resources/public/js/lib/ctxt/ActionRegistry.js"
             "@AgitUiBundle/Resources/public/js/lib/ctxt/View.js"
             "@AgitUiBundle/Resources/public/js/lib/ctxt/Block.js"
             "@AgitUiBundle/Resources/public/js/lib/ctxt/Container.js"
+            "@AgitUiBundle/Resources/public/js/lib/ctxt/Row.js"
             "@AgitUiBundle/Resources/public/js/lib/ctxt/Column.js"
             "@AgitUiBundle/Resources/public/js/lib/ctxt/Header.js"
             "@AgitUiBundle/Resources/public/js/lib/ctxt/Footer.js"
