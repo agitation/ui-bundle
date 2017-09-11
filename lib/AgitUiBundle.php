@@ -1,5 +1,5 @@
 <?php
-
+declare(strict_types=1);
 /*
  * @package    agitation/ui-bundle
  * @link       http://github.com/agitation/ui-bundle
