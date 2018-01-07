@@ -1,39 +1,52 @@
 <template id="agitui-page">
-    <article class="view">
-        <header></header>
-        <section></section>
-        <footer></footer>
-    </article>
-
-    <div class="container title">
-        <span class="control show-nav only-handheld">
+    <div class="nav">
+        <div class="control">
             <a class="fa fa-navicon"></a>
-        </span>
-        <h1></h1>
+        </div>
+
+        <div class="caption"></div>
+
+        <nav class="container">
+            <div class="items">
+            </div>
+        </nav>
+        <div class="olay"></div>
     </div>
 
-    <nav>
-        <div class="menu container">
-        </div>
-    </nav>
+    <div class="views"></div>
 
-    <div class="menu-entry navigation primary">
-        <h2>
-            <i class="fa fa-navicon"></i>
+    <div class="view">
+        <header></header>
+        <article></article>
+        <footer></footer>
+    </div>
+
+    <div class="pages primary">
+        <h2 class="only-handheld">
+            <i class="fa fa-compass"></i>
             <span>{{ t("Pages") }}</span>
         </h2>
         <ul></ul>
     </div>
 
-    <div class="menu-entry languages">
-        <h2>
-            <i class="fa fa-globe"></i>
-            <span>{{ t("Language") }}</span>
-        </h2>
-        <ul></ul>
+    <div class="languages">
+        <div class="item has-flyout">
+            <h2 class="main">
+                <i class="fa fa-globe"></i>
+                <span>{{ t("Language") }}</span>
+            </h2>
+            <ul class="flyout"></ul>
+        </div>
     </div>
 
     <ul>
+        <li class="page-branch">
+            <h3>
+                <span></span>
+            </h3>
+            <ul></ul>
+        </li>
+
         <li class="page">
             <a href=""><span></span></a> {# span needed for vertical-align #}
         </li>
@@ -41,10 +54,9 @@
         <li class="language">
             <a href=""></a>
         </li>
-
-        <li class="page-branch">
-            <h3><span></span></h3>
-            <ul></ul>
-        </li>
     </ul>
+
+    <div class="title container">
+        <h1></h1>
+    </div>
 </template>

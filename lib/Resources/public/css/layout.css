@@ -1,102 +1,89 @@
-nav                                                             { position: fixed; top: 0; left: 0; }
-nav *                                                           { margin: 0; font-size: 1em; }
-nav i.fa                                                        { margin-right: 6px; font-size: 1.2em }
-nav ul, nav li                                                  { list-style: none; margin: 0; padding: 0; line-height: 1em; }
+.nav                                                            { background: #057de2; color: #fff; }
+nav *, nav h2, nav h3                                           { margin: 0; font-size: 1em; line-height: 1em; }
+nav ul, nav li                                                  { list-style: none; margin: 0; padding: 0; }
+.title h1                                                       { margin: 0; font-weight: 300; font-size: 30px; text-transform: uppercase; }
 nav a:hover, nav a:focus, nav a:active                          { text-decoration: none; }
 
-@media (min-width: 992px) /*not handheld*/
+@media (min-width: 992px) /*not handheld */
 {
-.only-handheld                                                  { display: none !important }
+.nav                                                            { position: fixed; top: 0; left: 0; background: #057de2; color: #fff; z-index: 500; width: 100%; }
 
-header                                                          { margin: 90px 0 0 } /* margin-bottom is 0 because following elements will have a margin-top anyway for handheld */
-header .title h1                                                { margin: 0; font-weight: 300; font-size: 30px; text-transform: uppercase; }
+nav a, nav a:hover, nav a:focus, nav a:active                   { color: #fff; }
 
-header .title .control                                          { display: inline-block; margin-bottom: 8px; vertical-align: middle; }
-header .title .control a                                        { text-decoration: none }
-header .title .control span                                     { display: inline-block; }
+nav .items > *                                                  { float: right; margin-left: 10px }
+nav .items > .primary                                           { float: left; margin-right: 10px; margin-left: 0 }
 
-section                                                         { margin: 30px auto; }
+nav .item                                                       { float: left; position: relative; }
+nav .main                                                       { display: block; margin: 0; padding: 8px 10px; line-height: 2em; font-weight: 500; cursor: default; }
+nav a.main                                                      { cursor: pointer; }
+nav .main > *                                                   { vertical-align: middle; }
 
-nav                                                             { z-index: 500; width: 100%; background: #406482; box-shadow: 0 -20px 8px 21px rgba(40, 40, 40, 0.5); }
-nav .menu                                                       { margin: 0 auto; }
 
-nav .menu .lg-top                                               { display: block; float: right; margin: 0; padding: 0; position: relative; cursor: default }
-nav .menu .primary .lg-top                                      { float: left }
-
-nav .menu .lg-top > :first-child                                { display: block; padding: 10px 12px; line-height: 1.8em; color: #fff; text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5); font-weight: 500; }
-nav .menu .lg-top > :first-child > *                            { vertical-align: middle; }
-
-nav .menu .lg-top > :nth-child(2)                               { position: absolute; z-index: 490; display: none; padding: 5px 0; box-shadow: 0 0 8px 0 rgba(40, 40, 40, 0.4);
+nav .item .flyout                                               { position: absolute; z-index: 490; display: none; padding: 5px 0; box-shadow: 0 0 8px 0 rgba(40, 40, 40, 0.4);
                                                                   background: #fff; min-width: 100%; border-radius: 0 0 3px 3px }
-nav .menu .lg-top > :last-child h3,
-nav .menu .lg-top > :last-child a,
-nav .menu .lg-top > :last-child a:link,
-nav .menu .lg-top > :last-child a:visited                       { margin: 0; display: block; color: #222; padding: 8px 20px 8px 10px; font-size: 1em; white-space: nowrap; font-weight: normal; }
-nav .menu .lg-top > :last-child a:hover,
-nav .menu .lg-top > :last-child a:focus,
-nav .menu .lg-top > :last-child a:active                        { color: #000; background: #eee }
 
-nav .menu .lg-top:hover > :first-child                          { background: #000 }
-nav .menu .lg-top:hover > :nth-child(2)                         { display: block; }
+nav a.main:hover                                                { text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5), 0 0 20px rgba(255,255,255,1); }
+nav .item:hover .main:not(a)                                    { background: rgba(0,0,0,0.1); }
+nav .item:hover .flyout                                         { display: block; }
 
-nav .lg-hide                                                    { display: none }
 
-footer                                                          { position: fixed; z-index: 500; bottom: 0; left: 0; width: 100%; }
+nav .flyout h3,
+nav .flyout a,
+nav .flyout a:link,
+nav .flyout a:visited                                           { margin: 0; display: block; color: #222; padding: 8px 20px 8px 10px; font-size: 1em; white-space: nowrap; font-weight: normal; }
+nav .flyout a:hover,
+nav .flyout a:focus,
+nav .flyout a:active                                            { color: #000; background: #eee }
+
+article                                                         { margin: 30px auto; }
+
+.title                                                          { margin-top: 90px }
+nav h2                                                          { text-transform: none }
+nav i.fa                                                        { margin-right: 6px; font-size: 1.2em }
+
+.only-handheld, .nav .olay, .nav .caption, .nav .control        { display: none }
 }
 
 
-@media  (max-width: 991px) /* handheld*/
+@media  (max-width: 992px) /* handheld*/
 {
-html, body, main, .view                                         { height:100%; min-height:100%; }
 
 .not-handheld                                                   { display: none !important }
+html, body, main, .view                                         { height:100%; min-height:100%; }
+header, footer                                                  { flex-shrink: 0; width: 100%; z-index: 10 }
+header                                                          { z-index: 15 /* for .olay */ }
+article                                                         { overflow-y: auto; flex-grow: 1; padding: 15px 0; }
 
+nav.container                                                   { position: fixed; z-index: 510; top: 0; left: 0; min-width: 30%; max-width: 80%; width: auto; height: 100%; background: #fff;
+                                                                  overflow-y: auto; padding: 0 20px; transform: translateX(-100%); transition: .3s; }
 
-section                                                         { overflow-y: auto; flex-grow: 1; padding: 15px 0; }
+.nav .olay                                                      { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; transition: .3s;  background: #000; opacity: 0; z-index: 15 }
+.nav.open .olay                                                 { display: block; opacity: 0.2 }
+.nav.open nav                                                   { box-shadow: -20px 0px 25px 21px rgba(0,0,0,0.75);  transform: translateX(0); }
 
-nav                                                             { z-index: 500; }
-nav .menu                                                       { position: fixed; z-index: 510; top: 0; left: 0; min-width: 50%; max-width: 80%; width: auto; height: 100%; background: #222; color: #ccc;
-                                                                  overflow-y: auto; padding: 0; transform: translateX(-100%); transition: .3s; }
-
-.nav-open nav                                                   { width: 100%; height: 100%; background: rgba(0, 0, 0, .1); }
-.nav-open nav .menu                                             { box-shadow: -20px 0px 25px 21px rgba(0,0,0,0.75); transform: translateX(0); }
-
-nav .menu > *                                                   { margin: 0 20px; padding: 20px 0 10px; }
-nav .menu > :not(:first-child)                                  { border-top: 1px solid #777 }
-nav .menu > * > :first-child                                    { margin: 10px; text-transform: uppercase; }
-
-nav p, nav ul                                                   { margin: 10px 0; }
+nav .items > *                                                  { margin: 0; padding: 10px 0; }
+nav .items > :not(:first-child)                                 { border-top: 1px solid #777 }
+nav h2, nav h3                                                  { color: #555; text-transform: uppercase; }
+nav h2                                                          { font-size: 1.5em; padding: 10px 0; }
+nav h3                                                          { font-weight: 500; color: #888; }
+nav p, nav ul                                                   { margin: 0; }
 nav ul ul                                                       { margin: 0; padding: 0 }
-nav h3, nav a                                                   { padding: 10px; }
-nav h3                                                          { color: #fff; font-weight: 700 }
-nav a, nav a:link, nav a:visited                                { color: #def; display: block; text-decoration: none; }
-nav a:hover, nav a:focus, nav a:active                          { color: #fff; background: #444 }
-nav ul ul a, nav ul ul a:link, nav ul ul a:visited              { padding-left: 20px }
-
-nav .sm-hide                                                    { display: none }
+nav h3, nav ul a                                                { padding: 10px; padding-left: 25px; }
+nav a, nav a:link, nav a:visited                                { color: #444; display: block; text-decoration: none; }
+nav a:hover, nav a:focus, nav a:active                          { color: #222; }
+nav ul ul a, nav ul ul a:link, nav ul ul a:visited              { padding-left: 40px }
+nav i.fa                                                        { width: 25px }
 
 .view                                                           { height: 100%; display: flex; flex-direction: column; }
-.view .container                                                { width: 100% }
+.view .container:not(nav)                                       { width: 100% }
 
-header, footer                                                  { flex-shrink: 0; width: 100%; z-index: 10 }
-
-/* show drop shadow at bottom of last element */
 header                                                          { display: flex; flex-direction: column; }
 header > *                                                      { order: 10 }
-header > :last-child                                            { box-shadow: 0 -20px 8px 21px rgba(40, 40, 40, 0.5); z-index: 50 }
+.title                                                          { margin-top: 30px }
+.title h1                                                       { font-size: 18px; font-weight: 500; }
 
-header .title                                                   { order: 5; display: flex; justify-content: space-between; flex-wrap: nowrap; align-items: center; align-content: center;
-                                                                  background: rgba(64, 100, 130, 1); color: #fff; text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25); line-height: 1em; }
 
-header .title > *                                               { display: inline-block; vertical-align: middle; text-align: center; line-height: 1em; }
-header .title h1                                                { margin: 0; font-size: 14px; padding: 15px 0; font-weight: normal; flex-grow: 1 }
-header .title .control                                          { padding: 5px 0; }
-header .title .control:first-child                              { text-align: left; width: 15% }
-header .title .control:last-child                               { text-align: right; width: 15% }
-
-header .title .control a                                        { color: #fff; border: 1px solid #33495B; padding: 7px 10px; font-size: 14px; text-decoration: none;
-                                                                  border-radius: 2px; box-shadow: 1px 1px 0 #667C8E; background: linear-gradient(to bottom, #476e8c 0%, #3F5E78 100%) }
-header .title .control a:hover, header .title .control a:active { background: linear-gradient(to bottom, #3F5E78 0%, #476e8c 100%) }
-
-header .title .control span                                     { display: none }
+.nav                                                            { order: 5; display: flex; justify-content: space-between; flex-wrap: nowrap; align-items: center; align-content: center; height: 3em }
+.nav .control a                                                 { color: #fff; font-size: 1.2em; text-decoration: none; padding: 15px; width: 40px }
+.nav .caption                                                   { margin: 0 40px 0 0; flex-grow: 1; font-weight: 500; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 }
