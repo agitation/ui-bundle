@@ -49,10 +49,16 @@ nav i.fa                                                        { margin-right: 
 {
 
 .not-handheld                                                   { display: none !important }
-html, body, main, .view                                         { height:100%; min-height:100%; }
+html, body                                                      { height:100%; min-height:100%; }
+
+main                                                            { display: flex; flex-direction: column; height: 100% }
+.nav                                                            { flex-shrink: 0; display: flex; justify-content: space-between; flex-wrap: nowrap; align-items: center; align-content: center; height: 3em }
+.views, .view                                                   { display: flex; flex-direction: column; flex-grow: 1 }
+.view .container                                                { width: 100% }
+
 header, footer                                                  { flex-shrink: 0; width: 100%; z-index: 10 }
 header                                                          { z-index: 15 /* for .olay */ }
-article                                                         { overflow-y: auto; flex-grow: 1; padding: 15px 0; }
+article                                                         { overflow-y: auto; flex-grow: 1; padding: 0; }
 
 nav.container                                                   { position: fixed; z-index: 510; top: 0; left: 0; min-width: 30%; max-width: 80%; width: auto; height: 100%; background: #fff;
                                                                   overflow-y: auto; padding: 0 20px; transform: translateX(-100%); transition: .3s; }
@@ -74,16 +80,12 @@ nav a:hover, nav a:focus, nav a:active                          { color: #222; }
 nav ul ul a, nav ul ul a:link, nav ul ul a:visited              { padding-left: 40px }
 nav i.fa                                                        { width: 25px }
 
-.view                                                           { height: 100%; display: flex; flex-direction: column; }
-.view .container:not(nav)                                       { width: 100% }
-
 header                                                          { display: flex; flex-direction: column; }
 header > *                                                      { order: 10 }
-.title                                                          { margin-top: 30px }
+.title                                                          { padding: 20px 15px;}
 .title h1                                                       { font-size: 18px; font-weight: 500; }
 
 
-.nav                                                            { order: 5; display: flex; justify-content: space-between; flex-wrap: nowrap; align-items: center; align-content: center; height: 3em }
 .nav .control a                                                 { color: #fff; font-size: 1.2em; text-decoration: none; padding: 15px; width: 40px }
 .nav .caption                                                   { margin: 0 40px 0 0; flex-grow: 1; font-weight: 500; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 }
