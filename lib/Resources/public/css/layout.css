@@ -6,7 +6,7 @@ nav a:hover, nav a:focus, nav a:active                          { text-decoratio
 
 @media (min-width: 992px) /*not handheld */
 {
-.nav                                                            { position: fixed; top: 0; left: 0; background: #057de2; color: #fff; z-index: 500; width: 100%; }
+.nav                                                            { position: fixed; top: 0; left: 0; background: #057de2; color: #fff; z-index: 10; width: 100%; }
 
 nav a, nav a:hover, nav a:focus, nav a:active                   { color: #fff; }
 
@@ -57,8 +57,7 @@ main                                                            { display: flex;
 .view .container                                                { width: 100% }
 
 header, footer                                                  { flex-shrink: 0; width: 100%; z-index: 10 }
-header                                                          { z-index: 15 /* for .olay */ }
-article                                                         { overflow-y: auto; flex-grow: 1; padding: 0; }
+article                                                         { overflow-y: auto; flex-grow: 1; padding: 15px 0; }
 
 nav.container                                                   { position: fixed; z-index: 510; top: 0; left: 0; min-width: 30%; max-width: 80%; width: auto; height: 100%; background: #fff;
                                                                   overflow-y: auto; padding: 0 20px; transform: translateX(-100%); transition: .3s; }
@@ -82,7 +81,7 @@ nav i.fa                                                        { width: 25px }
 
 header                                                          { display: flex; flex-direction: column; }
 header > *                                                      { order: 10 }
-.title                                                          { padding: 20px 15px;}
+.title                                                          { padding: 15px; background: #f4f4f4; border-bottom: 1px solid #eee }
 .title h1                                                       { font-size: 18px; font-weight: 500; }
 
 
