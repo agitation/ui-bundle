@@ -49,6 +49,10 @@ input[type=number][disabled],
 .form-control[disabled],
 select.disabled, select[disabled]                   { cursor: default; color: transparent; background: #f4f4f4; }
 
+select:required:invalid                             { color: #999 }
+select:not(:invalid), select option                 { color: #555 }
+
+
 option.deleted                                      { text-decoration: line-through; }
 
 input.decimal                                       { text-align: right; }
