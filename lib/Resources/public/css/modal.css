@@ -45,3 +45,8 @@
 {
     .map-modal                              { width: 750px; height: 500px; }
 }
+
+@media (max-width: 768px)
+{
+    .modal                                  { width: 90%; }
+}
