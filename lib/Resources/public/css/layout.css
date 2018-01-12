@@ -1,4 +1,5 @@
-html, body                                                      { height:100%; min-height:100%; overflow-y: hidden }
+*                                                               { min-height: 0; /* apparently necessary to make flexbox usable on some browsers (*cough* FF) */ }
+html, body                                                      { height:100%; min-height:100%; overflow-x: hidden }
 
 .nav                                                            { background: #057de2; color: #fff; }
 nav *, nav h2, nav h3                                           { margin: 0; font-size: 1em; line-height: 1em; }
@@ -10,7 +11,8 @@ main                                                            { display: flex;
 .container                                                      { width: 100%; max-width: 962px}
 
 header, footer                                                  { flex-shrink: 0; width: 100%; z-index: 10 }
-header                                                          { display: flex; flex-direction: column; background: #fafdff; border-bottom: 1px solid #cfecff }
+header                                                          { display: flex; flex-direction: column; background: #fafdff; border-bottom: 1px solid #cfecff; box-shadow: 0 -20px 8px 21px rgba(99, 99, 99, 0.1); }
+footer:not(:empty)                                              { box-shadow: 0 20px 8px 21px rgba(99, 99, 99, 0.1); }
 header > *                                                      { order: 10 }
 header .title                                                   { padding: 15px 10px; }
 header h1                                                       { margin: 0; font-size: 18px; font-weight: 500; text-transform: uppercase; }
