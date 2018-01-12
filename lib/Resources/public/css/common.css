@@ -18,3 +18,5 @@ a                                                               { cursor: pointe
 .btn.disabled, .btn[disabled]                                   { cursor: default; }
 
 code, .mono                                                     { font-family: Menlo, Consolas, "Roboto Mono", "DejaVu Sans Mono", "Andale Mono", monospace; }
+
+label, input[type="checkbox"]                                   { margin: 0 } /* fuck you, bootstrap */

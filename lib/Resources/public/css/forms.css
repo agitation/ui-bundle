@@ -5,6 +5,7 @@
 .callout-success p                                  { border-left: 4px solid #398439; background: #d0ecd0; }
 
 .form-table                                         { padding: 0; margin: 0; width: 100%; }
+.form-table caption                                 { padding: 15px 10px; text-align: left }
 .form-table tbody,
 .form-table thead,
 .form-table tfoot                                   { border: 0; border-collapse: collapse; }
@@ -21,6 +22,7 @@
     .form-table tr:first-child td                   { padding-top: 10px; }
     .form-table tr:last-child th                    { padding-bottom: 15px; }
     .form-table tr:last-child td                    { padding-bottom: 10px; }
+    .form-table td:first-child                      { padding-left: 10px; }
     .form-table td:last-child                       { padding-right: 10px; }
 }
 
@@ -36,9 +38,9 @@
 
 form .form-control                                  { display: inline-block; }
 form .form-control[readonly]                        { cursor: pointer; background: #fff; }
-form .actions                                       { margin: 30px 0 0; text-align: right; }
-form .actions .btn                                  { margin: 0 10px 10px 0; }
-form .actions .btn:last-child                       { margin-right: 0; }
+.form-table .actions                                { margin: 30px 0 0; text-align: right; }
+.form-table .actions .btn                           { margin: 0 10px 10px 0; }
+.form-table .actions .btn:last-child                { margin-right: 0; }
 
 /* FIELDS */
 input[type=text].disabled,
@@ -58,7 +60,7 @@ option.deleted                                      { text-decoration: line-thro
 input.decimal                                       { text-align: right; }
 
 /* BOOLEAN */
-.boolean                                            { padding-top: 10px; white-space: nowrap; }
-.boolean *                                          { display: inline-block; vertical-align: top; line-height: 1em; }
+.boolean                                            { white-space: nowrap; display: inline-block; }
+.boolean *                                          { display: inline-block; vertical-align: middle; line-height: 1em; }
 .boolean input                                      { margin: 0 .7em 0 0; }
 .boolean label                                      { font-weight: normal }

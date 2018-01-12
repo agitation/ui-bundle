@@ -1,15 +1,27 @@
+html, body                                                      { height:100%; min-height:100%; overflow-y: hidden }
+
 .nav                                                            { background: #057de2; color: #fff; }
 nav *, nav h2, nav h3                                           { margin: 0; font-size: 1em; line-height: 1em; }
 nav ul, nav li                                                  { list-style: none; margin: 0; padding: 0; }
-.title h1                                                       { margin: 0; font-weight: 300; font-size: 30px; text-transform: uppercase; }
 nav a:hover, nav a:focus, nav a:active                          { text-decoration: none; }
 
-@media (min-width: 992px) /*not handheld */
-{
-.nav                                                            { position: fixed; top: 0; left: 0; background: #057de2; color: #fff; z-index: 10; width: 100%; }
+main                                                            { display: flex; flex-direction: column; height: 100% }
+.views, .view                                                   { display: flex; flex-direction: column; flex-grow: 1 }
+.container                                                      { width: 100%; max-width: 962px}
 
+header, footer                                                  { flex-shrink: 0; width: 100%; z-index: 10 }
+header                                                          { display: flex; flex-direction: column; background: #fafdff; border-bottom: 1px solid #cfecff }
+header > *                                                      { order: 10 }
+header .title                                                   { padding: 15px 10px; }
+header h1                                                       { margin: 0; font-size: 18px; font-weight: 500; text-transform: uppercase; }
+article                                                         { overflow-y: auto; flex-grow: 1; padding: 0; }
+
+@media (min-width: 992px)
+{
+.nav                                                            { background: #057de2; color: #fff; z-index: 20; width: 100%; }
 nav a, nav a:hover, nav a:focus, nav a:active                   { color: #fff; }
 
+nav .items                                                      { padding: 0 5px }
 nav .items > *                                                  { float: right; margin-left: 10px }
 nav .items > .primary                                           { float: left; margin-right: 10px; margin-left: 0 }
 
@@ -35,31 +47,27 @@ nav .flyout a:hover,
 nav .flyout a:focus,
 nav .flyout a:active                                            { color: #000; background: #eee }
 
-article                                                         { margin: 30px auto; }
-
-.title                                                          { margin-top: 90px }
 nav h2                                                          { text-transform: none }
 nav i.fa                                                        { margin-right: 6px; font-size: 1.2em }
 
 .only-handheld, .nav .olay, .nav .caption, .nav .control        { display: none }
+
+header .title                                                   { padding: 30px 10px; }
+header h1                                                       { margin: 0; font-size: 30px; font-weight: 300; }
+
+
+
 }
 
 
-@media  (max-width: 992px) /* handheld*/
+@media (max-width: 991px)
 {
+.container                                                      { padding: 0; }
 
-.not-handheld                                                   { display: none !important }
-html, body                                                      { height:100%; min-height:100%; }
+.nav                                                            { flex-shrink: 0; display: flex; justify-content: space-between; flex-wrap: nowrap;
+                                                                  align-items: center; align-content: center; height: 3em }
 
-main                                                            { display: flex; flex-direction: column; height: 100% }
-.nav                                                            { flex-shrink: 0; display: flex; justify-content: space-between; flex-wrap: nowrap; align-items: center; align-content: center; height: 3em }
-.views, .view                                                   { display: flex; flex-direction: column; flex-grow: 1 }
-.view .container                                                { width: 100% }
-
-header, footer                                                  { flex-shrink: 0; width: 100%; z-index: 10 }
-article                                                         { overflow-y: auto; flex-grow: 1; padding: 0; }
-
-nav.container                                                   { position: fixed; z-index: 510; top: 0; left: 0; min-width: 30%; max-width: 80%; width: auto; height: 100%; background: #fff;
+nav                                                             { position: fixed; z-index: 510; top: 0; left: 0; min-width: 30%; max-width: 80%; width: auto; height: 100%; background: #fff;
                                                                   overflow-y: auto; padding: 0 20px; transform: translateX(-100%); transition: .3s; }
 
 .nav .olay                                                      { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; transition: .3s;  background: #000; opacity: 0; z-index: 15 }
@@ -67,7 +75,7 @@ nav.container                                                   { position: fixe
 .nav.open nav                                                   { box-shadow: -20px 0px 25px 21px rgba(0,0,0,0.75);  transform: translateX(0); }
 
 nav .items > *                                                  { margin: 0; padding: 10px 0; }
-nav .items > :not(:first-child)                                 { border-top: 1px solid #777 }
+nav .items > :not(:last-child)                                  { border-bottom: 1px solid #777 }
 nav h2, nav h3                                                  { color: #555; text-transform: uppercase; }
 nav h2                                                          { font-size: 1.5em; padding: 10px 0; }
 nav h3                                                          { font-weight: 500; color: #888; }
@@ -79,12 +87,9 @@ nav a:hover, nav a:focus, nav a:active                          { color: #222; }
 nav ul ul a, nav ul ul a:link, nav ul ul a:visited              { padding-left: 40px }
 nav i.fa                                                        { width: 25px }
 
-header                                                          { display: flex; flex-direction: column; }
-header > *                                                      { order: 10 }
-.title                                                          { padding: 15px; background: #f4f4f4; border-bottom: 1px solid #eee }
-.title h1                                                       { font-size: 18px; font-weight: 500; }
-
 
 .nav .control a                                                 { color: #fff; font-size: 1.2em; text-decoration: none; padding: 15px; width: 40px }
 .nav .caption                                                   { margin: 0 40px 0 0; flex-grow: 1; font-weight: 500; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+.not-handheld                                                   { display: none !important }
 }
