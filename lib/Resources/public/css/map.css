@@ -1,4 +1,4 @@
-.map                                    { position: relative; width: 100%; height: 100%; }
+.map                                    { position: relative; width: 100%; height: 100%; z-index: 1; }
 
 .map.select,
 .map.select .leaflet-interactive        { cursor: crosshair }
