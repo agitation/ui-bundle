@@ -1,14 +1,13 @@
-*                                                               { min-height: 0; /* apparently necessary to make flexbox usable on some browsers (*cough* FF) */ }
-html, body                                                      { height:100%; min-height:100%; overflow-x: hidden }
+html, body                                                      { height:100%; overflow-x: hidden; }
 
 .nav                                                            { background: #057de2; color: #fff; }
 nav *, nav h2, nav h3                                           { margin: 0; font-size: 1em; line-height: 1em; }
 nav ul, nav li                                                  { list-style: none; margin: 0; padding: 0; }
 nav a:hover, nav a:focus, nav a:active                          { text-decoration: none; }
 
-main                                                            { display: flex; flex-direction: column; height: 100% }
-.views, .view                                                   { display: flex; flex-direction: column; flex-grow: 1 }
-.container                                                      { width: 100%; max-width: 962px}
+main                                                            { display: flex; flex-direction: column; height: 100%; min-height: 0 }
+.views, .view                                                   { display: flex; flex-direction: column; flex-grow: 1; min-height: 0  }
+.container                                                      { width: 100%; padding: 0 }
 
 header, footer                                                  { flex-shrink: 0; width: 100%; z-index: 10 }
 header                                                          { display: flex; flex-direction: column; background: #fafdff; border-bottom: 1px solid #cfecff; box-shadow: 0 -20px 8px 21px rgba(99, 99, 99, 0.1); }
@@ -20,6 +19,8 @@ article                                                         { overflow-y: au
 
 @media (min-width: 992px)
 {
+.container                                                      { max-width: 992px }
+
 .nav                                                            { background: #057de2; color: #fff; z-index: 20; width: 100%; }
 nav a, nav a:hover, nav a:focus, nav a:active                   { color: #fff; }
 
@@ -64,8 +65,6 @@ header h1                                                       { margin: 0; fon
 
 @media (max-width: 991px)
 {
-.container                                                      { padding: 0; }
-
 .nav                                                            { flex-shrink: 0; display: flex; justify-content: space-between; flex-wrap: nowrap;
                                                                   align-items: center; align-content: center; height: 3em }
 
