@@ -1,5 +1,5 @@
 input.datepicker                                { width: 7em; text-align: left; display: inline-block; cursor: pointer; }
-.dp-cal                                         { display: none; position: absolute; z-index: 510; padding: .2%; border-radius: .3em; border: .5% solid #999; background: #fff;
+.dp-cal                                         { display: none; position: absolute; z-index: 510; padding: 3px; border-radius: .3em; border: 1px solid #999; background: #fff;
                                                   box-shadow: 0px 0px 3px #999; }
 
 .dp-cal .calendar table                         { width: 100%; }
