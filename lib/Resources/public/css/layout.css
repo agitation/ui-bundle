@@ -7,7 +7,7 @@ nav a:hover, nav a:focus, nav a:active                          { text-decoratio
 
 main                                                            { display: flex; flex-direction: column; height: 100%; min-height: 0 }
 .views, .view                                                   { display: flex; flex-direction: column; flex-grow: 1; min-height: 0  }
-.container                                                      { width: 100%; padding: 0 }
+.container                                                      { width: 100%; padding-left: 10px; padding-right: 10px }
 
 header, footer                                                  { flex-shrink: 0; width: 100%; z-index: 10 }
 header                                                          { display: flex; flex-direction: column; background: #fafdff; border-bottom: 1px solid #cfecff; box-shadow: 0 -20px 8px 21px rgba(99, 99, 99, 0.1); }
