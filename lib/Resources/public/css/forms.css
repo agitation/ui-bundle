@@ -5,15 +5,19 @@
 .callout-success p                                  { border-left: 4px solid #398439; background: #d0ecd0; }
 
 .form-table                                         { padding: 0; margin: 0; width: 100%; }
-.form-table caption                                 { padding: 15px 10px; text-align: left }
+.form-table caption                                 { padding: 15px 0; text-align: left }
 .form-table tbody,
 .form-table thead,
 .form-table tfoot                                   { border: 0; border-collapse: collapse; }
-.form-table th, .form-table td                      { border: 0; vertical-align: top; padding: 13px; }
+.form-table th, .form-table td                      { border: 0; vertical-align: top; padding: 7px; }
 .form-table th[scope=row]                           { width: 1%; }
-.form-table td                                      { padding: 7px }
-
 .form-table th label                                { margin: 0; white-space: nowrap }
+
+.ilabel                                             { display: block; position: relative; padding-top: 7px }
+.ilabel .form-control, .ilabel .btn                 { height: 44px }
+.ilabel label                                       { position: absolute; z-index: 10; top: 2px; left: 10px; background: #fff; padding: 0 4px; border-radius: 3px;
+                                                      line-height: 8px; height: 8px; font-weight: normal; font-size: 0.9em; color: #222; }
+
 
 @media (min-width: 480px)
 {
