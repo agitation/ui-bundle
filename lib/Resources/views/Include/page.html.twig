@@ -28,10 +28,8 @@
         {% stylesheets
             "@AgitUiBundle/Resources/public/css/bootstrap.css"
             "@AgitUiBundle/Resources/public/css/bootstrap-theme.css"
-            "@AgitUiBundle/Resources/public/css/font.awesome.css"
             "@AgitUiBundle/Resources/public/css/font.roboto.css"
             "@AgitUiBundle/Resources/public/css/common.css"
-            "@AgitUiBundle/Resources/public/css/layout.css"
             "@AgitUiBundle/Resources/public/css/modal.css"
             "@AgitUiBundle/Resources/public/css/forms.css"
 
@@ -60,19 +58,9 @@
 </head>
 <body>
     {% block content %}
-        <main>
-            <div id="init">
-                <div class="init" id="init-nojs">{{ t("Please activate JavaScript in your web browser to use this application.") }}</div>
-                <div class="init" id="init-loading">{{ t("Please wait while the application is loading.") }}</div>
-                <div class="init" id="init-upgrade">{{ t("The application could not be initialized. This might be because of a network outage or an obsolete browser. Please check your network connection and make sure you have the latest version of your browser.") }}</div>
-            </div>
-
-            <script type="text/javascript">
-                setTimeout(function(){
-                    var init = document.getElementById("init"); if (init) init.className += "failed";
-                }, 10000)
-            </script>
-        </main>
+    <main>
+        
+    </main>
     {% endblock %}
 
     {% block common_templates %}
