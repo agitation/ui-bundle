@@ -3,9 +3,9 @@
 
 .modal.visible                              { display: block }
 
-.modal-close                                { position: absolute; top: -16px; right: -16px; background: linear-gradient(to bottom, #666 0%, #222 100%);
-                                              border: 2px solid #fff; border-radius: 50%; color: #fff; box-shadow: 0px 0px 4px #333; z-index: 1050; cursor: pointer; }
-.modal-close i.fa                           { display: block; margin: 2px; width: 30px; height: 30px; line-height: 30px; font-size: 24px; text-align: center; }
+.modal-close                                { position: absolute; top: -16px; right: -16px; background: #111; width: 32px; height: 32px;
+                                              border: 2px solid #fff; border-radius: 50%; box-shadow: 0px 0px 4px #333; z-index: 1050; cursor: pointer; }
+.modal-close svg                            { height: 14px; margin: 7px 0 0 7px; stroke: #fff }
 
 .display-modal .content                     { overflow: hidden; }
 
@@ -51,4 +51,4 @@
     .modal                                  { width: 90%; }
 }
 
-.modal-overlay                              { display: none; position: fixed; top: 0px; left: 0px; height: 100%; width: 100%; cursor: wait; opacity: .4; }
+.modal-overlay                              { display: none; position: fixed; z-index: 1005; top: 0px; left: 0px; height: 100%; width: 100%; cursor: wait; background: #000; opacity: 0.6; }
