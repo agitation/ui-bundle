@@ -1,13 +1,15 @@
-html, body                                                      { font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", "Fira Sans", Oxygen, Roboto, roboto, Arial, sans-serif; }
+html, body                                                      { font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Oxygen, Roboto, roboto, Arial, sans-serif; }
 
 textarea                                                        { resize: vertical; min-height: 5em; }
 template                                                        { display: none }
 
-main h2, main h3, main h4, th                                   { text-align: left }
+h1, h2, h3, h4                                                  { font-weight: 300; }
+h1, h2                                                          { text-transform: uppercase; }
 
-main h2                                                         { margin: 2.2em auto 1em; font-weight: 300; font-size: 23px; text-transform: uppercase; }
-main h3                                                         { margin: 2em auto 1em; font-weight: 300; font-size: 20px; }
-main h4                                                         { margin: 1.8em auto 1em; font-weight: 300; font-size: 17px; }
+main h1                                                         { margin: 30px auto 15px; font-size: 26px;  }
+main h2                                                         { margin: 20px auto 1px; font-size: 20px; }
+main h3                                                         { margin: 2em auto 1em; font-size: 17px; }
+main h4                                                         { margin: 1.8em auto 1em; font-size: 14px; }
 main p, main ul                                                 { margin: 1em auto; }
 main li                                                         { margin: .3em auto; }
 p:first-child, ul:first-child, li:first-child                   { margin-top: 0; }
@@ -19,4 +21,6 @@ a                                                               { cursor: pointe
 
 code, .mono                                                     { font-family: Menlo, Consolas, "Roboto Mono", "DejaVu Sans Mono", "Andale Mono", monospace; }
 
-label, input[type="checkbox"]                                   { margin: 0 } /* fuck you, bootstrap */
+/* clean up bootstrap fuck-ups */
+label, input[type="checkbox"]                                   { margin: 0; }
+label, th                                                       { font-weight: normal; }
