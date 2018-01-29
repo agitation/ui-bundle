@@ -3,15 +3,12 @@ html, body                                                      { font-family: -
 textarea                                                        { resize: vertical; min-height: 5em; }
 template                                                        { display: none }
 
-h1, h2, h3, h4                                                  { font-weight: 300; }
+h1, h2, h3                                                      { font-weight: 300; }
 h1, h2                                                          { text-transform: uppercase; }
-
-main h1                                                         { margin: 30px auto 15px; font-size: 26px;  }
-main h2                                                         { margin: 20px auto 1px; font-size: 20px; }
-main h3                                                         { margin: 2em auto 1em; font-size: 17px; }
-main h4                                                         { margin: 1.8em auto 1em; font-size: 14px; }
-main p, main ul                                                 { margin: 1em auto; }
-main li                                                         { margin: .3em auto; }
+h1                                                              { margin: 0 auto 20px; font-size: 26px;  }
+h2                                                              { margin: 30px auto 20px; font-size: 20px; }
+p, ul                                                           { margin: 0.8em auto; }
+li                                                              { margin: .3em auto; }
 p:first-child, ul:first-child, li:first-child                   { margin-top: 0; }
 p:last-child, ul:last-child, li:last-child                      { margin-bottom: 0; }
 
