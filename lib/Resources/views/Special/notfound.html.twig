@@ -1,14 +1,12 @@
-{% extends "AgitUiBundle:Special:simple.page.html.twig" %}
+{% extends "AgitUiBundle:Include:simple.page.html.twig" %}
 
 {% agit.capability "" %}
 {% agit.status 404 %}
 {% set noindex = 1 %}
 {% agit.name t("Page not found") %}
 
-{% block content %}
-    <div class="container">
-        <h1>{{ t("Page not found") }}</h1>
-        <p>{{ t("The requested page could not be found. Please check the spelling of the address, or notify the owner of the referring web page.") }}</p>
-        <p><a href="/">{{ t("go to home page") }} ›</a></p>
-    </div>
+{% block main %}
+    <h1>{{ t("Page not found") }}</h1>
+    <p>{{ t("The requested page could not be found. Please check the spelling of the address, or notify the owner of the referring web page.") }}</p>
+    <p><a href="/">{{ t("go to home page") }} ›</a></p>
 {% endblock %}

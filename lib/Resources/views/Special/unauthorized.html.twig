@@ -1,14 +1,12 @@
-{% extends "AgitUiBundle:Special:simple.page.html.twig" %}
+{% extends "AgitUiBundle:Include:simple.page.html.twig" %}
 
 {% agit.capability "" %}
 {% agit.status 401 %}
 {% set noindex = 1 %}
 {% agit.name t("Authorization required") %}
 
-{% block content %}
-    <div class="container">
-        <h1>{{ t("Authorization required") }}</h1>
-        <p>{{ t("Please log in to view this page.") }}</p>
-        <p><a href="/">{{ t("go to home page") }} ›</a></p>
-    </div>
+{% block main %}
+    <h1>{{ t("Authorization required") }}</h1>
+    <p>{{ t("Please log in to view this page.") }}</p>
+    <p><a href="/">{{ t("go to home page") }} ›</a></p>
 {% endblock %}

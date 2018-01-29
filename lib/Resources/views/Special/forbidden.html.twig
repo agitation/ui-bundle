@@ -1,14 +1,12 @@
-{% extends "AgitUiBundle:Special:simple.page.html.twig" %}
+{% extends "AgitUiBundle:Include:simple.page.html.twig" %}
 
 {% agit.capability "" %}
 {% agit.status 403 %}
 {% set noindex = 1 %}
 {% agit.name t("Forbidden") %}
 
-{% block content %}
-    <div class="container">
-        <h1>{{ t("Forbidden") }}</h1>
-        <p>{{ t("You are not allowed to access this page. Please contact an administrator to upgrade your privileges.") }}</p>
-        <p><a href="/">{{ t("go to home page") }} ›</a></p>
-    </div>
+{% block main %}
+    <h1>{{ t("Forbidden") }}</h1>
+    <p>{{ t("You are not allowed to access this page. Please contact an administrator to upgrade your privileges.") }}</p>
+    <p><a href="/">{{ t("go to home page") }} ›</a></p>
 {% endblock %}

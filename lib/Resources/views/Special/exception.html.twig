@@ -1,15 +1,12 @@
-{% extends "AgitUiBundle:Special:simple.page.html.twig" %}
+{% extends "AgitUiBundle:Include:simple.page.html.twig" %}
 
 {% agit.capability "" %}
-{% agit.name t("Something went wrong") %}
 {% agit.status 500 %}{# may be overridden by exception controller #}
+{% set noindex = 1 %}
+{% agit.name t("Something went wrong") %}
 
-
-
-{% block content %}
-    <div class="container">
-        <h1>{{ message }}</h1>
-        <pre>{{ trace }}</pre>
-        <p><a href="/">{{ t("go to home page") }} ›</a></p>
-    </div>
+{% block main %}
+    <h1>{{ message }}</h1>
+    <pre>{{ trace }}</pre>
+    <p><a href="/">{{ t("go to home page") }} ›</a></p>
 {% endblock %}
