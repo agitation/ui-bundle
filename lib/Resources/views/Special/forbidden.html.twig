@@ -1,15 +1,14 @@
-{% extends ["::page.html.twig", "AppBundle:Include:page.html.twig", "AgitUiBundle:Include:page.html.twig"] %}
+{% extends "AgitUiBundle:Special:simple.page.html.twig" %}
 
 {% agit.capability "" %}
 {% agit.status 403 %}
 {% set noindex = 1 %}
 {% agit.name t("Forbidden") %}
 
-{% block js %}
-    {% javascripts
-        "@AgitUiBundle/Resources/public/js/ctl/forbidden.js"
-        filter="?uglifyjs"
-    %}
-    <script src="{{ asset_url }}" type="text/javascript"></script>
-    {% endjavascripts %}
+{% block content %}
+    <div class="container">
+        <h1>{{ t("Forbidden") }}</h1>
+        <p>{{ t("You are not allowed to access this page. Please contact an administrator to upgrade your privileges.") }}</p>
+        <p><a href="/">{{ t("go to home page") }} ›</a></p>
+    </div>
 {% endblock %}
