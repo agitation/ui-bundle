@@ -1,5 +1,5 @@
-.callout                                            { margin: 2em auto; }
-.callout p                                          { padding: 1em 1.3em; background: #eee; font-size: 1.6em; font-weight: 300; }
+.callout                                            { margin: 0 auto 2em; }
+.callout p                                          { padding: 1em 1.3em; background: #eee; }
 .callout-info p                                     { border-left: 4px solid #6ca3d2; background: #daecfb; }
 .callout-warning p                                  { border-left: 4px solid #ed7500; background: #ffeede; }
 .callout-success p                                  { border-left: 4px solid #398439; background: #d0ecd0; }
@@ -18,7 +18,6 @@
 .ilabel label                                       { position: absolute; z-index: 10; top: 2px; left: 10px; background: #fff; padding: 0 4px; border-radius: 3px;
                                                       line-height: 8px; height: 8px; font-weight: normal; font-size: 0.9em; color: #222; }
 
-
 @media (min-width: 480px)
 {
     /* give top and bottom cells a bit more padding */
@@ -29,6 +28,12 @@
     .form-table td:first-child                      { padding-left: 10px; }
     .form-table td:last-child                       { padding-right: 10px; }
 }
+
+@media (min-width: 992px)
+{
+    .callout p                                      { font-size: 1.6em; font-weight: 300; }
+}
+
 
 form .form-control                                  { display: inline-block; }
 form .form-control[readonly]                        { cursor: pointer; background: #fff; }
