@@ -1,0 +1,27 @@
+@font-face {
+  font-family: '_i_';
+  src: url('/bundles/agitui/fonts/icons/icons.woff2') format('woff2'),
+       url('/bundles/agitui/fonts/icons/icons.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+ [class^="i-"]:before, [class*=" i-"]:before {
+  font-family: "_i_";
+  font-style: normal;
+  font-weight: normal;
+  speak: none;
+  display: inline-block;
+  text-decoration: inherit;
+  text-align: center;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1em;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.i-check-circle-o:before { content: '\e800'; } /* '' */
+.i-exclamation-circle-o:before { content: '\e801'; } /* '' */
+.i-info-circle-o:before { content: '\e802'; } /* '' */
+.i-question-circle-o:before { content: '\e803'; } /* '' */

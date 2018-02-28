@@ -21,10 +21,10 @@
 @media (min-width: 480px)
 {
     /* give top and bottom cells a bit more padding */
-    .form-table tr:first-child th                   { padding-top: 15px; }
-    .form-table tr:first-child td                   { padding-top: 10px; }
-    .form-table tr:last-child th                    { padding-bottom: 15px; }
-    .form-table tr:last-child td                    { padding-bottom: 10px; }
+    .form-table tr:first-child > th                 { padding-top: 15px; }
+    .form-table tr:first-child > td                 { padding-top: 10px; }
+    .form-table tr:last-child > th                  { padding-bottom: 15px; }
+    .form-table tr:last-child > td                  { padding-bottom: 10px; }
     .form-table td:first-child                      { padding-left: 10px; }
     .form-table td:last-child                       { padding-right: 10px; }
 }

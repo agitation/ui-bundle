@@ -37,8 +37,8 @@
 
 @media (min-width: 768px)
 {
-    .dialog-modal .visual                   { padding-left: 3em; padding-right: 1.5em }
-    .dialog-modal .message                  { padding-right: 3em }
+    .dialog-modal .visual                   { padding-left: 1.5em; padding-right: 1.5em }
+    .dialog-modal .message                  { padding-right: 1.5em }
 }
 
 @media (min-width: 992px) and (min-height: 768px)
