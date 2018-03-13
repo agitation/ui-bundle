@@ -1,3 +1,0 @@
-.overlay-indicator                      { z-index: 1500; position: fixed; top: 0; left: 0; height: 100%; width: 100%; background: rgba(255, 255, 255, .7); }
-.overlay-indicator .anim                { z-index: 1510; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); }
-.overlay-indicator .anim .spinner       { height: 4em; width: 4em; }
