@@ -15,8 +15,8 @@
 .dialog-modal form                          { padding: 1.5em; }
 .dialog-modal .footer                       { margin-top: 1.5em; text-align: center }
 .dialog-modal .footer:empty                 { display: none }
-.dialog-modal button                        { padding: 10px 30px; font-size: 1.1em }
-.dialog-modal button:not(:first-child)      { margin-left: 10px }
+.dialog-modal button                        { padding: 8px 20px; font-size: 1.05em }
+.dialog-modal button:not(:first-child)      { margin-left: 15px }
 
 .dialog-modal .emph
 .dialog-modal .emph                         { display: table; width: 100% }
